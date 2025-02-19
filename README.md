@@ -23,7 +23,37 @@ The project is built using Spring Boot, Spring Data JPA, and Hibernate for objec
   Log in users by email (only emails ending with `@gafe.molndal.se` are allowed). If a user does not exist, a new account is created.
 
 - **Data Persistence**  
-  All questions, quiz sessions, and results are stored using Hibernate and an H2 database.
+  All questions, quiz sessions, and results are stored using Hibernate and an H2 database.  
+
+## Folder structure
+```
+QuizApp_API/
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/
+│   │   │       └── davanddev/
+│   │   │           ├── quizapp_api/
+│   │   │           │   ├── controller/
+│   │   │           │   ├── dto/
+│   │   │           │   ├── models/
+│   │   │           │   ├── repository/
+│   │   │           │   ├── service/
+│   │   │           │   ├── session/
+│   │   │           │   ├── util/
+│   │   │           │   └── QuizAppApiApplication.java
+│   │   └── resources/
+│   │       └── application.properties
+│   └── test/
+│       └── java/
+│           └── com/
+│               └── davanddev/
+│                   └── quizapp_api/
+├── pom.xml
+└── README.md
+
+```
+
 
 ## Installation
 
@@ -101,4 +131,4 @@ The API will start on port 8080.
 ## Contact
 
 For questions or suggestions, please reach out on GitHub:
-[your-github-username](https://github.com/your-github-username)
+[david-andreasson](https://github.com/david-andreasson)
