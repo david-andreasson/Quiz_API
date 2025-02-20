@@ -14,8 +14,8 @@ RUN mvn clean package -DskipTests
 # Use an official OpenJDK image to run the app
 FROM eclipse-temurin:21-jre
 
-# Copy the jar file from the builder stage
-COPY --from=builder /app/target/QuizApp_API-1.0-SNAPSHOT.jar app.jar
+# Copy the jar file from the builder stage using a wildcard
+COPY --from=builder /app/target/*.jar app.jar
 
 # Expose the port the app runs on
 EXPOSE 8080
