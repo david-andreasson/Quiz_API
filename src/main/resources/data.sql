@@ -1,4 +1,4 @@
-INSERT INTO questions (id, question_number, course_name, question_text)
+INSERT INTO QUESTIONS (id, question_number, course_name, question_text)
 VALUES (1, 1, 'OOP Advanced', 'Vad är huvudsyftet med klasser i objektorienterad programmering?'),
        (2, 2, 'OOP Advanced', 'Vad är inkapsling i Java?'),
        (3, 3, 'OOP Advanced', 'Vilken åtkomstmodifierare i Java gör en medlem tillgänglig endast inom samma klass?'),
@@ -187,7 +187,7 @@ VALUES (1, 1, 'OOP Advanced', 'Vad är huvudsyftet med klasser i objektorientera
 
 
 
-INSERT INTO question_options (question_id, option_label, option_text, is_correct)
+INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct)
 VALUES
 -- Q1
 (1, 'A', 'Att skapa databaser', FALSE),
@@ -1184,7 +1184,7 @@ VALUES
 (165, 'D', '@Property', TRUE);
 
 
-INSERT INTO questions (id, question_number, course_name, question_text) VALUES
+INSERT INTO QUESTIONS (id, question_number, course_name, question_text) VALUES
                                                                             (226, 1, 'Test', '1. Vad är huvudsyftet med SLF4J i Java-applikationer?'),
                                                                             (227, 2, 'Test', '2. Vilken loggnivå bör användas för att logga viktiga händelser i normal drift?'),
                                                                             (228, 3, 'Test', '3. Vad är MDC (Mapped Diagnostic Context) i loggningssammanhang?'),
@@ -1426,7 +1426,7 @@ INSERT INTO questions (id, question_number, course_name, question_text) VALUES
 
 
 
-INSERT INTO question_options (question_id, option_label, option_text, is_correct) VALUES
+INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct) VALUES
 -- Q226
 (226, 'A', 'Att förbättra prestandan i Java-applikationer', false),
 (226, 'B', 'Att erbjuda ett abstraktionslager för loggning som separerar kod från implementationer', true),
