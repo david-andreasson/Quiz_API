@@ -1,5 +1,4 @@
 package com.davanddev.quizapp_api.models;
-
 import jakarta.persistence.*;
 
 /**

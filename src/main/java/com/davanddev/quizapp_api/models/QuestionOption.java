@@ -1,5 +1,4 @@
 package com.davanddev.quizapp_api.models;
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 

@@ -5,8 +5,6 @@ import com.davanddev.quizapp_api.models.Question;
 import com.davanddev.quizapp_api.models.QuestionOption;
 import com.davanddev.quizapp_api.session.QuizSession;
 import org.springframework.stereotype.Service;
-
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

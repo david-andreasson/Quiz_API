@@ -8,7 +8,6 @@ import com.davanddev.quizapp_api.models.Question;
 import com.davanddev.quizapp_api.models.QuestionOption;
 import com.davanddev.quizapp_api.models.QuizResult;
 import com.davanddev.quizapp_api.models.User;
-
 import java.util.List;
 import java.util.stream.Collectors;
 

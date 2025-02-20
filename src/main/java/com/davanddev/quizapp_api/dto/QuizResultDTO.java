@@ -18,7 +18,6 @@ public class QuizResultDTO {
         this.totalQuestions = totalQuestions;
     }
 
-    // Getters och setters
     public int getId() {
         return id;
     }

@@ -20,7 +20,6 @@ public class QuestionDTO {
         this.options = options;
     }
 
-    // Getters and setters
     public int getId() {
         return id;
     }

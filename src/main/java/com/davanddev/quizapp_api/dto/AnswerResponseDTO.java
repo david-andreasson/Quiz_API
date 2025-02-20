@@ -15,7 +15,6 @@ public class AnswerResponseDTO {
         this.message = message;
     }
 
-    // Getters and setters
     public boolean isCorrect() {
         return correct;
     }

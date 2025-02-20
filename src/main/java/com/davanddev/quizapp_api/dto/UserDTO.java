@@ -12,7 +12,6 @@ public class UserDTO {
         this.username = username;
     }
 
-    // Getters och setters
     public int getId() {
         return id;
     }
