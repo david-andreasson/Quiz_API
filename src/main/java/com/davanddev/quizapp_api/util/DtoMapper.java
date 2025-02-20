@@ -21,7 +21,12 @@ public class DtoMapper {
 
     public static QuestionOptionDTO toQuestionOptionDTO(QuestionOption option) {
         if (option == null) return null;
-        return new QuestionOptionDTO(option.getId(), option.getOptionLabel(), option.getOptionText());
+        return new QuestionOptionDTO(
+                option.getId(),
+                option.getOptionLabel(),
+                option.getOptionText(),
+                option.isCorrect()
+        );
     }
 
     public static QuestionDTO toQuestionDTO(Question question) {

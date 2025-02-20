@@ -4,17 +4,19 @@ public class QuestionOptionDTO {
     private int id;
     private String optionLabel;
     private String optionText;
+    private boolean isCorrect;
 
     public QuestionOptionDTO() {
     }
 
-    public QuestionOptionDTO(int id, String optionLabel, String optionText) {
+    public QuestionOptionDTO(int id, String optionLabel, String optionText, boolean isCorrect) {
         this.id = id;
         this.optionLabel = optionLabel;
         this.optionText = optionText;
+        this.isCorrect = isCorrect;
     }
 
-    // Getters och setters
+    // Getters and setters
     public int getId() {
         return id;
     }
@@ -32,5 +34,11 @@ public class QuestionOptionDTO {
     }
     public void setOptionText(String optionText) {
         this.optionText = optionText;
+    }
+    public boolean isCorrect() {
+        return isCorrect;
+    }
+    public void setCorrect(boolean correct) {
+        isCorrect = correct;
     }
 }
