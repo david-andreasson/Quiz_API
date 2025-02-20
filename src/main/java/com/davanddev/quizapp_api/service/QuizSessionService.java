@@ -1,6 +1,8 @@
 package com.davanddev.quizapp_api.service;
 
+import com.davanddev.quizapp_api.dto.AnswerResponseDTO;
 import com.davanddev.quizapp_api.models.Question;
+import com.davanddev.quizapp_api.models.QuestionOption;
 import com.davanddev.quizapp_api.session.QuizSession;
 import org.springframework.stereotype.Service;
 
@@ -34,12 +36,6 @@ public class QuizSessionService {
      */
     public QuizSession startSession(String courseName, String orderType) {
         List<Question> questions = questionService.getQuestions(courseName, orderType);
-        // Apply ordering if needed
-        if ("RANDOM".equalsIgnoreCase(orderType)) {
-            Collections.shuffle(questions);
-        } else if ("REVERSE".equalsIgnoreCase(orderType)) {
-            Collections.reverse(questions);
-        }
         QuizSession session = new QuizSession(courseName, orderType, questions);
         sessions.put(session.getSessionId(), session);
         return session;
@@ -60,25 +56,33 @@ public class QuizSessionService {
     }
 
     /**
-     * Submits an answer for the current question.
+     * Submits an answer for the current question and returns detailed feedback.
      *
      * @param sessionId the session ID.
      * @param answer    the submitted answer (e.g., "A", "B", "C", or "D").
-     * @return true if the answer is correct, false if incorrect, or null if session not found or finished.
+     * @return an AnswerResponseDTO containing correctness and a feedback message.
      */
-    public Boolean submitAnswer(String sessionId, String answer) {
+    public AnswerResponseDTO submitAnswer(String sessionId, String answer) {
         QuizSession session = sessions.get(sessionId);
         if (session == null || session.getCurrentIndex() >= session.getTotalQuestions()) {
-            return null;
+            return new AnswerResponseDTO(false, "Session not found or quiz finished.");
         }
         Question currentQuestion = session.getQuestions().get(session.getCurrentIndex());
-        // Increment the index so the next call returns the following question
+        // Increment the index for the next call
         session.setCurrentIndex(session.getCurrentIndex() + 1);
-        if (answer.equalsIgnoreCase(currentQuestion.getCorrectOptionLabel())) {
+        boolean isCorrect = answer.equalsIgnoreCase(currentQuestion.getCorrectOptionLabel());
+        if (isCorrect) {
             session.setCorrectAnswers(session.getCorrectAnswers() + 1);
-            return true;
+            return new AnswerResponseDTO(true, "You answered " + answer + ", which is correct!");
         } else {
-            return false;
+            // Find the correct option details
+            QuestionOption correctOption = currentQuestion.getOptions().stream()
+                    .filter(QuestionOption::isCorrect)
+                    .findFirst().orElse(null);
+            String correctMessage = (correctOption != null)
+                    ? correctOption.getOptionLabel() + ": " + correctOption.getOptionText()
+                    : "Unknown";
+            return new AnswerResponseDTO(false, "You answered " + answer + ", which is incorrect! The correct answer is " + correctMessage + ".");
         }
     }
 
@@ -95,7 +99,7 @@ public class QuizSessionService {
         }
         int correct = session.getCorrectAnswers();
         int answered = session.getCurrentIndex();
-        double errorRate = answered == 0 ? 0 : ((double)(answered - correct) / answered) * 100;
+        double errorRate = answered == 0 ? 0 : ((double) (answered - correct) / answered) * 100;
         return String.format("Score: %d/%d, Error rate: %.2f%%", correct, answered, errorRate);
     }
 }

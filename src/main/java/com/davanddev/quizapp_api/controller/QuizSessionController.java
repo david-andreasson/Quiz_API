@@ -1,5 +1,6 @@
 package com.davanddev.quizapp_api.controller;
 
+import com.davanddev.quizapp_api.dto.AnswerResponseDTO;
 import com.davanddev.quizapp_api.models.Question;
 import com.davanddev.quizapp_api.service.QuizSessionService;
 import com.davanddev.quizapp_api.session.QuizSession;
@@ -23,7 +24,7 @@ public class QuizSessionController {
      *
      * @param courseName the course name.
      * @param orderType  the question order type ("ORDER", "RANDOM", "REVERSE"). Default is "ORDER".
-     * @return the newly created QuizSession (including sessionId and initial question list).
+     * @return the newly created QuizSession.
      */
     @PostMapping("/start")
     public QuizSession startQuiz(@RequestParam String courseName,
@@ -47,24 +48,15 @@ public class QuizSessionController {
     }
 
     /**
-     * Submits an answer for the current question.
+     * Submits an answer for the current question and returns detailed feedback.
      *
      * @param sessionId the session ID.
      * @param answer    the answer submitted by the user.
-     * @return a message indicating whether the answer was correct along with current statistics.
+     * @return an AnswerResponseDTO with feedback and statistics.
      */
     @PostMapping("/submit")
-    public String submitAnswer(@RequestParam String sessionId, @RequestParam String answer) {
-        Boolean correct = quizSessionService.submitAnswer(sessionId, answer);
-        if (correct == null) {
-            return "Session not found or quiz finished.";
-        }
-        String stats = quizSessionService.getSessionStats(sessionId);
-        if (correct) {
-            return "Correct answer. " + stats;
-        } else {
-            return "Wrong answer. " + stats;
-        }
+    public AnswerResponseDTO submitAnswer(@RequestParam String sessionId, @RequestParam String answer) {
+        return quizSessionService.submitAnswer(sessionId, answer);
     }
 
     /**
