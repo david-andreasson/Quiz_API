@@ -71,7 +71,7 @@ public class QuizSessionService {
         boolean isCorrect = answer.equalsIgnoreCase(currentQuestion.getCorrectOptionLabel());
         if (isCorrect) {
             session.setCorrectAnswers(session.getCorrectAnswers() + 1);
-            return new AnswerResponseDTO(true, "You answered " + answer + ", which is correct!");
+            return new AnswerResponseDTO(true, "You answered " + answer + ", which is correct!" + " ✅");
         } else {
             // Find the correct option details
             QuestionOption correctOption = currentQuestion.getOptions().stream()
@@ -80,7 +80,7 @@ public class QuizSessionService {
             String correctMessage = (correctOption != null)
                     ? correctOption.getOptionLabel() + ": " + correctOption.getOptionText()
                     : "Unknown";
-            return new AnswerResponseDTO(false, "You answered " + answer + ", which is incorrect! The correct answer is " + correctMessage + ".");
+            return new AnswerResponseDTO(false, "You answered " + answer + ", which is incorrect!" + " ❌" +" The correct answer is " + correctMessage + ".");
         }
     }
 
