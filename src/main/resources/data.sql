@@ -2838,3 +2838,1989 @@ INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct
 (460, 'D', 'Att ersätta traditionell enhetstestning', false);
 
 
+INSERT INTO QUESTIONS (id, question_number, course_name, question_text) VALUES
+                                                                            (461, 1, 'API', '1. Vilket av följande är huvudsyftet med ett API?'),
+                                                                            (462, 2, 'API', '2. Vilket påstående är korrekt angående API:ers funktion?'),
+                                                                            (463, 3, 'API', '3. Vad är en viktig säkerhetsaspekt att överväga vid API-design?'),
+                                                                            (464, 4, 'API', '4. Vilken av följande är inte en vanlig typ av API?'),
+                                                                            (465, 5, 'API', '5. Vad är huvudsyftet med API-versionshantering?'),
+                                                                            (466, 6, 'API', '6. Vilket verktyg används ofta för att testa och interagera med API:er?'),
+                                                                            (467, 7, 'API', '7. Vad är en fördel med GraphQL jämfört med traditionella REST API:er?'),
+                                                                            (468, 8, 'API', '8. Vilken är en viktig aspekt att tänka på vid optimering av API-prestanda?'),
+                                                                            (469, 9, 'API', '9. Vad är en viktig del av god API-dokumentation?'),
+                                                                            (470, 10, 'API', '10. Vilken är en viktig övervägande vid design av ett skalbart API?');
+
+INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct) VALUES
+                                                                                      (461, 'A', 'Att möjliggöra kommunikation mellan olika mjukvarusystem', true),
+                                                                                      (461, 'B', 'Att lagra data i en databas', false),
+                                                                                      (461, 'C', 'Att skapa grafiska användargränssnitt', false),
+                                                                                      (461, 'D', 'Att optimera serverkonfigurationer', false),
+                                                                                      (462, 'A', 'API:er är alltid begränsade till webbaserade applikationer', false),
+                                                                                      (462, 'B', 'API:er fungerar som en ersättning för databaser', false),
+                                                                                      (462, 'C', 'API:er definierar regler för hur olika applikationer kan kommunicera', true),
+                                                                                      (462, 'D', 'API:er är primärt designade för att förbättra användargränssnitt', false),
+                                                                                      (463, 'A', 'Att maximera antalet tillåtna anrop per sekund', false),
+                                                                                      (463, 'B', 'Att använda HTTP istället för HTTPS', false),
+                                                                                      (463, 'C', 'Att implementera OAuth 2.0 för säker åtkomst', true),
+                                                                                      (463, 'D', 'Att lagra känslig information i klartext', false),
+                                                                                      (464, 'A', 'REST API', false),
+                                                                                      (464, 'B', 'SOAP API', false),
+                                                                                      (464, 'C', 'WebSocket API', false),
+                                                                                      (464, 'D', 'SQL API', true),
+                                                                                      (465, 'A', 'Att öka antalet samtidiga användare', false),
+                                                                                      (465, 'B', 'Att minska serverns belastning', false),
+                                                                                      (465, 'C', 'Att förbättra databasernas prestanda', false),
+                                                                                      (465, 'D', 'Att upprätthålla bakåtkompatibilitet vid uppdateringar', true),
+                                                                                      (466, 'A', 'Postman', true),
+                                                                                      (466, 'B', 'MySQL Workbench', false),
+                                                                                      (466, 'C', 'Visual Studio Code', false),
+                                                                                      (466, 'D', 'Adobe Photoshop', false),
+                                                                                      (467, 'A', 'GraphQL kräver mindre serverresurser', false),
+                                                                                      (467, 'B', 'GraphQL använder alltid mindre bandbredd', false),
+                                                                                      (467, 'C', 'GraphQL tillåter klienten att specificera exakt vilken data som behövs', true),
+                                                                                      (467, 'D', 'GraphQL är enklare att implementera för nybörjare', false),
+                                                                                      (468, 'A', 'Att alltid inkludera all tillgänglig data i varje svar', false),
+                                                                                      (468, 'B', 'Att implementera effektiv caching', true),
+                                                                                      (468, 'C', 'Att öka antalet nödvändiga API-anrop', false),
+                                                                                      (468, 'D', 'Att undvika all form av datavalidering', false),
+                                                                                      (469, 'A', 'Detaljerade beskrivningar av intern serverarkitektur', false),
+                                                                                      (469, 'B', 'Tydliga exempel på request/response för varje endpoint', true),
+                                                                                      (469, 'C', 'Personlig information om API-utvecklarna', false),
+                                                                                      (469, 'D', 'Fullständig källkod för hela API:et', false),
+                                                                                      (470, 'A', 'Att begränsa antalet samtidiga användare', false),
+                                                                                      (470, 'B', 'Att alltid använda en enda central server', false),
+                                                                                      (470, 'C', 'Att undvika all form av caching', false),
+                                                                                      (470, 'D', 'Att implementera lastbalansering', true);
+
+-- Batch-insert för QUESTIONS
+INSERT INTO QUESTIONS (id, question_number, course_name, question_text) VALUES
+                                                                            (471, 11, 'API', '11. Vilket av följande är inte en vanlig typ av API som diskuteras i moderna webbutveckling?'),
+                                                                            (472, 12, 'API', '12. Vad är huvudsyftet med en API Gateway?'),
+                                                                            (473, 13, 'API', '13. Vilken påstående är korrekt angående WebSocket API?'),
+                                                                            (474, 14, 'API', '14. Vilket av följande är en fördel med GraphQL jämfört med traditionella REST API:er?'),
+                                                                            (475, 15, 'API', '15. Vad menas med "API-först design" inom mjukvaruutveckling?'),
+                                                                            (476, 16, 'API', '16. Vilken av följande är inte en vanlig best practice för API-design?'),
+                                                                            (477, 17, 'API', '17. Vilket påstående om SOAP API är korrekt?'),
+                                                                            (478, 18, 'API', '18. Vad är en av de största utmaningarna med att använda WebSockets i en skalbar applikation?'),
+                                                                            (479, 19, 'API', '19. Vilken av följande är en korrekt beskrivning av REST API:er?'),
+                                                                            (480, 20, 'API', '20. Vilket av följande är ett viktigt övervägande vid val av API-typ för ett projekt?');
+
+-- Batch-insert för QUESTION-OPTIONS
+INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct) VALUES
+-- Fråga 11
+(471, 'A', 'REST', false),
+(471, 'B', 'XML-RPC', true),
+(471, 'C', 'GraphQL', false),
+(471, 'D', 'SOAP', false),
+-- Fråga 12
+(472, 'A', 'Att generera API-dokumentation automatiskt', false),
+(472, 'B', 'Att konvertera mellan olika programmeringsspråk', false),
+(472, 'C', 'Att fungera som en central ingångspunkt för klientförfrågningar', true),
+(472, 'D', 'Att optimera databasförfrågningar', false),
+-- Fråga 13
+(473, 'A', 'Det använder alltid XML för dataöverföring', false),
+(473, 'B', 'Det möjliggör dubbelriktad kommunikation i realtid', true),
+(473, 'C', 'Det är bäst lämpat för sporadiska datauppdateringar', false),
+(473, 'D', 'Det är statiskt och kräver ny anslutning för varje förfrågan', false),
+-- Fråga 14
+(474, 'A', 'Möjlighet för klienten att specificera exakt vilken data som behövs', true),
+(474, 'B', 'Inbyggd säkerhet och kryptering', false),
+(474, 'C', 'Bättre prestanda för alla typer av förfrågningar', false),
+(474, 'D', 'Enklare implementation på serversidan', false),
+-- Fråga 15
+(475, 'A', 'Att skapa API:er endast för externa användare', false),
+(475, 'B', 'Att fokusera enbart på API-utveckling och ignorera frontend', false),
+(475, 'C', 'Att definiera API:et innan implementation av backend eller frontend', true),
+(475, 'D', 'Att alltid använda den senaste API-teknologin', false),
+-- Fråga 16
+(476, 'A', 'Tillhandahålla tydlig dokumentation', false),
+(476, 'B', 'Använda HTTP för all kommunikation', true),
+(476, 'C', 'Implementera versionshantering', false),
+(476, 'D', 'Implementera konsekvent felhantering', false),
+-- Fråga 17
+(477, 'A', 'Det använder JSON som primärt dataformat', false),
+(477, 'B', 'Det har inbyggda säkerhetsfunktioner som WS-Security', true),
+(477, 'C', 'Det är stateful och kräver sessionshantering', false),
+(477, 'D', 'Det är alltid snabbare än REST API:er', false),
+-- Fråga 18
+(478, 'A', 'Begränsad dataöverföringshastighet', false),
+(478, 'B', 'Svårigheter att implementera säkerhetsprotokoll', false),
+(478, 'C', 'Hantering av persistenta anslutningar', true),
+(478, 'D', 'Kompatibilitetsproblem med moderna webbläsare', false),
+-- Fråga 19
+(479, 'A', 'De använder ett single endpoint för alla förfrågningar', false),
+(479, 'B', 'De kräver alltid XML för dataöverföring', false),
+(479, 'C', 'De är optimala för realtidskommunikation', false),
+(479, 'D', 'De är stateless och varje förfrågan innehåller all nödvändig information', true),
+-- Fråga 20
+(480, 'A', 'Antalet tillgängliga tredjepartsbibliotek', false),
+(480, 'B', 'Projektets specifika krav och användningsfall', true),
+(480, 'C', 'Populariteten hos API-typen i branschpress', false),
+(480, 'D', 'Personliga preferenser hos utvecklingsteamet', false);
+
+-- Batch-insert för tabellen QUESTIONS
+INSERT INTO QUESTIONS (id, question_number, course_name, question_text) VALUES
+                                                                            (481, 21, 'API', '21. Vilket av följande är INTE ett lager i TCP/IP-modellen?'),
+                                                                            (482, 22, 'API', '22. Vad är huvudsyftet med DNS (Domain Name System) i nätverkskommunikation?'),
+                                                                            (483, 23, 'API', '23. Vilket protokoll används vanligtvis för att säkra HTTP-kommunikation?'),
+                                                                            (484, 24, 'API', '24. Vilket påstående om portar i nätverkskommunikation är korrekt?'),
+                                                                            (485, 25, 'API', '25. Vilket av följande är INTE en vanlig metod för att optimera nätverkskommunikation?'),
+                                                                            (486, 26, 'API', '26. Vad är huvudsyftet med WebSockets i nätverkskommunikation?'),
+                                                                            (487, 27, 'API', '27. Vilken av följande är en fördel med gRPC jämfört med traditionella REST API:er?'),
+                                                                            (488, 28, 'API', '28. Vilken funktion har transportlagret i TCP/IP-modellen?'),
+                                                                            (489, 29, 'API', '29. Vilket påstående om HTTPS är korrekt?'),
+                                                                            (490, 30, 'API', '30. Vad är huvudsyftet med load balancing i nätverkskommunikation?');
+
+-- Batch-insert för tabellen QUESTION_OPTIONS
+INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct) VALUES
+-- För fråga 21
+(481, 'A', 'Transportlager', false),
+(481, 'B', 'Applikationslager', false),
+(481, 'C', 'Presentationslager', true),
+(481, 'D', 'Internetlager', false),
+-- För fråga 22
+(482, 'A', 'Att hantera routing av datapaket', false),
+(482, 'B', 'Att översätta domännamn till IP-adresser', true),
+(482, 'C', 'Att kryptera data i transit', false),
+(482, 'D', 'Att kontrollera nätverkstrafik', false),
+-- För fråga 23
+(483, 'A', 'HTTPS', true),
+(483, 'B', 'FTP', false),
+(483, 'C', 'TCP', false),
+(483, 'D', 'UDP', false),
+-- För fråga 24
+(484, 'A', 'Portar är endast relevanta för UDP-protokollet', false),
+(484, 'B', 'Varje enhet har en unik port', false),
+(484, 'C', 'HTTP använder alltid port 443', false),
+(484, 'D', 'Portar används för att skilja mellan olika tjänster på samma IP-adress', true),
+-- För fråga 25
+(485, 'A', 'Implementera caching', false),
+(485, 'B', 'Öka antalet HTTP-förfrågningar', true),
+(485, 'C', 'Använda komprimering', false),
+(485, 'D', 'Implementera connection pooling', false),
+-- För fråga 26
+(486, 'A', 'Att ersätta HTTP-protokollet', false),
+(486, 'B', 'Att möjliggöra full-duplex, bi-direktionell kommunikation', true),
+(486, 'C', 'Att förbättra säkerheten i nätverkskommunikation', false),
+(486, 'D', 'Att öka bandbredden för dataöverföring', false),
+-- För fråga 27
+(487, 'A', 'Enklare att implementera för nybörjare', false),
+(487, 'B', 'Högre prestanda genom binär serialisering', true),
+(487, 'C', 'Bättre kompatibilitet med äldre system', false),
+(487, 'D', 'Mer flexibel datastruktur', false),
+-- För fråga 28
+(488, 'A', 'Att hantera fysisk överföring av data', false),
+(488, 'B', 'Att ansvara för end-to-end-kommunikation', true),
+(488, 'C', 'Att hantera applikationsspecifika protokoll', false),
+(488, 'D', 'Att adressera och routa datapaket', false),
+-- För fråga 29
+(489, 'A', 'HTTPS använder samma port som HTTP', false),
+(489, 'B', 'HTTPS garanterar fullständig säkerhet för all data på servern', false),
+(489, 'C', 'HTTPS eliminerar behovet av API-nycklar', false),
+(489, 'D', 'HTTPS krypterar data i transit', true),
+-- För fråga 30
+(490, 'A', 'Att översätta domännamn till IP-adresser', false),
+(490, 'B', 'Att fördela trafik över flera servrar', true),
+(490, 'C', 'Att komprimera nätverkstrafik', false),
+(490, 'D', 'Att öka säkerheten i nätverket', false);
+
+INSERT INTO QUESTIONS (id, question_number, course_name, question_text) VALUES
+                                                                            (491, 41, 'API', '41. Vilket av följande är inte en huvudanledning till att Spring Boot har blivit ett populärt verktyg för utvecklare?'),
+                                                                            (492, 42, 'API', '42. Vad är huvudsyftet med Spring Boots auto-konfiguration?'),
+                                                                            (493, 43, 'API', '43. Vilken princip följer Spring Boot för att minska manuell konfiguration?'),
+                                                                            (494, 44, 'API', '44. Vilket påstående om Spring Boots inbyggda applikationsserver är korrekt?'),
+                                                                            (495, 45, 'API', '45. Vilken av följande är inte en vanlig missuppfattning om Spring Boot?'),
+                                                                            (496, 46, 'API', '46. Vilket av följande är ett primärt syfte med Spring Boot Actuator?'),
+                                                                            (497, 47, 'API', '47. Vad är huvudsyftet med @ControllerAdvice-annotationen i Spring Boot?'),
+                                                                            (498, 48, 'API', '48. Vilket påstående om mikroservices med Spring Boot är korrekt?'),
+                                                                            (499, 49, 'API', '49. Vilken best practice bör följas vid design av RESTful API:er med Spring Boot?'),
+                                                                            (500, 50, 'API', '50. Vad är huvudsyftet med Spring Boot Starter-beroenden?');
+
+INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct) VALUES
+-- Fråga 41
+(491, 'A', 'Snabb utveckling', true),
+(491, 'B', 'Inbyggd säkerhet', true),
+(491, 'C', 'Stöd för legacy-system', false),
+(491, 'D', 'Skalbarhet', true),
+-- Fråga 42
+(492, 'A', 'Att automatiskt skapa databasscheman', false),
+(492, 'B', 'Att konfigurera applikationen baserat på tillagda beroenden', true),
+(492, 'C', 'Att eliminera behovet av all manuell kodning', false),
+(492, 'D', 'Att generera användargränssnitt', false),
+-- Fråga 43
+(493, 'A', 'Convention over configuration', true),
+(493, 'B', 'Configuration over convention', false),
+(493, 'C', 'Code first', false),
+(493, 'D', 'Dependency injection', false),
+-- Fråga 44
+(494, 'A', 'Den kräver separat installation och konfiguration', false),
+(494, 'B', 'Den ersätter behovet av externa servrar som Tomcat', true),
+(494, 'C', 'Den måste konfigureras manuellt för varje projekt', false),
+(494, 'D', 'Den fungerar endast med specifika databashanterare', false),
+-- Fråga 45
+(495, 'A', 'Det kräver omfattande konfiguration', false),
+(495, 'B', 'Det är endast lämpligt för stora företagsapplikationer', false),
+(495, 'C', 'Det är långsamt jämfört med lättviktiga ramverk', false),
+(495, 'D', 'Det är svårt att integrera med externa bibliotek', true),
+-- Fråga 46
+(496, 'A', 'Att optimera databasprestanda', false),
+(496, 'B', 'Att generera API-dokumentation', false),
+(496, 'C', 'Att övervaka och hantera applikationen i produktion', true),
+(496, 'D', 'Att automatisera enhetstester', false),
+-- Fråga 47
+(497, 'A', 'Att optimera API-prestanda', false),
+(497, 'B', 'Att konfigurera databasanslutningar', false),
+(497, 'C', 'Att definiera globala exception handlers', true),
+(497, 'D', 'Att hantera användarautentisering', false),
+-- Fråga 48
+(498, 'A', 'De kräver alltid en extern applikationsserver', false),
+(498, 'B', 'De underlättar oberoende skalning av tjänster', true),
+(498, 'C', 'De är olämpliga för små projekt', false),
+(498, 'D', 'De eliminerar behovet av distribuerad loggning', false),
+-- Fråga 49
+(499, 'A', 'Använda meningsfulla URL:er och rätt HTTP-metoder', true),
+(499, 'B', 'Använda samma HTTP-metod för alla endpoints', false),
+(499, 'C', 'Undvika användning av HTTP-statuskoder', false),
+(499, 'D', 'Implementera komplex affärslogik i controllers', false),
+-- Fråga 50
+(500, 'A', 'Att ersätta behovet av externa bibliotek', false),
+(500, 'B', 'Att förenkla konfigurationen av vanliga funktioner', true),
+(500, 'C', 'Att automatiskt generera kodstruktur', false),
+(500, 'D', 'Att optimera applikationens prestanda', false);
+
+-- Batch-insert för tabellen QUESTIONS
+INSERT INTO QUESTIONS (id, question_number, course_name, question_text) VALUES
+                                                                            (501, 51, 'API', '51. Vilket av följande är inte en grundläggande princip för det kalkylator-API som beskrivs i materialet?'),
+                                                                            (502, 52, 'API', '52. Vad är huvudsyftet med att använda DTO:er (Data Transfer Objects) i API-design?'),
+                                                                            (503, 53, 'API', '53. Vilken HTTP-metod rekommenderas för idempotenta operationer som inte ändrar systemets tillstånd?'),
+                                                                            (504, 54, 'API', '54. Vilket påstående är korrekt angående felhantering i API-design?'),
+                                                                            (505, 55, 'API', '55. Vilken annotation används i Spring Boot för att markera en klass som en REST-controller?'),
+                                                                            (506, 56, 'API', '56. Vad är huvudsyftet med att implementera API-versionshantering?'),
+                                                                            (507, 57, 'API', '57. Vilket verktyg rekommenderas i materialet för att automatiskt generera API-dokumentation?'),
+                                                                            (508, 58, 'API', '58. Vilken princip bör följas vid design av ett API enligt expertkommentaren i materialet?'),
+                                                                            (509, 59, 'API', '59. Vad är en viktig aspekt att testa enligt expertkommentaren om teststrategi för API:er?'),
+                                                                            (510, 60, 'API', '60. Vilken är en rekommenderad strategi för att hantera tidskrävande beräkningar i ett API?');
+
+-- Batch-insert för tabellen QUESTION-OPTIONS
+INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct) VALUES
+-- För fråga 51
+(501, 'A', 'RESTful', false),
+(501, 'B', 'Stateless', false),
+(501, 'C', 'Synkronisering', true),
+(501, 'D', 'Modularitet', false),
+-- För fråga 52
+(502, 'A', 'Att strukturera svar och separera intern och extern datarepresentation', true),
+(502, 'B', 'Att öka systemets prestanda', false),
+(502, 'C', 'Att förbättra säkerheten genom kryptering', false),
+(502, 'D', 'Att möjliggöra realtidsuppdateringar', false),
+-- För fråga 53
+(503, 'A', 'PUT', false),
+(503, 'B', 'DELETE', false),
+(503, 'C', 'POST', false),
+(503, 'D', 'GET', true),
+-- För fråga 54
+(504, 'A', 'Felhantering är endast nödvändig för komplexa operationer', false),
+(504, 'B', 'Alla fel bör resultera i en 500 Internal Server Error', false),
+(504, 'C', 'Robust felhantering är kritisk även för enkla operationer', true),
+(504, 'D', 'Felmeddelanden bör alltid innehålla detaljerad teknisk information', false),
+-- För fråga 55
+(505, 'A', '@Service', false),
+(505, 'B', '@Repository', false),
+(505, 'C', '@Controller', false),
+(505, 'D', '@RestController', true),
+-- För fråga 56
+(506, 'A', 'Att öka API:ets prestanda', false),
+(506, 'B', 'Att möjliggöra utveckling utan att bryta befintliga klientintegrationer', true),
+(506, 'C', 'Att förbättra API:ets säkerhet', false),
+(506, 'D', 'Att minska serverbelastningen', false),
+-- För fråga 57
+(507, 'A', 'README.md filer', false),
+(507, 'B', 'JavaDoc', false),
+(507, 'C', 'Swagger/OpenAPI', true),
+(507, 'D', 'Postman', false),
+-- För fråga 58
+(508, 'A', 'Maximal komplexitet för att visa teknisk skicklighet', false),
+(508, 'B', 'Fokus på serveroptimering framför allt annat', false),
+(508, 'C', 'Minsta förvåning och självförklarande design', true),
+(508, 'D', 'Strikt adherence till ett specifikt programmeringsspråk', false),
+-- För fråga 59
+(509, 'A', 'Endast lyckade scenarier', false),
+(509, 'B', 'Gränsfall och felscenarier', true),
+(509, 'C', 'Endast prestandatester', false),
+(509, 'D', 'Utseendet på API-dokumentationen', false),
+-- För fråga 60
+(510, 'A', 'Alltid använda GET-metoden', false),
+(510, 'B', 'Implementera asynkron bearbetning', true),
+(510, 'C', 'Öka serverns RAM', false),
+(510, 'D', 'Begränsa antalet samtidiga användare', false);
+
+INSERT INTO QUESTIONS (id, question_number, course_name, question_text) VALUES
+                                                                            (511, 61, 'API', '61. Vilket av följande är huvudsyftet med att implementera felhantering i ett API?'),
+                                                                            (512, 62, 'API', '62. Vad är den primära funktionen av @RequestParam-annotationen i Spring Boot?'),
+                                                                            (513, 63, 'API', '63. Vilken av följande är en best practice vid implementering av felhantering i ett REST API?'),
+                                                                            (514, 64, 'API', '64. Vad är huvudsyftet med att använda anpassade undantag (custom exceptions) i ett API?'),
+                                                                            (515, 65, 'API', '65. Vilken annotation används i Spring Boot för att definiera en metod som hanterar specifika undantag?'),
+                                                                            (516, 66, 'API', '66. Vad är det bästa sättet att hantera känslig data i query-parametrar?'),
+                                                                            (517, 67, 'API', '67. Vilket påstående om stateless design i API-utveckling är korrekt?'),
+                                                                            (518, 68, 'API', '68. Vad är huvudsyftet med att implementera rate limiting i ett API?'),
+                                                                            (519, 69, 'API', '69. Vilket av följande är en fördel med att använda pagination i API-design?'),
+                                                                            (520, 70, 'API', '70. Vad är det primära syftet med att använda HTTPS i API-kommunikation?');
+
+INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct) VALUES
+                                                                                      (511, 'A', 'Att förbättra API:ets prestanda', false),
+                                                                                      (511, 'B', 'Att göra API:et mer användarvänligt och robust', true),
+                                                                                      (511, 'C', 'Att minska serverbelastningen', false),
+                                                                                      (511, 'D', 'Att öka antalet möjliga API-anrop', false),
+
+                                                                                      (512, 'A', 'Att validera inkommande data', false),
+                                                                                      (512, 'B', 'Att hantera exceptions', false),
+                                                                                      (512, 'C', 'Att binda query-parametrar till metodparametrar', true),
+                                                                                      (512, 'D', 'Att definiera API-rutter', false),
+
+                                                                                      (513, 'A', 'Att alltid returnera en 500 Internal Server Error vid fel', false),
+                                                                                      (513, 'B', 'Att inkludera stacktrace i API-svaret', false),
+                                                                                      (513, 'C', 'Att ge användarvänliga felmeddelanden', true),
+                                                                                      (513, 'D', 'Att ignorera alla fel för att förbättra prestandan', false),
+
+                                                                                      (514, 'A', 'Att förbättra API:ets prestanda', false),
+                                                                                      (514, 'B', 'Att ge mer specifik felrapportering', true),
+                                                                                      (514, 'C', 'Att minska kodkomplexiteten', false),
+                                                                                      (514, 'D', 'Att undvika all felhantering', false),
+
+                                                                                      (515, 'A', '@ControllerAdvice', false),
+                                                                                      (515, 'B', '@ExceptionHandler', true),
+                                                                                      (515, 'C', '@ErrorController', false),
+                                                                                      (515, 'D', '@HandleException', false),
+
+                                                                                      (516, 'A', 'Kryptera alla query-parametrar', false),
+                                                                                      (516, 'B', 'Använd alltid POST-metoden istället för GET', false),
+                                                                                      (516, 'C', 'Undvik att använda query-parametrar för känslig data', true),
+                                                                                      (516, 'D', 'Lagra känslig data i cookies', false),
+
+                                                                                      (517, 'A', 'Det försvårar skalning av API:et', false),
+                                                                                      (517, 'B', 'Det kräver alltid användning av sessioner', false),
+                                                                                      (517, 'C', 'Det underlättar horisontell skalning', true),
+                                                                                      (517, 'D', 'Det ökar belastningen på databasen', false),
+
+                                                                                      (518, 'A', 'Att förbättra API:ets prestanda', false),
+                                                                                      (518, 'B', 'Att skydda mot överbelastningsattacker', true),
+                                                                                      (518, 'C', 'Att minska serverns energiförbrukning', false),
+                                                                                      (518, 'D', 'Att förenkla API-dokumentationen', false),
+
+                                                                                      (519, 'A', 'Det eliminerar behovet av databaser', false),
+                                                                                      (519, 'B', 'Det möjliggör realtidsuppdateringar', false),
+                                                                                      (519, 'C', 'Det reducerar mängden data som överförs per request', true),
+                                                                                      (519, 'D', 'Det ökar säkerheten i API:et', false),
+
+                                                                                      (520, 'A', 'Att öka API:ets hastighet', false),
+                                                                                      (520, 'B', 'Att minska serverbelastningen', false),
+                                                                                      (520, 'C', 'Att skydda data under överföring', true),
+                                                                                      (520, 'D', 'Att förenkla API-implementationen', false);
+
+INSERT INTO QUESTIONS (id, question_number, course_name, question_text) VALUES
+                                                                            (521, 71, 'API', '71. Vilket av följande är INTE en av de sex huvudprinciperna för REST?'),
+                                                                            (522, 72, 'API', '72. Vad är huvudsyftet med att använda substantiv i plural för URI:er i RESTful API-design?'),
+                                                                            (523, 73, 'API', '73. Vilken HTTP-metod används vanligtvis för att uppdatera en existerande resurs i ett RESTful API?'),
+                                                                            (524, 74, 'API', '74. Vilket påstående är korrekt angående versionering av RESTful API:er?'),
+                                                                            (525, 75, 'API', '75. Vad är huvudsyftet med HATEOAS i RESTful API-design?'),
+                                                                            (526, 76, 'API', '76. Vilket av följande är ett exempel på en best practice för felhantering i RESTful API:er?'),
+                                                                            (527, 77, 'API', '77. Vilken teknik används ofta för att begränsa antalet anrop en klient kan göra till ett API under en given tidsperiod?'),
+                                                                            (528, 78, 'API', '78. Vilket påstående är korrekt angående användningen av HTTP-metoder i RESTful API-design?'),
+                                                                            (529, 79, 'API', '79. Vad är huvudsyftet med att implementera caching i ett RESTful API?'),
+                                                                            (530, 80, 'API', '80. Vilket av följande är en fördel med att använda en API Gateway i en mikroservicearkitektur?');
+
+INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct) VALUES
+-- För fråga 71
+(521, 'A', 'Stateless', false),
+(521, 'B', 'Cacheable', false),
+(521, 'C', 'Databas-driven', true),
+(521, 'D', 'Uniform interface', false),
+-- För fråga 72
+(522, 'A', 'För att förbättra databasens prestanda', false),
+(522, 'B', 'För att göra API:et mer säkert', false),
+(522, 'C', 'För att indikera att resursen är en samling', true),
+(522, 'D', 'För att minska nätverkslatensen', false),
+-- För fråga 73
+(523, 'A', 'DELETE', false),
+(523, 'B', 'PUT', true),
+(523, 'C', 'GET', false),
+(523, 'D', 'POST', false),
+-- För fråga 74
+(524, 'A', 'Versionering hjälper till att hantera API-evolution utan att bryta existerande klienter', true),
+(524, 'B', 'Versionering bör alltid implementeras genom URL-parametrar', false),
+(524, 'C', 'Versionering försämrar API:ets prestanda', false),
+(524, 'D', 'Versionering är onödigt för små API:er', false),
+-- För fråga 75
+(525, 'A', 'Att förenkla databasoperationer', false),
+(525, 'B', 'Att öka API:ets prestanda', false),
+(525, 'C', 'Att förbättra API:ets säkerhet', false),
+(525, 'D', 'Att göra API:et självbeskrivande och upptäckbart', true),
+-- För fråga 76
+(526, 'A', 'Inkludera stacktrace i felmeddelanden', false),
+(526, 'B', 'Använd lämpliga HTTP-statuskoder för olika typer av fel', true),
+(526, 'C', 'Returnera alltid HTTP-statuskod 200 OK', false),
+(526, 'D', 'Skicka aldrig felmeddelanden till klienten', false),
+-- För fråga 77
+(527, 'A', 'CORS', false),
+(527, 'B', 'OAuth 2.0', false),
+(527, 'C', 'API Throttling', true),
+(527, 'D', 'HTTPS', false),
+-- För fråga 78
+(528, 'A', 'PUT används endast för att skapa nya resurser', false),
+(528, 'B', 'DELETE är idempotent', true),
+(528, 'C', 'POST används för att hämta en resurs', false),
+(528, 'D', 'GET-anrop bör ändra serverdata', false),
+-- För fråga 79
+(529, 'A', 'Att möjliggöra offline-funktionalitet', false),
+(529, 'B', 'Att förenkla API-dokumentationen', false),
+(529, 'C', 'Att förbättra svarstider och minska serverbelastning', true),
+(529, 'D', 'Att öka säkerheten', false),
+-- För fråga 80
+(530, 'A', 'Det garanterar 100% upptid för alla tjänster', false),
+(530, 'B', 'Det eliminerar behovet av säkerhet i individuella tjänster', false),
+(530, 'C', 'Det ersätter behovet av lastbalansering', false),
+(530, 'D', 'Det centraliserar autentisering, auktorisering och övervakning', true);
+
+-- Insert into QUESTIONS table
+INSERT INTO QUESTIONS (id, question_number, course_name, question_text) VALUES
+                                                                            (531, 81, 'API', '81. Vilket av följande är INTE en vanlig HTTP-metod i RESTful API-design?'),
+                                                                            (532, 82, 'API', '82. Vad är huvudsyftet med resursmodellering i REST?'),
+                                                                            (533, 83, 'API', '83. Vilken HTTP-metod används vanligtvis för att uppdatera en del av en befintlig resurs?'),
+                                                                            (534, 84, 'API', '84. Vilket påstående är korrekt angående idempotens i RESTful API-design?'),
+                                                                            (535, 85, 'API', '85. Vad är den främsta fördelen med att använda substantiv istället för verb i URI:er för RESTful API:er?'),
+                                                                            (536, 86, 'API', '86. Vilken statuskod bör returneras när en ny resurs skapas framgångsrikt via en POST-förfrågan?'),
+                                                                            (537, 87, 'API', '87. Vilket av följande är INTE en rekommenderad best practice för RESTful API-design?'),
+                                                                            (538, 88, 'API', '88. Vad är huvudsyftet med att implementera paginering i ett RESTful API?'),
+                                                                            (539, 89, 'API', '89. Vilken teknik används för att göra ett RESTful API mer självbeskrivande och lättare att navigera?'),
+                                                                            (540, 90, 'API', '90. Vilket påstående är korrekt angående användningen av PUT-metoden i RESTful API:er?');
+
+-- Insert into QUESTION_OPTIONS table
+INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct) VALUES
+-- Fråga 81
+(531, 'A', 'DELETE', false),
+(531, 'B', 'POST', false),
+(531, 'C', 'FETCH', true),
+(531, 'D', 'GET', false),
+-- Fråga 82
+(532, 'A', 'Att hantera nätverkskommunikation', false),
+(532, 'B', 'Att identifiera och strukturera API:ets entiteter', true),
+(532, 'C', 'Att implementera säkerhetsfunktioner', false),
+(532, 'D', 'Att optimera databasstrukturen', false),
+-- Fråga 83
+(533, 'A', 'PUT', false),
+(533, 'B', 'POST', false),
+(533, 'C', 'UPDATE', false),
+(533, 'D', 'PATCH', true),
+-- Fråga 84
+(534, 'A', 'POST är alltid idempotent', false),
+(534, 'B', 'GET, PUT och DELETE ska vara idempotenta', true),
+(534, 'C', 'Alla HTTP-metoder ska vara idempotenta', false),
+(534, 'D', 'Endast GET-metoden är idempotent', false),
+-- Fråga 85
+(535, 'A', 'Det följer RESTful principer och ökar tydligheten', true),
+(535, 'B', 'Det förbättrar API:ets prestanda', false),
+(535, 'C', 'Det gör API:et mer säkert', false),
+(535, 'D', 'Det möjliggör enklare databasqueries', false),
+-- Fråga 86
+(536, 'A', '202 Accepted', false),
+(536, 'B', '200 OK', false),
+(536, 'C', '201 Created', true),
+(536, 'D', '204 No Content', false),
+-- Fråga 87
+(537, 'A', 'Implementera versionering av API:et', false),
+(537, 'B', 'Alltid returnera fullständiga resursobjekt', true),
+(537, 'C', 'Använda rätt HTTP-statuskoder', false),
+(537, 'D', 'Validera indata för att säkerställa dataintegritet', false),
+-- Fråga 88
+(538, 'A', 'Att minska serverns belastning', false),
+(538, 'B', 'Att hantera stora datamängder effektivt', true),
+(538, 'C', 'Att förbättra API:ets säkerhet', false),
+(538, 'D', 'Att förenkla klientimplementationen', false),
+-- Fråga 89
+(539, 'A', 'OAuth 2.0', false),
+(539, 'B', 'GraphQL', false),
+(539, 'C', 'JWT', false),
+(539, 'D', 'HATEOAS', true),
+-- Fråga 90
+(540, 'A', 'PUT är idempotent och ersätter hela resursen', true),
+(540, 'B', 'PUT används för att skapa nya resurser', false),
+(540, 'C', 'PUT kan inte skapa resurser om de inte redan existerar', false),
+(540, 'D', 'PUT används för partiella uppdateringar av resurser', false);
+
+INSERT INTO QUESTIONS (id, question_number, course_name, question_text) VALUES
+                                                                            (541, 91, 'API', '91. Vilket är det primära syftet med att använda HTTP-statuskoder i ett API?'),
+                                                                            (542, 92, 'API', '92. Vilken av följande principer är INTE en del av god URL-design för RESTful API:er?'),
+                                                                            (543, 93, 'API', '93. Vilken HTTP-statuskod används vanligtvis för att indikera att en resurs har skapats framgångsrikt?'),
+                                                                            (544, 94, 'API', '94. Vad är huvudsyftet med att implementera paginering i ett API?'),
+                                                                            (545, 95, 'API', '95. Vilket påstående om HTTP-statuskoder i 4xx-serien är korrekt?'),
+                                                                            (546, 96, 'API', '96. Vilken av följande är INTE en rekommenderad metod för att optimera prestandan i ett RESTful API?'),
+                                                                            (547, 97, 'API', '97. Vad är huvudsyftet med att implementera content negotiation i ett API?'),
+                                                                            (548, 98, 'API', '98. Vilket av följande är ett exempel på en väl designad URL för ett RESTful API?'),
+                                                                            (549, 99, 'API', '99. Vilken HTTP-statuskod bör användas när en begärd resurs inte längre är tillgänglig och inte kommer att bli tillgänglig igen?'),
+                                                                            (550, 100, 'API', '100. Vad är huvudsyftet med att implementera HATEOAS i ett RESTful API?');
+
+INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct) VALUES
+                                                                                      (541, 'A', 'Att ge omedelbar feedback om resultatet av en förfrågan', true),
+                                                                                      (541, 'B', 'Att förbättra prestandan för API:et', false),
+                                                                                      (541, 'C', 'Att hantera versionshantering av API:et', false),
+                                                                                      (541, 'D', 'Att implementera säkerhetsåtgärder', false),
+
+                                                                                      (542, 'A', 'Använd substantiv istället för verb', false),
+                                                                                      (542, 'B', 'Använd plural för samlingar', false),
+                                                                                      (542, 'C', 'Inkludera API-nyckel i URL:en', true),
+                                                                                      (542, 'D', 'Använd hierarki för att visa relationer', false),
+
+                                                                                      (543, 'A', '200 OK', false),
+                                                                                      (543, 'B', '201 Created', true),
+                                                                                      (543, 'C', '204 No Content', false),
+                                                                                      (543, 'D', '302 Found', false),
+
+                                                                                      (544, 'A', 'Att förbättra API:ets säkerhet', false),
+                                                                                      (544, 'B', 'Att implementera HATEOAS', false),
+                                                                                      (544, 'C', 'Att förenkla versionshanteringen av API:et', false),
+                                                                                      (544, 'D', 'Att minska serverbelastningen vid stora datamängder', true),
+
+                                                                                      (545, 'A', 'De indikerar alltid ett serverfel', false),
+                                                                                      (545, 'B', 'De används endast för autentiseringsfel', false),
+                                                                                      (545, 'C', 'De signalerar att klienten behöver göra ytterligare åtgärder', false),
+                                                                                      (545, 'D', 'De indikerar vanligtvis ett problem med klientens förfrågan', true),
+
+                                                                                      (546, 'A', 'Implementera caching med ETag-headers', false),
+                                                                                      (546, 'B', 'Använda GZIP-komprimering', false),
+                                                                                      (546, 'C', 'Öka antalet nästlade resurser i URL:er', true),
+                                                                                      (546, 'D', 'Stödja partiella svar med fältfiltrering', false),
+
+                                                                                      (547, 'A', 'Att förbättra säkerheten', false),
+                                                                                      (547, 'B', 'Att möjliggöra olika datarepresentationer baserat på klientens preferenser', true),
+                                                                                      (547, 'C', 'Att hantera API-versioner', false),
+                                                                                      (547, 'D', 'Att implementera rate limiting', false),
+
+                                                                                      (548, 'A', '/api/users/123/posts', true),
+                                                                                      (548, 'B', '/api/users/123/delete', false),
+                                                                                      (548, 'C', '/api/getUserById?id=123', false),
+                                                                                      (548, 'D', '/api/executeUserUpdate/123', false),
+
+                                                                                      (549, 'A', '404 Not Found', false),
+                                                                                      (549, 'B', '410 Gone', true),
+                                                                                      (549, 'C', '204 No Content', false),
+                                                                                      (549, 'D', '304 Not Modified', false),
+
+                                                                                      (550, 'A', 'Att förbättra API-säkerheten', false),
+                                                                                      (550, 'B', 'Att göra API:et mer självbeskrivande och flexibelt', true),
+                                                                                      (550, 'C', 'Att öka prestandan för API-anrop', false),
+                                                                                      (550, 'D', 'Att hantera versionshantering av API:et', false);
+
+INSERT INTO QUESTIONS (id, question_number, course_name, question_text) VALUES
+                                                                            (551, 101, 'API', '101. Vilket av följande är inte en fördel med att använda Spring Boot för API-utveckling?'),
+                                                                            (552, 102, 'API', '102. Vad är huvudsyftet med @RestController-annotationen i Spring Boot?'),
+                                                                            (553, 103, 'API', '103. Vilken annotation används för att binda inkommande JSON-data till Java-objekt i en controller-metod?'),
+                                                                            (554, 104, 'API', '104. Vilket påstående är korrekt angående Spring Boots auto-konfiguration?'),
+                                                                            (555, 105, 'API', '105. Vad är huvudsyftet med att använda ResponseEntity i en controller-metod?'),
+                                                                            (556, 106, 'API', '106. Vilket av följande är inte en vanlig strategi för API-versionshantering?'),
+                                                                            (557, 107, 'API', '107. Vad är huvudsyftet med att använda @ControllerAdvice i Spring Boot?'),
+                                                                            (558, 108, 'API', '108. Vilket påstående är korrekt angående användningen av DTOs (Data Transfer Objects) i API-design?'),
+                                                                            (559, 109, 'API', '109. Vilken av följande är inte en vanlig prestandaövervägande vid utveckling av Spring Boot API:er?'),
+                                                                            (560, 110, 'API', '110. Vad är huvudsyftet med att använda @Valid-annotationen i en controller-metod?');
+
+INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct) VALUES
+-- För fråga 101
+(551, 'A', 'Auto-konfiguration', false),
+(551, 'B', 'Manuell databashantering', true),
+(551, 'C', 'Inbyggd server', false),
+(551, 'D', 'Produktionsredo funktioner', false),
+-- För fråga 102
+(552, 'A', 'Att konfigurera applikationens säkerhetsinställningar', false),
+(552, 'B', 'Att definiera URL-mappningar för alla metoder i klassen', false),
+(552, 'C', 'Att markera en klass som en REST-controller', true),
+(552, 'D', 'Att hantera databasoperationer', false),
+-- För fråga 103
+(553, 'A', '@RequestBody', true),
+(553, 'B', '@JsonBind', false),
+(553, 'C', '@ResponseEntity', false),
+(553, 'D', '@RequestParam', false),
+-- För fråga 104
+(554, 'A', 'Den kan anpassas efter behov', true),
+(554, 'B', 'Den är alltid optimal för alla typer av applikationer', false),
+(554, 'C', 'Den kan inte åsidosättas av utvecklaren', false),
+(554, 'D', 'Den kräver omfattande manuell konfiguration', false),
+-- För fråga 105
+(555, 'A', 'Att definiera URL-mappningar', false),
+(555, 'B', 'Att validera inkommande data', false),
+(555, 'C', 'Att hantera databasoperationer', false),
+(555, 'D', 'Att ge full kontroll över HTTP-svaret', true),
+-- För fråga 106
+(556, 'A', 'URL-versioning', false),
+(556, 'B', 'Database-versioning', true),
+(556, 'C', 'Header-versioning', false),
+(556, 'D', 'Media type versioning', false),
+-- För fråga 107
+(557, 'A', 'Att konfigurera databasens connection pool', false),
+(557, 'B', 'Att implementera caching-strategier', false),
+(557, 'C', 'Att definiera globala exception handlers', true),
+(557, 'D', 'Att hantera request routing', false),
+-- För fråga 108
+(558, 'A', 'DTOs används enbart för databasoperationer', false),
+(558, 'B', 'DTOs hjälper till att separera intern datamodell från extern representation', true),
+(558, 'C', 'DTOs ersätter behovet av entitetsklasser', false),
+(558, 'D', 'DTOs är obligatoriska för alla Spring Boot-applikationer', false),
+-- För fråga 109
+(559, 'A', 'Manuell hantering av garbage collection', true),
+(559, 'B', 'Implementering av caching', false),
+(559, 'C', 'Användning av paginering för stora datamängder', false),
+(559, 'D', 'Asynkron bearbetning av långvariga operationer', false),
+-- För fråga 110
+(560, 'A', 'Att kontrollera API-versionskompabilitet', false),
+(560, 'B', 'Att validera databasens schema', false),
+(560, 'C', 'Att verifiera användarens autentisering', false),
+(560, 'D', 'Att validera inkommande request-data', true);
+
+INSERT INTO QUESTIONS (id, question_number, course_name, question_text) VALUES
+                                                                            (561, 111, 'API', '111. Vilket av följande är inte ett huvudsyfte med CRUD-operationer i moderna applikationer?'),
+                                                                            (562, 112, 'API', '112. Vilken komponent i Spring Boot-arkitekturen ansvarar vanligtvis för direkt interaktion med databasen?'),
+                                                                            (563, 113, 'API', '113. Vilken HTTP-metod används vanligtvis för att uppdatera befintlig data i en CRUD-operation?'),
+                                                                            (564, 114, 'API', '114. Vad är huvudsyftet med att använda Data Transfer Objects (DTO) i en CRUD-implementation?'),
+                                                                            (565, 115, 'API', '115. Vilket påstående är korrekt angående idempotens i CRUD-operationer?'),
+                                                                            (566, 116, 'API', '116. Vad är huvudsyftet med att implementera paginering i CRUD-operationer?'),
+                                                                            (567, 117, 'API', '117. Vilken funktion har @Transactional-annotationen i Spring Boot?'),
+                                                                            (568, 118, 'API', '118. Vad är huvudsyftet med optimistisk låsning i CRUD-operationer?'),
+                                                                            (569, 119, 'API', '119. Vilket av följande är inte en vanlig best practice för RESTful API-design i CRUD-operationer?'),
+                                                                            (570, 120, 'API', '120. Vad är huvudsyftet med att använda @Valid-annotationen i en Spring Boot-controller?');
+
+INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct) VALUES
+-- Fråga 111
+(561, 'A', 'Datamanipulation', true),
+(561, 'B', 'Informationsåtkomst', true),
+(561, 'C', 'Datakomprimering', false),
+(561, 'D', 'Dataunderhåll', true),
+-- Fråga 112
+(562, 'A', 'Repository', true),
+(562, 'B', 'Service', false),
+(562, 'C', 'Controller', false),
+(562, 'D', 'Entity', false),
+-- Fråga 113
+(563, 'A', 'DELETE', false),
+(563, 'B', 'GET', false),
+(563, 'C', 'POST', false),
+(563, 'D', 'PUT', true),
+-- Fråga 114
+(564, 'A', 'Möjliggöra realtidsuppdateringar', false),
+(564, 'B', 'Separera API-representation från datamodellen', true),
+(564, 'C', 'Öka databashastigheten', false),
+(564, 'D', 'Förbättra säkerheten genom kryptering', false),
+-- Fråga 115
+(565, 'A', 'Idempotens är irrelevant för CRUD-operationer', false),
+(565, 'B', 'PUT-operationer bör vara idempotenta', true),
+(565, 'C', 'Endast GET-operationer kan vara idempotenta', false),
+(565, 'D', 'Alla CRUD-operationer måste vara idempotenta', false),
+-- Fråga 116
+(566, 'A', 'Hantera stora datamängder effektivt', true),
+(566, 'B', 'Möjliggöra offline-åtkomst till data', false),
+(566, 'C', 'Öka databasens lagringsutrymme', false),
+(566, 'D', 'Förbättra datasäkerheten', false),
+-- Fråga 117
+(567, 'A', 'Implementera caching', false),
+(567, 'B', 'Hantera transaktioner deklarativt', true),
+(567, 'C', 'Konfigurera databaskopplingar', false),
+(567, 'D', 'Hantera HTTP-sessioner', false),
+-- Fråga 118
+(568, 'A', 'Automatisera backupprocesser', false),
+(568, 'B', 'Förhindra obehörig åtkomst till data', false),
+(568, 'C', 'Hantera samtidiga uppdateringar utan att låsa databasen', true),
+(568, 'D', 'Öka hastigheten på databasoperationer', false),
+-- Fråga 119
+(569, 'A', 'Använda korrekta HTTP-metoder för olika operationer', true),
+(569, 'B', 'Använda komplexa URL-strukturer för ökad säkerhet', false),
+(569, 'C', 'Implementera versionering av API:et', true),
+(569, 'D', 'Hantera fel konsekvent med lämpliga statuskoder', true),
+-- Fråga 120
+(570, 'A', 'Generera automatisk API-dokumentation', false),
+(570, 'B', 'Optimera databasförfrågningar', false),
+(570, 'C', 'Implementera caching för förbättrad prestanda', false),
+(570, 'D', 'Validera inkommande data', true);
+
+INSERT INTO QUESTIONS (id, question_number, course_name, question_text) VALUES
+                                                                            (571, 121, 'API', '121. Vilket av följande är inte en huvudanledning till varför effektiv hantering av request bodies och response entities är viktigt?'),
+                                                                            (572, 122, 'API', '122. Vad är huvudsyftet med att använda DTO:er (Data Transfer Objects) i API-design?'),
+                                                                            (573, 123, 'API', '123. Vilken annotation används i Spring Boot för att indikera att en metod-parameter ska bindas till request body?'),
+                                                                            (574, 124, 'API', '124. Vilket påstående om ResponseEntity i Spring Boot är korrekt?'),
+                                                                            (575, 125, 'API', '125. Vilken av följande är inte en rekommenderad best practice för hantering av request bodies och response entities?'),
+                                                                            (576, 126, 'API', '126. Vilket av följande är ett vanligt användningsområde för anpassad deserialisering i Spring Boot?'),
+                                                                            (577, 127, 'API', '127. Vilken teknik är mest lämplig för att hantera mycket stora datamängder i API-svar?'),
+                                                                            (578, 128, 'API', '128. Vad är huvudsyftet med att använda @Valid annotation i en controller-metod?'),
+                                                                            (579, 129, 'API', '129. Vilken påstående om felhantering i RESTful API:er är korrekt?'),
+                                                                            (580, 130, 'API', '130. Vilket av följande är inte en vanlig prestandaoptimering för API:er som hanterar stora datamängder?');
+
+INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct) VALUES
+-- För fråga 121
+(571, 'A', 'Garanterar alltid snabbare API-prestanda', false),
+(571, 'B', 'Möjliggör hantering av komplexa datastrukturer', true),
+(571, 'C', 'Säkerställer dataintegritet', true),
+(571, 'D', 'Tillåter effektiv dataöverföring', true),
+-- För fråga 122
+(572, 'A', 'Att automatiskt validera all inkommande data', false),
+(572, 'B', 'Att separera API-representation från domänmodeller', true),
+(572, 'C', 'Att ersätta alla domänmodeller', false),
+(572, 'D', 'Att öka komplexiteten i API:et', false),
+-- För fråga 123
+(573, 'A', '@PathVariable', false),
+(573, 'B', '@ModelAttribute', false),
+(573, 'C', '@RequestBody', true),
+(573, 'D', '@RequestParam', false),
+-- För fråga 124
+(574, 'A', 'Det kan endast användas för att returnera enkla datatyper', false),
+(574, 'B', 'Det ersätter helt behovet av att använda @ResponseBody', false),
+(574, 'C', 'Det kan endast användas i kombination med @RestController', false),
+(574, 'D', 'Det ger fin kontroll över HTTP-svar, inklusive statuskoder och headers', true),
+-- För fråga 125
+(575, 'A', 'Implementera global exception handling för konsistenta felsvar', true),
+(575, 'B', 'Validera inkommande data med hjälp av Bean Validation-annotationer', true),
+(575, 'C', 'Alltid returnera hela dataobjekt oavsett klientens behov', false),
+(575, 'D', 'Använda DTO:er för att separera API-representation från domänmodeller', true),
+-- För fråga 126
+(576, 'A', 'Att öka storleken på inkommande request bodies', false),
+(576, 'B', 'Att ersätta alla standardserialiserare i applikationen', false),
+(576, 'C', 'Att automatiskt kryptera all inkommande data', false),
+(576, 'D', 'Att hantera datum i specifika format', true),
+-- För fråga 127
+(577, 'A', 'Att kryptera all utgående data', false),
+(577, 'B', 'Att implementera paginering', true),
+(577, 'C', 'Att alltid skicka all data i ett enda svar', false),
+(577, 'D', 'Att begränsa API:et till små datamängder', false),
+-- För fråga 128
+(578, 'A', 'Att validera inkommande request data', true),
+(578, 'B', 'Att öka prestandan för API-anrop', false),
+(578, 'C', 'Att generera API-dokumentation', false),
+(578, 'D', 'Att automatiskt serialisera svaret till JSON', false),
+-- För fråga 129
+(579, 'A', 'Felhantering är onödigt i moderna API:er', false),
+(579, 'B', 'Felmeddelanden bör alltid innehålla fullständiga stacktraces', false),
+(579, 'C', 'Konsekvent felhantering och meningsfulla felmeddelanden är viktigt', true),
+(579, 'D', 'Alla fel bör resultera i en 500 Internal Server Error', false),
+-- För fråga 130
+(580, 'A', 'Överväga att implementera streaming för mycket stora dataset', true),
+(580, 'B', 'Använda compression för stora response bodies', true),
+(580, 'C', 'Implementera caching för frekventa förfrågningar', true),
+(580, 'D', 'Öka komplexiteten i varje enskild API-endpoint', false);
+
+INSERT INTO QUESTIONS (id, question_number, course_name, question_text) VALUES
+                                                                            (581, 131, 'API', '131. Vilket av följande är inte en datatyp som stöds av JSON?'),
+                                                                            (582, 132, 'API', '132. Vad är huvudsyftet med JSON Schema?'),
+                                                                            (583, 133, 'API', '133. Vilket påstående om JSON är korrekt?'),
+                                                                            (584, 134, 'API', '134. Vilken metod används vanligtvis för att konvertera ett Java-objekt till JSON?'),
+                                                                            (585, 135, 'API', '135. Vad är syftet med JSON Web Tokens (JWT)?'),
+                                                                            (586, 136, 'API', '136. Vilket av följande är inte en del av en JSON Web Token (JWT)?'),
+                                                                            (587, 137, 'API', '137. Vilken annotation används ofta i Java för att exkludera null-värden vid JSON-serialisering?'),
+                                                                            (588, 138, 'API', '138. Vad är den huvudsakliga fördelen med att använda JSON i RESTful API:er?'),
+                                                                            (589, 139, 'API', '139. Vilket av följande är ett vanligt användningsområde för JSON?'),
+                                                                            (590, 140, 'API', '140. Vilken typ av attack är särskilt viktig att skydda sig mot när man hanterar inkommande JSON-data?');
+
+INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct) VALUES
+-- För fråga 131
+(581, 'A', 'Array', false),
+(581, 'B', 'Function', true),
+(581, 'C', 'Boolean', false),
+(581, 'D', 'Object', false),
+-- För fråga 132
+(582, 'A', 'Att kryptera JSON-data', false),
+(582, 'B', 'Att validera strukturen på JSON-data', true),
+(582, 'C', 'Att konvertera JSON till XML', false),
+(582, 'D', 'Att komprimera JSON-data', false),
+-- För fråga 133
+(583, 'A', 'JSON kräver att alla värden är strängar', false),
+(583, 'B', 'JSON är språkoberoende', true),
+(583, 'C', 'JSON tillåter kommentarer i sin struktur', false),
+(583, 'D', 'JSON är ett programmeringsspråk', false),
+-- För fråga 134
+(584, 'A', 'Parsing', false),
+(584, 'B', 'Encryption', false),
+(584, 'C', 'Compilation', false),
+(584, 'D', 'Serialization', true),
+-- För fråga 135
+(585, 'A', 'Att validera JSON-syntax', false),
+(585, 'B', 'Att kryptera hela JSON-dokument', false),
+(585, 'C', 'Att säkert överföra information mellan parter', true),
+(585, 'D', 'Att komprimera JSON-data', false),
+-- För fråga 136
+(586, 'A', 'Schema', true),
+(586, 'B', 'Header', false),
+(586, 'C', 'Payload', false),
+(586, 'D', 'Signature', false),
+-- För fråga 137
+(587, 'A', '@JsonOmitNull', false),
+(587, 'B', '@JsonIgnoreNull', false),
+(587, 'C', '@JsonInclude(JsonInclude.Include.NON_NULL)', true),
+(587, 'D', '@JsonExcludeNull', false),
+-- För fråga 138
+(588, 'A', 'Det garanterar alltid korrekt datastruktur', false),
+(588, 'B', 'Det är lättviktigt och lätt att tolka för både människor och maskiner', true),
+(588, 'C', 'Det erbjuder inbyggd kryptering', false),
+(588, 'D', 'Det är det enda formatet som stöds av HTTP', false),
+-- För fråga 139
+(589, 'A', 'Direktmanipulation av binära filer', false),
+(589, 'B', 'Konfiguration av databasscheman', false),
+(589, 'C', 'Kompilering av källkod', false),
+(589, 'D', 'Datautbyte i webbapplikationer', true),
+-- För fråga 140
+(590, 'A', 'Denial-of-service-attacker', false),
+(590, 'B', 'Man-in-the-middle-attacker', false),
+(590, 'C', 'Injektionsattacker', true),
+(590, 'D', 'Brute force-attacker', false);
+
+INSERT INTO QUESTIONS (id, question_number, course_name, question_text) VALUES
+                                                                            (591, 141, 'API', '141. Vilket av följande är huvudsyftet med att använda Jackson-biblioteket i Spring Boot?'),
+                                                                            (592, 142, 'API', '142. Vad är ObjectMapper i Jackson-biblioteket?'),
+                                                                            (593, 143, 'API', '143. Vilken annotation används i Java för att mappar ett fält till ett annat namn i JSON?'),
+                                                                            (594, 144, 'API', '144. Vilket påstående om DTO:er (Data Transfer Objects) i samband med JSON-hantering är korrekt?'),
+                                                                            (595, 145, 'API', '145. Vad är huvudsyftet med att använda @JsonIgnore-annotationen?'),
+                                                                            (596, 146, 'API', '146. Vilken funktion fyller @ControllerAdvice i samband med JSON-felhantering?'),
+                                                                            (597, 147, 'API', '147. Vilket av följande är ett exempel på en prestandaoptimering vid hantering av stora JSON-strukturer?'),
+                                                                            (598, 148, 'API', '148. Vad är huvudsyftet med JSON Patch i RESTful API:er?'),
+                                                                            (599, 149, 'API', '149. Vilken annotation används för att hantera olika versioner av JSON-serialisering i samma API?'),
+                                                                            (600, 150, 'API', '150. Vad är den främsta fördelen med att implementera paginering i JSON-svar från ett API?');
+
+INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct) VALUES
+                                                                                      (591, 'A', 'Att konvertera mellan JSON och Java-objekt', true),
+                                                                                      (591, 'B', 'Att hantera databasanslutningar', false),
+                                                                                      (591, 'C', 'Att implementera säkerhetsfilter', false),
+                                                                                      (591, 'D', 'Att optimera SQL-frågor', false),
+
+                                                                                      (592, 'A', 'Ett verktyg för att generera Java-klasser från JSON', false),
+                                                                                      (592, 'B', 'En klass för att mappa databastabeller', false),
+                                                                                      (592, 'C', 'En mekanism för att hantera sessioner i webbapplikationer', false),
+                                                                                      (592, 'D', 'Huvudkomponenten för konvertering mellan JSON och Java-objekt', true),
+
+                                                                                      (593, 'A', '@JsonSerialize', false),
+                                                                                      (593, 'B', '@JsonIgnore', false),
+                                                                                      (593, 'C', '@JsonProperty', true),
+                                                                                      (593, 'D', '@JsonFormat', false),
+
+                                                                                      (594, 'A', 'De är obligatoriska för all JSON-serialisering', false),
+                                                                                      (594, 'B', 'De kan separera API-representation från domänmodeller', true),
+                                                                                      (594, 'C', 'De ersätter behovet av Jackson-biblioteket', false),
+                                                                                      (594, 'D', 'De används enbart för databaspersistens', false),
+
+                                                                                      (595, 'A', 'Att markera fält som ska krypteras', false),
+                                                                                      (595, 'B', 'Att förhindra cirkulära referenser i JSON', false),
+                                                                                      (595, 'C', 'Att exkludera känsliga eller onödiga fält från JSON-serialisering', true),
+                                                                                      (595, 'D', 'Att ignorera inkommande JSON-data vid deserialisering', false),
+
+                                                                                      (596, 'A', 'Den validerar inkommande JSON-data', false),
+                                                                                      (596, 'B', 'Den möjliggör global felhantering för konsistenta JSON-svar', true),
+                                                                                      (596, 'C', 'Den optimerar JSON-parsing', false),
+                                                                                      (596, 'D', 'Den konfigurerar Jackson ObjectMapper', false),
+
+                                                                                      (597, 'A', 'Att konvertera all JSON till XML', false),
+                                                                                      (597, 'B', 'Att använda Jacksons streaming API', true),
+                                                                                      (597, 'C', 'Att alltid använda DTO:er', false),
+                                                                                      (597, 'D', 'Att öka serverminnet', false),
+
+                                                                                      (598, 'A', 'Att komprimera JSON för snabbare överföring', false),
+                                                                                      (598, 'B', 'Att kryptera JSON-data', false),
+                                                                                      (598, 'C', 'Att validera inkommande JSON-struktur', false),
+                                                                                      (598, 'D', 'Att möjliggöra partiella uppdateringar av resurser', true),
+
+                                                                                      (599, 'A', '@JsonProperty', false),
+                                                                                      (599, 'B', '@JsonTypeInfo', false),
+                                                                                      (599, 'C', '@JsonSerialize', true),
+                                                                                      (599, 'D', '@JsonFormat', false),
+
+                                                                                      (600, 'A', 'Det eliminerar behovet av caching', false),
+                                                                                      (600, 'B', 'Det ökar säkerheten i API:et', false),
+                                                                                      (600, 'C', 'Det förbättrar JSON-parsningen på klientsidan', false),
+                                                                                      (600, 'D', 'Det möjliggör effektiv hantering av stora datamängder', true);
+
+INSERT INTO QUESTIONS (id, question_number, course_name, question_text) VALUES
+                                                                            (601, 151, 'API', '151. Vilket av följande är det primära syftet med JSON-serialisering?'),
+                                                                            (602, 152, 'API', '152. Vad är huvudsyftet med Jackson-annotationer i kontexten av JSON-hantering?'),
+                                                                            (603, 153, 'API', '153. Vilken av följande är en korrekt beskrivning av JSON-deserialisering?'),
+                                                                            (604, 154, 'API', '154. Vilket påstående om ObjectMapper i Spring Boot är korrekt?'),
+                                                                            (605, 155, 'API', '155. Vad är huvudsyftet med @JsonIgnore-annotationen?'),
+                                                                            (606, 156, 'API', '156. Vilken av följande tekniker är mest lämplig för att hantera stora JSON-strukturer effektivt?'),
+                                                                            (607, 157, 'API', '157. Vad är det primära syftet med DTO:er (Data Transfer Objects) i kontexten av JSON-API:er?'),
+                                                                            (608, 158, 'API', '158. Vilket av följande är ett viktigt säkerhetsövervägande vid JSON-serialisering?'),
+                                                                            (609, 159, 'API', '159. Vilken teknik är mest lämplig för att hantera versionshantering av JSON-API:er?'),
+                                                                            (610, 160, 'API', '160. Vad är huvudsyftet med anpassade serialiserare och deserialiserare i Jackson?');
+
+INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct) VALUES
+-- För fråga 151
+(601, 'A', 'Att konvertera Java-objekt till JSON-strängar', true),
+(601, 'B', 'Att komprimera data för effektivare lagring', false),
+(601, 'C', 'Att kryptera känslig information', false),
+(601, 'D', 'Att validera datastrukturer', false),
+-- För fråga 152
+(602, 'A', 'Att generera API-dokumentation automatiskt', false),
+(602, 'B', 'Att optimera databasens prestanda', false),
+(602, 'C', 'Att ge fin kontroll över serialiserings- och deserialiseringsprocessen', true),
+(602, 'D', 'Att hantera felmeddelanden i Spring Boot-applikationer', false),
+-- För fråga 153
+(603, 'A', 'Konverteringen av Java-objekt till JSON-strängar', false),
+(603, 'B', 'Processen att komprimera JSON-data för effektiv lagring', false),
+(603, 'C', 'Valideringen av JSON-strukturer mot ett schema', false),
+(603, 'D', 'Omvandlingen av JSON-strängar till Java-objekt', true),
+-- För fråga 154
+(604, 'A', 'Den konfigureras automatiskt av Spring Boot för grundläggande användning', true),
+(604, 'B', 'Den måste skapas manuellt för varje serialiserings-/deserialiseringsoperation', false),
+(604, 'C', 'Den är inte trådsäker och bör inte återanvändas', false),
+(604, 'D', 'Den kan endast hantera enkla datatyper som strängar och heltal', false),
+-- För fråga 155
+(605, 'A', 'Att ange ett anpassat datumformat för ett fält', false),
+(605, 'B', 'Att markera ett fält som obligatoriskt vid deserialisering', false),
+(605, 'C', 'Att exkludera ett fält från JSON-serialisering och -deserialisering', true),
+(605, 'D', 'Att hantera cirkulära referenser i JSON-strukturer', false),
+-- För fråga 156
+(606, 'A', 'Att konvertera all JSON till XML före bearbetning', false),
+(606, 'B', 'Att alltid ladda hela JSON-strukturen i minnet', false),
+(606, 'C', 'Att använda Jacksons streaming API för partiell parsing', true),
+(606, 'D', 'Att begränsa alla JSON-strukturer till en maximal storlek', false),
+-- För fråga 157
+(607, 'A', 'Att hantera autentisering och auktorisering', false),
+(607, 'B', 'Att separera intern datamodell från API-representationen', true),
+(607, 'C', 'Att öka prestandan för databastransaktioner', false),
+(607, 'D', 'Att automatiskt generera API-dokumentation', false),
+-- För fråga 158
+(608, 'A', 'Att alltid kryptera alla JSON-strängar', false),
+(608, 'B', 'Att förhindra exponering av känslig information', true),
+(608, 'C', 'Att begränsa JSON-strukturernas djup', false),
+(608, 'D', 'Att använda Base64-kodning för alla värden', false),
+-- För fråga 159
+(609, 'A', 'Att kryptera äldre versioner av API:et', false),
+(609, 'B', 'Att använda olika URL:er för olika API-versioner', true),
+(609, 'C', 'Att alltid kräva ett versionsnummer i varje JSON-objekt', false),
+(609, 'D', 'Att ändra databasschema för varje API-version', false),
+-- För fråga 160
+(610, 'A', 'Att automatiskt validera alla inkommande JSON-data', false),
+(610, 'B', 'Att kryptera känslig information i JSON', false),
+(610, 'C', 'Att förbättra prestandan för alla JSON-operationer', false),
+(610, 'D', 'Att hantera komplex logik eller speciella dataformat', true);
+
+INSERT INTO QUESTIONS (id, question_number, course_name, question_text) VALUES
+                                                                            (611, 161, 'API', '161. Vilket av följande är huvudsyftet med XML Schema (XSD)?'),
+                                                                            (612, 162, 'API', '162. Vilken parsningsmetod är mest lämplig för att hantera mycket stora XML-dokument med begränsat minne?'),
+                                                                            (613, 163, 'API', '163. Vad är en av de största säkerhetsriskerna associerade med XML-parsning?'),
+                                                                            (614, 164, 'API', '164. Vilket påstående är korrekt angående XML:s användning i moderna system?'),
+                                                                            (615, 165, 'API', '165. Vilken av följande är inte en fördel med att använda XML?'),
+                                                                            (616, 166, 'API', '166. Vad är huvudsyftet med att använda namespaces i XML?'),
+                                                                            (617, 167, 'API', '167. Vilket av följande är ett exempel på en XML-baserad teknologi som fortfarande används brett i företagsmiljöer?'),
+                                                                            (618, 168, 'API', '168. Vilken teknik används ofta för att optimera prestandan vid hantering av stora XML-dokument?'),
+                                                                            (619, 169, 'API', '169. Vad är den primära fördelen med att använda XML för konfigurationsfiler jämfört med andra format?'),
+                                                                            (620, 170, 'API', '170. Vilken åtgärd är mest effektiv för att förhindra XML External Entity (XXE) attacker?');
+
+INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct) VALUES
+                                                                                      (611, 'A', 'Att definiera layouten för XML-dokument', false),
+                                                                                      (611, 'B', 'Att validera struktur och datatyper i XML-dokument', true),
+                                                                                      (611, 'C', 'Att komprimera XML-data för effektiv lagring', false),
+                                                                                      (611, 'D', 'Att konvertera XML till JSON-format', false),
+
+                                                                                      (612, 'A', 'DOM (Document Object Model)', false),
+                                                                                      (612, 'B', 'JAXB (Java Architecture for XML Binding)', false),
+                                                                                      (612, 'C', 'SAX (Simple API for XML)', true),
+                                                                                      (612, 'D', 'XPath', false),
+
+                                                                                      (613, 'A', 'XML External Entity (XXE) attacker', true),
+                                                                                      (613, 'B', 'SQL-injektion', false),
+                                                                                      (613, 'C', 'Cross-site scripting (XSS)', false),
+                                                                                      (613, 'D', 'Buffer overflow', false),
+
+                                                                                      (614, 'A', 'XML används endast för webbdesign', false),
+                                                                                      (614, 'B', 'XML används fortfarande brett i vissa branschspecifika applikationer', true),
+                                                                                      (614, 'C', 'XML används enbart i föråldrade system', false),
+                                                                                      (614, 'D', 'XML har helt ersatts av JSON i alla moderna applikationer', false),
+
+                                                                                      (615, 'A', 'Flexibilitet i datastrukturer', false),
+                                                                                      (615, 'B', 'Självdokumenterande natur', false),
+                                                                                      (615, 'C', 'Snabb parsning av stora datamängder', true),
+                                                                                      (615, 'D', 'Stöd för komplexa valideringsregler', false),
+
+                                                                                      (616, 'A', 'Att komprimera XML-data', false),
+                                                                                      (616, 'B', 'Att kryptera känslig information', false),
+                                                                                      (616, 'C', 'Att förhindra namnkollisioner mellan element', true),
+                                                                                      (616, 'D', 'Att öka läsbarheten för människor', false),
+
+                                                                                      (617, 'A', 'RESTful API:er', false),
+                                                                                      (617, 'B', 'SOAP Web Services', true),
+                                                                                      (617, 'C', 'GraphQL', false),
+                                                                                      (617, 'D', 'WebSocket', false),
+
+                                                                                      (618, 'A', 'Implementera strömbaserad parsning', true),
+                                                                                      (618, 'B', 'Öka RAM-minnet', false),
+                                                                                      (618, 'C', 'Konvertera till JSON', false),
+                                                                                      (618, 'D', 'Använda DOM-parsning', false),
+
+                                                                                      (619, 'A', 'Bättre stöd för komplexa strukturer och validering', true),
+                                                                                      (619, 'B', 'Snabbare läsning av data', false),
+                                                                                      (619, 'C', 'Mindre filstorlek', false),
+                                                                                      (619, 'D', 'Enklare att redigera manuellt', false),
+
+                                                                                      (620, 'A', 'Kryptera XML-data', false),
+                                                                                      (620, 'B', 'Använda HTTPS för dataöverföring', false),
+                                                                                      (620, 'C', 'Öka timeouts för XML-parsning', false),
+                                                                                      (620, 'D', 'Inaktivera DTD-processing i XML-parsern', true);
+
+INSERT INTO QUESTIONS (id, question_number, course_name, question_text) VALUES
+                                                                            (621, 171, 'API', '171. Vilket av följande är inte en primär anledning till varför kunskap om både XML och JSON är viktig för utvecklare?'),
+                                                                            (622, 172, 'API', '172. Vad är en korrekt beskrivning av strukturskillnaden mellan XML och JSON?'),
+                                                                            (623, 173, 'API', '173. Vilken påstående om datatyper i XML och JSON är korrekt?'),
+                                                                            (624, 174, 'API', '174. Vilket verktyg är mest lämpligt för att konvertera mellan XML och JSON i Java?'),
+                                                                            (625, 175, 'API', '175. Vad är en best practice vid hantering av XML och JSON data?'),
+                                                                            (626, 176, 'API', '176. Vilken säkerhetsrisk är specifikt associerad med XML?'),
+                                                                            (627, 177, 'API', '177. Vad är en korrekt strategi för att hantera stora datamängder vid konvertering mellan XML och JSON?'),
+                                                                            (628, 178, 'API', '178. Vilket påstående om prestanda mellan XML och JSON är generellt accepterat?'),
+                                                                            (629, 179, 'API', '179. Vilken teknik är mest lämplig för att förbättra skalbarheten i system som hanterar både XML och JSON?'),
+                                                                            (630, 180, 'API', '180. Vad är huvudsyftet med att använda både XML och JSON i moderna system?');
+
+INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct) VALUES
+-- Fråga 171
+(621, 'A', 'Interoperabilitet mellan system', false),
+(621, 'B', 'Prestandaoptimering av API:er', false),
+(621, 'C', 'Grafisk representation av data', true),
+(621, 'D', 'Framtidssäkring av designbeslut', false),
+-- Fråga 172
+(622, 'A', 'XML använder en trädstruktur, JSON använder objekt och arrayer', true),
+(622, 'B', 'XML använder objekt, JSON använder element', false),
+(622, 'C', 'XML använder arrayer, JSON använder key-value par', false),
+(622, 'D', 'XML och JSON har identisk struktur men olika syntax', false),
+-- Fråga 173
+(623, 'A', 'XML kräver schema för typvalidering', true),
+(623, 'B', 'XML har inbyggt stöd för nummer och booleaner', false),
+(623, 'C', 'JSON lagrar allt som text och kräver schema för validering', false),
+(623, 'D', 'JSON och XML hanterar datatyper på exakt samma sätt', false),
+-- Fråga 174
+(624, 'A', 'JDBC', false),
+(624, 'B', 'SAX Parser', false),
+(624, 'C', 'DOM Parser', false),
+(624, 'D', 'Jackson biblioteket', true),
+-- Fråga 175
+(625, 'A', 'Konvertera all data till plaintext före bearbetning', false),
+(625, 'B', 'Alltid skriva egen parsningslogik', false),
+(625, 'C', 'Ignorera namnrymder i XML', false),
+(625, 'D', 'Validera inkommande data före konvertering', true),
+-- Fråga 176
+(626, 'A', 'Cross-Site Scripting (XSS)', false),
+(626, 'B', 'SQL Injection', false),
+(626, 'C', 'XML External Entity (XXE) attacker', true),
+(626, 'D', 'JSON Injection', false),
+-- Fråga 177
+(627, 'A', 'Öka RAM-minnet i servern', false),
+(627, 'B', 'Använda strömbaserade API:er', true),
+(627, 'C', 'Alltid läsa hela dokumentet i minnet', false),
+(627, 'D', 'Konvertera data till binärt format först', false),
+-- Fråga 178
+(628, 'A', 'XML-serialisering är alltid snabbare än JSON-serialisering', false),
+(628, 'B', 'Filstorleken är identisk för samma data i XML och JSON', false),
+(628, 'C', 'XML är alltid snabbare att parsa än JSON', false),
+(628, 'D', 'JSON är generellt mer kompakt än XML', true),
+-- Fråga 179
+(629, 'A', 'Konvertera all data till ett gemensamt format', false),
+(629, 'B', 'Implementera lastbalansering', true),
+(629, 'C', 'Öka processorhastigheten på servern', false),
+(629, 'D', 'Begränsa API-anrop till endast XML', false),
+-- Fråga 180
+(630, 'A', 'Att försvåra för hackers', false),
+(630, 'B', 'Att möta olika klientbehov och integrationsscenarion', true),
+(630, 'C', 'Att minska nätverkstrafiken', false),
+(630, 'D', 'Att öka datamängden', false);
+
+-- Batch-insert för QUESTIONS
+INSERT INTO QUESTIONS (id, question_number, course_name, question_text) VALUES
+                                                                            (631, 181, 'API', '181. Vilket är det primära syftet med att implementera stöd för både JSON och XML i ett Spring Boot API?'),
+                                                                            (632, 182, 'API', '182. Vilken mekanism använder Spring Boot främst för att bestämma vilket dataformat som ska användas i en API-respons?'),
+                                                                            (633, 183, 'API', '183. Vad är huvudfunktionen av en HttpMessageConverter i Spring Boot?'),
+                                                                            (634, 184, 'API', '184. Vilket av följande är inte en vanlig missuppfattning om att implementera stöd för både JSON och XML i ett API?'),
+                                                                            (635, 185, 'API', '185. Vilken annotation används vanligtvis i Spring Boot för att indikera att en klass är en RESTful controller som kan hantera både JSON och XML?'),
+                                                                            (636, 186, 'API', '186. Vilket säkerhetsproblem är särskilt relevant när man hanterar XML-data i ett API?'),
+                                                                            (637, 187, 'API', '187. Vilken prestandaaspekt är särskilt viktig att överväga när man hanterar både JSON och XML i samma API?'),
+                                                                            (638, 188, 'API', '188. Vilket av följande är ett effektivt sätt att hantera stora datamängder i ett API som stöder både JSON och XML?'),
+                                                                            (639, 189, 'API', '189. Vad är huvudsyftet med att implementera versionering i ett API som stöder både JSON och XML?'),
+                                                                            (640, 190, 'API', '190. Vilken teknik kan användas för att förbättra prestandan i ett API som hanterar både JSON och XML för ofta efterfrågade resurser?');
+
+-- Batch-insert för QUESTION_OPTIONS
+INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct) VALUES
+-- För fråga 181
+(631, 'A', 'Att öka API:ets komplexitet', false),
+(631, 'B', 'Att förbättra API:ets prestanda', false),
+(631, 'C', 'Att öka API:ets flexibilitet och användbarhet', true),
+(631, 'D', 'Att minska API:ets säkerhet', false),
+-- För fråga 182
+(632, 'A', 'URL-parametrar', false),
+(632, 'B', 'Content negotiation', true),
+(632, 'C', 'Hårdkodade inställningar', false),
+(632, 'D', 'Slumpmässigt val', false),
+-- För fråga 183
+(633, 'A', 'Att komprimera HTTP-meddelanden', false),
+(633, 'B', 'Att kryptera data under överföring', false),
+(633, 'C', 'Att konvertera mellan Java-objekt och olika representationsformat', true),
+(633, 'D', 'Att validera inkommande HTTP-förfrågningar', false),
+-- För fråga 184
+(634, 'A', 'Det kräver separata endpoints för varje format', false),
+(634, 'B', 'Det är komplicerat att konfigurera', false),
+(634, 'C', 'Det påverkar alltid prestandan negativt', false),
+(634, 'D', 'Det ökar API:ets användbarhet för olika klienter', true),
+-- För fråga 185
+(635, 'A', '@Controller', false),
+(635, 'B', '@ResponseBody', false),
+(635, 'C', '@RestController', true),
+(635, 'D', '@XMLJSONController', false),
+-- För fråga 186
+(636, 'A', 'SQL-injektion', false),
+(636, 'B', 'Cross-Site Scripting (XSS)', false),
+(636, 'C', 'XML External Entity (XXE) attacker', true),
+(636, 'D', 'Broken Authentication', false),
+-- För fråga 187
+(637, 'A', 'CPU-användning', false),
+(637, 'B', 'Nätverkslatens', false),
+(637, 'C', 'Serialisering/deserialisering-hastighet', true),
+(637, 'D', 'Databasanslutningar', false),
+-- För fråga 188
+(638, 'A', 'Öka serverkapaciteten', false),
+(638, 'B', 'Begränsa API-anrop per användare', false),
+(638, 'C', 'Implementera lazy loading', true),
+(638, 'D', 'Använda endast JSON för stora datamängder', false),
+-- För fråga 189
+(639, 'A', 'Att öka API:ets prestanda', false),
+(639, 'B', 'Att förenkla utvecklingsprocessen', false),
+(639, 'C', 'Att möjliggöra framtida ändringar utan att bryta befintliga integrationer', true),
+(639, 'D', 'Att minska API:ets attackyta', false),
+-- För fråga 190
+(640, 'A', 'Komprimering', false),
+(640, 'B', 'Caching', true),
+(640, 'C', 'Kryptering', false),
+(640, 'D', 'Paginering', false);
+
+INSERT INTO QUESTIONS (id, question_number, course_name, question_text) VALUES
+                                                                            (641, 191, 'API', '191. Vilket av följande är inte en grundläggande princip för API-säkerhet?'),
+                                                                            (642, 192, 'API', '192. Vad är huvudsyftet med auktorisering i API-säkerhet?'),
+                                                                            (643, 193, 'API', '193. Vilken påstående om HTTPS är korrekt när det gäller API-säkerhet?'),
+                                                                            (644, 194, 'API', '194. Vilket av följande är inte en vanlig metod för autentisering i API-kontext?'),
+                                                                            (645, 195, 'API', '195. Vilken är den främsta fördelen med att använda JWT (JSON Web Tokens) för autentisering?'),
+                                                                            (646, 196, 'API', '196. Vad är huvudsyftet med att implementera rate limiting i en API?'),
+                                                                            (647, 197, 'API', '197. Vilket av följande är inte en rekommenderad praxis för lösenordshantering i API-säkerhet?'),
+                                                                            (648, 198, 'API', '198. Vad är huvudsyftet med OAuth 2.0 i API-säkerhet?'),
+                                                                            (649, 199, 'API', '199. Vilket påstående om intern API-säkerhet är korrekt?'),
+                                                                            (650, 200, 'API', '200. Vilken är den främsta fördelen med att använda token-baserad autentisering i en mikroservicearkitektur?');
+
+INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct) VALUES
+-- För fråga 191
+(641, 'A', 'Autentisering', false),
+(641, 'B', 'Kryptering', false),
+(641, 'C', 'Normalisering', true),
+(641, 'D', 'Validering', false),
+-- För fråga 192
+(642, 'A', 'Att verifiera användarens identitet', false),
+(642, 'B', 'Att validera inkommande data', false),
+(642, 'C', 'Att bestämma vad en autentiserad användare får göra', true),
+(642, 'D', 'Att kryptera data under överföring', false),
+-- För fråga 193
+(643, 'A', 'HTTPS ersätter behovet av autentisering', false),
+(643, 'B', 'HTTPS skyddar endast data under överföring', true),
+(643, 'C', 'HTTPS garanterar att användaren är behörig', false),
+(643, 'D', 'HTTPS är tillräckligt för att fullständigt säkra ett API', false),
+-- För fråga 194
+(644, 'A', 'Basic Authentication', false),
+(644, 'B', 'IP-filtrering', true),
+(644, 'C', 'Token-baserad autentisering', false),
+(644, 'D', 'OAuth 2.0', false),
+-- För fråga 195
+(645, 'A', 'De eliminerar behovet av serversessioner', true),
+(645, 'B', 'De fungerar utan HTTPS', false),
+(645, 'C', 'De är oknäckbara', false),
+(645, 'D', 'De kan inte bli stulna', false),
+-- För fråga 196
+(646, 'A', 'Att minska serverkostnaderna', false),
+(646, 'B', 'Att förhindra brute force-attacker', true),
+(646, 'C', 'Att öka API:ets prestanda', false),
+(646, 'D', 'Att förbättra databasåtkomsten', false),
+-- För fråga 197
+(647, 'A', 'Använda säkra hashningsfunktioner', false),
+(647, 'B', 'Lagra lösenord i klartext för snabb åtkomst', true),
+(647, 'C', 'Implementera multi-factor authentication', false),
+(647, 'D', 'Använda starka, slumpmässiga lösenord', false),
+-- För fråga 198
+(648, 'A', 'Att ersätta HTTPS', false),
+(648, 'B', 'Att möjliggöra säker delegerad åtkomst', true),
+(648, 'C', 'Att kryptera all datatrafik', false),
+(648, 'D', 'Att automatiskt generera API-nycklar', false),
+-- För fråga 199
+(649, 'A', 'Interna API:er behöver inte säkras', false),
+(649, 'B', 'Interna API:er bör skyddas för att förhindra lateral rörelse vid intrång', true),
+(649, 'C', 'Interna API:er kräver mindre säkerhet än publika API:er', false),
+(649, 'D', 'Säkerhet för interna API:er hanteras automatiskt av företagets brandvägg', false),
+-- För fråga 200
+(650, 'A', 'Det eliminerar behovet av kryptering', false),
+(650, 'B', 'Det ersätter behovet av HTTPS', false),
+(650, 'C', 'Det möjliggör stateless autentisering mellan tjänster', true),
+(650, 'D', 'Det garanterar 100% säkerhet mot alla typer av attacker', false);
+
+INSERT INTO QUESTIONS (id, question_number, course_name, question_text) VALUES
+                                                                            (651, 201, 'API', '201. Vilket av följande är inte en del av JWT-strukturen?'),
+                                                                            (652, 202, 'API', '202. Vad är huvudsyftet med HTTPS/TLS i API-säkerhet?'),
+                                                                            (653, 203, 'API', '203. Vilken påstående om JWT är korrekt?'),
+                                                                            (654, 204, 'API', '204. Vilket av följande är inte en standardclaim i JWT?'),
+                                                                            (655, 205, 'API', '205. Vad är huvudsyftet med JwtRequestFilter i en Spring Boot-applikation?'),
+                                                                            (656, 206, 'API', '206. Vilken av följande är en fördel med TLS 1.3 jämfört med tidigare versioner?'),
+                                                                            (657, 207, 'API', '207. Vad är best practice för hantering av känslig information i JWT-payload?'),
+                                                                            (658, 208, 'API', '208. Vilket påstående om HTTPS är felaktigt?'),
+                                                                            (659, 209, 'API', '209. Vad är huvudsyftet med att implementera token-förnyelse i en JWT-baserad autentiseringslösning?'),
+                                                                            (660, 210, 'API', '210. Vilken av följande är inte en rekommenderad praxis vid implementering av JWT-autentisering?');
+
+INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct) VALUES
+                                                                                      (651, 'A', 'Signature', false),
+                                                                                      (651, 'B', 'Header', false),
+                                                                                      (651, 'C', 'Encryption', true),
+                                                                                      (651, 'D', 'Payload', false),
+
+                                                                                      (652, 'A', 'Att generera JWT-tokens', false),
+                                                                                      (652, 'B', 'Att kryptera kommunikationen mellan klient och server', true),
+                                                                                      (652, 'C', 'Att verifiera användarens identitet', false),
+                                                                                      (652, 'D', 'Att hantera användarrättigheter', false),
+
+                                                                                      (653, 'A', 'JWT kräver en databas för validering', false),
+                                                                                      (653, 'B', 'JWT kan inte innehålla anpassade claims', false),
+                                                                                      (653, 'C', 'JWT är alltid krypterade', false),
+                                                                                      (653, 'D', 'JWT är stateless och självinnehållande', true),
+
+                                                                                      (654, 'A', 'exp (Expiration Time)', false),
+                                                                                      (654, 'B', 'role (User Role)', true),
+                                                                                      (654, 'C', 'iss (Issuer)', false),
+                                                                                      (654, 'D', 'sub (Subject)', false),
+
+                                                                                      (655, 'A', 'Att kryptera känslig information', false),
+                                                                                      (655, 'B', 'Att hantera användarregistrering', false),
+                                                                                      (655, 'C', 'Att validera inkommande JWT-tokens', true),
+                                                                                      (655, 'D', 'Att generera nya JWT-tokens', false),
+
+                                                                                      (656, 'A', 'Ökad komplexitet i konfigurationen', false),
+                                                                                      (656, 'B', 'Stöd för äldre krypteringsalgoritmer', false),
+                                                                                      (656, 'C', 'Längre handskakningsprocess', false),
+                                                                                      (656, 'D', 'Reducerad handskakningstid', true),
+
+                                                                                      (657, 'A', 'Öka token-storleken för att rymma mer data', false),
+                                                                                      (657, 'B', 'Kryptera hela payload-delen', false),
+                                                                                      (657, 'C', 'Alltid inkludera all användarinformation', false),
+                                                                                      (657, 'D', 'Undvika att lagra känslig information om möjligt', true),
+
+                                                                                      (658, 'A', 'HTTPS skyddar mot alla typer av cyberattacker', true),
+                                                                                      (658, 'B', 'HTTPS använder TLS för kryptering', false),
+                                                                                      (658, 'C', 'HTTPS verifierar serverns identitet', false),
+                                                                                      (658, 'D', 'HTTPS säkerställer dataintegritet under överföring', false),
+
+                                                                                      (659, 'A', 'Att eliminera behovet av HTTPS', false),
+                                                                                      (659, 'B', 'Att öka storleken på token', false),
+                                                                                      (659, 'C', 'Att minska serverbelastningen', false),
+                                                                                      (659, 'D', 'Att förbättra användarsäkerheten', true),
+
+                                                                                      (660, 'A', 'Använda korta utgångstider för tokens', false),
+                                                                                      (660, 'B', 'Implementera token-förnyelse', false),
+                                                                                      (660, 'C', 'Rotera signeringsnycklar regelbundet', false),
+                                                                                      (660, 'D', 'Lagra JWT i localStorage i webbläsaren', true);
+
+-- Batch-insert för tabellen QUESTIONS
+INSERT INTO QUESTIONS (id, question_number, course_name, question_text) VALUES
+                                                                            (661, 211, 'API', '211. Vilket av följande är INTE ett huvudsyfte med säker API-nyckelhantering?'),
+                                                                            (662, 212, 'API', '212. Vad är det huvudsakliga syftet med token-förnyelse i JWT-hantering?'),
+                                                                            (663, 213, 'API', '213. Vilken av följande är en best practice för API-nyckelhantering?'),
+                                                                            (664, 214, 'API', '214. Vilket påstående är korrekt angående JWT (JSON Web Tokens)?'),
+                                                                            (665, 215, 'API', '215. Vad är huvudsyftet med att använda en Hardware Security Module (HSM) i API-säkerhetskontext?'),
+                                                                            (666, 216, 'API', '216. Vilken av följande är INTE en vanlig komponent i livscykeln för API-nycklar?'),
+                                                                            (667, 217, 'API', '217. Vad är huvudsyftet med att implementera rate limiting för API-nycklar?'),
+                                                                            (668, 218, 'API', '218. Vilket av följande är ett exempel på en avancerad JWT-teknik?'),
+                                                                            (669, 219, 'API', '219. Vilken är den primära fördelen med att implementera dynamisk API-nyckelhantering?'),
+                                                                            (670, 220, 'API', '220. Vad är det främsta syftet med att implementera token-revokering i ett JWT-baserat system?');
+
+-- Batch-insert för tabellen QUESTION-OPTIONS
+INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct) VALUES
+-- För fråga 211
+(661, 'A', 'Förhindra obehörig åtkomst', true),
+(661, 'B', 'Skydda företagets resurser', true),
+(661, 'C', 'Öka hastigheten på API-anrop', false),
+(661, 'D', 'Upprätthålla användarnas förtroende', true),
+-- För fråga 212
+(662, 'A', 'Att minska serverbelastningen', false),
+(662, 'B', 'Att eliminera behovet av initial autentisering', false),
+(662, 'C', 'Att möjliggöra obegränsad åtkomst till API:er', false),
+(662, 'D', 'Att öka säkerheten genom att regelbundet byta ut tokens', true),
+-- För fråga 213
+(663, 'A', 'Implementera regelbunden nyckelrotation', true),
+(663, 'B', 'Lagra API-nycklar i klartext i databasen', false),
+(663, 'C', 'Använda samma API-nyckel för alla klienter', false),
+(663, 'D', 'Inkludera API-nycklar direkt i frontend-kod', false),
+-- För fråga 214
+(664, 'A', 'JWT kan aldrig återkallas', false),
+(664, 'B', 'JWT är stateful och kräver serversessioner', false),
+(664, 'C', 'JWT kan implementeras med återkallelsesmekanismer', true),
+(664, 'D', 'JWT är endast lämpliga för engångsautentisering', false),
+-- För fråga 215
+(665, 'A', 'Att automatisera API-dokumentation', false),
+(665, 'B', 'Att förbättra användarupplevelsen för API-konsumenter', false),
+(665, 'C', 'Att säkert generera och lagra kryptografiska nycklar', true),
+(665, 'D', 'Att öka hastigheten på API-anrop', false),
+-- För fråga 216
+(666, 'A', 'Generering', true),
+(666, 'B', 'Validering', true),
+(666, 'C', 'Kompilering', false),
+(666, 'D', 'Rotation', true),
+-- För fråga 217
+(667, 'A', 'Att förbättra API:ets dokumentation', false),
+(667, 'B', 'Att minska latensen för API-anrop', false),
+(667, 'C', 'Att öka API:ets tillgänglighet', false),
+(667, 'D', 'Att förhindra missbruk av API:et', true),
+-- För fråga 218
+(668, 'A', 'Sliding sessions', true),
+(668, 'B', 'Statisk token-generering', false),
+(668, 'C', 'Obegränsad token-livslängd', false),
+(668, 'D', 'Lagring av tokens i klartext', false),
+-- För fråga 219
+(669, 'A', 'Att eliminera behovet av autentisering', false),
+(669, 'B', 'Att öka flexibiliteten och säkerheten', true),
+(669, 'C', 'Att minska kostnaderna för API-drift', false),
+(669, 'D', 'Att förenkla API-dokumentationen', false),
+-- För fråga 220
+(670, 'A', 'Att omedelbart kunna ogiltigförklara åtkomst vid säkerhetsincidenter', true),
+(670, 'B', 'Att öka systemets prestanda', false),
+(670, 'C', 'Att förenkla användarregistreringen', false),
+(670, 'D', 'Att automatisera token-generering', false);
+
+-- Batch-insert för tabellen QUESTIONS
+INSERT INTO QUESTIONS (id, question_number, course_name, question_text) VALUES
+                                                                            (671, 221, 'API', '221. Vad är huvudsyftet med JwtUtil-klassen i en Spring Boot-applikation?'),
+                                                                            (672, 222, 'API', '222. Vilken information bör INTE lagras i en JWT-token?'),
+                                                                            (673, 223, 'API', '223. Vilken dependency krävs för att implementera JWT i ett Spring Boot-projekt?'),
+                                                                            (674, 224, 'API', '224. Hur bör tokens skickas från klienten till servern?'),
+                                                                            (675, 225, 'API', '225. Vad är en säker lagringstid för JWT-tokens?'),
+                                                                            (676, 226, 'API', '226. Vilket påstående om SignatureAlgorithm.HS512 är korrekt?'),
+                                                                            (677, 227, 'API', '227. Vad är bästa praxis för att hantera secretKey i en produktionsmiljö?'),
+                                                                            (678, 228, 'API', '228. Vilken HTTP-metod bör användas för login-endpointen i AuthController?'),
+                                                                            (679, 229, 'API', '229. Vad händer om en JWT-token har gått ut?'),
+                                                                            (680, 230, 'API', '230. Vilket är det första steget när en användare försöker komma åt en skyddad endpoint?');
+
+-- Batch-insert för tabellen QUESTION-OPTIONS
+INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct) VALUES
+-- För fråga 221
+(671, 'A', 'Att hantera databasanslutningar', false),
+(671, 'B', 'Att generera och validera JWT-tokens', true),
+(671, 'C', 'Att kryptera lösenord', false),
+(671, 'D', 'Att hantera HTTP-requests', false),
+-- För fråga 222
+(672, 'A', 'Användarens ID', false),
+(672, 'B', 'Tokens utgångsdatum', false),
+(672, 'C', 'Lösenord', true),
+(672, 'D', 'Användarnamn', false),
+-- För fråga 223
+(673, 'A', 'spring-boot-starter-web', false),
+(673, 'B', 'spring-boot-starter-data-jpa', false),
+(673, 'C', 'io.jsonwebtoken:jjwt', true),
+(673, 'D', 'spring-boot-starter-test', false),
+-- För fråga 224
+(674, 'A', 'I URL:en som en parameter', false),
+(674, 'B', 'I request body', false),
+(674, 'C', 'I Authorization-headern med Bearer-prefix', true),
+(674, 'D', 'Som en cookie', false),
+-- För fråga 225
+(675, 'A', '30 dagar', false),
+(675, 'B', '10 timmar', true),
+(675, 'C', 'Permanent', false),
+(675, 'D', '1 år', false),
+-- För fråga 226
+(676, 'A', 'Det är en asymmetrisk krypteringsalgoritm', false),
+(676, 'B', 'Det är den minst säkra JWT-signeringsalgoritmen', false),
+(676, 'C', 'Det är en HMAC SHA-512 signeringsalgoritm', true),
+(676, 'D', 'Det kräver ett publikt och privat nyckelpar', false),
+-- För fråga 227
+(677, 'A', 'Hårdkoda den i JwtUtil-klassen', false),
+(677, 'B', 'Lagra den i en miljövariabel eller konfigurationsfil', true),
+(677, 'C', 'Använda samma nyckel i alla miljöer', false),
+(677, 'D', 'Dela nyckeln i versionskontroll', false),
+-- För fråga 228
+(678, 'A', 'GET', false),
+(678, 'B', 'PUT', false),
+(678, 'C', 'POST', true),
+(678, 'D', 'DELETE', false),
+-- För fråga 229
+(679, 'A', 'Den förnyas automatiskt', false),
+(679, 'B', 'Användaren får fortsätta använda systemet', false),
+(679, 'C', 'Servern returnerar ett felmeddelande', true),
+(679, 'D', 'Token blir giltig igen vid nästa request', false),
+-- För fråga 230
+(680, 'A', 'Databasen kontrolleras', false),
+(680, 'B', 'Token valideras', true),
+(680, 'C', 'Lösenordet hashas', false),
+(680, 'D', 'En ny token genereras', false);
+
+INSERT INTO QUESTIONS (id, question_number, course_name, question_text) VALUES
+                                                                            (681, 231, 'API', '231. Vad är den fundamentala skillnaden mellan OAuth2 och OpenID Connect?'),
+                                                                            (682, 232, 'API', '232. Vad representerar "scope" i OAuth2/OpenID Connect?'),
+                                                                            (683, 233, 'API', '233. Vilken typ av token innehåller användarinformation i OpenID Connect?'),
+                                                                            (684, 234, 'API', '234. Vilket scope måste inkluderas för att använda OpenID Connect?'),
+                                                                            (685, 235, 'API', '235. Var bör OAuth2/OpenID Connect tokens lagras i en webbapplikation?'),
+                                                                            (686, 236, 'API', '236. Vad är huvudsyftet med en ID Token i OpenID Connect?'),
+                                                                            (687, 237, 'API', '237. Vilket påstående om OAuth2 callback/redirect URI är korrekt?'),
+                                                                            (688, 238, 'API', '238. Vilken information bör INTE inkluderas i en access token?'),
+                                                                            (689, 239, 'API', '239. Vad är ett typiskt användningsfall för OpenID Connect?'),
+                                                                            (690, 240, 'API', '240. Vilken HTTP-metod används vanligtvis för att hämta tokens från token-endpointen?');
+
+INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct) VALUES
+-- Fråga 231
+(681, 'A', 'OAuth2 är nyare än OpenID Connect', false),
+(681, 'B', 'OAuth2 hanterar auktorisation medan OpenID Connect hanterar autentisering', true),
+(681, 'C', 'OAuth2 är mindre säkert än OpenID Connect', false),
+(681, 'D', 'OAuth2 kan endast användas med Google', false),
+-- Fråga 232
+(682, 'A', 'Tiden som en token är giltig', false),
+(682, 'B', 'Storleken på användarens profil', false),
+(682, 'C', 'Behörigheterna som appen begär', true),
+(682, 'D', 'Antalet tillåtna inloggningsförsök', false),
+-- Fråga 233
+(683, 'A', 'Refresh Token', false),
+(683, 'B', 'Access Token', false),
+(683, 'C', 'ID Token', true),
+(683, 'D', 'Bearer Token', false),
+-- Fråga 234
+(684, 'A', 'profile', false),
+(684, 'B', 'openid', true),
+(684, 'C', 'email', false),
+(684, 'D', 'auth', false),
+-- Fråga 235
+(685, 'A', 'I localStorage', false),
+(685, 'B', 'I sessionStorage', false),
+(685, 'C', 'I säkra cookies', true),
+(685, 'D', 'I URL:en', false),
+-- Fråga 236
+(686, 'A', 'Att förnya utgångna tokens', false),
+(686, 'B', 'Att auktorisera API-anrop', false),
+(686, 'C', 'Att bevisa användarens identitet', true),
+(686, 'D', 'Att kryptera data', false),
+-- Fråga 237
+(687, 'A', 'Den kan vara vilken URL som helst', false),
+(687, 'B', 'Den måste vara exakt samma som registrerad i OAuth2-providern', true),
+(687, 'C', 'Den behöver inte använda HTTPS', false),
+(687, 'D', 'Den kan ändras dynamiskt under körning', false),
+-- Fråga 238
+(688, 'A', 'Utgångstid', false),
+(688, 'B', 'Användarens lösenord', true),
+(688, 'C', 'Scope', false),
+(688, 'D', 'Client ID', false),
+-- Fråga 239
+(689, 'A', 'Filöverföring mellan servrar', false),
+(689, 'B', 'Databasbackup', false),
+(689, 'C', '"Logga in med Google"', true),
+(689, 'D', 'Nätverksövervakning', false),
+-- Fråga 240
+(690, 'A', 'GET', false),
+(690, 'B', 'POST', true),
+(690, 'C', 'PUT', false),
+(690, 'D', 'DELETE', false);
+
+INSERT INTO QUESTIONS (id, question_number, course_name, question_text) VALUES
+                                                                            (691, 241, 'API', '241. Vad är det grundläggande syftet med RBAC?'),
+                                                                            (692, 242, 'API', '242. Vilken annotation används i Spring Boot för att säkra en endpoint med rollbehörighet?'),
+                                                                            (693, 243, 'API', '243. Vad är bästa praxis gällande antal roller i ett system?'),
+                                                                            (694, 244, 'API', '244. Hur implementeras rollhierarki i Spring Security?'),
+                                                                            (695, 245, 'API', '245. Hur bör roller lagras i en JWT-token?'),
+                                                                            (696, 246, 'API', '246. Vilket är ett exempel på god praxis vid testning av RBAC?'),
+                                                                            (697, 247, 'API', '247. Hur bör felhantering implementeras för otillåten åtkomst?'),
+                                                                            (698, 248, 'API', '248. Vad är syftet med @EnableGlobalMethodSecurity i Spring Security?'),
+                                                                            (699, 249, 'API', '249. Vad betyder det när en admin-roll ärver från en moderator-roll?'),
+                                                                            (700, 250, 'API', '250. Vilken är den rekommenderade metoden för att strukturera roller i ett system?');
+
+INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct) VALUES
+-- Fråga 241
+(691, 'A', 'Att kryptera användardata', false),
+(691, 'B', 'Att kontrollera användares behörigheter baserat på roller', true),
+(691, 'C', 'Att hantera databasanslutningar', false),
+(691, 'D', 'Att generera JWT tokens', false),
+-- Fråga 242
+(692, 'A', '@Secured', false),
+(692, 'B', '@RoleRequired', false),
+(692, 'C', '@PreAuthorize', true),
+(692, 'D', '@RoleProtected', false),
+-- Fråga 243
+(693, 'A', 'Ju fler roller desto bättre', false),
+(693, 'B', 'Håll det enkelt med få, väldefinierade roller', true),
+(693, 'C', 'Skapa en unik roll för varje användare', false),
+(693, 'D', 'Använd endast admin och användarroller', false),
+-- Fråga 244
+(694, 'A', 'Genom att använda @Hierarchy annotation', false),
+(694, 'B', 'Genom att implementera RoleHierarchyImpl', true),
+(694, 'C', 'Det går inte att implementera rollhierarki', false),
+(694, 'D', 'Genom att använda @RoleInheritance', false),
+-- Fråga 245
+(695, 'A', 'I header', false),
+(695, 'B', 'I signature', false),
+(695, 'C', 'I claims', true),
+(695, 'D', 'I URL:en', false),
+-- Fråga 246
+(696, 'A', 'Testa endast admin-behörigheter', false),
+(696, 'B', 'Skippa testning av behörigheter', false),
+(696, 'C', 'Testa att användare inte kan nå otillåtna resurser', true),
+(696, 'D', 'Bara testa i produktion', false),
+-- Fråga 247
+(697, 'A', 'Ignorera felet tyst', false),
+(697, 'B', 'Returnera en detaljerad stacktrace', false),
+(697, 'C', 'Returnera HTTP 403 med ett tydligt meddelande', true),
+(697, 'D', 'Omdirigera till startsidan', false),
+-- Fråga 248
+(698, 'A', 'Aktiverar databaskoppling', false),
+(698, 'B', 'Möjliggör användning av säkerhetsannotationer', true),
+(698, 'C', 'Skapar automatiskt roller', false),
+(698, 'D', 'Krypterar all kommunikation', false),
+-- Fråga 249
+(699, 'A', 'Moderatorn får admin-rättigheter', false),
+(699, 'B', 'Admin förlorar sina specifika rättigheter', false),
+(699, 'C', 'Admin får moderatorns rättigheter plus sina egna', true),
+(699, 'D', 'Rollerna blir identiska', false),
+-- Fråga 250
+(700, 'A', 'Basera roller på användare istället för behörigheter', false),
+(700, 'B', 'Skapa en ny roll för varje behörighet', false),
+(700, 'C', 'Basera roller på behörigheter och ansvar', true),
+(700, 'D', 'Kopiera roller från andra system', false);
+
+-- Batch-insert för tabellen QUESTIONS
+INSERT INTO QUESTIONS (id, question_number, course_name, question_text) VALUES
+                                                                            (701, 251, 'API', '251. Vad är huvudsyftet med en .env fil?'),
+                                                                            (702, 252, 'API', '252. Vad bör man göra om man av misstag laddat upp en .env fil till Git?'),
+                                                                            (703, 253, 'API', '253. Vilket verktyg används ofta i Spring Boot för att hantera .env filer?'),
+                                                                            (704, 254, 'API', '254. Hur bör olika miljöer hanteras i ett projekt?'),
+                                                                            (705, 255, 'API', '255. Vilken fil används för att hindra .env från att checkas in i Git?'),
+                                                                            (706, 256, 'API', '256. Hur bör känsliga miljövariabler delas mellan utvecklare?'),
+                                                                            (707, 257, 'API', '257. När bör miljövariabelvalidering ske?'),
+                                                                            (708, 258, 'API', '258. Vad är syftet med en .env.example fil?'),
+                                                                            (709, 259, 'API', '259. Vilken är bästa praxis för att hantera miljövariabler i produktionsmiljö?'),
+                                                                            (710, 260, 'API', '260. Hur ofta bör känsliga miljövariabler roteras?');
+
+-- Batch-insert för tabellen QUESTION_OPTIONS
+INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct) VALUES
+-- Fråga 251
+(701, 'A', 'Att lagra känslig konfigurationsinformation', true),
+(701, 'B', 'Att hantera Git-repositories', false),
+(701, 'C', 'Att kompilera kod', false),
+(701, 'D', 'Att hantera databasbackuper', false),
+-- Fråga 252
+(702, 'A', 'Ignorera problemet', false),
+(702, 'B', 'Bara ta bort filen från repot', false),
+(702, 'C', 'Fortsätta som vanligt', false),
+(702, 'D', 'Skapa nytt repo och rotera alla hemligheter', true),
+-- Fråga 253
+(703, 'A', 'dotenv-java', true),
+(703, 'B', 'envparser', false),
+(703, 'C', 'configreader', false),
+(703, 'D', 'springenv', false),
+-- Fråga 254
+(704, 'A', 'Använd samma .env för alla miljöer', false),
+(704, 'B', 'Ha inga miljövariabler alls', false),
+(704, 'C', 'Använd separata .env filer för olika miljöer', true),
+(704, 'D', 'Hårdkoda värden i koden', false),
+-- Fråga 255
+(705, 'A', '.gitconfig', false),
+(705, 'B', '.gitattributes', false),
+(705, 'C', '.env.example', false),
+(705, 'D', '.gitignore', true),
+-- Fråga 256
+(706, 'A', 'Via e-post', false),
+(706, 'B', 'Via säker lösenordshanterare', true),
+(706, 'C', 'I Git-repositoryt', false),
+(706, 'D', 'På en publik webbsida', false),
+-- Fråga 257
+(707, 'A', 'När användaren loggar in', false),
+(707, 'B', 'När databasen uppdateras', false),
+(707, 'C', 'När applikationen startar', true),
+(707, 'D', 'När en request görs', false),
+-- Fråga 258
+(708, 'A', 'Att lagra riktiga hemligheter', false),
+(708, 'B', 'Att visa vilka variabler som behövs', true),
+(708, 'C', 'Att köra tester', false),
+(708, 'D', 'Att konfigurera Git', false),
+-- Fråga 259
+(709, 'A', 'Använda samma som i utveckling', false),
+(709, 'B', 'Inte använda några alls', false),
+(709, 'C', 'Hårdkoda dem i koden', false),
+(709, 'D', 'Hantera dem via deployment platform', true),
+-- Fråga 260
+(710, 'A', 'Regelbundet enligt säkerhetspolicy', true),
+(710, 'B', 'Aldrig', false),
+(710, 'C', 'Bara vid säkerhetsincidenter', false),
+(710, 'D', 'En gång om året', false);
+
+INSERT INTO QUESTIONS (id, question_number, course_name, question_text) VALUES
+                                                                            (711, 261, 'API', '261. Vad är huvudsyftet med CORS?'),
+                                                                            (712, 262, 'API', '262. Hur bör CORS konfigureras i produktion?'),
+                                                                            (713, 263, 'API', '263. Vad är en "preflight request"?'),
+                                                                            (714, 264, 'API', '264. Vilken header används för att specificera tillåtna origins?'),
+                                                                            (715, 265, 'API', '265. Hur hanteras CORS i utvecklingsmiljö?'),
+                                                                            (716, 266, 'API', '266. Vilken HTTP-metod används för preflight-requests?'),
+                                                                            (717, 267, 'API', '267. Hur bör cookies hanteras i CORS-konfigurationen?'),
+                                                                            (718, 268, 'API', '268. Vad är bästa praxis för att hantera CORS-fel i utveckling?'),
+                                                                            (719, 269, 'API', '269. Vilken CORS-header används för att specificera tillåtna HTTP-metoder?'),
+                                                                            (720, 270, 'API', '270. Hur länge bör preflight-svar cachas?');
+
+INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct) VALUES
+-- För fråga 261
+(711, 'A', 'Att öka prestandan', false),
+(711, 'B', 'Att begränsa vilka domäner som får anropa API:et', true),
+(711, 'C', 'Att kryptera data', false),
+(711, 'D', 'Att hantera databaskopplingar', false),
+-- För fråga 262
+(712, 'A', 'Tillåt alla origins med "*"', false),
+(712, 'B', 'Blockera alla anrop', false),
+(712, 'C', 'Specificera exakta tillåtna domäner', true),
+(712, 'D', 'Ignorera CORS helt', false),
+-- För fråga 263
+(713, 'A', 'En kontroll innan huvudanropet', true),
+(713, 'B', 'En typ av autentisering', false),
+(713, 'C', 'En cachningsstrategi', false),
+(713, 'D', 'En databasförfrågan', false),
+-- För fråga 264
+(714, 'A', 'Allow-Origins', false),
+(714, 'B', 'Origin-Control', false),
+(714, 'C', 'Access-Control-Allow-Origin', true),
+(714, 'D', 'Cross-Origin-Allow', false),
+-- För fråga 265
+(715, 'A', 'Stäng av all CORS-kontroll', false),
+(715, 'B', 'Tillåt localhost och specifika utvecklingsportar', true),
+(715, 'C', 'Använd samma inställningar som i produktion', false),
+(715, 'D', 'Ignorera CORS-fel', false),
+-- För fråga 266
+(716, 'A', 'GET', false),
+(716, 'B', 'POST', false),
+(716, 'C', 'OPTIONS', true),
+(716, 'D', 'PUT', false),
+-- För fråga 267
+(717, 'A', 'Alltid tillåta alla cookies', false),
+(717, 'B', 'Aldrig tillåta cookies', false),
+(717, 'C', 'Sätta allowCredentials till true och specificera origin', true),
+(717, 'D', 'Ignorera cookie-inställningar', false),
+-- För fråga 268
+(718, 'A', 'Ignorera felen', false),
+(718, 'B', 'Använda wildcard (*)', false),
+(718, 'C', 'Logga och analysera felen', true),
+(718, 'D', 'Stänga av webbläsarens säkerhet', false),
+-- För fråga 269
+(719, 'A', 'Access-Control-Allow-Methods', true),
+(719, 'B', 'Allow-Methods', false),
+(719, 'C', 'Allowed-HTTP-Methods', false),
+(719, 'D', 'CORS-Methods-Allowed', false),
+-- För fråga 270
+(720, 'A', 'För alltid', false),
+(720, 'B', 'Aldrig', false),
+(720, 'C', 'En rimlig tid som 1-24 timmar', true),
+(720, 'D', '1 minut', false);
+
+INSERT INTO QUESTIONS (id, question_number, course_name, question_text) VALUES
+                                                                            (721, 271, 'API', '271. Vad är huvudsyftet med OpenAPI Specification (OAS)?'),
+                                                                            (722, 272, 'API', '272. Vilken av följande är INTE en del av Swagger-verktygen?'),
+                                                                            (723, 273, 'API', '273. Vad är en fördel med att använda OpenAPI för API-dokumentation?'),
+                                                                            (724, 274, 'API', '274. Vilket format används vanligtvis för att skriva OpenAPI-specifikationer?'),
+                                                                            (725, 275, 'API', '275. Vad är huvudsyftet med Swagger UI?'),
+                                                                            (726, 276, 'API', '276. Vad är en fördel med att använda en "design-first" approach när man skapar API-dokumentation med OpenAPI?'),
+                                                                            (727, 277, 'API', '277. Vilken av följande är INTE en rekommenderad praxis för att upprätthålla API-dokumentation?'),
+                                                                            (728, 278, 'API', '278. Vilket verktyg används ofta för att skapa interaktiv API-dokumentation baserad på OpenAPI-specifikationer?'),
+                                                                            (729, 279, 'API', '279. Vad är syftet med komponentsektionen i en OpenAPI-specifikation?'),
+                                                                            (730, 280, 'API', '280. Vilken information bör INTE inkluderas i en API-dokumentation av säkerhetsskäl?');
+
+INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct) VALUES
+-- För fråga med id 721 (fråga 271)
+(721, 'A', 'Att optimera API-prestanda', false),
+(721, 'B', 'Att generera API-kod automatiskt', false),
+(721, 'C', 'Att standardisera beskrivningen av RESTful API:er', true),
+(721, 'D', 'Att hantera databaskopplingar för API:er', false),
+-- För fråga med id 722 (fråga 272)
+(722, 'A', 'Swagger UI', false),
+(722, 'B', 'Swagger Editor', false),
+(722, 'C', 'Swagger Database', true),
+(722, 'D', 'Swagger Codegen', false),
+-- För fråga med id 723 (fråga 273)
+(723, 'A', 'Det eliminerar behovet av manuell testning', false),
+(723, 'B', 'Det garanterar 100% felfri API-implementering', false),
+(723, 'C', 'Det möjliggör automatisk generering av uppdaterad dokumentation', true),
+(723, 'D', 'Det ersätter behovet av utvecklare i API-designprocessen', false),
+-- För fråga med id 724 (fråga 274)
+(724, 'A', 'XML och HTML', false),
+(724, 'B', 'JSON och YAML', true),
+(724, 'C', 'CSV och TXT', false),
+(724, 'D', 'SQL och PHP', false),
+-- För fråga med id 725 (fråga 275)
+(725, 'A', 'Att kompilera API-kod', false),
+(725, 'B', 'Att generera interaktiv API-dokumentation', true),
+(725, 'C', 'Att hantera databasmigrationer', false),
+(725, 'D', 'Att övervaka API-prestanda i realtid', false),
+-- För fråga med id 726 (fråga 276)
+(726, 'A', 'Det eliminerar behovet av att skriva kod', false),
+(726, 'B', 'Det garanterar felfri API-implementering', false),
+(726, 'C', 'Det möjliggör tidig feedback och förbättrad API-design', true),
+(726, 'D', 'Det ersätter behovet av utvecklare i API-processen', false),
+-- För fråga med id 727 (fråga 277)
+(727, 'A', 'Använda en enda källa för dokumentationen', false),
+(727, 'B', 'Inkludera interaktiva exempel', false),
+(727, 'C', 'Uppdatera dokumentationen manuellt efter varje kodändring', true),
+(727, 'D', 'Använda versionshantering för dokumentationen', false),
+-- För fråga med id 728 (fråga 278)
+(728, 'A', 'Postman', false),
+(728, 'B', 'Swagger UI', true),
+(728, 'C', 'Git', false),
+(728, 'D', 'Visual Studio Code', false),
+-- För fråga med id 729 (fråga 279)
+(729, 'A', 'Att definiera API:ns endpoints', false),
+(729, 'B', 'Att specificera serverns URL', false),
+(729, 'C', 'Att definiera återanvändbara element som scheman och parametrar', true),
+(729, 'D', 'Att hantera autentisering och auktorisering', false),
+-- För fråga med id 730 (fråga 280)
+(730, 'A', 'Autentiseringsmetoder', false),
+(730, 'B', 'Felkoder och deras betydelser', false),
+(730, 'C', 'Exempel på API-anrop', false),
+(730, 'D', 'Faktiska API-nycklar eller lösenord', true);
+
+INSERT INTO QUESTIONS (id, question_number, course_name, question_text) VALUES
+                                                                            (731, 281, 'API', '281. Vad är huvudsyftet med att implementera Swagger i ett Spring Boot-projekt?'),
+                                                                            (732, 282, 'API', '282. Vilken annotation används för att aktivera Swagger i en Spring Boot-applikation?'),
+                                                                            (733, 283, 'API', '283. Vilken URL används vanligtvis för att komma åt Swagger UI i en Spring Boot-applikation?'),
+                                                                            (734, 284, 'API', '284. Vilken annotation används för att beskriva en enskild API-operation i Swagger?'),
+                                                                            (735, 285, 'API', '285. Vad är syftet med Docket-klassen i Swagger-konfigurationen?'),
+                                                                            (736, 286, 'API', '286. Vilken annotation används för att gruppera relaterade API-operationer i Swagger?'),
+                                                                            (737, 287, 'API', '287. Vad är huvudfördelen med att använda Swagger i ett Spring Boot-projekt?'),
+                                                                            (738, 288, 'API', '288. Vilken annotation används för att beskriva möjliga svar från en API-operation i Swagger?'),
+                                                                            (739, 289, 'API', '289. Vad är syftet med @ApiModelProperty-annotationen i Swagger?'),
+                                                                            (740, 290, 'API', '290. Vilken typ av information kan Swagger automatiskt generera för ett Spring Boot API?');
+
+INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct) VALUES
+-- Fråga 281
+(731, 'A', 'Att öka applikationens prestanda', false),
+(731, 'B', 'Att generera automatisk API-dokumentation', true),
+(731, 'C', 'Att hantera databasanslutningar', false),
+(731, 'D', 'Att implementera säkerhetsfunktioner', false),
+-- Fråga 282
+(732, 'A', '@SwaggerConfig', false),
+(732, 'B', '@SpringBootApplication', false),
+(732, 'C', '@EnableSwagger2', true),
+(732, 'D', '@Configuration', false),
+-- Fråga 283
+(733, 'A', 'http://localhost:8080/swagger-ui/index.html', true),
+(733, 'B', 'http://localhost:8080/api-docs', false),
+(733, 'C', 'http://localhost:8080/api/documentation', false),
+(733, 'D', 'http://localhost:8080/swagger', false),
+-- Fråga 284
+(734, 'A', '@ApiResponse', false),
+(734, 'B', '@ApiParam', false),
+(734, 'C', '@ApiOperation', true),
+(734, 'D', '@ApiModel', false),
+-- Fråga 285
+(735, 'A', 'Att hantera databaskopplingar', false),
+(735, 'B', 'Att definiera säkerhetsinställningar', false),
+(735, 'C', 'Att konfigurera Swaggers dokumentationsgenerering', true),
+(735, 'D', 'Att skapa API-endpoints', false),
+-- Fråga 286
+(736, 'A', '@Api', true),
+(736, 'B', '@ApiGroup', false),
+(736, 'C', '@ApiOperation', false),
+(736, 'D', '@ApiModel', false),
+-- Fråga 287
+(737, 'A', 'Det genererar automatiskt klientkod', false),
+(737, 'B', 'Det ger interaktiv API-dokumentation', true),
+(737, 'C', 'Det ökar API:ets prestanda', false),
+(737, 'D', 'Det förbättrar API:ets säkerhet', false),
+-- Fråga 288
+(738, 'A', '@ApiResponse', true),
+(738, 'B', '@ApiModel', false),
+(738, 'C', '@ApiOperation', false),
+(738, 'D', '@ApiParam', false),
+-- Fråga 289
+(739, 'A', 'Att beskriva egenskaper i en modellklass', true),
+(739, 'B', 'Att gruppera relaterade API-operationer', false),
+(739, 'C', 'Att definiera säkerhetskrav för API:et', false),
+(739, 'D', 'Att beskriva en hel API-operation', false),
+-- Fråga 290
+(740, 'A', 'Prestandastatistik', false),
+(740, 'B', 'API-endpoints och deras parametrar', true),
+(740, 'C', 'Databasscheman', false),
+(740, 'D', 'Användarautentiseringslogik', false);
+
+INSERT INTO QUESTIONS (id, question_number, course_name, question_text) VALUES
+                                                                            (741, 291, 'API', '291. Vad är huvudsyftet med Swagger?'),
+                                                                            (742, 292, 'API', '292. Vilken av följande är INTE en del av grundläggande Swagger-koncept?'),
+                                                                            (743, 293, 'API', '293. Hur implementerar man vanligtvis Swagger i ett Spring Boot-projekt?'),
+                                                                            (744, 294, 'API', '294. Vilken annotation används för att beskriva en API-operation i Swagger?'),
+                                                                            (745, 295, 'API', '295. Vad är syftet med @ApiResponses-annotationen i Swagger?'),
+                                                                            (746, 296, 'API', '296. Vilken av följande är INTE en fördel med att använda Swagger?'),
+                                                                            (747, 297, 'API', '297. Vad är huvudsyftet med Swagger UI?'),
+                                                                            (748, 298, 'API', '298. Vilken fil används vanligtvis för att definiera Swagger/OpenAPI-specifikationen i ett projekt?'),
+                                                                            (749, 299, 'API', '299. Vad är en best practice för att strukturera Swagger-dokumentation?'),
+                                                                            (750, 300, 'API', '300. Vilken av följande är INTE en del av avancerade funktioner i Swagger?');
+
+INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct) VALUES
+-- För fråga 291
+(741, 'A', 'Att generera kod automatiskt', false),
+(741, 'B', 'Att testa API:er', false),
+(741, 'C', 'Att standardisera API-dokumentation', true),
+(741, 'D', 'Att optimera API-prestanda', false),
+-- För fråga 292
+(742, 'A', 'Components', false),
+(742, 'B', 'Operations', false),
+(742, 'C', 'Paths', false),
+(742, 'D', 'Middleware', true),
+-- För fråga 293
+(743, 'A', 'Genom att använda en extern dokumentationstjänst', false),
+(743, 'B', 'Genom att skriva manuell HTML-dokumentation', false),
+(743, 'C', 'Genom att skriva kommentarer i koden', false),
+(743, 'D', 'Genom att lägga till en Swagger-beroende och konfigurera den', true),
+-- För fråga 294
+(744, 'A', '@ApiOperation', false),
+(744, 'B', '@Operation', true),
+(744, 'C', '@SwaggerOperation', false),
+(744, 'D', '@DocumentOperation', false),
+-- För fråga 295
+(745, 'A', 'Att beskriva API:ets övergripande struktur', false),
+(745, 'B', 'Att dokumentera möjliga svarskoder och deras betydelser', true),
+(745, 'C', 'Att specificera förfrågningsparametrar', false),
+(745, 'D', 'Att definiera säkerhetsscheman', false),
+-- För fråga 296
+(746, 'A', 'Det förbättrar utvecklarupplevelsen', false),
+(746, 'B', 'Det underlättar API-underhåll och uppdateringar', false),
+(746, 'C', 'Det eliminerar behovet av manuell testning', true),
+(746, 'D', 'Det minskar supportkostnader', false),
+-- För fråga 297
+(747, 'A', 'Att automatisera API-testning', false),
+(747, 'B', 'Att generera klientbibliotek', false),
+(747, 'C', 'Att optimera API-prestanda', false),
+(747, 'D', 'Att tillhandahålla interaktiv API-dokumentation', true),
+-- För fråga 298
+(748, 'A', 'swagger.json', false),
+(748, 'B', 'swagger-config.xml', false),
+(748, 'C', 'api-docs.yaml', false),
+(748, 'D', 'openapi.yaml', true),
+-- För fråga 299
+(749, 'A', 'Att gruppera relaterade operationer med taggning', true),
+(749, 'B', 'Att använda olika namngivningskonventioner för varje endpoint', false),
+(749, 'C', 'Att inkludera så mycket teknisk jargong som möjligt', false),
+(749, 'D', 'Att undvika att dokumentera felkoder', false),
+-- För fråga 300
+(750, 'A', 'Återanvändbara komponenter', false),
+(750, 'B', 'Anpassade scheman', false),
+(750, 'C', 'Automatisk kodgenerering', true),
+(750, 'D', 'Säkerhetsdefinitioner', false);
+
+INSERT INTO QUESTIONS (id, question_number, course_name, question_text) VALUES
+                                                                            (751, 301, 'API', '301. Vad är huvudsyftet med att generera klientbibliotek från API-specifikationer?'),
+                                                                            (752, 302, 'API', '302. Vilket verktyg används primärt för att generera klientbibliotek från OpenAPI-specifikationer?'),
+                                                                            (753, 303, 'API', '303. Vilken av följande är INTE en fördel med att använda genererade klientbibliotek?'),
+                                                                            (754, 304, 'API', '304. Hur kan man installera Swagger Codegen i ett Maven-projekt?'),
+                                                                            (755, 305, 'API', '305. Vilken fil används för att anpassa genereringen av klientbibliotek med Swagger Codegen?'),
+                                                                            (756, 306, 'API', '306. Vilken av följande är INTE en typisk katalog i den genererade biblioteksstrukturen?'),
+                                                                            (757, 307, 'API', '307. Vad är en best practice när man arbetar med genererade klientbibliotek?'),
+                                                                            (758, 308, 'API', '308. Vilken av följande är en utmaning när man använder genererade klientbibliotek?'),
+                                                                            (759, 309, 'API', '309. Hur integrerar man vanligtvis ett genererat klientbibliotek i ett Java-projekt?'),
+                                                                            (760, 310, 'API', '310. Vad är en fördel med att använda genererade klientbibliotek jämfört med att skriva egen kod för API-interaktioner?');
+
+INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct) VALUES
+-- Fråga 301
+(751, 'A', 'Att förbättra API:ets prestanda', false),
+(751, 'B', 'Att automatisera skapandet av API-dokumentation', false),
+(751, 'C', 'Att förenkla interaktionen med API:er för utvecklare', true),
+(751, 'D', 'Att öka säkerheten i API-anrop', false),
+-- Fråga 302
+(752, 'A', 'Spring Boot', false),
+(752, 'B', 'Postman', false),
+(752, 'C', 'Maven', false),
+(752, 'D', 'Swagger Codegen', true),
+-- Fråga 303
+(753, 'A', 'Minskad utvecklingstid', false),
+(753, 'B', 'Förbättrad typsäkerhet', false),
+(753, 'C', 'Garanterad felfri API-implementation', true),
+(753, 'D', 'Konsekvent användning av API:et', false),
+-- Fråga 304
+(754, 'A', 'Genom att lägga till en dependency i pom.xml', false),
+(754, 'B', 'Genom att installera en global CLI-verktyg', false),
+(754, 'C', 'Genom att lägga till en plugin i pom.xml', true),
+(754, 'D', 'Genom att använda npm install', false),
+-- Fråga 305
+(755, 'A', 'pom.xml', false),
+(755, 'B', 'application.properties', false),
+(755, 'C', 'swagger.yaml', false),
+(755, 'D', 'config.json', true),
+-- Fråga 306
+(756, 'A', 'api', false),
+(756, 'B', 'client', false),
+(756, 'C', 'controllers', true),
+(756, 'D', 'model', false),
+-- Fråga 307
+(757, 'A', 'Manuellt uppdatera genererad kod', false),
+(757, 'B', 'Ignorera versionskontroll för genererade bibliotek', false),
+(757, 'C', 'Automatisera genereringsprocessen', true),
+(757, 'D', 'Undvika att testa genererade bibliotek', false),
+-- Fråga 308
+(758, 'A', 'Ökad säkerhet i API-anrop', false),
+(758, 'B', 'Komplexitet i genererad kod', true),
+(758, 'C', 'Minskad flexibilitet i API-design', false),
+(758, 'D', 'Ökad nätverksbelastning', false),
+-- Fråga 309
+(759, 'A', 'Genom att kopiera källkoden manuellt', false),
+(759, 'B', 'Genom att lägga till en Maven-dependency', true),
+(759, 'C', 'Genom att använda en CDN-länk', false),
+(759, 'D', 'Genom att inkludera en JAR-fil i classpath', false),
+-- Fråga 310
+(760, 'A', 'Garanterad bakåtkompatibilitet', false),
+(760, 'B', 'Eliminering av alla runtime-fel', false),
+(760, 'C', 'Automatisk hantering av autentisering', true),
+(760, 'D', 'Obegränsad anpassningsbarhet', false);
+
+-- Batch-insert för tabellen QUESTIONS
+INSERT INTO QUESTIONS (id, question_number, course_name, question_text) VALUES
+                                                                            (771, 321, 'API', '321. Vad är huvudsyftet med semantisk versionering (SemVer) i API-dokumentation?'),
+                                                                            (772, 322, 'API', '322. Vilken metod för versionhantering inkluderar versionsnumret i API:ets bas-URL?'),
+                                                                            (773, 323, 'API', '323. Vilken är en fördel med att använda tags i Swagger/OpenAPI-dokumentation?'),
+                                                                            (774, 324, 'API', '324. Vad är syftet med att inkludera exempel och scheman i API-dokumentationen?'),
+                                                                            (775, 325, 'API', '325. Vad är en rekommenderad metod för att hantera föråldrade (deprecated) API-funktioner?'),
+                                                                            (776, 326, 'API', '326. Vilken är en fördel med att använda Git för versionskontroll av API-dokumentation?'),
+                                                                            (777, 327, 'API', '327. Vad är en utmaning med att hantera flera aktiva versioner av ett API samtidigt?'),
+                                                                            (778, 328, 'API', '328. Vilken är en rekommenderad metod för att kommunicera API-ändringar till användare?'),
+                                                                            (779, 329, 'API', '329. Vad är syftet med att använda deprecation-flaggan i Swagger/OpenAPI?'),
+                                                                            (780, 330, 'API', '330. Vilken är en fördel med att använda semantisk versionering (SemVer) i API-dokumentation?');
+
+-- Batch-insert för tabellen QUESTION_OPTIONS
+INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct) VALUES
+-- För fråga 321
+(771, 'A', 'Att göra versioner lättare att minnas', false),
+(771, 'B', 'Att indikera vilka ändringar som gjorts mellan versioner', true),
+(771, 'C', 'Att förhindra bakåtkompatibilitet', false),
+(771, 'D', 'Att öka antalet versioner som släpps', false),
+-- För fråga 322
+(772, 'A', 'Semantisk versionering', false),
+(772, 'B', 'Git-baserad versionering', false),
+(772, 'C', 'Header-baserad versionering', false),
+(772, 'D', 'URL-baserad versionering', true),
+-- För fråga 323
+(773, 'A', 'Det förbättrar API:ets säkerhet', false),
+(773, 'B', 'Det ökar hastigheten på API-anrop', false),
+(773, 'C', 'Det automatiserar testning av API:et', false),
+(773, 'D', 'Det gör det enklare att navigera i dokumentationen', true),
+-- För fråga 324
+(774, 'A', 'Att öka storleken på dokumentationen', false),
+(774, 'B', 'Att göra dokumentationen mer visuellt tilltalande', false),
+(774, 'C', 'Att ge användare en tydlig förståelse för hur API:et fungerar', true),
+(774, 'D', 'Att försvåra för konkurrenter att förstå API:et', false),
+-- För fråga 325
+(775, 'A', 'Markera dem som föråldrade i dokumentationen', true),
+(775, 'B', 'Ignorera dem och låta dem vara kvar oförändrade', false),
+(775, 'C', 'Byta namn på dem för att dölja att de är föråldrade', false),
+(775, 'D', 'Ta bort dem omedelbart utan förvarning', false),
+-- För fråga 326
+(776, 'A', 'Det möjliggör spårning av ändringar över tid', true),
+(776, 'B', 'Det förhindrar alla konflikter mellan utvecklare', false),
+(776, 'C', 'Det eliminerar behovet av manuell dokumentation', false),
+(776, 'D', 'Det automatiskt genererar API-kod', false),
+-- För fråga 327
+(777, 'A', 'Det gör API:et snabbare', false),
+(777, 'B', 'Det kräver mer lagringsutrymme', false),
+(777, 'C', 'Det förbättrar automatiskt bakåtkompatibiliteten', false),
+(777, 'D', 'Det ökar komplexiteten i kodbasen och underhållet', true),
+-- För fråga 328
+(778, 'A', 'Genom att ändra API:et utan förvarning', false),
+(778, 'B', 'Genom att skicka personliga e-postmeddelanden till varje användare', false),
+(778, 'C', 'Genom att tillhandahålla en detaljerad changelog', true),
+(778, 'D', 'Genom att ignorera ändringar och låta användare upptäcka dem själva', false),
+-- För fråga 329
+(779, 'A', 'Att förbättra säkerheten i API:et', false),
+(779, 'B', 'Att markera funktioner som kommer att tas bort i framtiden', true),
+(779, 'C', 'Att lägga till nya funktioner i API:et', false),
+(779, 'D', 'Att öka prestandan för API:et', false),
+-- För fråga 330
+(780, 'A', 'Det automatiserar kodgenerering', false),
+(780, 'B', 'Det tydliggör omfattningen av ändringar mellan versioner', true),
+(780, 'C', 'Det gör API:et snabbare', false),
+(780, 'D', 'Det förbättrar säkerheten i API:et', false);
