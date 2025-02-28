@@ -7,6 +7,8 @@ import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
@@ -30,15 +32,25 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        // Create the signing key
         Key secretKey = Keys.hmacShaKeyFor(secretKeyString.getBytes(StandardCharsets.UTF_8));
 
         http
-                .authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
+                // Enable CORS in Spring Security
+                .cors(Customizer.withDefaults())
+                // Configure authorization rules
+                .authorizeHttpRequests(auth -> auth
+                        // 1) Permit all OPTIONS requests (preflight)
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                        // 2) Then require authentication for everything else
+                        .anyRequest().authenticated()
+                )
+                // Standard OAuth2 Login config
                 .oauth2Login(oauth2 -> oauth2
                         .failureUrl("/oauth2-error")
                         .userInfoEndpoint(userInfo -> userInfo.userService(customOAuth2UserService))
                         .successHandler((request, response, authentication) -> {
-                            // Minimal claims: subject and an optional static "role".
+                            // Generate your JWT
                             String jwt = Jwts.builder()
                                     .setSubject(authentication.getName())
                                     .claim("role", "USER")
@@ -47,7 +59,7 @@ public class SecurityConfig {
                                     .signWith(secretKey, SignatureAlgorithm.HS256)
                                     .compact();
 
-                            // Redirect back to your frontend with the token
+                            // Redirect to frontend with token
                             response.sendRedirect(
                                     "https://david-andreasson.github.io/quiz_frontend?token=" + jwt
                             );
