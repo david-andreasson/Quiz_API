@@ -16,11 +16,11 @@ import java.util.Date;
 @EnableWebSecurity
 public class SecurityConfig {
 
-    private final CustomOAuth2UserService customOAuth2UserService;
-
-    // The JWT secret is loaded from an environment variable
+    // The JWT secret is loaded from the environment variable via application.properties
     @Value("${jwt.secret}")
     private String secretKey;
+
+    private final CustomOAuth2UserService customOAuth2UserService;
 
     public SecurityConfig(CustomOAuth2UserService customOAuth2UserService) {
         this.customOAuth2UserService = customOAuth2UserService;
@@ -29,24 +29,33 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
+                .authorizeHttpRequests(auth -> auth
+                        // All requests require authentication
+                        .anyRequest().authenticated()
+                )
                 .oauth2Login(oauth2 -> oauth2
                         .failureUrl("/oauth2-error")
                         .userInfoEndpoint(userInfo -> userInfo.userService(customOAuth2UserService))
                         .successHandler((request, response, authentication) -> {
-                            // Generate a JWT token. Simple token containing the subject and authorities.
+                            // Extract roles as a list of strings
+                            var roles = authentication.getAuthorities().stream()
+                                    .map(a -> a.getAuthority())
+                                    .toList();
+
+                            // Build JWT token with subject and roles
                             String jwt = Jwts.builder()
-                                    .setSubject(authentication.getName())
-                                    .claim("authorities", authentication.getAuthorities())
+                                    .setSubject(authentication.getName()) // e.g., email or Google ID
+                                    .claim("roles", roles)                // e.g., ["ROLE_USER"]
                                     .setIssuedAt(new Date())
                                     .setExpiration(new Date(System.currentTimeMillis() + 86400000)) // 1 day expiration
                                     .signWith(SignatureAlgorithm.HS256, secretKey)
                                     .compact();
 
-                            // Redirect the user to the frontend's CourseSelection page with the token in the query string
+                            // Redirect the user to the frontend's CourseSelection page with the token as a query parameter
                             response.sendRedirect("https://david-andreasson.github.io/quiz_frontend/CourseSelection?token=" + jwt);
                         })
                 );
+
         return http.build();
     }
 }

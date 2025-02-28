@@ -20,10 +20,12 @@ public class UserServiceImpl implements UserService {
         }
         String loweredUsername = username.toLowerCase().trim();
 
+        // Check if the user already exists
         User existingUser = userRepository.findByUsername(loweredUsername);
         if (existingUser != null) {
             return existingUser;
         }
+        // Save a new user if not found
         return userRepository.save(new User(loweredUsername));
     }
 }
