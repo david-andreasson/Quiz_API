@@ -22,12 +22,14 @@ import java.util.Date;
 public class SecurityConfig {
 
     private final CustomOAuth2UserService customOAuth2UserService;
+    private final CorsConfig corsConfig;
 
     @Value("${jwt.secret}")
     private String secretKeyString;
 
-    public SecurityConfig(CustomOAuth2UserService customOAuth2UserService) {
+    public SecurityConfig(CustomOAuth2UserService customOAuth2UserService, CorsConfig corsConfig) {
         this.customOAuth2UserService = customOAuth2UserService;
+        this.corsConfig = corsConfig;
     }
 
     @Bean
@@ -36,35 +38,29 @@ public class SecurityConfig {
         Key secretKey = Keys.hmacShaKeyFor(secretKeyString.getBytes(StandardCharsets.UTF_8));
 
         http
-                // Enable CORS in Spring Security
-                .cors(Customizer.withDefaults())
-
-                // Authorization rules
+                // Use the CORS configuration defined in CorsConfig
+                .cors(cors -> cors.configurationSource(corsConfig.corsConfigurationSource()))
                 .authorizeHttpRequests(auth -> auth
-                        // 1) Allow all OPTIONS requests (preflight)
+                        // Allow all preflight (OPTIONS) requests without authentication
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                        // 2) Require authentication for everything else
+                        // All other requests require authentication
                         .anyRequest().authenticated()
                 )
-
-                // OAuth2 login configuration
+                // Configure OAuth2 login
                 .oauth2Login(oauth2 -> oauth2
                         .failureUrl("/oauth2-error")
                         .userInfoEndpoint(userInfo -> userInfo.userService(customOAuth2UserService))
                         .successHandler((request, response, authentication) -> {
-                            // Generate a JWT
+                            // Generate a JWT token
                             String jwt = Jwts.builder()
                                     .setSubject(authentication.getName())
                                     .claim("role", "USER")
                                     .setIssuedAt(new Date())
-                                    .setExpiration(new Date(System.currentTimeMillis() + 86400000)) // 1 day
+                                    .setExpiration(new Date(System.currentTimeMillis() + 86400000)) // 1 day expiration
                                     .signWith(secretKey, SignatureAlgorithm.HS256)
                                     .compact();
-
-                            // Redirect to your frontend with the token
-                            response.sendRedirect(
-                                    "https://david-andreasson.github.io/quiz_frontend?token=" + jwt
-                            );
+                            // Redirect to your frontend (course selection page) with the token as a query parameter
+                            response.sendRedirect("https://david-andreasson.github.io/quiz_frontend?token=" + jwt);
                         })
                 );
 
