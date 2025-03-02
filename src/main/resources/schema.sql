@@ -1,11 +1,11 @@
 -- Create table for users
-CREATE TABLE users (
+CREATE TABLE if not exists users(
                        id INT AUTO_INCREMENT PRIMARY KEY,
                        username VARCHAR(255)
 );
 
 -- Create table for questions
-CREATE TABLE questions (
+CREATE TABLE if not exists QUESTIONS (
                            id INT AUTO_INCREMENT PRIMARY KEY,
                            question_number INT,
                            course_name VARCHAR(255),
@@ -13,7 +13,7 @@ CREATE TABLE questions (
 );
 
 -- Create table for question_options
-CREATE TABLE question_options (
+CREATE TABLE if not exists QUESTION_OPTIONS (
                                   id INT AUTO_INCREMENT PRIMARY KEY,
                                   question_id INT,
                                   option_label VARCHAR(10),
@@ -25,7 +25,7 @@ CREATE TABLE question_options (
 );
 
 -- Create table for quiz results
-CREATE TABLE results (
+CREATE TABLE if not exists results (
                          id INT AUTO_INCREMENT PRIMARY KEY,
                          user_id INT,
                          course_name VARCHAR(255),
