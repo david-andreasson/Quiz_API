@@ -3,11 +3,10 @@ package com.davanddev.quizapp_api.util;
 import com.davanddev.quizapp_api.dto.QuestionDTO;
 import com.davanddev.quizapp_api.dto.QuestionOptionDTO;
 import com.davanddev.quizapp_api.dto.QuizResultDTO;
-import com.davanddev.quizapp_api.dto.UserDTO;
 import com.davanddev.quizapp_api.models.Question;
 import com.davanddev.quizapp_api.models.QuestionOption;
 import com.davanddev.quizapp_api.models.QuizResult;
-import com.davanddev.quizapp_api.models.User;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
