@@ -3,6 +3,7 @@ package com.davanddev.quizapp_api.config;
 import com.davanddev.quizapp_api.security.CustomOAuth2AuthenticationSuccessHandler;
 import com.davanddev.quizapp_api.service.CustomOAuth2UserService;
 import com.davanddev.quizapp_api.service.CustomUserDetailsService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -10,8 +11,14 @@ import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.oauth2.jwt.JwtDecoder;
+import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
+import java.nio.charset.StandardCharsets;
 
 @Configuration
 public class SecurityConfig {
@@ -55,5 +62,13 @@ public class SecurityConfig {
                         .jwt(Customizer.withDefaults())
                 );
         return http.build();
+    }
+
+
+    @Bean
+    public JwtDecoder jwtDecoder(@Value("${jwt.secret}") String jwtSecret) {
+        byte[] keyBytes = jwtSecret.getBytes(StandardCharsets.UTF_8);
+        SecretKey key = new SecretKeySpec(keyBytes, "HMACSHA256");
+        return NimbusJwtDecoder.withSecretKey(key).build();
     }
 }
