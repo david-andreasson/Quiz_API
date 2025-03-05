@@ -10,7 +10,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
-import org.springframework.security.config.http.SessionCreationPolicy;  // Added for stateless configuration
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
@@ -22,6 +22,11 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
 
+/**
+ * Security configuration for the application.
+ * Configures CORS, disables CSRF, sets session management to stateless,
+ * and configures OAuth2 login and JWT resource server.
+ */
 @Configuration
 public class SecurityConfig {
 
@@ -37,40 +42,59 @@ public class SecurityConfig {
         this.customOAuth2AuthenticationSuccessHandler = customOAuth2AuthenticationSuccessHandler;
     }
 
+    /**
+     * Bean for password encoding using BCrypt.
+     */
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
+    /**
+     * Exposes the AuthenticationManager bean.
+     */
     @Bean
     public AuthenticationManager authenticationManager(
             AuthenticationConfiguration configuration) throws Exception {
         return configuration.getAuthenticationManager();
     }
 
+    /**
+     * Configures the security filter chain.
+     */
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
+                // Enable CORS using global configuration from WebConfig
+                .cors(Customizer.withDefaults())
+                // Disable CSRF protection as we use stateless JWT authentication
                 .csrf(csrf -> csrf.disable())
-                // Set session management to stateless so no server-side sessions are created
+                // Set session management to stateless (no server-side sessions)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        // Permit preflight OPTIONS requests
+                        // Allow all preflight OPTIONS requests
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                        // Permit requests to auth and OAuth2 endpoints
                         .requestMatchers("/api/v2/auth/**", "/oauth2/**").permitAll()
+                        // Require authentication for all other endpoints
                         .anyRequest().authenticated()
                 )
+                // Configure OAuth2 login with custom user service and success handler
                 .oauth2Login(oauth2 -> oauth2
                         .userInfoEndpoint(userInfo -> userInfo.userService(customOAuth2UserService))
                         .successHandler(customOAuth2AuthenticationSuccessHandler)
                 )
-                // Configure the application as an OAuth2 Resource Server to validate JWT tokens from the Authorization header
+                // Configure the application as an OAuth2 Resource Server to validate JWT tokens
                 .oauth2ResourceServer(oauth2 -> oauth2
                         .jwt(Customizer.withDefaults())
                 );
         return http.build();
     }
 
+    /**
+     * Bean for decoding JWT tokens using the provided secret.
+     * The secret is loaded from the application properties.
+     */
     @Bean
     public JwtDecoder jwtDecoder(@Value("${jwt.secret}") String jwtSecret) {
         byte[] keyBytes = jwtSecret.getBytes(StandardCharsets.UTF_8);
