@@ -10,10 +10,11 @@ public class Question {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id") // Removed columnDefinition to let H2 auto-generate the id properly.
+    @Column(name = "id")
     private int id;
 
-    @Column(name = "course_name_question_number")
+    // This column is used as the linking field and is provided in data.sql.
+    @Column(name = "course_name_question_number", unique = true)
     private int courseNameQuestionNumber;
 
     @Column(name = "question_number")
@@ -29,9 +30,10 @@ public class Question {
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<QuestionOption> options;
 
+    // Default constructor
     public Question() {}
 
-    // Modified constructor to include courseNameQuestionNumber.
+    // Constructor (note that courseNameQuestionNumber must be provided)
     public Question(int courseNameQuestionNumber, int questionNumber, String courseName, String questionText, List<QuestionOption> options) {
         this.courseNameQuestionNumber = courseNameQuestionNumber;
         this.questionNumber = questionNumber;
@@ -44,7 +46,6 @@ public class Question {
     }
 
     // Getters and setters
-
     public int getId() {
         return id;
     }
@@ -69,16 +70,8 @@ public class Question {
         return courseName;
     }
 
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
-    }
-
     public String getQuestionText() {
         return questionText;
-    }
-
-    public void setQuestionText(String questionText) {
-        this.questionText = questionText;
     }
 
     public List<QuestionOption> getOptions() {

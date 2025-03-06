@@ -9,15 +9,13 @@ public class QuestionOption {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id") // Removed columnDefinition here as well.
+    @Column(name = "id")
     private int id;
 
-    /**
-     * The join column now references the column "course_name_question_number" in the questions table.
-     */
+    // Change the join column so that it references the course_name_question_number column in the questions table.
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "question_id", referencedColumnName = "course_name_question_number", nullable = false)
+    @JoinColumn(name = "course_name_question_number", referencedColumnName = "course_name_question_number", nullable = false)
     private Question question;
 
     @Column(name = "option_label")
@@ -29,8 +27,10 @@ public class QuestionOption {
     @Column(name = "is_correct")
     private boolean isCorrect;
 
+    // Default constructor
     public QuestionOption() {}
 
+    // Constructor
     public QuestionOption(Question question, String optionLabel, String optionText, boolean isCorrect) {
         this.question = question;
         this.optionLabel = optionLabel;
@@ -39,7 +39,6 @@ public class QuestionOption {
     }
 
     // Getters and setters
-
     public int getId() {
         return id;
     }
