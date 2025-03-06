@@ -1,4 +1,4 @@
-INSERT INTO QUESTIONS (id, question_number, course_name, question_text)
+INSERT INTO QUESTIONS (course_name_question_number, question_number, course_name, question_text)
 VALUES (1, 1, 'OOP Advanced', '1. Vad är huvudsyftet med klasser i objektorienterad programmering?'),
        (2, 2, 'OOP Advanced', '2. Vad är inkapsling i Java?'),
        (3, 3, 'OOP Advanced', '3. Vilken åtkomstmodifierare i Java gör en medlem tillgänglig endast inom samma klass?'),
@@ -193,7 +193,7 @@ VALUES (1, 1, 'OOP Advanced', '1. Vad är huvudsyftet med klasser i objektorient
        (164, 164, 'OOP Advanced', '164. Hur initierar man en Morphia Datastore?'),
        (165, 165, 'OOP Advanced', '165. Vilken annotation används för att anpassa fältnamn i MongoDB-dokumentet?');
 
-INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct)
+INSERT INTO QUESTION_OPTIONS (course_name_question_number, option_label, option_text, is_correct)
 VALUES
 -- Q1
 (1, 'A', 'Att skapa databaser', FALSE),
@@ -1189,7 +1189,7 @@ VALUES
 (165, 'C', '@Name', FALSE),
 (165, 'D', '@Property', TRUE);
 
-INSERT INTO QUESTIONS (id, question_number, course_name, question_text)
+INSERT INTO QUESTIONS (course_name_question_number, question_number, course_name, question_text)
 VALUES (226, 1, 'Test', '1. Vad är huvudsyftet med SLF4J i Java-applikationer?'),
        (227, 2, 'Test', '2. Vilken loggnivå bör användas för att logga viktiga händelser i normal drift?'),
        (228, 3, 'Test', '3. Vad är MDC (Mapped Diagnostic Context) i loggningssammanhang?'),
@@ -1457,1420 +1457,953 @@ VALUES (226, 1, 'Test', '1. Vad är huvudsyftet med SLF4J i Java-applikationer?'
        (459, 234, 'Test', '234. Vilken av följande är inte en rekommenderad best practice för property-based testing?'),
        (460, 235, 'Test', '235. Vad är huvudsyftet med statistisk property-based testing?');
 
-INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct)
+INSERT INTO QUESTION_OPTIONS (course_name_question_number, option_label, option_text, is_correct)
 VALUES
 -- Q226
 (226, 'A', 'Att förbättra prestandan i Java-applikationer', false),
 (226, 'B', 'Att erbjuda ett abstraktionslager för loggning som separerar kod från implementationer', true),
 (226, 'C', 'Att ersätta alla andra loggningsramverk', false),
-(226, 'D', 'Att skapa JSON-formaterade loggar', false),
-
--- Q227
+(226, 'D', 'Att skapa JSON-formaterade loggar', false),                                                 -- Q227
 (227, 'A', 'ERROR', false),
 (227, 'B', 'WARN', false),
 (227, 'C', 'INFO', true),
-(227, 'D', 'DEBUG', false),
-
--- Q228
+(227, 'D', 'DEBUG', false),                                                                             -- Q228
 (228, 'A', 'Ett verktyg för att mäta prestanda', false),
 (228, 'B', 'En metod för att kryptera loggmeddelanden', false),
 (228, 'C', 'Ett system för att hantera databasanslutningar', false),
-(228, 'D', 'Ett verktyg för att lägga till kontextuell information till loggmeddelanden', true),
-
--- Q229
+(228, 'D', 'Ett verktyg för att lägga till kontextuell information till loggmeddelanden', true),        -- Q229
 (229, 'A', 'Genom att cache:a alla loggmeddelanden', false),
 (229, 'B', 'Genom att bara utvärdera loggmeddelanden när de faktiskt ska loggas', true),
 (229, 'C', 'Genom att komprimera loggmeddelanden', false),
-(229, 'D', 'Genom att schemalägga loggning till mindre upptagna tider', false),
-
--- Q230
+(229, 'D', 'Genom att schemalägga loggning till mindre upptagna tider', false),                         -- Q230
 (230, 'A', 'Att komprimera loggmeddelanden', false),
 (230, 'B', 'Att kryptera känslig information', false),
 (230, 'C', 'Att formatera loggar som JSON för enklare parsing och analys', true),
-(230, 'D', 'Att filtrera bort onödiga loggmeddelanden', false),
-
--- Q231
+(230, 'D', 'Att filtrera bort onödiga loggmeddelanden', false),                                         -- Q231
 (231, 'A', 'Kräver omfattande installation och har begränsat SQL-stöd', false),
 (231, 'B', 'Kan endast köras i minnet och är svår att konfigurera', false),
 (231, 'C', 'Är långsam men har bra säkerhet', false),
-(231, 'D', 'Kan köras både i minnet och på disk, är snabb och lätt att konfigurera', true),
-
--- Q232
+(231, 'D', 'Kan köras både i minnet och på disk, är snabb och lätt att konfigurera', true),             -- Q232
 (232, 'A', 'Att skapa nya databasanslutningar för varje förfrågan', false),
 (232, 'B', 'Att återanvända databasanslutningar för att minska overhead och förbättra prestanda', true),
 (232, 'C', 'Att begränsa antalet samtidiga användare i databasen', false),
-(232, 'D', 'Att kryptera databasanslutningar', false),
-
--- Q233
+(232, 'D', 'Att kryptera databasanslutningar', false),                                                  -- Q233
 (233, 'A', 'Att blanda dataåtkomstlogik med affärslogik', false),
 (233, 'B', 'Att skapa direkta kopplingar mellan databas och användargränssnitt', false),
 (233, 'C', 'Att separera dataåtkomstlogik från affärslogik och standardisera CRUD-operationer', true),
-(233, 'D', 'Att eliminera behovet av databasanslutningar', false),
-
--- Q234
+(233, 'D', 'Att eliminera behovet av databasanslutningar', false),                                      -- Q234
 (234, 'A', 'För att förbättra prestandan', false),
 (234, 'B', 'För att spara minnesutrymme', false),
 (234, 'C', 'För att hantera null-värden på ett säkert sätt', true),
-(234, 'D', 'För att konvertera mellan olika datatyper', false),
-
--- Q235
+(234, 'D', 'För att konvertera mellan olika datatyper', false),                                         -- Q235
 (235, 'A', 'findById()', false),
 (235, 'B', 'findAll()', false),
 (235, 'C', 'save()', false),
-(235, 'D', 'exists()', true),
-
--- Q236
+(235, 'D', 'exists()', true),                                                                           -- Q236
 (236, 'A', 'Att optimera databasförfrågningar', false),
 (236, 'B', 'Att hantera användarautentisering', false),
 (236, 'C', 'Att säkerställa dataintegritet genom att hantera transaktioner', true),
-(236, 'D', 'Att cachelagra databasresultat', false),
-
--- Q237
+(236, 'D', 'Att cachelagra databasresultat', false),                                                    -- Q237
 (237, 'A', 'Att hantera databaskopplingar', false),
 (237, 'B', 'Att validera inkommande data', false),
 (237, 'C', 'Att konvertera databasrader till entitetsobjekt', true),
-(237, 'D', 'Att generera SQL-frågor', false),
-
--- Q238
+(237, 'D', 'Att generera SQL-frågor', false),                                                           -- Q238
 (238, 'A', 'Att förbättra läsbarheten i koden', false),
 (238, 'B', 'Att skydda mot SQL-injektion genom parameterisering', true),
 (238, 'C', 'Att möjliggöra batch-operationer', false),
-(238, 'D', 'Att optimera JOIN-operationer', false),
-
--- Q239
+(238, 'D', 'Att optimera JOIN-operationer', false),                                                     -- Q239
 (239, 'A', 'Att förbättra datasäkerheten', false),
 (239, 'B', 'Att minska nätverkstrafiken genom att skicka flera operationer samtidigt', true),
 (239, 'C', 'Att automatiskt schemalägga databasoperationer', false),
-(239, 'D', 'Att skapa backup av data', false),
-
--- Q240
+(239, 'D', 'Att skapa backup av data', false),                                                          -- Q240
 (240, 'A', 'Genom att automatiskt skapa index', false),
 (240, 'B', 'Genom att cacha resultat', false),
 (240, 'C', 'Genom återanvändning av förkompilerade queries', true),
-(240, 'D', 'Genom att optimera JOIN-satser', false),
-
--- Q241
+(240, 'D', 'Genom att optimera JOIN-satser', false),                                                    -- Q241
 (241, 'A', 'Använda endast enkla queries', false),
 (241, 'B', 'Implementera caching', false),
 (241, 'C', 'Använda batch-operationer', true),
-(241, 'D', 'Öka antalet index', false),
-
--- Q242
+(241, 'D', 'Öka antalet index', false),                                                                 -- Q242
 (242, 'A', 'Enkelt index på en kolumn', false),
 (242, 'B', 'Sammansatt index', true),
 (242, 'C', 'Unikt index', false),
-(242, 'D', 'Partiellt index', false),
-
--- Q243
+(242, 'D', 'Partiellt index', false),                                                                   -- Q243
 (243, 'A', 'Att öka prestandan i databasen', false),
 (243, 'B', 'Att skapa redundant datalagring', false),
 (243, 'C', 'Att kombinera relaterad data från olika tabeller', true),
-(243, 'D', 'Att ersätta subqueries', false),
-
--- Q244
+(243, 'D', 'Att ersätta subqueries', false),                                                            -- Q244
 (244, 'A', 'INNER JOIN', false),
 (244, 'B', 'RIGHT JOIN', false),
 (244, 'C', 'LEFT JOIN', true),
-(244, 'D', 'FULL JOIN', false),
-
--- Q245
+(244, 'D', 'FULL JOIN', false),                                                                         -- Q245
 (245, 'A', 'Att ersätta joins helt och hållet', false),
 (245, 'B', 'Att dela upp komplexa frågor i mindre delar', true),
 (245, 'C', 'Att öka databasens prestanda', false),
-(245, 'D', 'Att skapa temporära tabeller', false),
-
--- Q246
+(245, 'D', 'Att skapa temporära tabeller', false),                                                      -- Q246
 (246, 'A', 'Att hantera SQL-queries', false),
 (246, 'B', 'Att skapa databasens anslutningar', false),
 (246, 'C', 'Att mappa ResultSet-rader till Java-objekt', true),
-(246, 'D', 'Att validera indata', false),
-
--- Q247
+(246, 'D', 'Att validera indata', false),                                                               -- Q247
 (247, 'A', 'De ignoreras helt', false),
 (247, 'B', 'De loggas endast', false),
 (247, 'C', 'De fångas och wrappas i en DatabaseException', true),
-(247, 'D', 'De skickas vidare utan förändring', false),
-
--- Q248
+(247, 'D', 'De skickas vidare utan förändring', false),                                                 -- Q248
 (248, 'A', 'MySQL', false),
 (248, 'B', 'PostgreSQL', false),
 (248, 'C', 'SQLite', true),
-(248, 'D', 'H2', false),
-
--- Q249
+(248, 'D', 'H2', false),                                                                                -- Q249
 (249, 'A', 'Att förbättra läsbarheten i koden', false),
 (249, 'B', 'Att förhindra SQL-injection och förbättra prestanda', true),
 (249, 'C', 'Att förenkla databasanslutningen', false),
-(249, 'D', 'Att möjliggöra connection pooling', false),
-
--- Q250
+(249, 'D', 'Att möjliggöra connection pooling', false),                                                 -- Q250
 (250, 'A', 'Bäst prestanda för stora applikationer', false),
 (250, 'B', 'Stöd för både minnes- och filbaserad lagring', true),
 (250, 'C', 'Inget behov av säkerhetskonfiguration', false),
-(250, 'D', 'Automatisk skalning', false),
-
--- Q251
+(250, 'D', 'Automatisk skalning', false),                                                               -- Q251
 (251, 'A', 'Programmeringsspråket som används', false),
 (251, 'B', 'Antalet tillgängliga utvecklare', false),
 (251, 'C', 'Förväntad användarbelastning', true),
-(251, 'D', 'Operativsystemet som används', false),
-
--- Q252
+(251, 'D', 'Operativsystemet som används', false),                                                      -- Q252
 (252, 'A', 'Automatisk databasmigrering', false),
 (252, 'B', 'Kryptering av databasanslutningar', false),
 (252, 'C', 'Inställning av pool-storlek', true),
-(252, 'D', 'Automatisk backup', false),
-
--- Q253
+(252, 'D', 'Automatisk backup', false),                                                                 -- Q253
 (253, 'A', 'Att optimera SQL-frågor', false),
 (253, 'B', 'Att separera dataåtkomstlogik från affärslogik', true),
 (253, 'C', 'Att ersätta traditionella databaser', false),
-(253, 'D', 'Att förbättra prestandan i databasen', false),
-
--- Q254
+(253, 'D', 'Att förbättra prestandan i databasen', false),                                              -- Q254
 (254, 'A', 'Enklare testning genom abstraktion', false),
 (254, 'B', 'Direktåtkomst till databasen', true),
 (254, 'C', 'Konsekvent gränssnitt för dataåtkomst', false),
-(254, 'D', 'Förbättrad kodstruktur och underhållbarhet', false),
-
--- Q255
+(254, 'D', 'Förbättrad kodstruktur och underhållbarhet', false),                                        -- Q255
 (255, 'A', 'Att ersätta SQL-frågor helt', false),
 (255, 'B', 'Att bygga komplexa sökkriterier på ett flexibelt och återanvändbart sätt', true),
 (255, 'C', 'Att förbättra databasprestanda', false),
-(255, 'D', 'Att hantera databasanslutningar', false),
-
--- Q256
+(255, 'D', 'Att hantera databasanslutningar', false),                                                   -- Q256
 (256, 'A', 'Den kan instansieras direkt', false),
 (256, 'B', 'Den saknar stöd för generiska typer', false),
 (256, 'C', 'Den använder HikariCP för anslutningshantering', true),
-(256, 'D', 'Den kräver inte implementation av mapResultSetToEntity', false),
-
--- Q257
+(256, 'D', 'Den kräver inte implementation av mapResultSetToEntity', false),                            -- Q257
 (257, 'A', 'Genom att låsa sig till en specifik databas', false),
 (257, 'B', 'Genom att kräva olika repositories för varje datakälla', false),
 (257, 'C', 'Genom att använda ett konsekvent gränssnitt via interfaces', true),
-(257, 'D', 'Genom att direktkoppla till datakällan', false),
-
--- Q258
+(257, 'D', 'Genom att direktkoppla till datakällan', false),                                            -- Q258
 (258, 'A', 'Att förbättra säkerheten i databasanslutningar', false),
 (258, 'B', 'Att öka antalet samtidiga användaranslutningar', false),
 (258, 'C', 'Att återanvända databasanslutningar för att minska overhead', true),
-(258, 'D', 'Att möjliggöra automatisk backup av databasen', false),
-
--- Q259
+(258, 'D', 'Att möjliggöra automatisk backup av databasen', false),                                     -- Q259
 (259, 'A', 'setMinimumIdle', false),
 (259, 'B', 'setMaximumPoolSize', true),
 (259, 'C', 'setCacheSize', false),
-(259, 'D', 'setConnectionLimit', false),
-
--- Q260
+(259, 'D', 'setConnectionLimit', false),                                                                -- Q260
 (260, 'A', 'Att förbättra datasäkerheten', false),
 (260, 'B', 'Att minska nätverkstrafiken genom att skicka flera operationer samtidigt', true),
 (260, 'C', 'Att automatiskt schemalägga databasoperationer', false),
-(260, 'D', 'Att skapa backup av data', false),
-
--- Q261
+(260, 'D', 'Att skapa backup av data', false),                                                          -- Q261
 (261, 'A', 'Genom att automatiskt skapa index', false),
 (261, 'B', 'Genom att cacha resultat', false),
 (261, 'C', 'Genom återanvändning av förkompilerade queries', true),
-(261, 'D', 'Genom att optimera JOIN-satser', false),
-
--- Q262
+(261, 'D', 'Genom att optimera JOIN-satser', false),                                                    -- Q262
 (262, 'A', 'Använda endast enkla queries', false),
 (262, 'B', 'Implementera caching', false),
 (262, 'C', 'Använda batch-operationer', true),
-(262, 'D', 'Öka antalet index', false),
-
--- Q263
+(262, 'D', 'Öka antalet index', false),                                                                 -- Q263
 (263, 'A', 'Enkelt index på en kolumn', false),
 (263, 'B', 'Sammansatt index', true),
 (263, 'C', 'Unikt index', false),
-(263, 'D', 'Partiellt index', false),
-
--- Q264
+(263, 'D', 'Partiellt index', false),                                                                   -- Q264
 (264, 'A', 'Att öka prestandan i databasen', false),
 (264, 'B', 'Att skapa redundant datalagring', false),
 (264, 'C', 'Att kombinera relaterad data från olika tabeller', true),
-(264, 'D', 'Att ersätta subqueries', false),
-
--- Q265
+(264, 'D', 'Att ersätta subqueries', false),                                                            -- Q265
 (265, 'A', 'INNER JOIN', false),
 (265, 'B', 'RIGHT JOIN', false),
 (265, 'C', 'LEFT JOIN', true),
-(265, 'D', 'FULL JOIN', false),
-
--- Q266
+(265, 'D', 'FULL JOIN', false),                                                                         -- Q266
 (266, 'A', 'Att ersätta joins helt och hållet', false),
 (266, 'B', 'Att dela upp komplexa frågor i mindre delar', true),
 (266, 'C', 'Att öka databasens prestanda', false),
-(266, 'D', 'Att skapa temporära tabeller', false),
-
--- Q267
+(266, 'D', 'Att skapa temporära tabeller', false),                                                      -- Q267
 (267, 'A', 'Att hantera SQL-queries', false),
 (267, 'B', 'Att skapa databasens anslutningar', false),
 (267, 'C', 'Att mappa ResultSet-rader till Java-objekt', true),
-(267, 'D', 'Att validera indata', false),
-
--- Q268
+(267, 'D', 'Att validera indata', false),                                                               -- Q268
 (268, 'A', 'De ignoreras helt', false),
 (268, 'B', 'De loggas endast', false),
 (268, 'C', 'De fångas och wrappas i en DatabaseException', true),
-(268, 'D', 'De skickas vidare utan förändring', false),
-
--- Q269
+(268, 'D', 'De skickas vidare utan förändring', false),                                                 -- Q269
 (269, 'A', 'MySQL', false),
 (269, 'B', 'PostgreSQL', false),
 (269, 'C', 'SQLite', true),
-(269, 'D', 'H2', false),
-
--- Q270
+(269, 'D', 'H2', false),                                                                                -- Q270
 (270, 'A', 'Att förbättra läsbarheten i koden', false),
 (270, 'B', 'Att förhindra SQL-injection och förbättra prestanda', true),
 (270, 'C', 'Att förenkla databasanslutningen', false),
-(270, 'D', 'Att möjliggöra connection pooling', false),
-
--- Q271
+(270, 'D', 'Att möjliggöra connection pooling', false),                                                 -- Q271
 (271, 'A', 'Bäst prestanda för stora applikationer', false),
 (271, 'B', 'Stöd för både minnes- och filbaserad lagring', true),
 (271, 'C', 'Inget behov av säkerhetskonfiguration', false),
-(271, 'D', 'Automatisk skalning', false),
-
--- Q272
+(271, 'D', 'Automatisk skalning', false),                                                               -- Q272
 (272, 'A', 'Programmeringsspråket som används', false),
 (272, 'B', 'Antalet tillgängliga utvecklare', false),
 (272, 'C', 'Förväntad användarbelastning', true),
-(272, 'D', 'Operativsystemet som används', false),
-
--- Q273
+(272, 'D', 'Operativsystemet som används', false),                                                      -- Q273
 (273, 'A', 'Automatisk databasmigrering', false),
 (273, 'B', 'Kryptering av databasanslutningar', false),
 (273, 'C', 'Inställning av pool-storlek', true),
-(273, 'D', 'Automatisk backup', false),
-
--- Q274
+(273, 'D', 'Automatisk backup', false),                                                                 -- Q274
 (274, 'A', 'Att optimera SQL-frågor', false),
 (274, 'B', 'Att separera dataåtkomstlogik från affärslogik', true),
 (274, 'C', 'Att ersätta traditionella databaser', false),
-(274, 'D', 'Att förbättra prestandan i databasen', false),
-
--- Q275
+(274, 'D', 'Att förbättra prestandan i databasen', false),                                              -- Q275
 (275, 'A', 'Enklare testning genom abstraktion', false),
 (275, 'B', 'Direktåtkomst till databasen', true),
 (275, 'C', 'Konsekvent gränssnitt för dataåtkomst', false),
-(275, 'D', 'Förbättrad kodstruktur och underhållbarhet', false),
-
--- Q276
+(275, 'D', 'Förbättrad kodstruktur och underhållbarhet', false),                                        -- Q276
 (276, 'A', 'Att ersätta SQL-frågor helt', false),
 (276, 'B', 'Att bygga komplexa sökkriterier på ett flexibelt och återanvändbart sätt', true),
 (276, 'C', 'Att förbättra databasprestanda', false),
-(276, 'D', 'Att hantera databasanslutningar', false),
-
--- Q277
+(276, 'D', 'Att hantera databasanslutningar', false),                                                   -- Q277
 (277, 'A', 'Den kan instansieras direkt', false),
 (277, 'B', 'Den saknar stöd för generiska typer', false),
 (277, 'C', 'Den använder HikariCP för anslutningshantering', true),
-(277, 'D', 'Den kräver inte implementation av mapResultSetToEntity', false),
-
--- Q278
+(277, 'D', 'Den kräver inte implementation av mapResultSetToEntity', false),                            -- Q278
 (278, 'A', 'Genom att låsa sig till en specifik databas', false),
 (278, 'B', 'Genom att kräva olika repositories för varje datakälla', false),
 (278, 'C', 'Genom att använda ett konsekvent gränssnitt via interfaces', true),
-(278, 'D', 'Genom att direktkoppla till datakällan', false),
-
--- Q279
+(278, 'D', 'Genom att direktkoppla till datakällan', false),                                            -- Q279
 (279, 'A', 'Att förbättra säkerheten i databasanslutningar', false),
 (279, 'B', 'Att öka antalet samtidiga användaranslutningar', false),
 (279, 'C', 'Att återanvända databasanslutningar för att minska overhead', true),
-(279, 'D', 'Att möjliggöra automatisk backup av databasen', false),
-
--- Q280
+(279, 'D', 'Att möjliggöra automatisk backup av databasen', false),                                     -- Q280
 (280, 'A', 'setMinimumIdle', false),
 (280, 'B', 'setMaximumPoolSize', true),
 (280, 'C', 'setCacheSize', false),
-(280, 'D', 'setConnectionLimit', false),
-
--- Q281
+(280, 'D', 'setConnectionLimit', false),                                                                -- Q281
 (281, 'A', 'Att förbättra datasäkerheten', false),
 (281, 'B', 'Att minska nätverkstrafiken genom att skicka flera operationer samtidigt', true),
 (281, 'C', 'Att automatiskt schemalägga databasoperationer', false),
-(281, 'D', 'Att skapa backup av data', false),
-
--- Q282
+(281, 'D', 'Att skapa backup av data', false),                                                          -- Q282
 (282, 'A', 'Genom att automatiskt skapa index', false),
 (282, 'B', 'Genom att cacha resultat', false),
 (282, 'C', 'Genom återanvändning av förkompilerade queries', true),
-(282, 'D', 'Genom att optimera JOIN-satser', false),
-
--- Q283
+(282, 'D', 'Genom att optimera JOIN-satser', false),                                                    -- Q283
 (283, 'A', 'Använda endast enkla queries', false),
 (283, 'B', 'Implementera caching', false),
 (283, 'C', 'Använda batch-operationer', true),
-(283, 'D', 'Öka antalet index', false),
-
--- Q284
+(283, 'D', 'Öka antalet index', false),                                                                 -- Q284
 (284, 'A', 'Enkelt index på en kolumn', false),
 (284, 'B', 'Sammansatt index', true),
 (284, 'C', 'Unikt index', false),
-(284, 'D', 'Partiellt index', false),
-
--- Q285
+(284, 'D', 'Partiellt index', false),                                                                   -- Q285
 (285, 'A', 'Att kombinera relaterad data från olika tabeller', true),
 (285, 'B', 'Att öka prestandan i databasen', false),
 (285, 'C', 'Att skapa redundant datalagring', false),
-(285, 'D', 'Att ersätta subqueries', false),
-
--- Fråga 61 (id 286)
+(285, 'D', 'Att ersätta subqueries', false),                                                            -- Fråga 61 (id 286)
 (286, 'A', 'mockStatic()', true),
 (286, 'B', 'whenStatic()', false),
 (286, 'C', 'staticMock()', false),
-(286, 'D', 'mockStaticMethod()', false),
-
--- Fråga 62 (id 287)
+(286, 'D', 'mockStaticMethod()', false),                                                                -- Fråga 62 (id 287)
 (287, 'A', 'Det kan leda till långsammare tester', false),
 (287, 'B', 'Det kan göra testerna mer komplexa', false),
 (287, 'C', 'Det kan resultera i bräckliga tester som inte speglar verkligt systembeteende', true),
-(287, 'D', 'Det kan orsaka kompileringsfel i produktionskoden', false),
-
--- Fråga 63 (id 288)
+(287, 'D', 'Det kan orsaka kompileringsfel i produktionskoden', false),                                 -- Fråga 63 (id 288)
 (288, 'A', 'Att ersätta alla inbyggda matchers i Mockito', false),
 (288, 'B', 'Att förenkla verifiering av komplexa objektargument', true),
 (288, 'C', 'Att förbättra prestandan i tester', false),
-(288, 'D', 'Att automatiskt generera testdata', false),
-
--- Fråga 64 (id 289)
+(288, 'D', 'Att automatiskt generera testdata', false),                                                 -- Fråga 64 (id 289)
 (289, 'A', 'Att skapa en ny instans av testklassen', false),
 (289, 'B', 'Att automatiskt injicera mockobjekt i objektet som testas', true),
 (289, 'C', 'Att mocka alla metoder i en klass', false),
-(289, 'D', 'Att markera vilka klasser som ska testas', false),
-
--- Fråga 65 (id 290)
+(289, 'D', 'Att markera vilka klasser som ska testas', false),                                          -- Fråga 65 (id 290)
 (290, 'A', 'Användning av timeout() i verify()', true),
 (290, 'B', 'Implementering av custom matchers', false),
 (290, 'C', 'Användning av spy() istället för mock()', false),
-(290, 'D', 'Användning av doAnswer() för att simulera asynkront beteende', false),
-
--- Fråga 66 (id 291)
+(290, 'D', 'Användning av doAnswer() för att simulera asynkront beteende', false),                      -- Fråga 66 (id 291)
 (291, 'A', 'Att testa individuella komponenter isolerat', false),
 (291, 'B', 'Att verifiera att olika systemkomponenter fungerar korrekt tillsammans', true),
 (291, 'C', 'Att ersätta enhetstestning', false),
-(291, 'D', 'Att testa användargränssnittet', false),
-
--- Fråga 67 (id 292)
+(291, 'D', 'Att testa användargränssnittet', false),                                                    -- Fråga 67 (id 292)
 (292, 'A', 'Big Bang', false),
 (292, 'B', 'Top-down', false),
 (292, 'C', 'Bottom-up', false),
-(292, 'D', 'Vattenfallsmetoden', true),
-
--- Fråga 68 (id 293)
+(292, 'D', 'Vattenfallsmetoden', true),                                                                 -- Fråga 68 (id 293)
 (293, 'A', 'Integrationstestning ersätter enhetstestning', false),
 (293, 'B', 'Alla integrationstester måste vara end-to-end', false),
 (293, 'C', 'Integrationstestning fokuserar på interaktionen mellan komponenter', true),
-(293, 'D', 'Integrationstestning är alltid långsamt och resurskrävande', false),
-
--- Fråga 69 (id 294)
+(293, 'D', 'Integrationstestning är alltid långsamt och resurskrävande', false),                        -- Fråga 69 (id 294)
 (294, 'A', 'Oracle', false),
 (294, 'B', 'MySQL', false),
 (294, 'C', 'H2', true),
-(294, 'D', 'MongoDB', false),
-
--- Fråga 70 (id 295)
+(294, 'D', 'MongoDB', false),                                                                           -- Fråga 70 (id 295)
 (295, 'A', 'Att öka prestandan för testerna', false),
 (295, 'B', 'Att isolera testerna och säkerställa deras oberoende', true),
 (295, 'C', 'Att simulera produktionsmiljön bättre', false),
-(295, 'D', 'Att minska antalet nödvändiga tester', false),
-
--- Fråga 71 (id 296)
+(295, 'D', 'Att minska antalet nödvändiga tester', false),                                              -- Fråga 71 (id 296)
 (296, 'A', 'Använda realistiska data', false),
 (296, 'B', 'Testa gränsfall', false),
 (296, 'C', 'Mocka alla externa beroenden', true),
-(296, 'D', 'Begränsa omfattningen av varje test', false),
-
--- Fråga 72 (id 297)
+(296, 'D', 'Begränsa omfattningen av varje test', false),                                               -- Fråga 72 (id 297)
 (297, 'A', 'Att ersätta enhetstestning', false),
 (297, 'B', 'Att möjliggöra mer realistiska testmiljöer', true),
 (297, 'C', 'Att förbättra testprestandan', false),
-(297, 'D', 'Att automatisera UI-tester', false),
-
--- Fråga 73 (id 298)
+(297, 'D', 'Att automatisera UI-tester', false),                                                        -- Fråga 73 (id 298)
 (298, 'A', 'Enhetstestning', false),
 (298, 'B', 'Systemtestning', false),
 (298, 'C', 'Contract testing', true),
-(298, 'D', 'Prestandatestning', false),
-
--- Fråga 74 (id 299)
+(298, 'D', 'Prestandatestning', false),                                                                 -- Fråga 74 (id 299)
 (299, 'A', 'Köra dem mer frekvent än enhetstestning', false),
 (299, 'B', 'Alltid använda produktionsdata i testerna', false),
 (299, 'C', 'Integrera dem tidigt för att fånga integrationsproblem', true),
-(299, 'D', 'Köra dem endast i produktion', false),
-
--- Fråga 75 (id 300)
+(299, 'D', 'Köra dem endast i produktion', false),                                                      -- Fråga 75 (id 300)
 (300, 'A', 'JUnit', false),
 (300, 'B', 'Mockito', true),
 (300, 'C', 'Selenium', false),
-(300, 'D', 'Maven', false),
-
--- Fråga 76 (id 301)
+(300, 'D', 'Maven', false),                                                                             -- Fråga 76 (id 301)
 (301, 'A', 'Att säkerställa att applikationer kan hantera verkliga användarscenarion och belastningar', true),
 (301, 'B', 'Att identifiera buggar i koden', false),
 (301, 'C', 'Att förbättra användarupplevelsen genom att ändra gränssnittet', false),
-(301, 'D', 'Att optimera databasstrukturen', false),
-
--- Fråga 77 (id 302)
+(301, 'D', 'Att optimera databasstrukturen', false),                                                    -- Fråga 77 (id 302)
 (302, 'A', 'Lasttest', false),
 (302, 'B', 'Stresstest', false),
 (302, 'C', 'Uthållighetstest', false),
-(302, 'D', 'Regressiontest', true),
-
--- Fråga 78 (id 303)
+(302, 'D', 'Regressiontest', true),                                                                     -- Fråga 78 (id 303)
 (303, 'A', 'Svarstid', false),
 (303, 'B', 'Genomströmning', true),
 (303, 'C', 'Resursanvändning', false),
-(303, 'D', 'Samtidiga användare', false),
-
--- Fråga 79 (id 304)
+(303, 'D', 'Samtidiga användare', false),                                                               -- Fråga 79 (id 304)
 (304, 'A', 'Planering', false),
 (304, 'B', 'Exekvering', false),
 (304, 'C', 'Skriptning', true),
-(304, 'D', 'Analys', false),
-
--- Fråga 80 (id 305)
+(304, 'D', 'Analys', false),                                                                            -- Fråga 80 (id 305)
 (305, 'A', 'Selenium', false),
 (305, 'B', 'JUnit', false),
 (305, 'C', 'Postman', false),
-(305, 'D', 'JMeter', true),
-
--- Fråga 81 (id 306)
+(305, 'D', 'JMeter', true),                                                                             -- Fråga 81 (id 306)
 (306, 'A', 'Att det bara behövs för små system', false),
 (306, 'B', 'Att det alltid kräver specialiserad hårdvara', false),
 (306, 'C', 'Att det kan vänta till slutet av utvecklingscykeln', true),
-(306, 'D', 'Att det endast är nödvändigt för webbapplikationer', false),
-
--- Fråga 82 (id 307)
+(306, 'D', 'Att det endast är nödvändigt för webbapplikationer', false),                                -- Fråga 82 (id 307)
 (307, 'A', 'Connection Pooling', true),
 (307, 'B', 'Lazy Loading', false),
 (307, 'C', 'Multithreading', false),
-(307, 'D', 'Komprimering av data', false),
-
--- Fråga 83 (id 308)
+(307, 'D', 'Komprimering av data', false),                                                              -- Fråga 83 (id 308)
 (308, 'A', 'Att generera högre belastning för storskaliga applikationer', true),
 (308, 'B', 'Att testa applikationer på olika operativsystem', false),
 (308, 'C', 'Att simulera olika nätverkshastigheter', false),
-(308, 'D', 'Att testa applikationer på olika webbläsare', false),
-
--- Fråga 84 (id 309)
+(308, 'D', 'Att testa applikationer på olika webbläsare', false),                                       -- Fråga 84 (id 309)
 (309, 'A', 'Att öka belastningen på servern', false),
 (309, 'B', 'Att simulera mänskligt beteende', true),
 (309, 'C', 'Att mäta svarstider mer exakt', false),
-(309, 'D', 'Att undvika nätverksöverbelastning', false),
-
--- Fråga 85 (id 310)
+(309, 'D', 'Att undvika nätverksöverbelastning', false),                                                -- Fråga 85 (id 310)
 (310, 'A', 'Att öka antalet testfall', false),
 (310, 'B', 'Att använda mer komplexa algoritmer', false),
 (310, 'C', 'Att vara uppmärksam på JMeter-resursanvändning på testmaskiner', true),
-(310, 'D', 'Att minska testtiden för att spara resurser', false),
-
--- Fråga 86 (id 311)
+(310, 'D', 'Att minska testtiden för att spara resurser', false),                                       -- Fråga 86 (id 311)
 (311, 'A', 'Lasttest fokuserar på normal belastning, stresstestning på extrem belastning', true),
 (311, 'B', 'Lasttest är kortvarigt, stresstestning är långvarigt', false),
 (311, 'C', 'Lasttest mäter svarstider, stresstestning mäter endast fel', false),
-(311, 'D', 'Lasttest används för webbapplikationer, stresstestning för desktopapplikationer', false),
-
--- Fråga 87 (id 312)
+(311, 'D', 'Lasttest används för webbapplikationer, stresstestning för desktopapplikationer',
+ false),                                                                                                -- Fråga 87 (id 312)
 (312, 'A', 'LoadRunner', false),
 (312, 'B', 'Gatling', false),
 (312, 'C', 'JMeter', true),
-(312, 'D', 'Apache Bench', false),
-
--- Fråga 88 (id 313)
+(312, 'D', 'Apache Bench', false),                                                                      -- Fråga 88 (id 313)
 (313, 'A', 'Att öka belastningen på servern', false),
 (313, 'B', 'Att simulera mänskligt beteende', true),
 (313, 'C', 'Att mäta svarstider mer exakt', false),
-(313, 'D', 'Att undvika nätverksöverbelastning', false),
-
--- Fråga 89 (id 314)
+(313, 'D', 'Att undvika nätverksöverbelastning', false),                                                -- Fråga 89 (id 314)
 (314, 'A', 'Constant Timer', false),
 (314, 'B', 'Gaussian Random Timer', false),
 (314, 'C', 'Stepping Thread Group', true),
-(314, 'D', 'Ultimate Thread Group', false),
-
--- Fråga 90 (id 315)
+(314, 'D', 'Ultimate Thread Group', false),                                                             -- Fråga 90 (id 315)
 (315, 'A', 'Att alltid testa med maximal belastning', false),
 (315, 'B', 'Att ignorera kostnader associerade med storskaliga tester', false),
 (315, 'C', 'Att fokusera enbart på applikationskoden', false),
-(315, 'D', 'Att vara medveten om kostnaderna för storskaliga tester', true),
-
--- Fråga 91 (id 316)
+(315, 'D', 'Att vara medveten om kostnaderna för storskaliga tester', true),                            -- Fråga 91 (id 316)
 (316, 'A', 'Hårdkoda all testdata i skripten', false),
 (316, 'B', 'Använd CSV Data Set Config för att ladda testdata', true),
 (316, 'C', 'Generera slumpmässig data för varje test', false),
-(316, 'D', 'Använd produktionsdata direkt i testerna', false),
-
--- Fråga 92 (id 317)
+(316, 'D', 'Använd produktionsdata direkt i testerna', false),                                          -- Fråga 92 (id 317)
 (317, 'A', 'Att mäta svarstider', false),
 (317, 'B', 'Att simulera användarinteraktioner', false),
 (317, 'C', 'Att identifiera oväntade svar', true),
-(317, 'D', 'Att öka belastningen på servern', false),
-
--- Fråga 93 (id 318)
+(317, 'D', 'Att öka belastningen på servern', false),                                                   -- Fråga 93 (id 318)
 (318, 'A', 'Alltid testa i produktionsmiljön', false),
 (318, 'B', 'Fokusera enbart på applikationsservern', false),
 (318, 'C', 'Börja med komplexa tester och förenkla gradvis', false),
-(318, 'D', 'Använd en isolerad testmiljö som speglar produktionen', true),
-
--- Fråga 94 (id 319)
+(318, 'D', 'Använd en isolerad testmiljö som speglar produktionen', true),                              -- Fråga 94 (id 319)
 (319, 'A', 'Genom att granska och justera användarscenarier för bättre realism', true),
 (319, 'B', 'Genom att öka antalet simulerade användare', false),
 (319, 'C', 'Genom att ignorera långsamma svarstider', false),
-(319, 'D', 'Genom att fokusera enbart på serverresurser', false),
-
--- Fråga 95 (id 320)
+(319, 'D', 'Genom att fokusera enbart på serverresurser', false),                                       -- Fråga 95 (id 320)
 (320, 'A', 'Köra korta, intensiva tester', false),
 (320, 'B', 'Gradvis öka belastningen och observera systemets anpassning', true),
 (320, 'C', 'Endast testa under låg belastning', false),
-(320, 'D', 'Stänga av alla auto-skalningsfunktioner under test', false),
-
--- Fråga 96 (id 321)
+(320, 'D', 'Stänga av alla auto-skalningsfunktioner under test', false),                                -- Fråga 96 (id 321)
 (321, 'A', 'Att öka systemets prestanda', false),
 (321, 'B', 'Att identifiera och åtgärda sårbarheter', true),
 (321, 'C', 'Att förbättra användarupplevelsen', false),
-(321, 'D', 'Att optimera kodstrukturen', false),
-
--- Fråga 97 (id 322)
+(321, 'D', 'Att optimera kodstrukturen', false),                                                        -- Fråga 97 (id 322)
 (322, 'A', 'Sårbarhetsskanning', false),
 (322, 'B', 'Penetrationstestning', false),
 (322, 'C', 'Riskbedömning', false),
-(322, 'D', 'Prestandatestning', true),
-
--- Fråga 98 (id 323)
+(322, 'D', 'Prestandatestning', true),                                                                  -- Fråga 98 (id 323)
 (323, 'A', 'De tio mest lönsamma säkerhetsföretagen', false),
 (323, 'B', 'De tio svåraste programmeringsspråken att säkra', false),
 (323, 'C', 'De tio mest kritiska säkerhetsriskerna för webbapplikationer', true),
-(323, 'D', 'De tio bästa verktygen för säkerhetstestning', false),
-
--- Fråga 99 (id 324)
+(323, 'D', 'De tio bästa verktygen för säkerhetstestning', false),                                      -- Fråga 99 (id 324)
 (324, 'A', 'Exploatering', false),
 (324, 'B', 'Planering och omfattning', false),
 (324, 'C', 'Kodoptimering', true),
-(324, 'D', 'Omtestning', false),
-
--- Fråga 100 (id 325)
+(324, 'D', 'Omtestning', false),                                                                        -- Fråga 100 (id 325)
 (325, 'A', 'Kryptering av databaskopplingar', false),
 (325, 'B', 'Användning av parametriserade frågor', true),
 (325, 'C', 'Begränsning av databasåtkomst', false),
-(325, 'D', 'Implementering av tvåfaktorsautentisering', false),
-
--- Fråga 101 (id 326)
+(325, 'D', 'Implementering av tvåfaktorsautentisering', false),                                         -- Fråga 101 (id 326)
 (326, 'A', 'Att öka systemets prestanda', false),
 (326, 'B', 'Att förbättra användarupplevelsen', false),
 (326, 'C', 'Att ytterligare förstärka säkerheten', true),
-(326, 'D', 'Att minska databasens storlek', false),
-
--- Fråga 102 (id 327)
+(326, 'D', 'Att minska databasens storlek', false),                                                     -- Fråga 102 (id 327)
 (327, 'A', 'Maximal loggning av all användaraktivitet', true),
 (327, 'B', 'Djupförsvar', false),
 (327, 'C', 'Princip om minsta privilegium', false),
-(327, 'D', 'Säker standardkonfiguration', false),
-
--- Fråga 103 (id 328)
+(327, 'D', 'Säker standardkonfiguration', false),                                                       -- Fråga 103 (id 328)
 (328, 'A', 'Att minska utvecklingskostnaderna', false),
 (328, 'B', 'Att fånga sårbarheter tidigt i utvecklingsprocessen', true),
 (328, 'C', 'Att eliminera behovet av manuell testning', false),
-(328, 'D', 'Att öka systemets prestanda', false),
-
--- Fråga 104 (id 329)
+(328, 'D', 'Att öka systemets prestanda', false),                                                       -- Fråga 104 (id 329)
 (329, 'A', 'En teknik för att öka systemets prestanda', false),
 (329, 'B', 'En metod för att identifiera potentiella säkerhetshot mot ett system', true),
 (329, 'C', 'Ett verktyg för automatiserad kodsäkerhetsanalys', false),
-(329, 'D', 'En strategi för att minska utvecklingskostnader', false),
-
--- Fråga 105 (id 330)
+(329, 'D', 'En strategi för att minska utvecklingskostnader', false),                                   -- Fråga 105 (id 330)
 (330, 'A', 'Att optimera kodprestanda', false),
 (330, 'B', 'Att automatiskt generera användardokumentation', false),
 (330, 'C', 'Att förbättra användargränssnittet', false),
-(330, 'D', 'Att hitta sårbarheter genom att mata in ogiltiga eller oväntade data', true),
-
--- Fråga 106 (id 331)
+(330, 'D', 'Att hitta sårbarheter genom att mata in ogiltiga eller oväntade data', true),               -- Fråga 106 (id 331)
 (331, 'A', 'Att skapa isolerade och reproducerbara testmiljöer', true),
 (331, 'B', 'Att förbättra prestandan för Java-applikationer', false),
 (331, 'C', 'Att eliminera behovet av enhetstester', false),
-(331, 'D', 'Att ersätta traditionella virtuella maskiner helt', false),
-
--- Fråga 107 (id 332)
+(331, 'D', 'Att ersätta traditionella virtuella maskiner helt', false),                                 -- Fråga 107 (id 332)
 (332, 'A', 'Snabbare onboarding av nya teammedlemmar', false),
 (332, 'B', 'Ökad tillförlitlighet i testresultaten', false),
 (332, 'C', 'Enklare felsökning och reproduktion av buggar', false),
-(332, 'D', 'Eliminering av behov för manuell testning', true),
-
--- Fråga 108 (id 333)
+(332, 'D', 'Eliminering av behov för manuell testning', true),                                          -- Fråga 108 (id 333)
 (333, 'A', 'En körbar instans av en container', false),
 (333, 'B', 'Ett verktyg för att definiera multi-container applikationer', false),
 (333, 'C', 'En läsbar mall för att skapa en Docker-container', true),
-(333, 'D', 'Ett system för att orkestrera containrar', false),
-
--- Fråga 109 (id 334)
+(333, 'D', 'Ett system för att orkestrera containrar', false),                                          -- Fråga 109 (id 334)
 (334, 'A', 'docker-compose.yml', false),
 (334, 'B', 'Dockerfile', true),
 (334, 'C', 'pom.xml', false),
-(334, 'D', 'Containerfile', false),
-
--- Fråga 110 (id 335)
+(334, 'D', 'Containerfile', false),                                                                     -- Fråga 110 (id 335)
 (335, 'A', 'Att öka säkerheten i Docker-containrar', false),
 (335, 'B', 'Att möjliggöra parallell exekvering av containrar', false),
 (335, 'C', 'Att förbättra nätverksprestandan mellan containrar', false),
-(335, 'D', 'Att minska storleken på den slutliga Docker-imagen', true),
-
--- Fråga 111 (id 336)
+(335, 'D', 'Att minska storleken på den slutliga Docker-imagen', true),                                 -- Fråga 111 (id 336)
 (336, 'A', 'Att använda officiella base images', false),
 (336, 'B', 'Att hårdkoda konfigurationsvärdena i Dockerfile', true),
 (336, 'C', 'Att minimera image-storlek', false),
-(336, 'D', 'Att versionshantera Docker images', false),
-
--- Fråga 112 (id 337)
+(336, 'D', 'Att versionshantera Docker images', false),                                                 -- Fråga 112 (id 337)
 (337, 'A', 'Att orkestrera multi-container applikationer', true),
 (337, 'B', 'Att bygga Docker images', false),
 (337, 'C', 'Att köra enhetstester', false),
-(337, 'D', 'Att skanna Docker images för sårbarheter', false),
-
--- Fråga 113 (id 338)
+(337, 'D', 'Att skanna Docker images för sårbarheter', false),                                          -- Fråga 113 (id 338)
 (338, 'A', 'Docker Swarm', false),
 (338, 'B', 'Kubernetes', false),
 (338, 'C', 'Testcontainers', true),
-(338, 'D', 'Docker Compose', false),
-
--- Fråga 114 (id 339)
+(338, 'D', 'Docker Compose', false),                                                                    -- Fråga 114 (id 339)
 (339, 'A', 'Att använda Docker för att simulera olika nätverkshastigheter i prestandatester', true),
 (339, 'B', 'Att köra en enskild Java-applikation i en container', false),
 (339, 'C', 'Att bygga en Docker image', false),
-(339, 'D', 'Att starta en Docker container', false),
-
--- Fråga 115 (id 340)
+(339, 'D', 'Att starta en Docker container', false),                                                    -- Fråga 115 (id 340)
 (340, 'A', 'Att alltid köra containrar som root-användare', false),
 (340, 'B', 'Att ignorera image-scanning för testsyften', false),
 (340, 'C', 'Att exponera alla portar för enkel åtkomst', false),
-(340, 'D', 'Att köra containrar med minsta möjliga behörigheter', true),
-
--- Fråga 116 (id 341)
+(340, 'D', 'Att köra containrar med minsta möjliga behörigheter', true),                                -- Fråga 116 (id 341)
 (341, 'A', 'Att förbättra prestandan i mikroservicearkitekturer', false),
 (341, 'B', 'Att garantera att tester körs i identiska miljöer varje gång', true),
 (341, 'C', 'Att eliminera behovet av enhetstester', false),
-(341, 'D', 'Att minska kostnaderna för molninfrastruktur', false),
-
--- Fråga 117 (id 342)
+(341, 'D', 'Att minska kostnaderna för molninfrastruktur', false),                                      -- Fråga 117 (id 342)
 (342, 'A', 'Kubernetes', false),
 (342, 'B', 'Jenkins', false),
 (342, 'C', 'Docker Compose', true),
-(342, 'D', 'Maven', false),
-
--- Fråga 118 (id 343)
+(342, 'D', 'Maven', false),                                                                             -- Fråga 118 (id 343)
 (343, 'A', 'Immutability', false),
 (343, 'B', 'Portabilitet', false),
 (343, 'C', 'Orkestrering', false),
-(343, 'D', 'Separation of Concerns', true),
-
--- Fråga 119 (id 344)
+(343, 'D', 'Separation of Concerns', true),                                                             -- Fråga 119 (id 344)
 (344, 'A', 'Att bevara data mellan körningar och förbättra prestanda', true),
 (344, 'B', 'Att förbättra nätverksprestandan', false),
 (344, 'C', 'Att förenkla container-orkestrering', false),
-(344, 'D', 'Att automatisera skalning av tjänster', false),
-
--- Fråga 120 (id 345)
+(344, 'D', 'Att automatisera skalning av tjänster', false),                                             -- Fråga 120 (id 345)
 (345, 'A', 'Docker-miljöer är alltid långsammare än nativa installationer', false),
 (345, 'B', 'Docker eliminerar alla miljöskillnader', false),
 (345, 'C', 'Man behöver alltid en container för varje mikroservice', false),
-(345, 'D', 'Docker kan minska miljöskillnader men eliminerar inte alla', true),
-
--- Q346 (Fråga 121)
+(345, 'D', 'Docker kan minska miljöskillnader men eliminerar inte alla', true),                         -- Q346 (Fråga 121)
 (346, 'A', 'Att definiera nätverksrelationer mellan containrar', false),
 (346, 'B', 'Att specificera resursbegränsningar för containrar', false),
 (346, 'C', 'Att säkerställa korrekt uppstartsordning av containrar', true),
-(346, 'D', 'Att automatiskt skala containrar baserat på last', false),
-
--- Q347 (Fråga 122)
+(346, 'D', 'Att automatiskt skala containrar baserat på last', false),                                  -- Q347 (Fråga 122)
 (347, 'A', 'Att integrera Docker-miljöer med JUnit-tester', true),
 (347, 'B', 'Att ersätta Docker Compose', false),
 (347, 'C', 'Att automatisera byggprocessen av Docker-images', false),
-(347, 'D', 'Att förbättra prestandan i Docker-nätverk', false),
-
--- Q348 (Fråga 123)
+(347, 'D', 'Att förbättra prestandan i Docker-nätverk', false),                                         -- Q348 (Fråga 123)
 (348, 'A', 'Lagra dem direkt i Dockerfile', false),
 (348, 'B', 'Använda miljövariabler för all konfiguration', false),
 (348, 'C', 'Implementera Docker secrets eller externa lösningar som HashiCorp Vault', true),
-(348, 'D', 'Spara dem i plaintext i Docker Compose-filen', false),
-
--- Q349 (Fråga 124)
+(348, 'D', 'Spara dem i plaintext i Docker Compose-filen', false),                                      -- Q349 (Fråga 124)
 (349, 'A', 'Att mäta CPU-användning', false),
 (349, 'B', 'Att säkerställa att tjänster är redo innan beroende tjänster eller tester startar', true),
 (349, 'C', 'Att automatiskt återstarta kraschade containrar', false),
-(349, 'D', 'Att övervaka nätverkstrafik mellan containrar', false),
-
--- Q350 (Fråga 125)
+(349, 'D', 'Att övervaka nätverkstrafik mellan containrar', false),                                     -- Q350 (Fråga 125)
 (350, 'A', 'Öka antalet CPU-kärnor allokerade till containern', false),
 (350, 'B', 'Använda Docker''s overlay-nätverk', false),
 (350, 'C', 'Implementera lastbalansering mellan containrar', false),
-(350, 'D', 'Använda tmpfs-volymer eller host-volymer', true),
-
--- Q351 (Fråga 126)
+(350, 'D', 'Använda tmpfs-volymer eller host-volymer', true),                                           -- Q351 (Fråga 126)
 (351, 'A', 'Att förbättra databasernas prestanda', false),
 (351, 'B', 'Att eliminera behovet av databasmigreringar', false),
 (351, 'C', 'Att garantera isolering mellan olika testkörningar', true),
-(351, 'D', 'Att automatiskt optimera databasscheman', false),
-
--- Q352 (Fråga 127)
+(351, 'D', 'Att automatiskt optimera databasscheman', false),                                           -- Q352 (Fråga 127)
 (352, 'A', 'Datapersistens', false),
 (352, 'B', 'Konfigurationshantering', false),
 (352, 'C', 'Initialiseringsstrategier', false),
-(352, 'D', 'Automatisk skalning', true),
-
--- Q353 (Fråga 128)
+(352, 'D', 'Automatisk skalning', true),                                                                -- Q353 (Fråga 128)
 (353, 'A', 'Att förbättra nätverksprestandan', false),
 (353, 'B', 'Att persistera data mellan containernedstängningar och uppstarter', true),
 (353, 'C', 'Att automatisera databasmigreringar', false),
-(353, 'D', 'Att generera testdata', false),
-
--- Q354 (Fråga 129)
+(353, 'D', 'Att generera testdata', false),                                                             -- Q354 (Fråga 129)
 (354, 'A', 'Testcontainers', true),
 (354, 'B', 'Docker Compose', false),
 (354, 'C', 'Kubernetes', false),
-(354, 'D', 'Spring Boot Test', false),
-
--- Q355 (Fråga 130)
+(354, 'D', 'Spring Boot Test', false),                                                                  -- Q355 (Fråga 130)
 (355, 'A', 'De kräver alltid persistenta volymer', true),
 (355, 'B', 'De är alltid snabbare än nativa installationer', false),
 (355, 'C', 'De är omöjliga att skala', false),
-(355, 'D', 'De är alltid mer säkra än traditionella databaser', false),
-
--- Q356 (Fråga 131)
+(355, 'D', 'De är alltid mer säkra än traditionella databaser', false),                                 -- Q356 (Fråga 131)
 (356, 'A', 'Docker Swarm', false),
 (356, 'B', 'Docker Secrets', false),
 (356, 'C', 'Kubernetes', false),
-(356, 'D', 'Liquibase', true),
-
--- Q357 (Fråga 132)
+(356, 'D', 'Liquibase', true),                                                                          -- Q357 (Fråga 132)
 (357, 'A', 'Använda tmpfs för temporära filer eller host-volymer', true),
 (357, 'B', 'Öka antalet CPU-kärnor', false),
 (357, 'C', 'Implementera databasreplikering', false),
-(357, 'D', 'Minska mängden RAM tilldelad till containern', false),
-
--- Q358 (Fråga 133)
+(357, 'D', 'Minska mängden RAM tilldelad till containern', false),                                      -- Q358 (Fråga 133)
 (358, 'A', 'Secrets management', false),
 (358, 'B', 'Nätverksisolering', false),
 (358, 'C', 'Minsta möjliga behörigheter', false),
-(358, 'D', 'Kryptering av data i vila', true),
-
--- Q359 (Fråga 134)
+(358, 'D', 'Kryptering av data i vila', true),                                                          -- Q359 (Fråga 134)
 (359, 'A', 'Continuous Integration pipelines', false),
 (359, 'B', 'Multi-version databastestning', false),
 (359, 'C', 'Prestandatestning', false),
-(359, 'D', 'Produktionsdatabaser', true),
-
--- Q360 (Fråga 135)
+(359, 'D', 'Produktionsdatabaser', true),                                                               -- Q360 (Fråga 135)
 (360, 'A', 'Alltid använda persistenta volymer', false),
 (360, 'B', 'Implementera databassharding', true),
 (360, 'C', 'Öka container-storlek obegränsat', false),
-(360, 'D', 'Undvika stora datamängder i tester', false),
-
--- Q361 (Fråga 136)
+(360, 'D', 'Undvika stora datamängder i tester', false),                                                -- Q361 (Fråga 136)
 (361, 'A', 'Individer och interaktioner framför processer och verktyg', true),
 (361, 'B', 'Omfattande dokumentation framför fungerande programvara', false),
 (361, 'C', 'Kontraktsförhandling framför kundsamarbete', false),
-(361, 'D', 'Att följa en plan framför anpassning till förändring', false),
-
--- Q362 (Fråga 137)
+(361, 'D', 'Att följa en plan framför anpassning till förändring', false),                              -- Q362 (Fråga 137)
 (362, 'A', '6-8 veckor', false),
 (362, 'B', '1-4 veckor', true),
 (362, 'C', '2-6 månader', false),
-(362, 'D', '1-2 dagar', false),
-
--- Q363 (Fråga 138)
+(362, 'D', '1-2 dagar', false),                                                                         -- Q363 (Fråga 138)
 (363, 'A', 'Att de kräver mycket dokumentation', false),
 (363, 'B', 'Att de kräver daglig kommunikation', false),
 (363, 'C', 'Att de eliminerar all dokumentation', true),
-(363, 'D', 'Att de fungerar bäst för stora team', false),
-
--- Q364 (Fråga 139)
+(363, 'D', 'Att de fungerar bäst för stora team', false),                                               -- Q364 (Fråga 139)
 (364, 'A', '15-20 medlemmar', false),
 (364, 'B', '10-15 medlemmar', false),
 (364, 'C', '1-2 medlemmar', false),
-(364, 'D', '3-9 medlemmar', true),
-
--- Q365 (Fråga 140)
+(364, 'D', '3-9 medlemmar', true),                                                                      -- Q365 (Fråga 140)
 (365, 'A', 'Story Points', true),
 (365, 'B', 'Tidrapporter', false),
 (365, 'C', 'Gantt-scheman', false),
-(365, 'D', 'Detaljerade tidsplaner', false),
-
--- Q366 (Fråga 141)
+(365, 'D', 'Detaljerade tidsplaner', false),                                                            -- Q366 (Fråga 141)
 (366, 'A', 'Att utvärdera färdiga uppgifter', false),
 (366, 'B', 'Att koordinera dagens arbete och identifiera hinder', true),
 (366, 'C', 'Att ha långa tekniska diskussioner', false),
-(366, 'D', 'Att planera kommande sprints', false),
-
--- Q367 (Fråga 142)
+(366, 'D', 'Att planera kommande sprints', false),                                                      -- Q367 (Fråga 142)
 (367, 'A', 'Att maximera antal parallella uppgifter', false),
 (367, 'B', 'Att ha långa utvecklingscykler', false),
 (367, 'C', 'Att begränsa arbete i process (WIP)', true),
-(367, 'D', 'Att undvika visualisering av arbetsflödet', false),
-
--- Q368 (Fråga 143)
+(367, 'D', 'Att undvika visualisering av arbetsflödet', false),                                         -- Q368 (Fråga 143)
 (368, 'A', 'Vattenfallsbaserad utveckling', false),
 (368, 'B', 'Minimal kundinteraktion', false),
 (368, 'C', 'Omfattande förhandsplanering', false),
-(368, 'D', 'Iterativ och inkrementell utveckling', true),
-
--- Q369 (Fråga 144)
+(368, 'D', 'Iterativ och inkrementell utveckling', true),                                               -- Q369 (Fråga 144)
 (369, 'A', 'Att demonstrera ny funktionalitet', false),
 (369, 'B', 'Att skriva teknisk dokumentation', false),
 (369, 'C', 'Att utvärdera och förbättra teamets process', true),
-(369, 'D', 'Att planera nästa sprint', false),
-
--- Q370 (Fråga 145)
+(369, 'D', 'Att planera nästa sprint', false),                                                          -- Q370 (Fråga 145)
 (370, 'A', 'Dokumentation ska vara omfattande och detaljerad', false),
 (370, 'B', 'Värdefull dokumentation prioriteras över onödig paperwork', true),
 (370, 'C', 'All dokumentation ska elimineras', false),
-(370, 'D', 'Dokumentation ska alltid vara statisk', false),
-
--- Q371 (Fråga 146)
+(370, 'D', 'Dokumentation ska alltid vara statisk', false),                                             -- Q371 (Fråga 146)
 (371, 'A', 'Att hantera och prioritera produktbackloggen', true),
 (371, 'B', 'Att facilitera de dagliga Scrum-mötena', false),
 (371, 'C', 'Att utföra kodgranskning', false),
-(371, 'D', 'Att undanröja hinder för utvecklingsteamet', false),
-
--- Q372 (Fråga 147)
+(371, 'D', 'Att undanröja hinder för utvecklingsteamet', false),                                        -- Q372 (Fråga 147)
 (372, 'A', '10-15 medlemmar', false),
 (372, 'B', '3-9 medlemmar', true),
 (372, 'C', '15-20 medlemmar', false),
-(372, 'D', '1-2 medlemmar', false),
-
--- Q373 (Fråga 148)
+(372, 'D', '1-2 medlemmar', false),                                                                     -- Q373 (Fråga 148)
 (373, 'A', 'Ett verktyg för att mäta teamets hastighet', false),
 (373, 'B', 'En lista över alla planerade funktioner', false),
 (373, 'C', 'Summan av alla färdiga produktbackloggsposter under en sprint', true),
-(373, 'D', 'En plan för kommande sprintar', false),
-
--- Q374 (Fråga 149)
+(373, 'D', 'En plan för kommande sprintar', false),                                                     -- Q374 (Fråga 149)
 (374, 'A', 'Bestämmer vilka funktioner som ska utvecklas', false),
 (374, 'B', 'Ska mikrohantera utvecklingsteamets arbete', false),
 (374, 'C', 'Är en traditionell projektledare som styr teamet', false),
-(374, 'D', 'Är en faciliterande roll som stödjer Scrum-processen', true),
-
--- Q375 (Fråga 150)
+(374, 'D', 'Är en faciliterande roll som stödjer Scrum-processen', true),                               -- Q375 (Fråga 150)
 (375, 'A', 'En lista över tekniska buggar', false),
 (375, 'B', 'Ett schema över teamets semesterdagar', false),
 (375, 'C', 'En dynamisk lista över allt som kan behövas i produkten', true),
-(375, 'D', 'En statisk lista över krav som inte kan ändras', false),
-
--- Q376 (Fråga 151)
+(375, 'D', 'En statisk lista över krav som inte kan ändras', false),                                    -- Q376 (Fråga 151)
 (376, 'A', 'Att planera kommande sprint', false),
 (376, 'B', 'Att synkronisera teamets arbete och identifiera hinder', true),
 (376, 'C', 'Att utvärdera teamets prestanda', false),
-(376, 'D', 'Att presentera färdigt arbete för intressenter', false),
-
--- Q377 (Fråga 152)
+(376, 'D', 'Att presentera färdigt arbete för intressenter', false),                                    -- Q377 (Fråga 152)
 (377, 'A', '45 minuter', false),
 (377, 'B', '60 minuter', false),
 (377, 'C', '15 minuter', true),
-(377, 'D', '30 minuter', false),
-
--- Q378 (Fråga 153)
+(377, 'D', '30 minuter', false),                                                                        -- Q378 (Fråga 153)
 (378, 'A', 'En beskrivning av sprintmålet', false),
 (378, 'B', 'Ett schema för releaser', false),
 (378, 'C', 'En lista över framtida funktioner', false),
-(378, 'D', 'En formell beskrivning av kvalitetskraven för färdiga uppgifter', true),
-
--- Q379 (Fråga 154)
+(378, 'D', 'En formell beskrivning av kvalitetskraven för färdiga uppgifter', true),                    -- Q379 (Fråga 154)
 (379, 'A', 'En komplett lista över alla produktkrav', false),
 (379, 'B', 'En delmängd av produktbackloggen för aktuell sprint', true),
 (379, 'C', 'En lista över framtida sprintar', false),
-(379, 'D', 'En lista över alla buggar i systemet', false),
-
--- Q380 (Fråga 155)
+(379, 'D', 'En lista över alla buggar i systemet', false),                                              -- Q380 (Fråga 155)
 (380, 'A', 'Endast Scrum Master får göra estimeringar', false),
 (380, 'B', 'Estimering måste alltid göras i exakta timmar', false),
 (380, 'C', 'Estimering behövs inte i Scrum', false),
-(380, 'D', 'Estimering handlar mer om relativ storlek än exakt tid', true),
-
--- Q381 (Fråga 156)
+(380, 'D', 'Estimering handlar mer om relativ storlek än exakt tid', true),                             -- Q381 (Fråga 156)
 (381, 'A', 'Reflektera över processen och identifiera förbättringsområden', true),
 (381, 'B', 'Presentera färdigt arbete för intressenter', false),
 (381, 'C', 'Planera kommande sprint', false),
-(381, 'D', 'Synkronisera teamets dagliga aktiviteter', false),
-
--- Q382 (Fråga 157)
+(381, 'D', 'Synkronisera teamets dagliga aktiviteter', false),                                          -- Q382 (Fråga 157)
 (382, 'A', 'Ett möte för att rapportera till produktägaren', false),
 (382, 'B', 'En detaljerad genomgång av tekniska problem', false),
 (382, 'C', 'Ett planeringsmöte för utvecklingsteamet', true),
-(382, 'D', 'Ett tillfälle för Scrum Master att få statusuppdateringar', false),
-
--- Q383 (Fråga 158)
+(382, 'D', 'Ett tillfälle för Scrum Master att få statusuppdateringar', false),                         -- Q383 (Fråga 158)
 (383, 'A', 'Then', false),
 (383, 'B', 'Given', true),
 (383, 'C', 'When', false),
-(383, 'D', 'And', false),
-
--- Q384 (Fråga 159)
+(383, 'D', 'And', false),                                                                               -- Q384 (Fråga 159)
 (384, 'A', '45 minuter', false),
 (384, 'B', '60 minuter', false),
 (384, 'C', '30 minuter', false),
-(384, 'D', '15 minuter', true),
-
--- Q385 (Fråga 160)
+(384, 'D', '15 minuter', true),                                                                         -- Q385 (Fråga 160)
 (385, 'A', 'Att dokumentera tekniska specifikationer', false),
 (385, 'B', 'Att tydligt definiera användarberättelser och acceptanskriterier', true),
 (385, 'C', 'Att mäta teamets prestanda', false),
-(385, 'D', 'Att skapa automatiserade tester', false),
-
--- Q386 (Fråga 161)
+(385, 'D', 'Att skapa automatiserade tester', false),                                                   -- Q386 (Fråga 161)
 (386, 'A', 'Sprintåterblick -> Sprintplanering -> Dagligt Scrum -> Sprintgranskning', false),
 (386, 'B', 'Dagligt Scrum -> Sprintplanering -> Sprintgranskning -> Sprintåterblick', false),
 (386, 'C', 'Sprintplanering -> Dagligt Scrum -> Sprintgranskning -> Sprintåterblick', true),
-(386, 'D', 'Sprintplanering -> Dagligt Scrum -> Sprintåterblick -> Sprintgranskning', false),
-
--- Q387 (Fråga 162)
+(386, 'D', 'Sprintplanering -> Dagligt Scrum -> Sprintåterblick -> Sprintgranskning', false),           -- Q387 (Fråga 162)
 (387, 'A', '8 timmar', true),
 (387, 'B', '2 timmar', false),
 (387, 'C', '6 timmar', false),
-(387, 'D', '4 timmar', false),
-
--- Q388 (Fråga 163)
+(387, 'D', '4 timmar', false),                                                                          -- Q388 (Fråga 163)
 (388, 'A', 'Den är primärt för Scrum Master', false),
 (388, 'B', 'Den presenterar färdigt arbete för intressenter', true),
 (388, 'C', 'Den hålls i början av sprinten', false),
-(388, 'D', 'Den fokuserar på processförbättringar', false),
-
--- Q389 (Fråga 164)
+(388, 'D', 'Den fokuserar på processförbättringar', false),                                             -- Q389 (Fråga 164)
 (389, 'A', 'Hur mår teamet?, Vad är status?, Vilka risker finns?', false),
 (389, 'B', 'Vad är klart?, Vad återstår?, När blir det klart?', false),
 (389, 'C', 'Vad är blockerande?, Vad behöver vi hjälp med?, Hur ligger vi till tidsmässigt?', false),
-(389, 'D', 'Vad gjorde jag igår?, Vad ska jag göra idag?, Finns det några hinder?', true),
-
--- Q390 (Fråga 165)
+(389, 'D', 'Vad gjorde jag igår?, Vad ska jag göra idag?, Finns det några hinder?', true),              -- Q390 (Fråga 165)
 (390, 'A', 'Att dokumentera tekniska krav', false),
 (390, 'B', 'Att beskriva användarberättelser', false),
 (390, 'C', 'Att sätta upp gemensamma förutsättningar för flera scenarion', true),
-(390, 'D', 'Att definiera testdata', false),
-
--- Q391 (Fråga 166)
+(390, 'D', 'Att definiera testdata', false),                                                            -- Q391 (Fråga 166)
 (391, 'A', 'Att beskriva tekniska implementationsdetaljer', false),
 (391, 'B', 'Att ersätta teknisk dokumentation', false),
 (391, 'C', 'Att fånga användarens behov och önskad funktionalitet', true),
-(391, 'D', 'Att definiera systemarkitekturen', false),
-
--- Q392 (Fråga 167)
+(391, 'D', 'Att definiera systemarkitekturen', false),                                                  -- Q392 (Fråga 167)
 (392, 'A', 'Problem - Lösning - Implementation', false),
 (392, 'B', 'Krav - Design - Test', false),
 (392, 'C', 'Vem - Vad - När - Var', false),
-(392, 'D', 'Som [roll] - Vill jag [funktion] - Så att [nytta]', true),
-
--- Q393 (Fråga 168)
+(392, 'D', 'Som [roll] - Vill jag [funktion] - Så att [nytta]', true),                                  -- Q393 (Fråga 168)
 (393, 'A', 'Independent', true),
 (393, 'B', 'Integrated', false),
 (393, 'C', 'Important', false),
-(393, 'D', 'Innovative', false),
-
--- Q394 (Fråga 169)
+(393, 'D', 'Innovative', false),                                                                        -- Q394 (Fråga 169)
 (394, 'A', 'When - Then - Given', false),
 (394, 'B', 'Given - When - Then', true),
 (394, 'C', 'Then - Given - When', false),
-(394, 'D', 'When - Given - Then', false),
-
--- Q395 (Fråga 170)
+(394, 'D', 'When - Given - Then', false),                                                               -- Q395 (Fråga 170)
 (395, 'A', 'Att beskriva tekniska implementationsdetaljer', false),
 (395, 'B', 'Att definiera när en User Story anses vara uppfylld', true),
 (395, 'C', 'Att ersätta användarmanual', false),
-(395, 'D', 'Att dokumentera kodstrukturen', false),
-
--- Q396 (Fråga 171)
+(395, 'D', 'Att dokumentera kodstrukturen', false),                                                     -- Q396 (Fråga 171)
 (396, 'A', 'Ett verktyg för kodgranskning', false),
 (396, 'B', 'En metod för att skriva teknisk dokumentation', false),
 (396, 'C', 'Ett system för versionshantering', false),
-(396, 'D', 'En utvecklingsmetodik fokuserad på beteende och användarnytta', true),
-
--- Q397 (Fråga 172)
+(396, 'D', 'En utvecklingsmetodik fokuserad på beteende och användarnytta', true),                      -- Q397 (Fråga 172)
 (397, 'A', 'Genom att ta bort acceptanskriterier', false),
 (397, 'B', 'Genom att skriva om den som teknisk specifikation', false),
 (397, 'C', 'Genom att dela upp den i mindre, oberoende stories', true),
-(397, 'D', 'Genom att lägga till fler tekniska detaljer', false),
-
--- Q398 (Fråga 173)
+(397, 'D', 'Genom att lägga till fler tekniska detaljer', false),                                       -- Q398 (Fråga 173)
 (398, 'A', 'De fungerar som samtalsstartare för vidare diskussion', true),
 (398, 'B', 'De måste innehålla all teknisk information', false),
 (398, 'C', 'De ska vara långa och detaljerade', false),
-(398, 'D', 'De ersätter all annan dokumentation', false),
-
--- Q399 (Fråga 174)
+(398, 'D', 'De ersätter all annan dokumentation', false),                                               -- Q399 (Fråga 174)
 (399, 'A', 'Bara låta utvecklare uppdatera dem', false),
 (399, 'B', 'Låsa dem när de är skrivna', false),
 (399, 'C', 'Uppdatera dem vid projektets slut', false),
-(399, 'D', 'Hålla regelbundna "backlog grooming"-sessioner', true),
-
--- Q400 (Fråga 175)
+(399, 'D', 'Hålla regelbundna "backlog grooming"-sessioner', true),                                     -- Q400 (Fråga 175)
 (400, 'A', 'De ska innehålla tekniska detaljer', false),
 (400, 'B', 'De ska vara mätbara och verifierbara', true),
 (400, 'C', 'De ska vara svåra att testa', false),
-(400, 'D', 'De ska vara så få som möjligt', false),
-
--- Q401 (Fråga 176)
+(400, 'D', 'De ska vara så få som möjligt', false),                                                     -- Q401 (Fråga 176)
 (401, 'A', 'Att definiera tekniska specifikationer', false),
 (401, 'B', 'Att automatisera all testning', false),
 (401, 'C', 'Att specificera exakt när en User Story anses vara uppfylld', true),
-(401, 'D', 'Att ersätta User Stories', false),
-
--- Q402 (Fråga 177)
+(401, 'D', 'Att ersätta User Stories', false),                                                          -- Q402 (Fråga 177)
 (402, 'A', 'When, Given, Then', false),
 (402, 'B', 'Then, Given, When', false),
 (402, 'C', 'Given, Then, When', false),
-(402, 'D', 'Given, When, Then', true),
-
--- Q403 (Fråga 178)
+(402, 'D', 'Given, When, Then', true),                                                                  -- Q403 (Fråga 178)
 (403, 'A', 'Den kan endast användas av utvecklare', false),
 (403, 'B', 'Den ska kunna förstås av både tekniska och icke-tekniska intressenter', true),
 (403, 'C', 'Den måste innehålla kodexempel', false),
-(403, 'D', 'Den är endast till för teknisk dokumentation', false),
-
--- Q404 (Fråga 179)
+(403, 'D', 'Den är endast till för teknisk dokumentation', false),                                      -- Q404 (Fråga 179)
 (404, 'A', 'En teknisk specifikation', false),
 (404, 'B', 'Ett sätt att definiera gemensamma förutsättningar för alla scenarion', true),
 (404, 'C', 'En beskrivning av projektets bakgrund', false),
-(404, 'D', 'En lista över kända buggar', false),
-
--- Q405 (Fråga 180)
+(404, 'D', 'En lista över kända buggar', false),                                                        -- Q405 (Fråga 180)
 (405, 'A', 'Att dokumentera kodändringar', false),
 (405, 'B', 'Att markera buggfixar', false),
 (405, 'C', 'Att kategorisera och filtrera scenarion', true),
-(405, 'D', 'Att versionshantera dokument', false),
-
--- Q181 (ID 406)
+(405, 'D', 'Att versionshantera dokument', false),                                                      -- Q181 (ID 406)
 (406, 'A', 'För att dokumentera projektmål', false),
 (406, 'B', 'För att testa samma scenario med olika datapunkter', true),
 (406, 'C', 'För att beskriva tekniska detaljer', false),
-(406, 'D', 'För att definiera projektroller', false),
-
--- Q182 (ID 407)
+(406, 'D', 'För att definiera projektroller', false),                                                   -- Q182 (ID 407)
 (407, 'A', 'De fokuserar på implementationsdetaljer', false),
 (407, 'B', 'De är mycket tekniskt detaljerade', false),
 (407, 'C', 'De är vaga och generella', false),
-(407, 'D', 'De är specifika och mätbara', true),
-
--- Q183 (ID 408)
+(407, 'D', 'De är specifika och mätbara', true),                                                        -- Q183 (ID 408)
 (408, 'A', 'Inkludera specifika, mätbara prestandamål', true),
 (408, 'B', 'Endast fokusera på funktionella krav', false),
 (408, 'C', 'Behandla dem som mindre viktiga', false),
-(408, 'D', 'Ignorera dem helt', false),
-
--- Q184 (ID 409)
+(408, 'D', 'Ignorera dem helt', false),                                                                 -- Q184 (ID 409)
 (409, 'A', 'Endast vid projektslut', false),
 (409, 'B', 'Endast vid projektstart', false),
 (409, 'C', 'Kontinuerligt när krav förändras', true),
-(409, 'D', 'Aldrig efter första versionen', false),
-
--- Q185 (ID 410)
+(409, 'D', 'Aldrig efter första versionen', false),                                                     -- Q185 (ID 410)
 (410, 'A', 'Den fungerar som grund för automatiserade tester', true),
 (410, 'B', 'Den har ingen koppling till testautomatisering', false),
 (410, 'C', 'Den ersätter behovet av testare', false),
-(410, 'D', 'Den genererar automatiskt all testkod', false),
-
--- Q186 (ID 411)
+(410, 'D', 'Den genererar automatiskt all testkod', false),                                             -- Q186 (ID 411)
 (411, 'A', 'Att fokusera på teknisk implementation', false),
 (411, 'B', 'Att ersätta alla andra testmetoder', false),
 (411, 'C', 'Att definiera systemets beteende ur ett användarperspektiv', true),
-(411, 'D', 'Att endast automatisera enhetstester', false),
-
--- Q187 (ID 412)
+(411, 'D', 'Att endast automatisera enhetstester', false),                                              -- Q187 (ID 412)
 (412, 'A', 'TDD är helt manuellt medan BDD är automatiserat', false),
 (412, 'B', 'BDD fokuserar på acceptanstester medan TDD fokuserar på enhetstester', true),
 (412, 'C', 'BDD är endast för testare medan TDD är för utvecklare', false),
-(412, 'D', 'TDD använder Gherkin medan BDD använder JUnit', false),
-
--- Q188 (ID 413)
+(412, 'D', 'TDD använder Gherkin medan BDD använder JUnit', false),                                     -- Q188 (ID 413)
 (413, 'A', 'Gherkin', true),
 (413, 'B', 'Maven', false),
 (413, 'C', 'JUnit', false),
-(413, 'D', 'Jenkins', false),
-
--- Q189 (ID 414)
+(413, 'D', 'Jenkins', false),                                                                           -- Q189 (ID 414)
 (414, 'A', 'Endast utvecklare', false),
 (414, 'B', 'Utvecklare och testare', false),
 (414, 'C', 'Utvecklare, testare och affärsintressenter', true),
-(414, 'D', 'Endast testare och affärsintressenter', false),
-
--- Q190 (ID 415)
+(414, 'D', 'Endast testare och affärsintressenter', false),                                             -- Q190 (ID 415)
 (415, 'A', 'Skriva kod', false),
 (415, 'B', 'Köra automatiserade tester', false),
 (415, 'C', 'Implementera continuous integration', false),
-(415, 'D', 'Definiera User Stories och acceptanskriterier', true),
-
--- Q191 (ID 416)
+(415, 'D', 'Definiera User Stories och acceptanskriterier', true),                                      -- Q191 (ID 416)
 (416, 'A', 'Från användarens perspektiv', true),
 (416, 'B', 'Med fokus på tekniska detaljer', false),
 (416, 'C', 'Från systemets perspektiv', false),
-(416, 'D', 'Med fokus på databasstrukturer', false),
-
--- Q192 (ID 417)
+(416, 'D', 'Med fokus på databasstrukturer', false),                                                    -- Q192 (ID 417)
 (417, 'A', 'Duplicera koden i varje scenario', false),
 (417, 'B', 'Använda Backgrounds i Gherkin', true),
 (417, 'C', 'Skapa separata testklasser', false),
-(417, 'D', 'Ignorera gemensamma förutsättningar', false),
-
--- Q193 (ID 418)
+(417, 'D', 'Ignorera gemensamma förutsättningar', false),                                               -- Q193 (ID 418)
 (418, 'A', 'Scenarion som delar samma data', false),
 (418, 'B', 'Alla typer av scenarion', false),
 (418, 'C', 'Scenarion som är oberoende av varandra', true),
-(418, 'D', 'Scenarion med databaskopplingar', false),
-
--- Q194 (ID 419)
+(418, 'D', 'Scenarion med databaskopplingar', false),                                                   -- Q194 (ID 419)
 (419, 'A', 'Endast vid större releaser', false),
 (419, 'B', 'Kontinuerligt i CI/CD-pipeline', true),
 (419, 'C', 'Efter att all utveckling är klar', false),
-(419, 'D', 'Köras manuellt vid behov', false),
-
--- Q195 (ID 420)
+(419, 'D', 'Köras manuellt vid behov', false),                                                          -- Q195 (ID 420)
 (420, 'A', 'Att göra testerna långsammare', false),
 (420, 'B', 'Att öka antalet tester', false),
 (420, 'C', 'Att förenkla databasanrop', false),
-(420, 'D', 'Att göra scenarion mer läsbara och robusta', true),
-
--- Q196 (ID 421)
+(420, 'D', 'Att göra scenarion mer läsbara och robusta', true),                                         -- Q196 (ID 421)
 (421, 'A', 'Radtäckning', false),
 (421, 'B', 'Grentäckning', false),
 (421, 'C', 'Funktionstäckning', true),
-(421, 'D', 'Villkorstäckning', false),
-
--- Q197 (ID 422)
+(421, 'D', 'Villkorstäckning', false),                                                                  -- Q197 (ID 422)
 (422, 'A', 'Att ersätta manuell kodgranskning', false),
 (422, 'B', 'Att kvantifiera hur omfattande testsviten är', true),
 (422, 'C', 'Att garantera att koden är helt bugfri', false),
-(422, 'D', 'Att öka kodens prestanda', false),
-
--- Q198 (ID 423)
+(422, 'D', 'Att öka kodens prestanda', false),                                                          -- Q198 (ID 423)
 (423, 'A', 'JaCoCo', true),
 (423, 'B', 'Maven', false),
 (423, 'C', 'JUnit', false),
-(423, 'D', 'Gradle', false),
-
--- Q199 (ID 424)
+(423, 'D', 'Gradle', false),                                                                            -- Q199 (ID 424)
 (424, 'A', 'Det garanterar inte att koden är bugfri', true),
 (424, 'B', 'Det garanterar att koden är helt felfri', false),
 (424, 'C', 'Det är alltid det optimala målet för alla projekt', false),
-(424, 'D', 'Det tar hänsyn till alla möjliga indata och scenarier', false),
-
--- Q200 (ID 425)
+(424, 'D', 'Det tar hänsyn till alla möjliga indata och scenarier', false),                             -- Q200 (ID 425)
 (425, 'A', 'Antalet funktioner i en klass', false),
 (425, 'B', 'Antalet linjärt oberoende vägar genom koden', true),
 (425, 'C', 'Antalet rader kod', false),
-(425, 'D', 'Tiden det tar att exekvera koden', false),
-
--- Q201 (ID 426)
+(425, 'D', 'Tiden det tar att exekvera koden', false),                                                  -- Q201 (ID 426)
 (426, 'A', 'Att utvärdera testernas kvalitet och effektivitet', true),
 (426, 'B', 'Att öka antalet tester i en testsvit', false),
 (426, 'C', 'Att mäta kodtäckning', false),
-(426, 'D', 'Att automatiskt generera nya tester', false),
-
--- Q202 (ID 427)
+(426, 'D', 'Att automatiskt generera nya tester', false),                                               -- Q202 (ID 427)
 (427, 'A', 'Testtäckning mäter endast exekverad kod', false),
 (427, 'B', 'Låg testtäckning indikerar alltid dålig kodkvalitet', false),
 (427, 'C', 'Hög testtäckning garanterar högkvalitativa tester', true),
-(427, 'D', 'Testtäckning är oviktigt för kodkvalitet', false),
-
--- Q203 (ID 428)
+(427, 'D', 'Testtäckning är oviktigt för kodkvalitet', false),                                          -- Q203 (ID 428)
 (428, 'A', 'Enbart fokusera på radtäckning', false),
 (428, 'B', 'Använda täckning som guide för att identifiera områden som behöver mer testning', true),
 (428, 'C', 'Alltid sträva efter 100% täckning oavsett kostnad', false),
-(428, 'D', 'Ignorera täckningssiffror helt och hållet', false),
-
--- Q204 (ID 429)
+(428, 'D', 'Ignorera täckningssiffror helt och hållet', false),                                         -- Q204 (ID 429)
 (429, 'A', 'Komplexitet och täckning är helt orelaterade koncept', false),
 (429, 'B', 'Låg komplexitet garanterar hög testtäckning', false),
 (429, 'C', 'Högre komplexitet kräver ofta färre tester', false),
-(429, 'D', 'Högre komplexitet indikerar ofta behov av fler tester för fullständig täckning', true),
-
--- Q205 (ID 430)
+(429, 'D', 'Högre komplexitet indikerar ofta behov av fler tester för fullständig täckning', true),     -- Q205 (ID 430)
 (430, 'A', 'Det ökar alltid utvecklingstiden markant', false),
 (430, 'B', 'Det kan leda till falsk säkerhet', true),
 (430, 'C', 'Det gör koden långsammare att exekvera', false),
-(430, 'D', 'Det kräver manuell kodgranskning', false),
-
--- Q206 (ID 431)
+(430, 'D', 'Det kräver manuell kodgranskning', false),                                                  -- Q206 (ID 431)
 (431, 'A', 'Att utvärdera testernas kvalitet och effektivitet', true),
 (431, 'B', 'Att öka antalet tester i en testsvit', false),
 (431, 'C', 'Att mäta kodtäckning', false),
-(431, 'D', 'Att automatiskt generera nya tester', false),
-
--- Q207 (ID 432)
+(431, 'D', 'Att automatiskt generera nya tester', false),                                               -- Q207 (ID 432)
 (432, 'A', 'Köra tester mot muterad kod', false),
 (432, 'B', 'Analysera överlevande mutationer', false),
 (432, 'C', 'Generera nya testfall automatiskt', true),
-(432, 'D', 'Introducera små förändringar i koden', false),
-
--- Q208 (ID 433)
+(432, 'D', 'Introducera små förändringar i koden', false),                                              -- Q208 (ID 433)
 (433, 'A', 'Den mäter procentandelen av koden som täcks av tester', false),
 (433, 'B', 'Den ersätter traditionell testtäckning', false),
 (433, 'C', 'En låg mutation score indikerar alltid bra tester', false),
-(433, 'D', 'Den beräknas som andelen dödade mutationer', true),
-
--- Q209 (ID 434)
+(433, 'D', 'Den beräknas som andelen dödade mutationer', true),                                         -- Q209 (ID 434)
 (434, 'A', 'Det eliminerar behovet av manuell testning', false),
 (434, 'B', 'Det ger djupare insikt i testernas kvalitet', true),
 (434, 'C', 'Det är snabbare att utföra', false),
-(434, 'D', 'Det kräver färre tester', false),
-
--- Q210 (ID 435)
+(434, 'D', 'Det kräver färre tester', false),                                                           -- Q210 (ID 435)
 (435, 'A', 'En mutation som genererar nya testfall', false),
 (435, 'B', 'En mutation som orsakar kompileringsfel', false),
 (435, 'C', 'En mutation som inte upptäcks av testerna', true),
-(435, 'D', 'En mutation som förbättrar kodens prestanda', false),
-
--- Q211 (ID 436)
+(435, 'D', 'En mutation som förbättrar kodens prestanda', false),                                       -- Q211 (ID 436)
 (436, 'A', 'JUnit', false),
 (436, 'B', 'PIT', true),
 (436, 'C', 'Selenium', false),
-(436, 'D', 'Mockito', false),
-
--- Q212 (ID 437)
+(436, 'D', 'Mockito', false),                                                                           -- Q212 (ID 437)
 (437, 'A', 'Selektiv mutation', false),
 (437, 'B', 'Öka antalet mutationer', true),
 (437, 'C', 'Inkrementell mutation testing', false),
-(437, 'D', 'Parallell exekvering', false),
-
--- Q213 (ID 438)
+(437, 'D', 'Parallell exekvering', false),                                                              -- Q213 (ID 438)
 (438, 'A', 'De kan inte dödas av några tester', true),
 (438, 'B', 'De bör alltid elimineras från mutation testing', false),
 (438, 'C', 'De indikerar alltid fel i koden', false),
-(438, 'D', 'De förbättrar kodens prestanda', false),
-
--- Q214 (ID 439)
+(438, 'D', 'De förbättrar kodens prestanda', false),                                                    -- Q214 (ID 439)
 (439, 'A', 'Öka kodtäckningen till 100%', false),
 (439, 'B', 'Granska och förbättra testernas kvalitet', true),
 (439, 'C', 'Ignorera resultaten', false),
-(439, 'D', 'Minska antalet tester', false),
-
--- Q215 (ID 440)
+(439, 'D', 'Minska antalet tester', false),                                                             -- Q215 (ID 440)
 (440, 'A', 'Genom att blockera alla externa anslutningar', false),
 (440, 'B', 'Genom att automatiskt laga säkerhetsbrister', false),
 (440, 'C', 'Genom att kryptera känslig data', false),
-(440, 'D', 'Genom att identifiera svagheter i testningen av säkerhetskritiska delar', true),
-
--- Q216 (ID 441)
+(440, 'D', 'Genom att identifiera svagheter i testningen av säkerhetskritiska delar', true),            -- Q216 (ID 441)
 (441, 'A', 'Att ersätta traditionella enhetstester', false),
 (441, 'B', 'Att automatisera processen att generera mutanter och köra tester', true),
 (441, 'C', 'Att optimera kompileringsprocessen', false),
-(441, 'D', 'Att öka prestandan i Java-applikationer', false),
-
--- Q217 (ID 442)
+(441, 'D', 'Att öka prestandan i Java-applikationer', false),                                           -- Q217 (ID 442)
 (442, 'A', 'Det fungerar endast med specifika JDK-versioner', false),
 (442, 'B', 'Det kan enkelt integreras med byggverktyg som Maven eller Gradle', true),
 (442, 'C', 'Det är omöjligt att integrera i CI/CD-pipelines', false),
-(442, 'D', 'Det kräver alltid omfattande omstrukturering av existerande kod', false),
-
--- Q218 (ID 443)
+(442, 'D', 'Det kräver alltid omfattande omstrukturering av existerande kod', false),                   -- Q218 (ID 443)
 (443, 'A', 'Att eliminera behovet av manuell kodgranskning', false),
 (443, 'B', 'Att minska körtiden genom att fokusera på nyligen ändrad kod', true),
 (443, 'C', 'Att öka antalet genererade mutanter', false),
-(443, 'D', 'Att förbättra precisionen i testresultaten', false),
-
--- Q219 (ID 444)
+(443, 'D', 'Att förbättra precisionen i testresultaten', false),                                        -- Q219 (ID 444)
 (444, 'A', 'Det kan endast användas för små projekt', false),
 (444, 'B', 'Det kan bara användas för backend-kod', false),
 (444, 'C', 'Det tar för lång tid för att vara praktiskt användbart', true),
-(444, 'D', 'Det kräver specialiserad hårdvara för att köras', false),
-
--- Q220 (ID 445)
+(444, 'D', 'Det kräver specialiserad hårdvara för att köras', false),                                   -- Q220 (ID 445)
 (445, 'A', 'Att endast köra mutation testing vid stora releaser', false),
 (445, 'B', 'Att implementera distribuerad exekvering på flera maskiner', true),
 (445, 'C', 'Att helt undvika mutation testing', false),
-(445, 'D', 'Att manuellt granska varje genererad mutant', false),
-
--- Q221 (ID 446)
+(445, 'D', 'Att manuellt granska varje genererad mutant', false),                                       -- Q221 (ID 446)
 (446, 'A', 'Att eliminera falska positiva resultat', false),
 (446, 'B', 'Att öka antalet genererade mutanter', false),
 (446, 'C', 'Att testa en representativ delmängd av mutationer för att spara tid', true),
-(446, 'D', 'Att förbättra precisionen i enskilda tester', false),
-
--- Q222 (ID 447)
+(446, 'D', 'Att förbättra precisionen i enskilda tester', false),                                       -- Q222 (ID 447)
 (447, 'A', 'Gradvis öka omfattningen av mutation testing över tid', true),
 (447, 'B', 'Endast tillämpa det på nya funktioner', false),
 (447, 'C', 'Implementera det omedelbart för hela kodbasen', false),
-(447, 'D', 'Ignorera mutation testing helt för stora projekt', false),
-
--- Q223 (ID 448)
+(447, 'D', 'Ignorera mutation testing helt för stora projekt', false),                                  -- Q223 (ID 448)
 (448, 'A', 'Exekvering av tester mot mutanter', false),
 (448, 'B', 'Manuell kodoptimering baserad på mutationsresultat', true),
 (448, 'C', 'Generering av mutanter', false),
-(448, 'D', 'Kompilering av muterad kod', false),
-
--- Q224 (ID 449)
+(448, 'D', 'Kompilering av muterad kod', false),                                                        -- Q224 (ID 449)
 (449, 'A', 'Att minska körtiden genom att fokusera på tidigare problematiska områden', true),
 (449, 'B', 'Att automatisera skapandet av nya tester', false),
 (449, 'C', 'Att förbättra precision i testresultaten', false),
-(449, 'D', 'Att öka antalet genererade mutanter', false),
-
--- Q225 (ID 450)
+(449, 'D', 'Att öka antalet genererade mutanter', false),                                               -- Q225 (ID 450)
 (450, 'A', 'Begränsa mutation testing till endast seniora utvecklare', false),
 (450, 'B', 'Använda IDE-plugins för att köra mutation tester direkt från utvecklingsmiljön', true),
 (450, 'C', 'Kräva att utvecklare manuellt granskar varje mutant', false),
-(450, 'D', 'Köra fullständig mutation testing före varje commit', false),
-
--- Q226 (ID 451)
+(450, 'D', 'Köra fullständig mutation testing före varje commit', false),                               -- Q226 (ID 451)
 (451, 'A', 'Att generera en mängd olika testfall baserat på definierade egenskaper', true),
 (451, 'B', 'Att ersätta all manuell testning', false),
 (451, 'C', 'Att skapa visuella representationer av testresultat', false),
-(451, 'D', 'Att automatisera kodgranskning', false),
-
--- Q227 (ID 452)
+(451, 'D', 'Att automatisera kodgranskning', false),                                                    -- Q227 (ID 452)
 (452, 'A', 'Egenskapsdefinition', false),
 (452, 'B', 'Datagenerering', false),
 (452, 'C', 'Manuell kodgranskning', true),
-(452, 'D', 'Felhantering', false),
-
--- Q228 (ID 453)
+(452, 'D', 'Felhantering', false),                                                                      -- Q228 (ID 453)
 (453, 'A', 'Property-based testing kompletterar exempel-baserad testning', true),
 (453, 'B', 'Property-based testing ersätter helt exempel-baserad testning', false),
 (453, 'C', 'Exempel-baserad testning är alltid mer effektiv än property-based testing', false),
-(453, 'D', 'Property-based testing och exempel-baserad testning kan inte användas tillsammans', false),
-
--- Q229 (ID 454)
+(453, 'D', 'Property-based testing och exempel-baserad testning kan inte användas tillsammans', false), -- Q229 (ID 454)
 (454, 'A', 'Det kräver mindre tid att skriva tester', false),
 (454, 'B', 'Det hittar alltid alla möjliga buggar', false),
 (454, 'C', 'Det eliminerar behovet av manuell testning helt', false),
-(454, 'D', 'Det kan avslöja buggar som traditionella tester ofta missar', true),
-
--- Q230 (ID 455)
+(454, 'D', 'Det kan avslöja buggar som traditionella tester ofta missar', true),                        -- Q230 (ID 455)
 (455, 'A', 'Att reducera exekveringstiden för tester', false),
 (455, 'B', 'Att minska storleken på testsviten', false),
 (455, 'C', 'Att hitta det minsta exemplet som fortfarande producerar ett fel', true),
-(455, 'D', 'Att begränsa antalet genererade testfall', false),
-
--- Q231 (ID 456)
+(455, 'D', 'Att begränsa antalet genererade testfall', false),                                          -- Q231 (ID 456)
 (456, 'A', 'Att definiera meningsfulla egenskaper för komplexa funktioner', true),
 (456, 'B', 'Att generera slumpmässiga testdata', false),
 (456, 'C', 'Att köra tester parallellt', false),
-(456, 'D', 'Att integrera med byggsystem', false),
-
--- Q232 (ID 457)
+(456, 'D', 'Att integrera med byggsystem', false),                                                      -- Q232 (ID 457)
 (457, 'A', 'Manuell filtrering av testdata', false),
 (457, 'B', 'Användning av @When annotationen', true),
 (457, 'C', 'Ökning av antalet genererade testfall', false),
-(457, 'D', 'Implementering av felhanteringsrutiner i produktionskoden', false),
-
--- Q233 (ID 458)
+(457, 'D', 'Implementering av felhanteringsrutiner i produktionskoden', false),                         -- Q233 (ID 458)
 (458, 'A', 'Det ersätter behovet av säkerhetsgranskningar', false),
 (458, 'B', 'Det eliminerar behovet av penetrationstestning', false),
 (458, 'C', 'Det garanterar att inga säkerhetshål finns', false),
-(458, 'D', 'Det kan generera oväntade eller potentiellt skadliga inputs', true),
-
--- Q234 (ID 459)
+(458, 'D', 'Det kan generera oväntade eller potentiellt skadliga inputs', true),                        -- Q234 (ID 459)
 (459, 'A', 'Använd annotations för att begränsa genererade värden när det behövs', false),
 (459, 'B', 'Börja med enkla egenskaper och bygg gradvis upp till mer komplexa', false),
 (459, 'C', 'Fokusera enbart på property-based tester och undvik exempel-baserade tester', true),
-(459, 'D', 'Använd domänspecifik kunskap för att definiera meningsfulla egenskaper', false),
-
--- Q235 (ID 460)
+(459, 'D', 'Använd domänspecifik kunskap för att definiera meningsfulla egenskaper', false),            -- Q235 (ID 460)
 (460, 'A', 'Att generera testrapporter', false),
 (460, 'B', 'Att upptäcka subtila fel eller prestandaproblem', true),
 (460, 'C', 'Att automatisera all testning', false),
 (460, 'D', 'Att ersätta traditionell enhetstestning', false);
 
 
-INSERT INTO QUESTIONS (id, question_number, course_name, question_text)
+INSERT INTO QUESTIONS (course_name_question_number, question_number, course_name, question_text)
 VALUES (461, 1, 'API', '1. Vilket av följande är huvudsyftet med ett API?'),
        (462, 2, 'API', '2. Vilket påstående är korrekt angående API:ers funktion?'),
        (463, 3, 'API', '3. Vad är en viktig säkerhetsaspekt att överväga vid API-design?'),
@@ -2882,7 +2415,7 @@ VALUES (461, 1, 'API', '1. Vilket av följande är huvudsyftet med ett API?'),
        (469, 9, 'API', '9. Vad är en viktig del av god API-dokumentation?'),
        (470, 10, 'API', '10. Vilken är en viktig övervägande vid design av ett skalbart API?');
 
-INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct)
+INSERT INTO QUESTION_OPTIONS (course_name_question_number, option_label, option_text, is_correct)
 VALUES (461, 'A', 'Att möjliggöra kommunikation mellan olika mjukvarusystem', true),
        (461, 'B', 'Att lagra data i en databas', false),
        (461, 'C', 'Att skapa grafiska användargränssnitt', false),
@@ -2925,7 +2458,7 @@ VALUES (461, 'A', 'Att möjliggöra kommunikation mellan olika mjukvarusystem', 
        (470, 'D', 'Att implementera lastbalansering', true);
 
 -- Batch-insert för QUESTIONS
-INSERT INTO QUESTIONS (id, question_number, course_name, question_text)
+INSERT INTO QUESTIONS (course_name_question_number, question_number, course_name, question_text)
 VALUES (471, 11, 'API', '11. Vilket av följande är inte en vanlig typ av API som diskuteras i moderna webbutveckling?'),
        (472, 12, 'API', '12. Vad är huvudsyftet med en API Gateway?'),
        (473, 13, 'API', '13. Vilken påstående är korrekt angående WebSocket API?'),
@@ -2939,61 +2472,52 @@ VALUES (471, 11, 'API', '11. Vilket av följande är inte en vanlig typ av API s
        (480, 20, 'API', '20. Vilket av följande är ett viktigt övervägande vid val av API-typ för ett projekt?');
 
 -- Batch-insert för QUESTION-OPTIONS
-INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct)
+INSERT INTO QUESTION_OPTIONS (course_name_question_number, option_label, option_text, is_correct)
 VALUES
 -- Fråga 11
 (471, 'A', 'REST', false),
 (471, 'B', 'XML-RPC', true),
 (471, 'C', 'GraphQL', false),
-(471, 'D', 'SOAP', false),
--- Fråga 12
+(471, 'D', 'SOAP', false),                                                                    -- Fråga 12
 (472, 'A', 'Att generera API-dokumentation automatiskt', false),
 (472, 'B', 'Att konvertera mellan olika programmeringsspråk', false),
 (472, 'C', 'Att fungera som en central ingångspunkt för klientförfrågningar', true),
-(472, 'D', 'Att optimera databasförfrågningar', false),
--- Fråga 13
+(472, 'D', 'Att optimera databasförfrågningar', false),                                       -- Fråga 13
 (473, 'A', 'Det använder alltid XML för dataöverföring', false),
 (473, 'B', 'Det möjliggör dubbelriktad kommunikation i realtid', true),
 (473, 'C', 'Det är bäst lämpat för sporadiska datauppdateringar', false),
-(473, 'D', 'Det är statiskt och kräver ny anslutning för varje förfrågan', false),
--- Fråga 14
+(473, 'D', 'Det är statiskt och kräver ny anslutning för varje förfrågan', false),            -- Fråga 14
 (474, 'A', 'Möjlighet för klienten att specificera exakt vilken data som behövs', true),
 (474, 'B', 'Inbyggd säkerhet och kryptering', false),
 (474, 'C', 'Bättre prestanda för alla typer av förfrågningar', false),
-(474, 'D', 'Enklare implementation på serversidan', false),
--- Fråga 15
+(474, 'D', 'Enklare implementation på serversidan', false),                                   -- Fråga 15
 (475, 'A', 'Att skapa API:er endast för externa användare', false),
 (475, 'B', 'Att fokusera enbart på API-utveckling och ignorera frontend', false),
 (475, 'C', 'Att definiera API:et innan implementation av backend eller frontend', true),
-(475, 'D', 'Att alltid använda den senaste API-teknologin', false),
--- Fråga 16
+(475, 'D', 'Att alltid använda den senaste API-teknologin', false),                           -- Fråga 16
 (476, 'A', 'Tillhandahålla tydlig dokumentation', false),
 (476, 'B', 'Använda HTTP för all kommunikation', true),
 (476, 'C', 'Implementera versionshantering', false),
-(476, 'D', 'Implementera konsekvent felhantering', false),
--- Fråga 17
+(476, 'D', 'Implementera konsekvent felhantering', false),                                    -- Fråga 17
 (477, 'A', 'Det använder JSON som primärt dataformat', false),
 (477, 'B', 'Det har inbyggda säkerhetsfunktioner som WS-Security', true),
 (477, 'C', 'Det är stateful och kräver sessionshantering', false),
-(477, 'D', 'Det är alltid snabbare än REST API:er', false),
--- Fråga 18
+(477, 'D', 'Det är alltid snabbare än REST API:er', false),                                   -- Fråga 18
 (478, 'A', 'Begränsad dataöverföringshastighet', false),
 (478, 'B', 'Svårigheter att implementera säkerhetsprotokoll', false),
 (478, 'C', 'Hantering av persistenta anslutningar', true),
-(478, 'D', 'Kompatibilitetsproblem med moderna webbläsare', false),
--- Fråga 19
+(478, 'D', 'Kompatibilitetsproblem med moderna webbläsare', false),                           -- Fråga 19
 (479, 'A', 'De använder ett single endpoint för alla förfrågningar', false),
 (479, 'B', 'De kräver alltid XML för dataöverföring', false),
 (479, 'C', 'De är optimala för realtidskommunikation', false),
-(479, 'D', 'De är stateless och varje förfrågan innehåller all nödvändig information', true),
--- Fråga 20
+(479, 'D', 'De är stateless och varje förfrågan innehåller all nödvändig information', true), -- Fråga 20
 (480, 'A', 'Antalet tillgängliga tredjepartsbibliotek', false),
 (480, 'B', 'Projektets specifika krav och användningsfall', true),
 (480, 'C', 'Populariteten hos API-typen i branschpress', false),
 (480, 'D', 'Personliga preferenser hos utvecklingsteamet', false);
 
 -- Batch-insert för tabellen QUESTIONS
-INSERT INTO QUESTIONS (id, question_number, course_name, question_text)
+INSERT INTO QUESTIONS (course_name_question_number, question_number, course_name, question_text)
 VALUES (481, 21, 'API', '21. Vilket av följande är INTE ett lager i TCP/IP-modellen?'),
        (482, 22, 'API', '22. Vad är huvudsyftet med DNS (Domain Name System) i nätverkskommunikation?'),
        (483, 23, 'API', '23. Vilket protokoll används vanligtvis för att säkra HTTP-kommunikation?'),
@@ -3006,60 +2530,51 @@ VALUES (481, 21, 'API', '21. Vilket av följande är INTE ett lager i TCP/IP-mod
        (490, 30, 'API', '30. Vad är huvudsyftet med load balancing i nätverkskommunikation?');
 
 -- Batch-insert för tabellen QUESTION_OPTIONS
-INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct)
+INSERT INTO QUESTION_OPTIONS (course_name_question_number, option_label, option_text, is_correct)
 VALUES
 -- För fråga 21
 (481, 'A', 'Transportlager', false),
 (481, 'B', 'Applikationslager', false),
 (481, 'C', 'Presentationslager', true),
-(481, 'D', 'Internetlager', false),
--- För fråga 22
+(481, 'D', 'Internetlager', false),                                                         -- För fråga 22
 (482, 'A', 'Att hantera routing av datapaket', false),
 (482, 'B', 'Att översätta domännamn till IP-adresser', true),
 (482, 'C', 'Att kryptera data i transit', false),
-(482, 'D', 'Att kontrollera nätverkstrafik', false),
--- För fråga 23
+(482, 'D', 'Att kontrollera nätverkstrafik', false),                                        -- För fråga 23
 (483, 'A', 'HTTPS', true),
 (483, 'B', 'FTP', false),
 (483, 'C', 'TCP', false),
-(483, 'D', 'UDP', false),
--- För fråga 24
+(483, 'D', 'UDP', false),                                                                   -- För fråga 24
 (484, 'A', 'Portar är endast relevanta för UDP-protokollet', false),
 (484, 'B', 'Varje enhet har en unik port', false),
 (484, 'C', 'HTTP använder alltid port 443', false),
-(484, 'D', 'Portar används för att skilja mellan olika tjänster på samma IP-adress', true),
--- För fråga 25
+(484, 'D', 'Portar används för att skilja mellan olika tjänster på samma IP-adress', true), -- För fråga 25
 (485, 'A', 'Implementera caching', false),
 (485, 'B', 'Öka antalet HTTP-förfrågningar', true),
 (485, 'C', 'Använda komprimering', false),
-(485, 'D', 'Implementera connection pooling', false),
--- För fråga 26
+(485, 'D', 'Implementera connection pooling', false),                                       -- För fråga 26
 (486, 'A', 'Att ersätta HTTP-protokollet', false),
 (486, 'B', 'Att möjliggöra full-duplex, bi-direktionell kommunikation', true),
 (486, 'C', 'Att förbättra säkerheten i nätverkskommunikation', false),
-(486, 'D', 'Att öka bandbredden för dataöverföring', false),
--- För fråga 27
+(486, 'D', 'Att öka bandbredden för dataöverföring', false),                                -- För fråga 27
 (487, 'A', 'Enklare att implementera för nybörjare', false),
 (487, 'B', 'Högre prestanda genom binär serialisering', true),
 (487, 'C', 'Bättre kompatibilitet med äldre system', false),
-(487, 'D', 'Mer flexibel datastruktur', false),
--- För fråga 28
+(487, 'D', 'Mer flexibel datastruktur', false),                                             -- För fråga 28
 (488, 'A', 'Att hantera fysisk överföring av data', false),
 (488, 'B', 'Att ansvara för end-to-end-kommunikation', true),
 (488, 'C', 'Att hantera applikationsspecifika protokoll', false),
-(488, 'D', 'Att adressera och routa datapaket', false),
--- För fråga 29
+(488, 'D', 'Att adressera och routa datapaket', false),                                     -- För fråga 29
 (489, 'A', 'HTTPS använder samma port som HTTP', false),
 (489, 'B', 'HTTPS garanterar fullständig säkerhet för all data på servern', false),
 (489, 'C', 'HTTPS eliminerar behovet av API-nycklar', false),
-(489, 'D', 'HTTPS krypterar data i transit', true),
--- För fråga 30
+(489, 'D', 'HTTPS krypterar data i transit', true),                                         -- För fråga 30
 (490, 'A', 'Att översätta domännamn till IP-adresser', false),
 (490, 'B', 'Att fördela trafik över flera servrar', true),
 (490, 'C', 'Att komprimera nätverkstrafik', false),
 (490, 'D', 'Att öka säkerheten i nätverket', false);
 
-INSERT INTO QUESTIONS (id, question_number, course_name, question_text)
+INSERT INTO QUESTIONS (course_name_question_number, question_number, course_name, question_text)
 VALUES (491, 41, 'API',
         '41. Vilket av följande är inte en huvudanledning till att Spring Boot har blivit ett populärt verktyg för utvecklare?'),
        (492, 42, 'API', '42. Vad är huvudsyftet med Spring Boots auto-konfiguration?'),
@@ -3072,61 +2587,52 @@ VALUES (491, 41, 'API',
        (499, 49, 'API', '49. Vilken best practice bör följas vid design av RESTful API:er med Spring Boot?'),
        (500, 50, 'API', '50. Vad är huvudsyftet med Spring Boot Starter-beroenden?');
 
-INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct)
+INSERT INTO QUESTION_OPTIONS (course_name_question_number, option_label, option_text, is_correct)
 VALUES
 -- Fråga 41
 (491, 'A', 'Snabb utveckling', true),
 (491, 'B', 'Inbyggd säkerhet', true),
 (491, 'C', 'Stöd för legacy-system', false),
-(491, 'D', 'Skalbarhet', true),
--- Fråga 42
+(491, 'D', 'Skalbarhet', true),                                          -- Fråga 42
 (492, 'A', 'Att automatiskt skapa databasscheman', false),
 (492, 'B', 'Att konfigurera applikationen baserat på tillagda beroenden', true),
 (492, 'C', 'Att eliminera behovet av all manuell kodning', false),
-(492, 'D', 'Att generera användargränssnitt', false),
--- Fråga 43
+(492, 'D', 'Att generera användargränssnitt', false),                    -- Fråga 43
 (493, 'A', 'Convention over configuration', true),
 (493, 'B', 'Configuration over convention', false),
 (493, 'C', 'Code first', false),
-(493, 'D', 'Dependency injection', false),
--- Fråga 44
+(493, 'D', 'Dependency injection', false),                               -- Fråga 44
 (494, 'A', 'Den kräver separat installation och konfiguration', false),
 (494, 'B', 'Den ersätter behovet av externa servrar som Tomcat', true),
 (494, 'C', 'Den måste konfigureras manuellt för varje projekt', false),
-(494, 'D', 'Den fungerar endast med specifika databashanterare', false),
--- Fråga 45
+(494, 'D', 'Den fungerar endast med specifika databashanterare', false), -- Fråga 45
 (495, 'A', 'Det kräver omfattande konfiguration', false),
 (495, 'B', 'Det är endast lämpligt för stora företagsapplikationer', false),
 (495, 'C', 'Det är långsamt jämfört med lättviktiga ramverk', false),
-(495, 'D', 'Det är svårt att integrera med externa bibliotek', true),
--- Fråga 46
+(495, 'D', 'Det är svårt att integrera med externa bibliotek', true),    -- Fråga 46
 (496, 'A', 'Att optimera databasprestanda', false),
 (496, 'B', 'Att generera API-dokumentation', false),
 (496, 'C', 'Att övervaka och hantera applikationen i produktion', true),
-(496, 'D', 'Att automatisera enhetstester', false),
--- Fråga 47
+(496, 'D', 'Att automatisera enhetstester', false),                      -- Fråga 47
 (497, 'A', 'Att optimera API-prestanda', false),
 (497, 'B', 'Att konfigurera databasanslutningar', false),
 (497, 'C', 'Att definiera globala exception handlers', true),
-(497, 'D', 'Att hantera användarautentisering', false),
--- Fråga 48
+(497, 'D', 'Att hantera användarautentisering', false),                  -- Fråga 48
 (498, 'A', 'De kräver alltid en extern applikationsserver', false),
 (498, 'B', 'De underlättar oberoende skalning av tjänster', true),
 (498, 'C', 'De är olämpliga för små projekt', false),
-(498, 'D', 'De eliminerar behovet av distribuerad loggning', false),
--- Fråga 49
+(498, 'D', 'De eliminerar behovet av distribuerad loggning', false),     -- Fråga 49
 (499, 'A', 'Använda meningsfulla URL:er och rätt HTTP-metoder', true),
 (499, 'B', 'Använda samma HTTP-metod för alla endpoints', false),
 (499, 'C', 'Undvika användning av HTTP-statuskoder', false),
-(499, 'D', 'Implementera komplex affärslogik i controllers', false),
--- Fråga 50
+(499, 'D', 'Implementera komplex affärslogik i controllers', false),     -- Fråga 50
 (500, 'A', 'Att ersätta behovet av externa bibliotek', false),
 (500, 'B', 'Att förenkla konfigurationen av vanliga funktioner', true),
 (500, 'C', 'Att automatiskt generera kodstruktur', false),
 (500, 'D', 'Att optimera applikationens prestanda', false);
 
 -- Batch-insert för tabellen QUESTIONS
-INSERT INTO QUESTIONS (id, question_number, course_name, question_text)
+INSERT INTO QUESTIONS (course_name_question_number, question_number, course_name, question_text)
 VALUES (501, 51, 'API',
         '51. Vilket av följande är inte en grundläggande princip för det kalkylator-API som beskrivs i materialet?'),
        (502, 52, 'API', '52. Vad är huvudsyftet med att använda DTO:er (Data Transfer Objects) i API-design?'),
@@ -3142,60 +2648,51 @@ VALUES (501, 51, 'API',
        (510, 60, 'API', '60. Vilken är en rekommenderad strategi för att hantera tidskrävande beräkningar i ett API?');
 
 -- Batch-insert för tabellen QUESTION-OPTIONS
-INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct)
+INSERT INTO QUESTION_OPTIONS (course_name_question_number, option_label, option_text, is_correct)
 VALUES
 -- För fråga 51
 (501, 'A', 'RESTful', false),
 (501, 'B', 'Stateless', false),
 (501, 'C', 'Synkronisering', true),
-(501, 'D', 'Modularitet', false),
--- För fråga 52
+(501, 'D', 'Modularitet', false),                                                        -- För fråga 52
 (502, 'A', 'Att strukturera svar och separera intern och extern datarepresentation', true),
 (502, 'B', 'Att öka systemets prestanda', false),
 (502, 'C', 'Att förbättra säkerheten genom kryptering', false),
-(502, 'D', 'Att möjliggöra realtidsuppdateringar', false),
--- För fråga 53
+(502, 'D', 'Att möjliggöra realtidsuppdateringar', false),                               -- För fråga 53
 (503, 'A', 'PUT', false),
 (503, 'B', 'DELETE', false),
 (503, 'C', 'POST', false),
-(503, 'D', 'GET', true),
--- För fråga 54
+(503, 'D', 'GET', true),                                                                 -- För fråga 54
 (504, 'A', 'Felhantering är endast nödvändig för komplexa operationer', false),
 (504, 'B', 'Alla fel bör resultera i en 500 Internal Server Error', false),
 (504, 'C', 'Robust felhantering är kritisk även för enkla operationer', true),
-(504, 'D', 'Felmeddelanden bör alltid innehålla detaljerad teknisk information', false),
--- För fråga 55
+(504, 'D', 'Felmeddelanden bör alltid innehålla detaljerad teknisk information', false), -- För fråga 55
 (505, 'A', '@Service', false),
 (505, 'B', '@Repository', false),
 (505, 'C', '@Controller', false),
-(505, 'D', '@RestController', true),
--- För fråga 56
+(505, 'D', '@RestController', true),                                                     -- För fråga 56
 (506, 'A', 'Att öka API:ets prestanda', false),
 (506, 'B', 'Att möjliggöra utveckling utan att bryta befintliga klientintegrationer', true),
 (506, 'C', 'Att förbättra API:ets säkerhet', false),
-(506, 'D', 'Att minska serverbelastningen', false),
--- För fråga 57
+(506, 'D', 'Att minska serverbelastningen', false),                                      -- För fråga 57
 (507, 'A', 'README.md filer', false),
 (507, 'B', 'JavaDoc', false),
 (507, 'C', 'Swagger/OpenAPI', true),
-(507, 'D', 'Postman', false),
--- För fråga 58
+(507, 'D', 'Postman', false),                                                            -- För fråga 58
 (508, 'A', 'Maximal komplexitet för att visa teknisk skicklighet', false),
 (508, 'B', 'Fokus på serveroptimering framför allt annat', false),
 (508, 'C', 'Minsta förvåning och självförklarande design', true),
-(508, 'D', 'Strikt adherence till ett specifikt programmeringsspråk', false),
--- För fråga 59
+(508, 'D', 'Strikt adherence till ett specifikt programmeringsspråk', false),            -- För fråga 59
 (509, 'A', 'Endast lyckade scenarier', false),
 (509, 'B', 'Gränsfall och felscenarier', true),
 (509, 'C', 'Endast prestandatester', false),
-(509, 'D', 'Utseendet på API-dokumentationen', false),
--- För fråga 60
+(509, 'D', 'Utseendet på API-dokumentationen', false),                                   -- För fråga 60
 (510, 'A', 'Alltid använda GET-metoden', false),
 (510, 'B', 'Implementera asynkron bearbetning', true),
 (510, 'C', 'Öka serverns RAM', false),
 (510, 'D', 'Begränsa antalet samtidiga användare', false);
 
-INSERT INTO QUESTIONS (id, question_number, course_name, question_text)
+INSERT INTO QUESTIONS (course_name_question_number, question_number, course_name, question_text)
 VALUES (511, 61, 'API', '61. Vilket av följande är huvudsyftet med att implementera felhantering i ett API?'),
        (512, 62, 'API', '62. Vad är den primära funktionen av @RequestParam-annotationen i Spring Boot?'),
        (513, 63, 'API',
@@ -3209,58 +2706,49 @@ VALUES (511, 61, 'API', '61. Vilket av följande är huvudsyftet med att impleme
        (519, 69, 'API', '69. Vilket av följande är en fördel med att använda pagination i API-design?'),
        (520, 70, 'API', '70. Vad är det primära syftet med att använda HTTPS i API-kommunikation?');
 
-INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct)
+INSERT INTO QUESTION_OPTIONS (course_name_question_number, option_label, option_text, is_correct)
 VALUES (511, 'A', 'Att förbättra API:ets prestanda', false),
        (511, 'B', 'Att göra API:et mer användarvänligt och robust', true),
        (511, 'C', 'Att minska serverbelastningen', false),
        (511, 'D', 'Att öka antalet möjliga API-anrop', false),
-
        (512, 'A', 'Att validera inkommande data', false),
        (512, 'B', 'Att hantera exceptions', false),
        (512, 'C', 'Att binda query-parametrar till metodparametrar', true),
        (512, 'D', 'Att definiera API-rutter', false),
-
        (513, 'A', 'Att alltid returnera en 500 Internal Server Error vid fel', false),
        (513, 'B', 'Att inkludera stacktrace i API-svaret', false),
        (513, 'C', 'Att ge användarvänliga felmeddelanden', true),
        (513, 'D', 'Att ignorera alla fel för att förbättra prestandan', false),
-
        (514, 'A', 'Att förbättra API:ets prestanda', false),
        (514, 'B', 'Att ge mer specifik felrapportering', true),
        (514, 'C', 'Att minska kodkomplexiteten', false),
        (514, 'D', 'Att undvika all felhantering', false),
-
        (515, 'A', '@ControllerAdvice', false),
        (515, 'B', '@ExceptionHandler', true),
        (515, 'C', '@ErrorController', false),
        (515, 'D', '@HandleException', false),
-
        (516, 'A', 'Kryptera alla query-parametrar', false),
        (516, 'B', 'Använd alltid POST-metoden istället för GET', false),
        (516, 'C', 'Undvik att använda query-parametrar för känslig data', true),
        (516, 'D', 'Lagra känslig data i cookies', false),
-
        (517, 'A', 'Det försvårar skalning av API:et', false),
        (517, 'B', 'Det kräver alltid användning av sessioner', false),
        (517, 'C', 'Det underlättar horisontell skalning', true),
        (517, 'D', 'Det ökar belastningen på databasen', false),
-
        (518, 'A', 'Att förbättra API:ets prestanda', false),
        (518, 'B', 'Att skydda mot överbelastningsattacker', true),
        (518, 'C', 'Att minska serverns energiförbrukning', false),
        (518, 'D', 'Att förenkla API-dokumentationen', false),
-
        (519, 'A', 'Det eliminerar behovet av databaser', false),
        (519, 'B', 'Det möjliggör realtidsuppdateringar', false),
        (519, 'C', 'Det reducerar mängden data som överförs per request', true),
        (519, 'D', 'Det ökar säkerheten i API:et', false),
-
        (520, 'A', 'Att öka API:ets hastighet', false),
        (520, 'B', 'Att minska serverbelastningen', false),
        (520, 'C', 'Att skydda data under överföring', true),
        (520, 'D', 'Att förenkla API-implementationen', false);
 
-INSERT INTO QUESTIONS (id, question_number, course_name, question_text)
+INSERT INTO QUESTIONS (course_name_question_number, question_number, course_name, question_text)
 VALUES (521, 71, 'API', '71. Vilket av följande är INTE en av de sex huvudprinciperna för REST?'),
        (522, 72, 'API', '72. Vad är huvudsyftet med att använda substantiv i plural för URI:er i RESTful API-design?'),
        (523, 73, 'API',
@@ -3275,61 +2763,52 @@ VALUES (521, 71, 'API', '71. Vilket av följande är INTE en av de sex huvudprin
        (530, 80, 'API',
         '80. Vilket av följande är en fördel med att använda en API Gateway i en mikroservicearkitektur?');
 
-INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct)
+INSERT INTO QUESTION_OPTIONS (course_name_question_number, option_label, option_text, is_correct)
 VALUES
 -- För fråga 71
 (521, 'A', 'Stateless', false),
 (521, 'B', 'Cacheable', false),
 (521, 'C', 'Databas-driven', true),
-(521, 'D', 'Uniform interface', false),
--- För fråga 72
+(521, 'D', 'Uniform interface', false),                               -- För fråga 72
 (522, 'A', 'För att förbättra databasens prestanda', false),
 (522, 'B', 'För att göra API:et mer säkert', false),
 (522, 'C', 'För att indikera att resursen är en samling', true),
-(522, 'D', 'För att minska nätverkslatensen', false),
--- För fråga 73
+(522, 'D', 'För att minska nätverkslatensen', false),                 -- För fråga 73
 (523, 'A', 'DELETE', false),
 (523, 'B', 'PUT', true),
 (523, 'C', 'GET', false),
-(523, 'D', 'POST', false),
--- För fråga 74
+(523, 'D', 'POST', false),                                            -- För fråga 74
 (524, 'A', 'Versionering hjälper till att hantera API-evolution utan att bryta existerande klienter', true),
 (524, 'B', 'Versionering bör alltid implementeras genom URL-parametrar', false),
 (524, 'C', 'Versionering försämrar API:ets prestanda', false),
-(524, 'D', 'Versionering är onödigt för små API:er', false),
--- För fråga 75
+(524, 'D', 'Versionering är onödigt för små API:er', false),          -- För fråga 75
 (525, 'A', 'Att förenkla databasoperationer', false),
 (525, 'B', 'Att öka API:ets prestanda', false),
 (525, 'C', 'Att förbättra API:ets säkerhet', false),
-(525, 'D', 'Att göra API:et självbeskrivande och upptäckbart', true),
--- För fråga 76
+(525, 'D', 'Att göra API:et självbeskrivande och upptäckbart', true), -- För fråga 76
 (526, 'A', 'Inkludera stacktrace i felmeddelanden', false),
 (526, 'B', 'Använd lämpliga HTTP-statuskoder för olika typer av fel', true),
 (526, 'C', 'Returnera alltid HTTP-statuskod 200 OK', false),
-(526, 'D', 'Skicka aldrig felmeddelanden till klienten', false),
--- För fråga 77
+(526, 'D', 'Skicka aldrig felmeddelanden till klienten', false),      -- För fråga 77
 (527, 'A', 'CORS', false),
 (527, 'B', 'OAuth 2.0', false),
 (527, 'C', 'API Throttling', true),
-(527, 'D', 'HTTPS', false),
--- För fråga 78
+(527, 'D', 'HTTPS', false),                                           -- För fråga 78
 (528, 'A', 'PUT används endast för att skapa nya resurser', false),
 (528, 'B', 'DELETE är idempotent', true),
 (528, 'C', 'POST används för att hämta en resurs', false),
-(528, 'D', 'GET-anrop bör ändra serverdata', false),
--- För fråga 79
+(528, 'D', 'GET-anrop bör ändra serverdata', false),                  -- För fråga 79
 (529, 'A', 'Att möjliggöra offline-funktionalitet', false),
 (529, 'B', 'Att förenkla API-dokumentationen', false),
 (529, 'C', 'Att förbättra svarstider och minska serverbelastning', true),
-(529, 'D', 'Att öka säkerheten', false),
--- För fråga 80
+(529, 'D', 'Att öka säkerheten', false),                              -- För fråga 80
 (530, 'A', 'Det garanterar 100% upptid för alla tjänster', false),
 (530, 'B', 'Det eliminerar behovet av säkerhet i individuella tjänster', false),
 (530, 'C', 'Det ersätter behovet av lastbalansering', false),
 (530, 'D', 'Det centraliserar autentisering, auktorisering och övervakning', true);
 
 -- Insert into QUESTIONS table
-INSERT INTO QUESTIONS (id, question_number, course_name, question_text)
+INSERT INTO QUESTIONS (course_name_question_number, question_number, course_name, question_text)
 VALUES (531, 81, 'API', '81. Vilket av följande är INTE en vanlig HTTP-metod i RESTful API-design?'),
        (532, 82, 'API', '82. Vad är huvudsyftet med resursmodellering i REST?'),
        (533, 83, 'API', '83. Vilken HTTP-metod används vanligtvis för att uppdatera en del av en befintlig resurs?'),
@@ -3345,60 +2824,51 @@ VALUES (531, 81, 'API', '81. Vilket av följande är INTE en vanlig HTTP-metod i
        (540, 90, 'API', '90. Vilket påstående är korrekt angående användningen av PUT-metoden i RESTful API:er?');
 
 -- Insert into QUESTION_OPTIONS table
-INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct)
+INSERT INTO QUESTION_OPTIONS (course_name_question_number, option_label, option_text, is_correct)
 VALUES
 -- Fråga 81
 (531, 'A', 'DELETE', false),
 (531, 'B', 'POST', false),
 (531, 'C', 'FETCH', true),
-(531, 'D', 'GET', false),
--- Fråga 82
+(531, 'D', 'GET', false),                                                -- Fråga 82
 (532, 'A', 'Att hantera nätverkskommunikation', false),
 (532, 'B', 'Att identifiera och strukturera API:ets entiteter', true),
 (532, 'C', 'Att implementera säkerhetsfunktioner', false),
-(532, 'D', 'Att optimera databasstrukturen', false),
--- Fråga 83
+(532, 'D', 'Att optimera databasstrukturen', false),                     -- Fråga 83
 (533, 'A', 'PUT', false),
 (533, 'B', 'POST', false),
 (533, 'C', 'UPDATE', false),
-(533, 'D', 'PATCH', true),
--- Fråga 84
+(533, 'D', 'PATCH', true),                                               -- Fråga 84
 (534, 'A', 'POST är alltid idempotent', false),
 (534, 'B', 'GET, PUT och DELETE ska vara idempotenta', true),
 (534, 'C', 'Alla HTTP-metoder ska vara idempotenta', false),
-(534, 'D', 'Endast GET-metoden är idempotent', false),
--- Fråga 85
+(534, 'D', 'Endast GET-metoden är idempotent', false),                   -- Fråga 85
 (535, 'A', 'Det följer RESTful principer och ökar tydligheten', true),
 (535, 'B', 'Det förbättrar API:ets prestanda', false),
 (535, 'C', 'Det gör API:et mer säkert', false),
-(535, 'D', 'Det möjliggör enklare databasqueries', false),
--- Fråga 86
+(535, 'D', 'Det möjliggör enklare databasqueries', false),               -- Fråga 86
 (536, 'A', '202 Accepted', false),
 (536, 'B', '200 OK', false),
 (536, 'C', '201 Created', true),
-(536, 'D', '204 No Content', false),
--- Fråga 87
+(536, 'D', '204 No Content', false),                                     -- Fråga 87
 (537, 'A', 'Implementera versionering av API:et', false),
 (537, 'B', 'Alltid returnera fullständiga resursobjekt', true),
 (537, 'C', 'Använda rätt HTTP-statuskoder', false),
-(537, 'D', 'Validera indata för att säkerställa dataintegritet', false),
--- Fråga 88
+(537, 'D', 'Validera indata för att säkerställa dataintegritet', false), -- Fråga 88
 (538, 'A', 'Att minska serverns belastning', false),
 (538, 'B', 'Att hantera stora datamängder effektivt', true),
 (538, 'C', 'Att förbättra API:ets säkerhet', false),
-(538, 'D', 'Att förenkla klientimplementationen', false),
--- Fråga 89
+(538, 'D', 'Att förenkla klientimplementationen', false),                -- Fråga 89
 (539, 'A', 'OAuth 2.0', false),
 (539, 'B', 'GraphQL', false),
 (539, 'C', 'JWT', false),
-(539, 'D', 'HATEOAS', true),
--- Fråga 90
+(539, 'D', 'HATEOAS', true),                                             -- Fråga 90
 (540, 'A', 'PUT är idempotent och ersätter hela resursen', true),
 (540, 'B', 'PUT används för att skapa nya resurser', false),
 (540, 'C', 'PUT kan inte skapa resurser om de inte redan existerar', false),
 (540, 'D', 'PUT används för partiella uppdateringar av resurser', false);
 
-INSERT INTO QUESTIONS (id, question_number, course_name, question_text)
+INSERT INTO QUESTIONS (course_name_question_number, question_number, course_name, question_text)
 VALUES (541, 91, 'API', '91. Vilket är det primära syftet med att använda HTTP-statuskoder i ett API?'),
        (542, 92, 'API', '92. Vilken av följande principer är INTE en del av god URL-design för RESTful API:er?'),
        (543, 93, 'API',
@@ -3413,58 +2883,49 @@ VALUES (541, 91, 'API', '91. Vilket är det primära syftet med att använda HTT
         '99. Vilken HTTP-statuskod bör användas när en begärd resurs inte längre är tillgänglig och inte kommer att bli tillgänglig igen?'),
        (550, 100, 'API', '100. Vad är huvudsyftet med att implementera HATEOAS i ett RESTful API?');
 
-INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct)
+INSERT INTO QUESTION_OPTIONS (course_name_question_number, option_label, option_text, is_correct)
 VALUES (541, 'A', 'Att ge omedelbar feedback om resultatet av en förfrågan', true),
        (541, 'B', 'Att förbättra prestandan för API:et', false),
        (541, 'C', 'Att hantera versionshantering av API:et', false),
        (541, 'D', 'Att implementera säkerhetsåtgärder', false),
-
        (542, 'A', 'Använd substantiv istället för verb', false),
        (542, 'B', 'Använd plural för samlingar', false),
        (542, 'C', 'Inkludera API-nyckel i URL:en', true),
        (542, 'D', 'Använd hierarki för att visa relationer', false),
-
        (543, 'A', '200 OK', false),
        (543, 'B', '201 Created', true),
        (543, 'C', '204 No Content', false),
        (543, 'D', '302 Found', false),
-
        (544, 'A', 'Att förbättra API:ets säkerhet', false),
        (544, 'B', 'Att implementera HATEOAS', false),
        (544, 'C', 'Att förenkla versionshanteringen av API:et', false),
        (544, 'D', 'Att minska serverbelastningen vid stora datamängder', true),
-
        (545, 'A', 'De indikerar alltid ett serverfel', false),
        (545, 'B', 'De används endast för autentiseringsfel', false),
        (545, 'C', 'De signalerar att klienten behöver göra ytterligare åtgärder', false),
        (545, 'D', 'De indikerar vanligtvis ett problem med klientens förfrågan', true),
-
        (546, 'A', 'Implementera caching med ETag-headers', false),
        (546, 'B', 'Använda GZIP-komprimering', false),
        (546, 'C', 'Öka antalet nästlade resurser i URL:er', true),
        (546, 'D', 'Stödja partiella svar med fältfiltrering', false),
-
        (547, 'A', 'Att förbättra säkerheten', false),
        (547, 'B', 'Att möjliggöra olika datarepresentationer baserat på klientens preferenser', true),
        (547, 'C', 'Att hantera API-versioner', false),
        (547, 'D', 'Att implementera rate limiting', false),
-
        (548, 'A', '/api/users/123/posts', true),
        (548, 'B', '/api/users/123/delete', false),
        (548, 'C', '/api/getUserById?id=123', false),
        (548, 'D', '/api/executeUserUpdate/123', false),
-
        (549, 'A', '404 Not Found', false),
        (549, 'B', '410 Gone', true),
        (549, 'C', '204 No Content', false),
        (549, 'D', '304 Not Modified', false),
-
        (550, 'A', 'Att förbättra API-säkerheten', false),
        (550, 'B', 'Att göra API:et mer självbeskrivande och flexibelt', true),
        (550, 'C', 'Att öka prestandan för API-anrop', false),
        (550, 'D', 'Att hantera versionshantering av API:et', false);
 
-INSERT INTO QUESTIONS (id, question_number, course_name, question_text)
+INSERT INTO QUESTIONS (course_name_question_number, question_number, course_name, question_text)
 VALUES (551, 101, 'API', '101. Vilket av följande är inte en fördel med att använda Spring Boot för API-utveckling?'),
        (552, 102, 'API', '102. Vad är huvudsyftet med @RestController-annotationen i Spring Boot?'),
        (553, 103, 'API',
@@ -3479,60 +2940,51 @@ VALUES (551, 101, 'API', '101. Vilket av följande är inte en fördel med att a
         '109. Vilken av följande är inte en vanlig prestandaövervägande vid utveckling av Spring Boot API:er?'),
        (560, 110, 'API', '110. Vad är huvudsyftet med att använda @Valid-annotationen i en controller-metod?');
 
-INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct)
+INSERT INTO QUESTION_OPTIONS (course_name_question_number, option_label, option_text, is_correct)
 VALUES
 -- För fråga 101
 (551, 'A', 'Auto-konfiguration', false),
 (551, 'B', 'Manuell databashantering', true),
 (551, 'C', 'Inbyggd server', false),
-(551, 'D', 'Produktionsredo funktioner', false),
--- För fråga 102
+(551, 'D', 'Produktionsredo funktioner', false),                               -- För fråga 102
 (552, 'A', 'Att konfigurera applikationens säkerhetsinställningar', false),
 (552, 'B', 'Att definiera URL-mappningar för alla metoder i klassen', false),
 (552, 'C', 'Att markera en klass som en REST-controller', true),
-(552, 'D', 'Att hantera databasoperationer', false),
--- För fråga 103
+(552, 'D', 'Att hantera databasoperationer', false),                           -- För fråga 103
 (553, 'A', '@RequestBody', true),
 (553, 'B', '@JsonBind', false),
 (553, 'C', '@ResponseEntity', false),
-(553, 'D', '@RequestParam', false),
--- För fråga 104
+(553, 'D', '@RequestParam', false),                                            -- För fråga 104
 (554, 'A', 'Den kan anpassas efter behov', true),
 (554, 'B', 'Den är alltid optimal för alla typer av applikationer', false),
 (554, 'C', 'Den kan inte åsidosättas av utvecklaren', false),
-(554, 'D', 'Den kräver omfattande manuell konfiguration', false),
--- För fråga 105
+(554, 'D', 'Den kräver omfattande manuell konfiguration', false),              -- För fråga 105
 (555, 'A', 'Att definiera URL-mappningar', false),
 (555, 'B', 'Att validera inkommande data', false),
 (555, 'C', 'Att hantera databasoperationer', false),
-(555, 'D', 'Att ge full kontroll över HTTP-svaret', true),
--- För fråga 106
+(555, 'D', 'Att ge full kontroll över HTTP-svaret', true),                     -- För fråga 106
 (556, 'A', 'URL-versioning', false),
 (556, 'B', 'Database-versioning', true),
 (556, 'C', 'Header-versioning', false),
-(556, 'D', 'Media type versioning', false),
--- För fråga 107
+(556, 'D', 'Media type versioning', false),                                    -- För fråga 107
 (557, 'A', 'Att konfigurera databasens connection pool', false),
 (557, 'B', 'Att implementera caching-strategier', false),
 (557, 'C', 'Att definiera globala exception handlers', true),
-(557, 'D', 'Att hantera request routing', false),
--- För fråga 108
+(557, 'D', 'Att hantera request routing', false),                              -- För fråga 108
 (558, 'A', 'DTOs används enbart för databasoperationer', false),
 (558, 'B', 'DTOs hjälper till att separera intern datamodell från extern representation', true),
 (558, 'C', 'DTOs ersätter behovet av entitetsklasser', false),
-(558, 'D', 'DTOs är obligatoriska för alla Spring Boot-applikationer', false),
--- För fråga 109
+(558, 'D', 'DTOs är obligatoriska för alla Spring Boot-applikationer', false), -- För fråga 109
 (559, 'A', 'Manuell hantering av garbage collection', true),
 (559, 'B', 'Implementering av caching', false),
 (559, 'C', 'Användning av paginering för stora datamängder', false),
-(559, 'D', 'Asynkron bearbetning av långvariga operationer', false),
--- För fråga 110
+(559, 'D', 'Asynkron bearbetning av långvariga operationer', false),           -- För fråga 110
 (560, 'A', 'Att kontrollera API-versionskompabilitet', false),
 (560, 'B', 'Att validera databasens schema', false),
 (560, 'C', 'Att verifiera användarens autentisering', false),
 (560, 'D', 'Att validera inkommande request-data', true);
 
-INSERT INTO QUESTIONS (id, question_number, course_name, question_text)
+INSERT INTO QUESTIONS (course_name_question_number, question_number, course_name, question_text)
 VALUES (561, 111, 'API',
         '111. Vilket av följande är inte ett huvudsyfte med CRUD-operationer i moderna applikationer?'),
        (562, 112, 'API',
@@ -3549,60 +3001,51 @@ VALUES (561, 111, 'API',
         '119. Vilket av följande är inte en vanlig best practice för RESTful API-design i CRUD-operationer?'),
        (570, 120, 'API', '120. Vad är huvudsyftet med att använda @Valid-annotationen i en Spring Boot-controller?');
 
-INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct)
+INSERT INTO QUESTION_OPTIONS (course_name_question_number, option_label, option_text, is_correct)
 VALUES
 -- Fråga 111
 (561, 'A', 'Datamanipulation', true),
 (561, 'B', 'Informationsåtkomst', true),
 (561, 'C', 'Datakomprimering', false),
-(561, 'D', 'Dataunderhåll', true),
--- Fråga 112
+(561, 'D', 'Dataunderhåll', true),                                   -- Fråga 112
 (562, 'A', 'Repository', true),
 (562, 'B', 'Service', false),
 (562, 'C', 'Controller', false),
-(562, 'D', 'Entity', false),
--- Fråga 113
+(562, 'D', 'Entity', false),                                         -- Fråga 113
 (563, 'A', 'DELETE', false),
 (563, 'B', 'GET', false),
 (563, 'C', 'POST', false),
-(563, 'D', 'PUT', true),
--- Fråga 114
+(563, 'D', 'PUT', true),                                             -- Fråga 114
 (564, 'A', 'Möjliggöra realtidsuppdateringar', false),
 (564, 'B', 'Separera API-representation från datamodellen', true),
 (564, 'C', 'Öka databashastigheten', false),
-(564, 'D', 'Förbättra säkerheten genom kryptering', false),
--- Fråga 115
+(564, 'D', 'Förbättra säkerheten genom kryptering', false),          -- Fråga 115
 (565, 'A', 'Idempotens är irrelevant för CRUD-operationer', false),
 (565, 'B', 'PUT-operationer bör vara idempotenta', true),
 (565, 'C', 'Endast GET-operationer kan vara idempotenta', false),
-(565, 'D', 'Alla CRUD-operationer måste vara idempotenta', false),
--- Fråga 116
+(565, 'D', 'Alla CRUD-operationer måste vara idempotenta', false),   -- Fråga 116
 (566, 'A', 'Hantera stora datamängder effektivt', true),
 (566, 'B', 'Möjliggöra offline-åtkomst till data', false),
 (566, 'C', 'Öka databasens lagringsutrymme', false),
-(566, 'D', 'Förbättra datasäkerheten', false),
--- Fråga 117
+(566, 'D', 'Förbättra datasäkerheten', false),                       -- Fråga 117
 (567, 'A', 'Implementera caching', false),
 (567, 'B', 'Hantera transaktioner deklarativt', true),
 (567, 'C', 'Konfigurera databaskopplingar', false),
-(567, 'D', 'Hantera HTTP-sessioner', false),
--- Fråga 118
+(567, 'D', 'Hantera HTTP-sessioner', false),                         -- Fråga 118
 (568, 'A', 'Automatisera backupprocesser', false),
 (568, 'B', 'Förhindra obehörig åtkomst till data', false),
 (568, 'C', 'Hantera samtidiga uppdateringar utan att låsa databasen', true),
-(568, 'D', 'Öka hastigheten på databasoperationer', false),
--- Fråga 119
+(568, 'D', 'Öka hastigheten på databasoperationer', false),          -- Fråga 119
 (569, 'A', 'Använda korrekta HTTP-metoder för olika operationer', true),
 (569, 'B', 'Använda komplexa URL-strukturer för ökad säkerhet', false),
 (569, 'C', 'Implementera versionering av API:et', true),
-(569, 'D', 'Hantera fel konsekvent med lämpliga statuskoder', true),
--- Fråga 120
+(569, 'D', 'Hantera fel konsekvent med lämpliga statuskoder', true), -- Fråga 120
 (570, 'A', 'Generera automatisk API-dokumentation', false),
 (570, 'B', 'Optimera databasförfrågningar', false),
 (570, 'C', 'Implementera caching för förbättrad prestanda', false),
 (570, 'D', 'Validera inkommande data', true);
 
-INSERT INTO QUESTIONS (id, question_number, course_name, question_text)
+INSERT INTO QUESTIONS (course_name_question_number, question_number, course_name, question_text)
 VALUES (571, 121, 'API',
         '121. Vilket av följande är inte en huvudanledning till varför effektiv hantering av request bodies och response entities är viktigt?'),
        (572, 122, 'API', '122. Vad är huvudsyftet med att använda DTO:er (Data Transfer Objects) i API-design?'),
@@ -3619,60 +3062,51 @@ VALUES (571, 121, 'API',
        (580, 130, 'API',
         '130. Vilket av följande är inte en vanlig prestandaoptimering för API:er som hanterar stora datamängder?');
 
-INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct)
+INSERT INTO QUESTION_OPTIONS (course_name_question_number, option_label, option_text, is_correct)
 VALUES
 -- För fråga 121
 (571, 'A', 'Garanterar alltid snabbare API-prestanda', false),
 (571, 'B', 'Möjliggör hantering av komplexa datastrukturer', true),
 (571, 'C', 'Säkerställer dataintegritet', true),
-(571, 'D', 'Tillåter effektiv dataöverföring', true),
--- För fråga 122
+(571, 'D', 'Tillåter effektiv dataöverföring', true),                                       -- För fråga 122
 (572, 'A', 'Att automatiskt validera all inkommande data', false),
 (572, 'B', 'Att separera API-representation från domänmodeller', true),
 (572, 'C', 'Att ersätta alla domänmodeller', false),
-(572, 'D', 'Att öka komplexiteten i API:et', false),
--- För fråga 123
+(572, 'D', 'Att öka komplexiteten i API:et', false),                                        -- För fråga 123
 (573, 'A', '@PathVariable', false),
 (573, 'B', '@ModelAttribute', false),
 (573, 'C', '@RequestBody', true),
-(573, 'D', '@RequestParam', false),
--- För fråga 124
+(573, 'D', '@RequestParam', false),                                                         -- För fråga 124
 (574, 'A', 'Det kan endast användas för att returnera enkla datatyper', false),
 (574, 'B', 'Det ersätter helt behovet av att använda @ResponseBody', false),
 (574, 'C', 'Det kan endast användas i kombination med @RestController', false),
-(574, 'D', 'Det ger fin kontroll över HTTP-svar, inklusive statuskoder och headers', true),
--- För fråga 125
+(574, 'D', 'Det ger fin kontroll över HTTP-svar, inklusive statuskoder och headers', true), -- För fråga 125
 (575, 'A', 'Implementera global exception handling för konsistenta felsvar', true),
 (575, 'B', 'Validera inkommande data med hjälp av Bean Validation-annotationer', true),
 (575, 'C', 'Alltid returnera hela dataobjekt oavsett klientens behov', false),
-(575, 'D', 'Använda DTO:er för att separera API-representation från domänmodeller', true),
--- För fråga 126
+(575, 'D', 'Använda DTO:er för att separera API-representation från domänmodeller', true),  -- För fråga 126
 (576, 'A', 'Att öka storleken på inkommande request bodies', false),
 (576, 'B', 'Att ersätta alla standardserialiserare i applikationen', false),
 (576, 'C', 'Att automatiskt kryptera all inkommande data', false),
-(576, 'D', 'Att hantera datum i specifika format', true),
--- För fråga 127
+(576, 'D', 'Att hantera datum i specifika format', true),                                   -- För fråga 127
 (577, 'A', 'Att kryptera all utgående data', false),
 (577, 'B', 'Att implementera paginering', true),
 (577, 'C', 'Att alltid skicka all data i ett enda svar', false),
-(577, 'D', 'Att begränsa API:et till små datamängder', false),
--- För fråga 128
+(577, 'D', 'Att begränsa API:et till små datamängder', false),                              -- För fråga 128
 (578, 'A', 'Att validera inkommande request data', true),
 (578, 'B', 'Att öka prestandan för API-anrop', false),
 (578, 'C', 'Att generera API-dokumentation', false),
-(578, 'D', 'Att automatiskt serialisera svaret till JSON', false),
--- För fråga 129
+(578, 'D', 'Att automatiskt serialisera svaret till JSON', false),                          -- För fråga 129
 (579, 'A', 'Felhantering är onödigt i moderna API:er', false),
 (579, 'B', 'Felmeddelanden bör alltid innehålla fullständiga stacktraces', false),
 (579, 'C', 'Konsekvent felhantering och meningsfulla felmeddelanden är viktigt', true),
-(579, 'D', 'Alla fel bör resultera i en 500 Internal Server Error', false),
--- För fråga 130
+(579, 'D', 'Alla fel bör resultera i en 500 Internal Server Error', false),                 -- För fråga 130
 (580, 'A', 'Överväga att implementera streaming för mycket stora dataset', true),
 (580, 'B', 'Använda compression för stora response bodies', true),
 (580, 'C', 'Implementera caching för frekventa förfrågningar', true),
 (580, 'D', 'Öka komplexiteten i varje enskild API-endpoint', false);
 
-INSERT INTO QUESTIONS (id, question_number, course_name, question_text)
+INSERT INTO QUESTIONS (course_name_question_number, question_number, course_name, question_text)
 VALUES (581, 131, 'API', '131. Vilket av följande är inte en datatyp som stöds av JSON?'),
        (582, 132, 'API', '132. Vad är huvudsyftet med JSON Schema?'),
        (583, 133, 'API', '133. Vilket påstående om JSON är korrekt?'),
@@ -3686,60 +3120,51 @@ VALUES (581, 131, 'API', '131. Vilket av följande är inte en datatyp som stöd
        (590, 140, 'API',
         '140. Vilken typ av attack är särskilt viktig att skydda sig mot när man hanterar inkommande JSON-data?');
 
-INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct)
+INSERT INTO QUESTION_OPTIONS (course_name_question_number, option_label, option_text, is_correct)
 VALUES
 -- För fråga 131
 (581, 'A', 'Array', false),
 (581, 'B', 'Function', true),
 (581, 'C', 'Boolean', false),
-(581, 'D', 'Object', false),
--- För fråga 132
+(581, 'D', 'Object', false),                                     -- För fråga 132
 (582, 'A', 'Att kryptera JSON-data', false),
 (582, 'B', 'Att validera strukturen på JSON-data', true),
 (582, 'C', 'Att konvertera JSON till XML', false),
-(582, 'D', 'Att komprimera JSON-data', false),
--- För fråga 133
+(582, 'D', 'Att komprimera JSON-data', false),                   -- För fråga 133
 (583, 'A', 'JSON kräver att alla värden är strängar', false),
 (583, 'B', 'JSON är språkoberoende', true),
 (583, 'C', 'JSON tillåter kommentarer i sin struktur', false),
-(583, 'D', 'JSON är ett programmeringsspråk', false),
--- För fråga 134
+(583, 'D', 'JSON är ett programmeringsspråk', false),            -- För fråga 134
 (584, 'A', 'Parsing', false),
 (584, 'B', 'Encryption', false),
 (584, 'C', 'Compilation', false),
-(584, 'D', 'Serialization', true),
--- För fråga 135
+(584, 'D', 'Serialization', true),                               -- För fråga 135
 (585, 'A', 'Att validera JSON-syntax', false),
 (585, 'B', 'Att kryptera hela JSON-dokument', false),
 (585, 'C', 'Att säkert överföra information mellan parter', true),
-(585, 'D', 'Att komprimera JSON-data', false),
--- För fråga 136
+(585, 'D', 'Att komprimera JSON-data', false),                   -- För fråga 136
 (586, 'A', 'Schema', true),
 (586, 'B', 'Header', false),
 (586, 'C', 'Payload', false),
-(586, 'D', 'Signature', false),
--- För fråga 137
+(586, 'D', 'Signature', false),                                  -- För fråga 137
 (587, 'A', '@JsonOmitNull', false),
 (587, 'B', '@JsonIgnoreNull', false),
 (587, 'C', '@JsonInclude(JsonInclude.Include.NON_NULL)', true),
-(587, 'D', '@JsonExcludeNull', false),
--- För fråga 138
+(587, 'D', '@JsonExcludeNull', false),                           -- För fråga 138
 (588, 'A', 'Det garanterar alltid korrekt datastruktur', false),
 (588, 'B', 'Det är lättviktigt och lätt att tolka för både människor och maskiner', true),
 (588, 'C', 'Det erbjuder inbyggd kryptering', false),
-(588, 'D', 'Det är det enda formatet som stöds av HTTP', false),
--- För fråga 139
+(588, 'D', 'Det är det enda formatet som stöds av HTTP', false), -- För fråga 139
 (589, 'A', 'Direktmanipulation av binära filer', false),
 (589, 'B', 'Konfiguration av databasscheman', false),
 (589, 'C', 'Kompilering av källkod', false),
-(589, 'D', 'Datautbyte i webbapplikationer', true),
--- För fråga 140
+(589, 'D', 'Datautbyte i webbapplikationer', true),              -- För fråga 140
 (590, 'A', 'Denial-of-service-attacker', false),
 (590, 'B', 'Man-in-the-middle-attacker', false),
 (590, 'C', 'Injektionsattacker', true),
 (590, 'D', 'Brute force-attacker', false);
 
-INSERT INTO QUESTIONS (id, question_number, course_name, question_text)
+INSERT INTO QUESTIONS (course_name_question_number, question_number, course_name, question_text)
 VALUES (591, 141, 'API', '141. Vilket av följande är huvudsyftet med att använda Jackson-biblioteket i Spring Boot?'),
        (592, 142, 'API', '142. Vad är ObjectMapper i Jackson-biblioteket?'),
        (593, 143, 'API', '143. Vilken annotation används i Java för att mappar ett fält till ett annat namn i JSON?'),
@@ -3754,58 +3179,49 @@ VALUES (591, 141, 'API', '141. Vilket av följande är huvudsyftet med att anvä
         '149. Vilken annotation används för att hantera olika versioner av JSON-serialisering i samma API?'),
        (600, 150, 'API', '150. Vad är den främsta fördelen med att implementera paginering i JSON-svar från ett API?');
 
-INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct)
+INSERT INTO QUESTION_OPTIONS (course_name_question_number, option_label, option_text, is_correct)
 VALUES (591, 'A', 'Att konvertera mellan JSON och Java-objekt', true),
        (591, 'B', 'Att hantera databasanslutningar', false),
        (591, 'C', 'Att implementera säkerhetsfilter', false),
        (591, 'D', 'Att optimera SQL-frågor', false),
-
        (592, 'A', 'Ett verktyg för att generera Java-klasser från JSON', false),
        (592, 'B', 'En klass för att mappa databastabeller', false),
        (592, 'C', 'En mekanism för att hantera sessioner i webbapplikationer', false),
        (592, 'D', 'Huvudkomponenten för konvertering mellan JSON och Java-objekt', true),
-
        (593, 'A', '@JsonSerialize', false),
        (593, 'B', '@JsonIgnore', false),
        (593, 'C', '@JsonProperty', true),
        (593, 'D', '@JsonFormat', false),
-
        (594, 'A', 'De är obligatoriska för all JSON-serialisering', false),
        (594, 'B', 'De kan separera API-representation från domänmodeller', true),
        (594, 'C', 'De ersätter behovet av Jackson-biblioteket', false),
        (594, 'D', 'De används enbart för databaspersistens', false),
-
        (595, 'A', 'Att markera fält som ska krypteras', false),
        (595, 'B', 'Att förhindra cirkulära referenser i JSON', false),
        (595, 'C', 'Att exkludera känsliga eller onödiga fält från JSON-serialisering', true),
        (595, 'D', 'Att ignorera inkommande JSON-data vid deserialisering', false),
-
        (596, 'A', 'Den validerar inkommande JSON-data', false),
        (596, 'B', 'Den möjliggör global felhantering för konsistenta JSON-svar', true),
        (596, 'C', 'Den optimerar JSON-parsing', false),
        (596, 'D', 'Den konfigurerar Jackson ObjectMapper', false),
-
        (597, 'A', 'Att konvertera all JSON till XML', false),
        (597, 'B', 'Att använda Jacksons streaming API', true),
        (597, 'C', 'Att alltid använda DTO:er', false),
        (597, 'D', 'Att öka serverminnet', false),
-
        (598, 'A', 'Att komprimera JSON för snabbare överföring', false),
        (598, 'B', 'Att kryptera JSON-data', false),
        (598, 'C', 'Att validera inkommande JSON-struktur', false),
        (598, 'D', 'Att möjliggöra partiella uppdateringar av resurser', true),
-
        (599, 'A', '@JsonProperty', false),
        (599, 'B', '@JsonTypeInfo', false),
        (599, 'C', '@JsonSerialize', true),
        (599, 'D', '@JsonFormat', false),
-
        (600, 'A', 'Det eliminerar behovet av caching', false),
        (600, 'B', 'Det ökar säkerheten i API:et', false),
        (600, 'C', 'Det förbättrar JSON-parsningen på klientsidan', false),
        (600, 'D', 'Det möjliggör effektiv hantering av stora datamängder', true);
 
-INSERT INTO QUESTIONS (id, question_number, course_name, question_text)
+INSERT INTO QUESTIONS (course_name_question_number, question_number, course_name, question_text)
 VALUES (601, 151, 'API', '151. Vilket av följande är det primära syftet med JSON-serialisering?'),
        (602, 152, 'API', '152. Vad är huvudsyftet med Jackson-annotationer i kontexten av JSON-hantering?'),
        (603, 153, 'API', '153. Vilken av följande är en korrekt beskrivning av JSON-deserialisering?'),
@@ -3819,60 +3235,51 @@ VALUES (601, 151, 'API', '151. Vilket av följande är det primära syftet med J
        (609, 159, 'API', '159. Vilken teknik är mest lämplig för att hantera versionshantering av JSON-API:er?'),
        (610, 160, 'API', '160. Vad är huvudsyftet med anpassade serialiserare och deserialiserare i Jackson?');
 
-INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct)
+INSERT INTO QUESTION_OPTIONS (course_name_question_number, option_label, option_text, is_correct)
 VALUES
 -- För fråga 151
 (601, 'A', 'Att konvertera Java-objekt till JSON-strängar', true),
 (601, 'B', 'Att komprimera data för effektivare lagring', false),
 (601, 'C', 'Att kryptera känslig information', false),
-(601, 'D', 'Att validera datastrukturer', false),
--- För fråga 152
+(601, 'D', 'Att validera datastrukturer', false),                                    -- För fråga 152
 (602, 'A', 'Att generera API-dokumentation automatiskt', false),
 (602, 'B', 'Att optimera databasens prestanda', false),
 (602, 'C', 'Att ge fin kontroll över serialiserings- och deserialiseringsprocessen', true),
-(602, 'D', 'Att hantera felmeddelanden i Spring Boot-applikationer', false),
--- För fråga 153
+(602, 'D', 'Att hantera felmeddelanden i Spring Boot-applikationer', false),         -- För fråga 153
 (603, 'A', 'Konverteringen av Java-objekt till JSON-strängar', false),
 (603, 'B', 'Processen att komprimera JSON-data för effektiv lagring', false),
 (603, 'C', 'Valideringen av JSON-strukturer mot ett schema', false),
-(603, 'D', 'Omvandlingen av JSON-strängar till Java-objekt', true),
--- För fråga 154
+(603, 'D', 'Omvandlingen av JSON-strängar till Java-objekt', true),                  -- För fråga 154
 (604, 'A', 'Den konfigureras automatiskt av Spring Boot för grundläggande användning', true),
 (604, 'B', 'Den måste skapas manuellt för varje serialiserings-/deserialiseringsoperation', false),
 (604, 'C', 'Den är inte trådsäker och bör inte återanvändas', false),
-(604, 'D', 'Den kan endast hantera enkla datatyper som strängar och heltal', false),
--- För fråga 155
+(604, 'D', 'Den kan endast hantera enkla datatyper som strängar och heltal', false), -- För fråga 155
 (605, 'A', 'Att ange ett anpassat datumformat för ett fält', false),
 (605, 'B', 'Att markera ett fält som obligatoriskt vid deserialisering', false),
 (605, 'C', 'Att exkludera ett fält från JSON-serialisering och -deserialisering', true),
-(605, 'D', 'Att hantera cirkulära referenser i JSON-strukturer', false),
--- För fråga 156
+(605, 'D', 'Att hantera cirkulära referenser i JSON-strukturer', false),             -- För fråga 156
 (606, 'A', 'Att konvertera all JSON till XML före bearbetning', false),
 (606, 'B', 'Att alltid ladda hela JSON-strukturen i minnet', false),
 (606, 'C', 'Att använda Jacksons streaming API för partiell parsing', true),
-(606, 'D', 'Att begränsa alla JSON-strukturer till en maximal storlek', false),
--- För fråga 157
+(606, 'D', 'Att begränsa alla JSON-strukturer till en maximal storlek', false),      -- För fråga 157
 (607, 'A', 'Att hantera autentisering och auktorisering', false),
 (607, 'B', 'Att separera intern datamodell från API-representationen', true),
 (607, 'C', 'Att öka prestandan för databastransaktioner', false),
-(607, 'D', 'Att automatiskt generera API-dokumentation', false),
--- För fråga 158
+(607, 'D', 'Att automatiskt generera API-dokumentation', false),                     -- För fråga 158
 (608, 'A', 'Att alltid kryptera alla JSON-strängar', false),
 (608, 'B', 'Att förhindra exponering av känslig information', true),
 (608, 'C', 'Att begränsa JSON-strukturernas djup', false),
-(608, 'D', 'Att använda Base64-kodning för alla värden', false),
--- För fråga 159
+(608, 'D', 'Att använda Base64-kodning för alla värden', false),                     -- För fråga 159
 (609, 'A', 'Att kryptera äldre versioner av API:et', false),
 (609, 'B', 'Att använda olika URL:er för olika API-versioner', true),
 (609, 'C', 'Att alltid kräva ett versionsnummer i varje JSON-objekt', false),
-(609, 'D', 'Att ändra databasschema för varje API-version', false),
--- För fråga 160
+(609, 'D', 'Att ändra databasschema för varje API-version', false),                  -- För fråga 160
 (610, 'A', 'Att automatiskt validera alla inkommande JSON-data', false),
 (610, 'B', 'Att kryptera känslig information i JSON', false),
 (610, 'C', 'Att förbättra prestandan för alla JSON-operationer', false),
 (610, 'D', 'Att hantera komplex logik eller speciella dataformat', true);
 
-INSERT INTO QUESTIONS (id, question_number, course_name, question_text)
+INSERT INTO QUESTIONS (course_name_question_number, question_number, course_name, question_text)
 VALUES (611, 161, 'API', '161. Vilket av följande är huvudsyftet med XML Schema (XSD)?'),
        (612, 162, 'API',
         '162. Vilken parsningsmetod är mest lämplig för att hantera mycket stora XML-dokument med begränsat minne?'),
@@ -3888,58 +3295,49 @@ VALUES (611, 161, 'API', '161. Vilket av följande är huvudsyftet med XML Schem
         '169. Vad är den primära fördelen med att använda XML för konfigurationsfiler jämfört med andra format?'),
        (620, 170, 'API', '170. Vilken åtgärd är mest effektiv för att förhindra XML External Entity (XXE) attacker?');
 
-INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct)
+INSERT INTO QUESTION_OPTIONS (course_name_question_number, option_label, option_text, is_correct)
 VALUES (611, 'A', 'Att definiera layouten för XML-dokument', false),
        (611, 'B', 'Att validera struktur och datatyper i XML-dokument', true),
        (611, 'C', 'Att komprimera XML-data för effektiv lagring', false),
        (611, 'D', 'Att konvertera XML till JSON-format', false),
-
        (612, 'A', 'DOM (Document Object Model)', false),
        (612, 'B', 'JAXB (Java Architecture for XML Binding)', false),
        (612, 'C', 'SAX (Simple API for XML)', true),
        (612, 'D', 'XPath', false),
-
        (613, 'A', 'XML External Entity (XXE) attacker', true),
        (613, 'B', 'SQL-injektion', false),
        (613, 'C', 'Cross-site scripting (XSS)', false),
        (613, 'D', 'Buffer overflow', false),
-
        (614, 'A', 'XML används endast för webbdesign', false),
        (614, 'B', 'XML används fortfarande brett i vissa branschspecifika applikationer', true),
        (614, 'C', 'XML används enbart i föråldrade system', false),
        (614, 'D', 'XML har helt ersatts av JSON i alla moderna applikationer', false),
-
        (615, 'A', 'Flexibilitet i datastrukturer', false),
        (615, 'B', 'Självdokumenterande natur', false),
        (615, 'C', 'Snabb parsning av stora datamängder', true),
        (615, 'D', 'Stöd för komplexa valideringsregler', false),
-
        (616, 'A', 'Att komprimera XML-data', false),
        (616, 'B', 'Att kryptera känslig information', false),
        (616, 'C', 'Att förhindra namnkollisioner mellan element', true),
        (616, 'D', 'Att öka läsbarheten för människor', false),
-
        (617, 'A', 'RESTful API:er', false),
        (617, 'B', 'SOAP Web Services', true),
        (617, 'C', 'GraphQL', false),
        (617, 'D', 'WebSocket', false),
-
        (618, 'A', 'Implementera strömbaserad parsning', true),
        (618, 'B', 'Öka RAM-minnet', false),
        (618, 'C', 'Konvertera till JSON', false),
        (618, 'D', 'Använda DOM-parsning', false),
-
        (619, 'A', 'Bättre stöd för komplexa strukturer och validering', true),
        (619, 'B', 'Snabbare läsning av data', false),
        (619, 'C', 'Mindre filstorlek', false),
        (619, 'D', 'Enklare att redigera manuellt', false),
-
        (620, 'A', 'Kryptera XML-data', false),
        (620, 'B', 'Använda HTTPS för dataöverföring', false),
        (620, 'C', 'Öka timeouts för XML-parsning', false),
        (620, 'D', 'Inaktivera DTD-processing i XML-parsern', true);
 
-INSERT INTO QUESTIONS (id, question_number, course_name, question_text)
+INSERT INTO QUESTIONS (course_name_question_number, question_number, course_name, question_text)
 VALUES (621, 171, 'API',
         '171. Vilket av följande är inte en primär anledning till varför kunskap om både XML och JSON är viktig för utvecklare?'),
        (622, 172, 'API', '172. Vad är en korrekt beskrivning av strukturskillnaden mellan XML och JSON?'),
@@ -3954,61 +3352,52 @@ VALUES (621, 171, 'API',
         '179. Vilken teknik är mest lämplig för att förbättra skalbarheten i system som hanterar både XML och JSON?'),
        (630, 180, 'API', '180. Vad är huvudsyftet med att använda både XML och JSON i moderna system?');
 
-INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct)
+INSERT INTO QUESTION_OPTIONS (course_name_question_number, option_label, option_text, is_correct)
 VALUES
 -- Fråga 171
 (621, 'A', 'Interoperabilitet mellan system', false),
 (621, 'B', 'Prestandaoptimering av API:er', false),
 (621, 'C', 'Grafisk representation av data', true),
-(621, 'D', 'Framtidssäkring av designbeslut', false),
--- Fråga 172
+(621, 'D', 'Framtidssäkring av designbeslut', false),                     -- Fråga 172
 (622, 'A', 'XML använder en trädstruktur, JSON använder objekt och arrayer', true),
 (622, 'B', 'XML använder objekt, JSON använder element', false),
 (622, 'C', 'XML använder arrayer, JSON använder key-value par', false),
-(622, 'D', 'XML och JSON har identisk struktur men olika syntax', false),
--- Fråga 173
+(622, 'D', 'XML och JSON har identisk struktur men olika syntax', false), -- Fråga 173
 (623, 'A', 'XML kräver schema för typvalidering', true),
 (623, 'B', 'XML har inbyggt stöd för nummer och booleaner', false),
 (623, 'C', 'JSON lagrar allt som text och kräver schema för validering', false),
-(623, 'D', 'JSON och XML hanterar datatyper på exakt samma sätt', false),
--- Fråga 174
+(623, 'D', 'JSON och XML hanterar datatyper på exakt samma sätt', false), -- Fråga 174
 (624, 'A', 'JDBC', false),
 (624, 'B', 'SAX Parser', false),
 (624, 'C', 'DOM Parser', false),
-(624, 'D', 'Jackson biblioteket', true),
--- Fråga 175
+(624, 'D', 'Jackson biblioteket', true),                                  -- Fråga 175
 (625, 'A', 'Konvertera all data till plaintext före bearbetning', false),
 (625, 'B', 'Alltid skriva egen parsningslogik', false),
 (625, 'C', 'Ignorera namnrymder i XML', false),
-(625, 'D', 'Validera inkommande data före konvertering', true),
--- Fråga 176
+(625, 'D', 'Validera inkommande data före konvertering', true),           -- Fråga 176
 (626, 'A', 'Cross-Site Scripting (XSS)', false),
 (626, 'B', 'SQL Injection', false),
 (626, 'C', 'XML External Entity (XXE) attacker', true),
-(626, 'D', 'JSON Injection', false),
--- Fråga 177
+(626, 'D', 'JSON Injection', false),                                      -- Fråga 177
 (627, 'A', 'Öka RAM-minnet i servern', false),
 (627, 'B', 'Använda strömbaserade API:er', true),
 (627, 'C', 'Alltid läsa hela dokumentet i minnet', false),
-(627, 'D', 'Konvertera data till binärt format först', false),
--- Fråga 178
+(627, 'D', 'Konvertera data till binärt format först', false),            -- Fråga 178
 (628, 'A', 'XML-serialisering är alltid snabbare än JSON-serialisering', false),
 (628, 'B', 'Filstorleken är identisk för samma data i XML och JSON', false),
 (628, 'C', 'XML är alltid snabbare att parsa än JSON', false),
-(628, 'D', 'JSON är generellt mer kompakt än XML', true),
--- Fråga 179
+(628, 'D', 'JSON är generellt mer kompakt än XML', true),                 -- Fråga 179
 (629, 'A', 'Konvertera all data till ett gemensamt format', false),
 (629, 'B', 'Implementera lastbalansering', true),
 (629, 'C', 'Öka processorhastigheten på servern', false),
-(629, 'D', 'Begränsa API-anrop till endast XML', false),
--- Fråga 180
+(629, 'D', 'Begränsa API-anrop till endast XML', false),                  -- Fråga 180
 (630, 'A', 'Att försvåra för hackers', false),
 (630, 'B', 'Att möta olika klientbehov och integrationsscenarion', true),
 (630, 'C', 'Att minska nätverkstrafiken', false),
 (630, 'D', 'Att öka datamängden', false);
 
 -- Batch-insert för QUESTIONS
-INSERT INTO QUESTIONS (id, question_number, course_name, question_text)
+INSERT INTO QUESTIONS (course_name_question_number, question_number, course_name, question_text)
 VALUES (631, 181, 'API',
         '181. Vilket är det primära syftet med att implementera stöd för både JSON och XML i ett Spring Boot API?'),
        (632, 182, 'API',
@@ -4029,60 +3418,51 @@ VALUES (631, 181, 'API',
         '190. Vilken teknik kan användas för att förbättra prestandan i ett API som hanterar både JSON och XML för ofta efterfrågade resurser?');
 
 -- Batch-insert för QUESTION_OPTIONS
-INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct)
+INSERT INTO QUESTION_OPTIONS (course_name_question_number, option_label, option_text, is_correct)
 VALUES
 -- För fråga 181
 (631, 'A', 'Att öka API:ets komplexitet', false),
 (631, 'B', 'Att förbättra API:ets prestanda', false),
 (631, 'C', 'Att öka API:ets flexibilitet och användbarhet', true),
-(631, 'D', 'Att minska API:ets säkerhet', false),
--- För fråga 182
+(631, 'D', 'Att minska API:ets säkerhet', false),                     -- För fråga 182
 (632, 'A', 'URL-parametrar', false),
 (632, 'B', 'Content negotiation', true),
 (632, 'C', 'Hårdkodade inställningar', false),
-(632, 'D', 'Slumpmässigt val', false),
--- För fråga 183
+(632, 'D', 'Slumpmässigt val', false),                                -- För fråga 183
 (633, 'A', 'Att komprimera HTTP-meddelanden', false),
 (633, 'B', 'Att kryptera data under överföring', false),
 (633, 'C', 'Att konvertera mellan Java-objekt och olika representationsformat', true),
-(633, 'D', 'Att validera inkommande HTTP-förfrågningar', false),
--- För fråga 184
+(633, 'D', 'Att validera inkommande HTTP-förfrågningar', false),      -- För fråga 184
 (634, 'A', 'Det kräver separata endpoints för varje format', false),
 (634, 'B', 'Det är komplicerat att konfigurera', false),
 (634, 'C', 'Det påverkar alltid prestandan negativt', false),
-(634, 'D', 'Det ökar API:ets användbarhet för olika klienter', true),
--- För fråga 185
+(634, 'D', 'Det ökar API:ets användbarhet för olika klienter', true), -- För fråga 185
 (635, 'A', '@Controller', false),
 (635, 'B', '@ResponseBody', false),
 (635, 'C', '@RestController', true),
-(635, 'D', '@XMLJSONController', false),
--- För fråga 186
+(635, 'D', '@XMLJSONController', false),                              -- För fråga 186
 (636, 'A', 'SQL-injektion', false),
 (636, 'B', 'Cross-Site Scripting (XSS)', false),
 (636, 'C', 'XML External Entity (XXE) attacker', true),
-(636, 'D', 'Broken Authentication', false),
--- För fråga 187
+(636, 'D', 'Broken Authentication', false),                           -- För fråga 187
 (637, 'A', 'CPU-användning', false),
 (637, 'B', 'Nätverkslatens', false),
 (637, 'C', 'Serialisering/deserialisering-hastighet', true),
-(637, 'D', 'Databasanslutningar', false),
--- För fråga 188
+(637, 'D', 'Databasanslutningar', false),                             -- För fråga 188
 (638, 'A', 'Öka serverkapaciteten', false),
 (638, 'B', 'Begränsa API-anrop per användare', false),
 (638, 'C', 'Implementera lazy loading', true),
-(638, 'D', 'Använda endast JSON för stora datamängder', false),
--- För fråga 189
+(638, 'D', 'Använda endast JSON för stora datamängder', false),       -- För fråga 189
 (639, 'A', 'Att öka API:ets prestanda', false),
 (639, 'B', 'Att förenkla utvecklingsprocessen', false),
 (639, 'C', 'Att möjliggöra framtida ändringar utan att bryta befintliga integrationer', true),
-(639, 'D', 'Att minska API:ets attackyta', false),
--- För fråga 190
+(639, 'D', 'Att minska API:ets attackyta', false),                    -- För fråga 190
 (640, 'A', 'Komprimering', false),
 (640, 'B', 'Caching', true),
 (640, 'C', 'Kryptering', false),
 (640, 'D', 'Paginering', false);
 
-INSERT INTO QUESTIONS (id, question_number, course_name, question_text)
+INSERT INTO QUESTIONS (course_name_question_number, question_number, course_name, question_text)
 VALUES (641, 191, 'API', '191. Vilket av följande är inte en grundläggande princip för API-säkerhet?'),
        (642, 192, 'API', '192. Vad är huvudsyftet med auktorisering i API-säkerhet?'),
        (643, 193, 'API', '193. Vilken påstående om HTTPS är korrekt när det gäller API-säkerhet?'),
@@ -4097,60 +3477,51 @@ VALUES (641, 191, 'API', '191. Vilket av följande är inte en grundläggande pr
        (650, 200, 'API',
         '200. Vilken är den främsta fördelen med att använda token-baserad autentisering i en mikroservicearkitektur?');
 
-INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct)
+INSERT INTO QUESTION_OPTIONS (course_name_question_number, option_label, option_text, is_correct)
 VALUES
 -- För fråga 191
 (641, 'A', 'Autentisering', false),
 (641, 'B', 'Kryptering', false),
 (641, 'C', 'Normalisering', true),
-(641, 'D', 'Validering', false),
--- För fråga 192
+(641, 'D', 'Validering', false),                                                               -- För fråga 192
 (642, 'A', 'Att verifiera användarens identitet', false),
 (642, 'B', 'Att validera inkommande data', false),
 (642, 'C', 'Att bestämma vad en autentiserad användare får göra', true),
-(642, 'D', 'Att kryptera data under överföring', false),
--- För fråga 193
+(642, 'D', 'Att kryptera data under överföring', false),                                       -- För fråga 193
 (643, 'A', 'HTTPS ersätter behovet av autentisering', false),
 (643, 'B', 'HTTPS skyddar endast data under överföring', true),
 (643, 'C', 'HTTPS garanterar att användaren är behörig', false),
-(643, 'D', 'HTTPS är tillräckligt för att fullständigt säkra ett API', false),
--- För fråga 194
+(643, 'D', 'HTTPS är tillräckligt för att fullständigt säkra ett API', false),                 -- För fråga 194
 (644, 'A', 'Basic Authentication', false),
 (644, 'B', 'IP-filtrering', true),
 (644, 'C', 'Token-baserad autentisering', false),
-(644, 'D', 'OAuth 2.0', false),
--- För fråga 195
+(644, 'D', 'OAuth 2.0', false),                                                                -- För fråga 195
 (645, 'A', 'De eliminerar behovet av serversessioner', true),
 (645, 'B', 'De fungerar utan HTTPS', false),
 (645, 'C', 'De är oknäckbara', false),
-(645, 'D', 'De kan inte bli stulna', false),
--- För fråga 196
+(645, 'D', 'De kan inte bli stulna', false),                                                   -- För fråga 196
 (646, 'A', 'Att minska serverkostnaderna', false),
 (646, 'B', 'Att förhindra brute force-attacker', true),
 (646, 'C', 'Att öka API:ets prestanda', false),
-(646, 'D', 'Att förbättra databasåtkomsten', false),
--- För fråga 197
+(646, 'D', 'Att förbättra databasåtkomsten', false),                                           -- För fråga 197
 (647, 'A', 'Använda säkra hashningsfunktioner', false),
 (647, 'B', 'Lagra lösenord i klartext för snabb åtkomst', true),
 (647, 'C', 'Implementera multi-factor authentication', false),
-(647, 'D', 'Använda starka, slumpmässiga lösenord', false),
--- För fråga 198
+(647, 'D', 'Använda starka, slumpmässiga lösenord', false),                                    -- För fråga 198
 (648, 'A', 'Att ersätta HTTPS', false),
 (648, 'B', 'Att möjliggöra säker delegerad åtkomst', true),
 (648, 'C', 'Att kryptera all datatrafik', false),
-(648, 'D', 'Att automatiskt generera API-nycklar', false),
--- För fråga 199
+(648, 'D', 'Att automatiskt generera API-nycklar', false),                                     -- För fråga 199
 (649, 'A', 'Interna API:er behöver inte säkras', false),
 (649, 'B', 'Interna API:er bör skyddas för att förhindra lateral rörelse vid intrång', true),
 (649, 'C', 'Interna API:er kräver mindre säkerhet än publika API:er', false),
-(649, 'D', 'Säkerhet för interna API:er hanteras automatiskt av företagets brandvägg', false),
--- För fråga 200
+(649, 'D', 'Säkerhet för interna API:er hanteras automatiskt av företagets brandvägg', false), -- För fråga 200
 (650, 'A', 'Det eliminerar behovet av kryptering', false),
 (650, 'B', 'Det ersätter behovet av HTTPS', false),
 (650, 'C', 'Det möjliggör stateless autentisering mellan tjänster', true),
 (650, 'D', 'Det garanterar 100% säkerhet mot alla typer av attacker', false);
 
-INSERT INTO QUESTIONS (id, question_number, course_name, question_text)
+INSERT INTO QUESTIONS (course_name_question_number, question_number, course_name, question_text)
 VALUES (651, 201, 'API', '201. Vilket av följande är inte en del av JWT-strukturen?'),
        (652, 202, 'API', '202. Vad är huvudsyftet med HTTPS/TLS i API-säkerhet?'),
        (653, 203, 'API', '203. Vilken påstående om JWT är korrekt?'),
@@ -4164,59 +3535,50 @@ VALUES (651, 201, 'API', '201. Vilket av följande är inte en del av JWT-strukt
        (660, 210, 'API',
         '210. Vilken av följande är inte en rekommenderad praxis vid implementering av JWT-autentisering?');
 
-INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct)
+INSERT INTO QUESTION_OPTIONS (course_name_question_number, option_label, option_text, is_correct)
 VALUES (651, 'A', 'Signature', false),
        (651, 'B', 'Header', false),
        (651, 'C', 'Encryption', true),
        (651, 'D', 'Payload', false),
-
        (652, 'A', 'Att generera JWT-tokens', false),
        (652, 'B', 'Att kryptera kommunikationen mellan klient och server', true),
        (652, 'C', 'Att verifiera användarens identitet', false),
        (652, 'D', 'Att hantera användarrättigheter', false),
-
        (653, 'A', 'JWT kräver en databas för validering', false),
        (653, 'B', 'JWT kan inte innehålla anpassade claims', false),
        (653, 'C', 'JWT är alltid krypterade', false),
        (653, 'D', 'JWT är stateless och självinnehållande', true),
-
        (654, 'A', 'exp (Expiration Time)', false),
        (654, 'B', 'role (User Role)', true),
        (654, 'C', 'iss (Issuer)', false),
        (654, 'D', 'sub (Subject)', false),
-
        (655, 'A', 'Att kryptera känslig information', false),
        (655, 'B', 'Att hantera användarregistrering', false),
        (655, 'C', 'Att validera inkommande JWT-tokens', true),
        (655, 'D', 'Att generera nya JWT-tokens', false),
-
        (656, 'A', 'Ökad komplexitet i konfigurationen', false),
        (656, 'B', 'Stöd för äldre krypteringsalgoritmer', false),
        (656, 'C', 'Längre handskakningsprocess', false),
        (656, 'D', 'Reducerad handskakningstid', true),
-
        (657, 'A', 'Öka token-storleken för att rymma mer data', false),
        (657, 'B', 'Kryptera hela payload-delen', false),
        (657, 'C', 'Alltid inkludera all användarinformation', false),
        (657, 'D', 'Undvika att lagra känslig information om möjligt', true),
-
        (658, 'A', 'HTTPS skyddar mot alla typer av cyberattacker', true),
        (658, 'B', 'HTTPS använder TLS för kryptering', false),
        (658, 'C', 'HTTPS verifierar serverns identitet', false),
        (658, 'D', 'HTTPS säkerställer dataintegritet under överföring', false),
-
        (659, 'A', 'Att eliminera behovet av HTTPS', false),
        (659, 'B', 'Att öka storleken på token', false),
        (659, 'C', 'Att minska serverbelastningen', false),
        (659, 'D', 'Att förbättra användarsäkerheten', true),
-
        (660, 'A', 'Använda korta utgångstider för tokens', false),
        (660, 'B', 'Implementera token-förnyelse', false),
        (660, 'C', 'Rotera signeringsnycklar regelbundet', false),
        (660, 'D', 'Lagra JWT i localStorage i webbläsaren', true);
 
 -- Batch-insert för tabellen QUESTIONS
-INSERT INTO QUESTIONS (id, question_number, course_name, question_text)
+INSERT INTO QUESTIONS (course_name_question_number, question_number, course_name, question_text)
 VALUES (661, 211, 'API', '211. Vilket av följande är INTE ett huvudsyfte med säker API-nyckelhantering?'),
        (662, 212, 'API', '212. Vad är det huvudsakliga syftet med token-förnyelse i JWT-hantering?'),
        (663, 213, 'API', '213. Vilken av följande är en best practice för API-nyckelhantering?'),
@@ -4231,61 +3593,52 @@ VALUES (661, 211, 'API', '211. Vilket av följande är INTE ett huvudsyfte med s
         '220. Vad är det främsta syftet med att implementera token-revokering i ett JWT-baserat system?');
 
 -- Batch-insert för tabellen QUESTION-OPTIONS
-INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct)
+INSERT INTO QUESTION_OPTIONS (course_name_question_number, option_label, option_text, is_correct)
 VALUES
 -- För fråga 211
 (661, 'A', 'Förhindra obehörig åtkomst', true),
 (661, 'B', 'Skydda företagets resurser', true),
 (661, 'C', 'Öka hastigheten på API-anrop', false),
-(661, 'D', 'Upprätthålla användarnas förtroende', true),
--- För fråga 212
+(661, 'D', 'Upprätthålla användarnas förtroende', true),                     -- För fråga 212
 (662, 'A', 'Att minska serverbelastningen', false),
 (662, 'B', 'Att eliminera behovet av initial autentisering', false),
 (662, 'C', 'Att möjliggöra obegränsad åtkomst till API:er', false),
-(662, 'D', 'Att öka säkerheten genom att regelbundet byta ut tokens', true),
--- För fråga 213
+(662, 'D', 'Att öka säkerheten genom att regelbundet byta ut tokens', true), -- För fråga 213
 (663, 'A', 'Implementera regelbunden nyckelrotation', true),
 (663, 'B', 'Lagra API-nycklar i klartext i databasen', false),
 (663, 'C', 'Använda samma API-nyckel för alla klienter', false),
-(663, 'D', 'Inkludera API-nycklar direkt i frontend-kod', false),
--- För fråga 214
+(663, 'D', 'Inkludera API-nycklar direkt i frontend-kod', false),            -- För fråga 214
 (664, 'A', 'JWT kan aldrig återkallas', false),
 (664, 'B', 'JWT är stateful och kräver serversessioner', false),
 (664, 'C', 'JWT kan implementeras med återkallelsesmekanismer', true),
-(664, 'D', 'JWT är endast lämpliga för engångsautentisering', false),
--- För fråga 215
+(664, 'D', 'JWT är endast lämpliga för engångsautentisering', false),        -- För fråga 215
 (665, 'A', 'Att automatisera API-dokumentation', false),
 (665, 'B', 'Att förbättra användarupplevelsen för API-konsumenter', false),
 (665, 'C', 'Att säkert generera och lagra kryptografiska nycklar', true),
-(665, 'D', 'Att öka hastigheten på API-anrop', false),
--- För fråga 216
+(665, 'D', 'Att öka hastigheten på API-anrop', false),                       -- För fråga 216
 (666, 'A', 'Generering', true),
 (666, 'B', 'Validering', true),
 (666, 'C', 'Kompilering', false),
-(666, 'D', 'Rotation', true),
--- För fråga 217
+(666, 'D', 'Rotation', true),                                                -- För fråga 217
 (667, 'A', 'Att förbättra API:ets dokumentation', false),
 (667, 'B', 'Att minska latensen för API-anrop', false),
 (667, 'C', 'Att öka API:ets tillgänglighet', false),
-(667, 'D', 'Att förhindra missbruk av API:et', true),
--- För fråga 218
+(667, 'D', 'Att förhindra missbruk av API:et', true),                        -- För fråga 218
 (668, 'A', 'Sliding sessions', true),
 (668, 'B', 'Statisk token-generering', false),
 (668, 'C', 'Obegränsad token-livslängd', false),
-(668, 'D', 'Lagring av tokens i klartext', false),
--- För fråga 219
+(668, 'D', 'Lagring av tokens i klartext', false),                           -- För fråga 219
 (669, 'A', 'Att eliminera behovet av autentisering', false),
 (669, 'B', 'Att öka flexibiliteten och säkerheten', true),
 (669, 'C', 'Att minska kostnaderna för API-drift', false),
-(669, 'D', 'Att förenkla API-dokumentationen', false),
--- För fråga 220
+(669, 'D', 'Att förenkla API-dokumentationen', false),                       -- För fråga 220
 (670, 'A', 'Att omedelbart kunna ogiltigförklara åtkomst vid säkerhetsincidenter', true),
 (670, 'B', 'Att öka systemets prestanda', false),
 (670, 'C', 'Att förenkla användarregistreringen', false),
 (670, 'D', 'Att automatisera token-generering', false);
 
 -- Batch-insert för tabellen QUESTIONS
-INSERT INTO QUESTIONS (id, question_number, course_name, question_text)
+INSERT INTO QUESTIONS (course_name_question_number, question_number, course_name, question_text)
 VALUES (671, 221, 'API', '221. Vad är huvudsyftet med JwtUtil-klassen i en Spring Boot-applikation?'),
        (672, 222, 'API', '222. Vilken information bör INTE lagras i en JWT-token?'),
        (673, 223, 'API', '223. Vilken dependency krävs för att implementera JWT i ett Spring Boot-projekt?'),
@@ -4298,60 +3651,51 @@ VALUES (671, 221, 'API', '221. Vad är huvudsyftet med JwtUtil-klassen i en Spri
        (680, 230, 'API', '230. Vilket är det första steget när en användare försöker komma åt en skyddad endpoint?');
 
 -- Batch-insert för tabellen QUESTION-OPTIONS
-INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct)
+INSERT INTO QUESTION_OPTIONS (course_name_question_number, option_label, option_text, is_correct)
 VALUES
 -- För fråga 221
 (671, 'A', 'Att hantera databasanslutningar', false),
 (671, 'B', 'Att generera och validera JWT-tokens', true),
 (671, 'C', 'Att kryptera lösenord', false),
-(671, 'D', 'Att hantera HTTP-requests', false),
--- För fråga 222
+(671, 'D', 'Att hantera HTTP-requests', false),                   -- För fråga 222
 (672, 'A', 'Användarens ID', false),
 (672, 'B', 'Tokens utgångsdatum', false),
 (672, 'C', 'Lösenord', true),
-(672, 'D', 'Användarnamn', false),
--- För fråga 223
+(672, 'D', 'Användarnamn', false),                                -- För fråga 223
 (673, 'A', 'spring-boot-starter-web', false),
 (673, 'B', 'spring-boot-starter-data-jpa', false),
 (673, 'C', 'io.jsonwebtoken:jjwt', true),
-(673, 'D', 'spring-boot-starter-test', false),
--- För fråga 224
+(673, 'D', 'spring-boot-starter-test', false),                    -- För fråga 224
 (674, 'A', 'I URL:en som en parameter', false),
 (674, 'B', 'I request body', false),
 (674, 'C', 'I Authorization-headern med Bearer-prefix', true),
-(674, 'D', 'Som en cookie', false),
--- För fråga 225
+(674, 'D', 'Som en cookie', false),                               -- För fråga 225
 (675, 'A', '30 dagar', false),
 (675, 'B', '10 timmar', true),
 (675, 'C', 'Permanent', false),
-(675, 'D', '1 år', false),
--- För fråga 226
+(675, 'D', '1 år', false),                                        -- För fråga 226
 (676, 'A', 'Det är en asymmetrisk krypteringsalgoritm', false),
 (676, 'B', 'Det är den minst säkra JWT-signeringsalgoritmen', false),
 (676, 'C', 'Det är en HMAC SHA-512 signeringsalgoritm', true),
-(676, 'D', 'Det kräver ett publikt och privat nyckelpar', false),
--- För fråga 227
+(676, 'D', 'Det kräver ett publikt och privat nyckelpar', false), -- För fråga 227
 (677, 'A', 'Hårdkoda den i JwtUtil-klassen', false),
 (677, 'B', 'Lagra den i en miljövariabel eller konfigurationsfil', true),
 (677, 'C', 'Använda samma nyckel i alla miljöer', false),
-(677, 'D', 'Dela nyckeln i versionskontroll', false),
--- För fråga 228
+(677, 'D', 'Dela nyckeln i versionskontroll', false),             -- För fråga 228
 (678, 'A', 'GET', false),
 (678, 'B', 'PUT', false),
 (678, 'C', 'POST', true),
-(678, 'D', 'DELETE', false),
--- För fråga 229
+(678, 'D', 'DELETE', false),                                      -- För fråga 229
 (679, 'A', 'Den förnyas automatiskt', false),
 (679, 'B', 'Användaren får fortsätta använda systemet', false),
 (679, 'C', 'Servern returnerar ett felmeddelande', true),
-(679, 'D', 'Token blir giltig igen vid nästa request', false),
--- För fråga 230
+(679, 'D', 'Token blir giltig igen vid nästa request', false),    -- För fråga 230
 (680, 'A', 'Databasen kontrolleras', false),
 (680, 'B', 'Token valideras', true),
 (680, 'C', 'Lösenordet hashas', false),
 (680, 'D', 'En ny token genereras', false);
 
-INSERT INTO QUESTIONS (id, question_number, course_name, question_text)
+INSERT INTO QUESTIONS (course_name_question_number, question_number, course_name, question_text)
 VALUES (681, 231, 'API', '231. Vad är den fundamentala skillnaden mellan OAuth2 och OpenID Connect?'),
        (682, 232, 'API', '232. Vad representerar "scope" i OAuth2/OpenID Connect?'),
        (683, 233, 'API', '233. Vilken typ av token innehåller användarinformation i OpenID Connect?'),
@@ -4363,60 +3707,51 @@ VALUES (681, 231, 'API', '231. Vad är den fundamentala skillnaden mellan OAuth2
        (689, 239, 'API', '239. Vad är ett typiskt användningsfall för OpenID Connect?'),
        (690, 240, 'API', '240. Vilken HTTP-metod används vanligtvis för att hämta tokens från token-endpointen?');
 
-INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct)
+INSERT INTO QUESTION_OPTIONS (course_name_question_number, option_label, option_text, is_correct)
 VALUES
 -- Fråga 231
 (681, 'A', 'OAuth2 är nyare än OpenID Connect', false),
 (681, 'B', 'OAuth2 hanterar auktorisation medan OpenID Connect hanterar autentisering', true),
 (681, 'C', 'OAuth2 är mindre säkert än OpenID Connect', false),
-(681, 'D', 'OAuth2 kan endast användas med Google', false),
--- Fråga 232
+(681, 'D', 'OAuth2 kan endast användas med Google', false),  -- Fråga 232
 (682, 'A', 'Tiden som en token är giltig', false),
 (682, 'B', 'Storleken på användarens profil', false),
 (682, 'C', 'Behörigheterna som appen begär', true),
-(682, 'D', 'Antalet tillåtna inloggningsförsök', false),
--- Fråga 233
+(682, 'D', 'Antalet tillåtna inloggningsförsök', false),     -- Fråga 233
 (683, 'A', 'Refresh Token', false),
 (683, 'B', 'Access Token', false),
 (683, 'C', 'ID Token', true),
-(683, 'D', 'Bearer Token', false),
--- Fråga 234
+(683, 'D', 'Bearer Token', false),                           -- Fråga 234
 (684, 'A', 'profile', false),
 (684, 'B', 'openid', true),
 (684, 'C', 'email', false),
-(684, 'D', 'auth', false),
--- Fråga 235
+(684, 'D', 'auth', false),                                   -- Fråga 235
 (685, 'A', 'I localStorage', false),
 (685, 'B', 'I sessionStorage', false),
 (685, 'C', 'I säkra cookies', true),
-(685, 'D', 'I URL:en', false),
--- Fråga 236
+(685, 'D', 'I URL:en', false),                               -- Fråga 236
 (686, 'A', 'Att förnya utgångna tokens', false),
 (686, 'B', 'Att auktorisera API-anrop', false),
 (686, 'C', 'Att bevisa användarens identitet', true),
-(686, 'D', 'Att kryptera data', false),
--- Fråga 237
+(686, 'D', 'Att kryptera data', false),                      -- Fråga 237
 (687, 'A', 'Den kan vara vilken URL som helst', false),
 (687, 'B', 'Den måste vara exakt samma som registrerad i OAuth2-providern', true),
 (687, 'C', 'Den behöver inte använda HTTPS', false),
-(687, 'D', 'Den kan ändras dynamiskt under körning', false),
--- Fråga 238
+(687, 'D', 'Den kan ändras dynamiskt under körning', false), -- Fråga 238
 (688, 'A', 'Utgångstid', false),
 (688, 'B', 'Användarens lösenord', true),
 (688, 'C', 'Scope', false),
-(688, 'D', 'Client ID', false),
--- Fråga 239
+(688, 'D', 'Client ID', false),                              -- Fråga 239
 (689, 'A', 'Filöverföring mellan servrar', false),
 (689, 'B', 'Databasbackup', false),
 (689, 'C', '"Logga in med Google"', true),
-(689, 'D', 'Nätverksövervakning', false),
--- Fråga 240
+(689, 'D', 'Nätverksövervakning', false),                    -- Fråga 240
 (690, 'A', 'GET', false),
 (690, 'B', 'POST', true),
 (690, 'C', 'PUT', false),
 (690, 'D', 'DELETE', false);
 
-INSERT INTO QUESTIONS (id, question_number, course_name, question_text)
+INSERT INTO QUESTIONS (course_name_question_number, question_number, course_name, question_text)
 VALUES (691, 241, 'API', '241. Vad är det grundläggande syftet med RBAC?'),
        (692, 242, 'API', '242. Vilken annotation används i Spring Boot för att säkra en endpoint med rollbehörighet?'),
        (693, 243, 'API', '243. Vad är bästa praxis gällande antal roller i ett system?'),
@@ -4428,61 +3763,52 @@ VALUES (691, 241, 'API', '241. Vad är det grundläggande syftet med RBAC?'),
        (699, 249, 'API', '249. Vad betyder det när en admin-roll ärver från en moderator-roll?'),
        (700, 250, 'API', '250. Vilken är den rekommenderade metoden för att strukturera roller i ett system?');
 
-INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct)
+INSERT INTO QUESTION_OPTIONS (course_name_question_number, option_label, option_text, is_correct)
 VALUES
 -- Fråga 241
 (691, 'A', 'Att kryptera användardata', false),
 (691, 'B', 'Att kontrollera användares behörigheter baserat på roller', true),
 (691, 'C', 'Att hantera databasanslutningar', false),
-(691, 'D', 'Att generera JWT tokens', false),
--- Fråga 242
+(691, 'D', 'Att generera JWT tokens', false),                -- Fråga 242
 (692, 'A', '@Secured', false),
 (692, 'B', '@RoleRequired', false),
 (692, 'C', '@PreAuthorize', true),
-(692, 'D', '@RoleProtected', false),
--- Fråga 243
+(692, 'D', '@RoleProtected', false),                         -- Fråga 243
 (693, 'A', 'Ju fler roller desto bättre', false),
 (693, 'B', 'Håll det enkelt med få, väldefinierade roller', true),
 (693, 'C', 'Skapa en unik roll för varje användare', false),
-(693, 'D', 'Använd endast admin och användarroller', false),
--- Fråga 244
+(693, 'D', 'Använd endast admin och användarroller', false), -- Fråga 244
 (694, 'A', 'Genom att använda @Hierarchy annotation', false),
 (694, 'B', 'Genom att implementera RoleHierarchyImpl', true),
 (694, 'C', 'Det går inte att implementera rollhierarki', false),
-(694, 'D', 'Genom att använda @RoleInheritance', false),
--- Fråga 245
+(694, 'D', 'Genom att använda @RoleInheritance', false),     -- Fråga 245
 (695, 'A', 'I header', false),
 (695, 'B', 'I signature', false),
 (695, 'C', 'I claims', true),
-(695, 'D', 'I URL:en', false),
--- Fråga 246
+(695, 'D', 'I URL:en', false),                               -- Fråga 246
 (696, 'A', 'Testa endast admin-behörigheter', false),
 (696, 'B', 'Skippa testning av behörigheter', false),
 (696, 'C', 'Testa att användare inte kan nå otillåtna resurser', true),
-(696, 'D', 'Bara testa i produktion', false),
--- Fråga 247
+(696, 'D', 'Bara testa i produktion', false),                -- Fråga 247
 (697, 'A', 'Ignorera felet tyst', false),
 (697, 'B', 'Returnera en detaljerad stacktrace', false),
 (697, 'C', 'Returnera HTTP 403 med ett tydligt meddelande', true),
-(697, 'D', 'Omdirigera till startsidan', false),
--- Fråga 248
+(697, 'D', 'Omdirigera till startsidan', false),             -- Fråga 248
 (698, 'A', 'Aktiverar databaskoppling', false),
 (698, 'B', 'Möjliggör användning av säkerhetsannotationer', true),
 (698, 'C', 'Skapar automatiskt roller', false),
-(698, 'D', 'Krypterar all kommunikation', false),
--- Fråga 249
+(698, 'D', 'Krypterar all kommunikation', false),            -- Fråga 249
 (699, 'A', 'Moderatorn får admin-rättigheter', false),
 (699, 'B', 'Admin förlorar sina specifika rättigheter', false),
 (699, 'C', 'Admin får moderatorns rättigheter plus sina egna', true),
-(699, 'D', 'Rollerna blir identiska', false),
--- Fråga 250
+(699, 'D', 'Rollerna blir identiska', false),                -- Fråga 250
 (700, 'A', 'Basera roller på användare istället för behörigheter', false),
 (700, 'B', 'Skapa en ny roll för varje behörighet', false),
 (700, 'C', 'Basera roller på behörigheter och ansvar', true),
 (700, 'D', 'Kopiera roller från andra system', false);
 
 -- Batch-insert för tabellen QUESTIONS
-INSERT INTO QUESTIONS (id, question_number, course_name, question_text)
+INSERT INTO QUESTIONS (course_name_question_number, question_number, course_name, question_text)
 VALUES (701, 251, 'API', '251. Vad är huvudsyftet med en .env fil?'),
        (702, 252, 'API', '252. Vad bör man göra om man av misstag laddat upp en .env fil till Git?'),
        (703, 253, 'API', '253. Vilket verktyg används ofta i Spring Boot för att hantera .env filer?'),
@@ -4495,60 +3821,51 @@ VALUES (701, 251, 'API', '251. Vad är huvudsyftet med en .env fil?'),
        (710, 260, 'API', '260. Hur ofta bör känsliga miljövariabler roteras?');
 
 -- Batch-insert för tabellen QUESTION_OPTIONS
-INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct)
+INSERT INTO QUESTION_OPTIONS (course_name_question_number, option_label, option_text, is_correct)
 VALUES
 -- Fråga 251
 (701, 'A', 'Att lagra känslig konfigurationsinformation', true),
 (701, 'B', 'Att hantera Git-repositories', false),
 (701, 'C', 'Att kompilera kod', false),
-(701, 'D', 'Att hantera databasbackuper', false),
--- Fråga 252
+(701, 'D', 'Att hantera databasbackuper', false),                -- Fråga 252
 (702, 'A', 'Ignorera problemet', false),
 (702, 'B', 'Bara ta bort filen från repot', false),
 (702, 'C', 'Fortsätta som vanligt', false),
-(702, 'D', 'Skapa nytt repo och rotera alla hemligheter', true),
--- Fråga 253
+(702, 'D', 'Skapa nytt repo och rotera alla hemligheter', true), -- Fråga 253
 (703, 'A', 'dotenv-java', true),
 (703, 'B', 'envparser', false),
 (703, 'C', 'configreader', false),
-(703, 'D', 'springenv', false),
--- Fråga 254
+(703, 'D', 'springenv', false),                                  -- Fråga 254
 (704, 'A', 'Använd samma .env för alla miljöer', false),
 (704, 'B', 'Ha inga miljövariabler alls', false),
 (704, 'C', 'Använd separata .env filer för olika miljöer', true),
-(704, 'D', 'Hårdkoda värden i koden', false),
--- Fråga 255
+(704, 'D', 'Hårdkoda värden i koden', false),                    -- Fråga 255
 (705, 'A', '.gitconfig', false),
 (705, 'B', '.gitattributes', false),
 (705, 'C', '.env.example', false),
-(705, 'D', '.gitignore', true),
--- Fråga 256
+(705, 'D', '.gitignore', true),                                  -- Fråga 256
 (706, 'A', 'Via e-post', false),
 (706, 'B', 'Via säker lösenordshanterare', true),
 (706, 'C', 'I Git-repositoryt', false),
-(706, 'D', 'På en publik webbsida', false),
--- Fråga 257
+(706, 'D', 'På en publik webbsida', false),                      -- Fråga 257
 (707, 'A', 'När användaren loggar in', false),
 (707, 'B', 'När databasen uppdateras', false),
 (707, 'C', 'När applikationen startar', true),
-(707, 'D', 'När en request görs', false),
--- Fråga 258
+(707, 'D', 'När en request görs', false),                        -- Fråga 258
 (708, 'A', 'Att lagra riktiga hemligheter', false),
 (708, 'B', 'Att visa vilka variabler som behövs', true),
 (708, 'C', 'Att köra tester', false),
-(708, 'D', 'Att konfigurera Git', false),
--- Fråga 259
+(708, 'D', 'Att konfigurera Git', false),                        -- Fråga 259
 (709, 'A', 'Använda samma som i utveckling', false),
 (709, 'B', 'Inte använda några alls', false),
 (709, 'C', 'Hårdkoda dem i koden', false),
-(709, 'D', 'Hantera dem via deployment platform', true),
--- Fråga 260
+(709, 'D', 'Hantera dem via deployment platform', true),         -- Fråga 260
 (710, 'A', 'Regelbundet enligt säkerhetspolicy', true),
 (710, 'B', 'Aldrig', false),
 (710, 'C', 'Bara vid säkerhetsincidenter', false),
 (710, 'D', 'En gång om året', false);
 
-INSERT INTO QUESTIONS (id, question_number, course_name, question_text)
+INSERT INTO QUESTIONS (course_name_question_number, question_number, course_name, question_text)
 VALUES (711, 261, 'API', '261. Vad är huvudsyftet med CORS?'),
        (712, 262, 'API', '262. Hur bör CORS konfigureras i produktion?'),
        (713, 263, 'API', '263. Vad är en "preflight request"?'),
@@ -4560,60 +3877,51 @@ VALUES (711, 261, 'API', '261. Vad är huvudsyftet med CORS?'),
        (719, 269, 'API', '269. Vilken CORS-header används för att specificera tillåtna HTTP-metoder?'),
        (720, 270, 'API', '270. Hur länge bör preflight-svar cachas?');
 
-INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct)
+INSERT INTO QUESTION_OPTIONS (course_name_question_number, option_label, option_text, is_correct)
 VALUES
 -- För fråga 261
 (711, 'A', 'Att öka prestandan', false),
 (711, 'B', 'Att begränsa vilka domäner som får anropa API:et', true),
 (711, 'C', 'Att kryptera data', false),
-(711, 'D', 'Att hantera databaskopplingar', false),
--- För fråga 262
+(711, 'D', 'Att hantera databaskopplingar', false),   -- För fråga 262
 (712, 'A', 'Tillåt alla origins med "*"', false),
 (712, 'B', 'Blockera alla anrop', false),
 (712, 'C', 'Specificera exakta tillåtna domäner', true),
-(712, 'D', 'Ignorera CORS helt', false),
--- För fråga 263
+(712, 'D', 'Ignorera CORS helt', false),              -- För fråga 263
 (713, 'A', 'En kontroll innan huvudanropet', true),
 (713, 'B', 'En typ av autentisering', false),
 (713, 'C', 'En cachningsstrategi', false),
-(713, 'D', 'En databasförfrågan', false),
--- För fråga 264
+(713, 'D', 'En databasförfrågan', false),             -- För fråga 264
 (714, 'A', 'Allow-Origins', false),
 (714, 'B', 'Origin-Control', false),
 (714, 'C', 'Access-Control-Allow-Origin', true),
-(714, 'D', 'Cross-Origin-Allow', false),
--- För fråga 265
+(714, 'D', 'Cross-Origin-Allow', false),              -- För fråga 265
 (715, 'A', 'Stäng av all CORS-kontroll', false),
 (715, 'B', 'Tillåt localhost och specifika utvecklingsportar', true),
 (715, 'C', 'Använd samma inställningar som i produktion', false),
-(715, 'D', 'Ignorera CORS-fel', false),
--- För fråga 266
+(715, 'D', 'Ignorera CORS-fel', false),               -- För fråga 266
 (716, 'A', 'GET', false),
 (716, 'B', 'POST', false),
 (716, 'C', 'OPTIONS', true),
-(716, 'D', 'PUT', false),
--- För fråga 267
+(716, 'D', 'PUT', false),                             -- För fråga 267
 (717, 'A', 'Alltid tillåta alla cookies', false),
 (717, 'B', 'Aldrig tillåta cookies', false),
 (717, 'C', 'Sätta allowCredentials till true och specificera origin', true),
-(717, 'D', 'Ignorera cookie-inställningar', false),
--- För fråga 268
+(717, 'D', 'Ignorera cookie-inställningar', false),   -- För fråga 268
 (718, 'A', 'Ignorera felen', false),
 (718, 'B', 'Använda wildcard (*)', false),
 (718, 'C', 'Logga och analysera felen', true),
-(718, 'D', 'Stänga av webbläsarens säkerhet', false),
--- För fråga 269
+(718, 'D', 'Stänga av webbläsarens säkerhet', false), -- För fråga 269
 (719, 'A', 'Access-Control-Allow-Methods', true),
 (719, 'B', 'Allow-Methods', false),
 (719, 'C', 'Allowed-HTTP-Methods', false),
-(719, 'D', 'CORS-Methods-Allowed', false),
--- För fråga 270
+(719, 'D', 'CORS-Methods-Allowed', false),            -- För fråga 270
 (720, 'A', 'För alltid', false),
 (720, 'B', 'Aldrig', false),
 (720, 'C', 'En rimlig tid som 1-24 timmar', true),
 (720, 'D', '1 minut', false);
 
-INSERT INTO QUESTIONS (id, question_number, course_name, question_text)
+INSERT INTO QUESTIONS (course_name_question_number, question_number, course_name, question_text)
 VALUES (721, 271, 'API', '271. Vad är huvudsyftet med OpenAPI Specification (OAS)?'),
        (722, 272, 'API', '272. Vilken av följande är INTE en del av Swagger-verktygen?'),
        (723, 273, 'API', '273. Vad är en fördel med att använda OpenAPI för API-dokumentation?'),
@@ -4625,60 +3933,51 @@ VALUES (721, 271, 'API', '271. Vad är huvudsyftet med OpenAPI Specification (OA
        (729, 279, 'API', '279. Vad är syftet med komponentsektionen i en OpenAPI-specifikation?'),
        (730, 280, 'API', '280. Vilken information bör INTE inkluderas i en API-dokumentation av säkerhetsskäl?');
 
-INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct)
+INSERT INTO QUESTION_OPTIONS (course_name_question_number, option_label, option_text, is_correct)
 VALUES
 -- För fråga med id 721 (fråga 271)
 (721, 'A', 'Att optimera API-prestanda', false),
 (721, 'B', 'Att generera API-kod automatiskt', false),
 (721, 'C', 'Att standardisera beskrivningen av RESTful API:er', true),
-(721, 'D', 'Att hantera databaskopplingar för API:er', false),
--- För fråga med id 722 (fråga 272)
+(721, 'D', 'Att hantera databaskopplingar för API:er', false),                 -- För fråga med id 722 (fråga 272)
 (722, 'A', 'Swagger UI', false),
 (722, 'B', 'Swagger Editor', false),
 (722, 'C', 'Swagger Database', true),
-(722, 'D', 'Swagger Codegen', false),
--- För fråga med id 723 (fråga 273)
+(722, 'D', 'Swagger Codegen', false),                                          -- För fråga med id 723 (fråga 273)
 (723, 'A', 'Det eliminerar behovet av manuell testning', false),
 (723, 'B', 'Det garanterar 100% felfri API-implementering', false),
 (723, 'C', 'Det möjliggör automatisk generering av uppdaterad dokumentation', true),
-(723, 'D', 'Det ersätter behovet av utvecklare i API-designprocessen', false),
--- För fråga med id 724 (fråga 274)
+(723, 'D', 'Det ersätter behovet av utvecklare i API-designprocessen', false), -- För fråga med id 724 (fråga 274)
 (724, 'A', 'XML och HTML', false),
 (724, 'B', 'JSON och YAML', true),
 (724, 'C', 'CSV och TXT', false),
-(724, 'D', 'SQL och PHP', false),
--- För fråga med id 725 (fråga 275)
+(724, 'D', 'SQL och PHP', false),                                              -- För fråga med id 725 (fråga 275)
 (725, 'A', 'Att kompilera API-kod', false),
 (725, 'B', 'Att generera interaktiv API-dokumentation', true),
 (725, 'C', 'Att hantera databasmigrationer', false),
-(725, 'D', 'Att övervaka API-prestanda i realtid', false),
--- För fråga med id 726 (fråga 276)
+(725, 'D', 'Att övervaka API-prestanda i realtid', false),                     -- För fråga med id 726 (fråga 276)
 (726, 'A', 'Det eliminerar behovet av att skriva kod', false),
 (726, 'B', 'Det garanterar felfri API-implementering', false),
 (726, 'C', 'Det möjliggör tidig feedback och förbättrad API-design', true),
-(726, 'D', 'Det ersätter behovet av utvecklare i API-processen', false),
--- För fråga med id 727 (fråga 277)
+(726, 'D', 'Det ersätter behovet av utvecklare i API-processen', false),       -- För fråga med id 727 (fråga 277)
 (727, 'A', 'Använda en enda källa för dokumentationen', false),
 (727, 'B', 'Inkludera interaktiva exempel', false),
 (727, 'C', 'Uppdatera dokumentationen manuellt efter varje kodändring', true),
-(727, 'D', 'Använda versionshantering för dokumentationen', false),
--- För fråga med id 728 (fråga 278)
+(727, 'D', 'Använda versionshantering för dokumentationen', false),            -- För fråga med id 728 (fråga 278)
 (728, 'A', 'Postman', false),
 (728, 'B', 'Swagger UI', true),
 (728, 'C', 'Git', false),
-(728, 'D', 'Visual Studio Code', false),
--- För fråga med id 729 (fråga 279)
+(728, 'D', 'Visual Studio Code', false),                                       -- För fråga med id 729 (fråga 279)
 (729, 'A', 'Att definiera API:ns endpoints', false),
 (729, 'B', 'Att specificera serverns URL', false),
 (729, 'C', 'Att definiera återanvändbara element som scheman och parametrar', true),
-(729, 'D', 'Att hantera autentisering och auktorisering', false),
--- För fråga med id 730 (fråga 280)
+(729, 'D', 'Att hantera autentisering och auktorisering', false),              -- För fråga med id 730 (fråga 280)
 (730, 'A', 'Autentiseringsmetoder', false),
 (730, 'B', 'Felkoder och deras betydelser', false),
 (730, 'C', 'Exempel på API-anrop', false),
 (730, 'D', 'Faktiska API-nycklar eller lösenord', true);
 
-INSERT INTO QUESTIONS (id, question_number, course_name, question_text)
+INSERT INTO QUESTIONS (course_name_question_number, question_number, course_name, question_text)
 VALUES (731, 281, 'API', '281. Vad är huvudsyftet med att implementera Swagger i ett Spring Boot-projekt?'),
        (732, 282, 'API', '282. Vilken annotation används för att aktivera Swagger i en Spring Boot-applikation?'),
        (733, 283, 'API', '283. Vilken URL används vanligtvis för att komma åt Swagger UI i en Spring Boot-applikation?'),
@@ -4690,60 +3989,51 @@ VALUES (731, 281, 'API', '281. Vad är huvudsyftet med att implementera Swagger 
        (739, 289, 'API', '289. Vad är syftet med @ApiModelProperty-annotationen i Swagger?'),
        (740, 290, 'API', '290. Vilken typ av information kan Swagger automatiskt generera för ett Spring Boot API?');
 
-INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct)
+INSERT INTO QUESTION_OPTIONS (course_name_question_number, option_label, option_text, is_correct)
 VALUES
 -- Fråga 281
 (731, 'A', 'Att öka applikationens prestanda', false),
 (731, 'B', 'Att generera automatisk API-dokumentation', true),
 (731, 'C', 'Att hantera databasanslutningar', false),
-(731, 'D', 'Att implementera säkerhetsfunktioner', false),
--- Fråga 282
+(731, 'D', 'Att implementera säkerhetsfunktioner', false), -- Fråga 282
 (732, 'A', '@SwaggerConfig', false),
 (732, 'B', '@SpringBootApplication', false),
 (732, 'C', '@EnableSwagger2', true),
-(732, 'D', '@Configuration', false),
--- Fråga 283
+(732, 'D', '@Configuration', false),                       -- Fråga 283
 (733, 'A', 'http://localhost:8080/swagger-ui/index.html', true),
 (733, 'B', 'http://localhost:8080/api-docs', false),
 (733, 'C', 'http://localhost:8080/api/documentation', false),
-(733, 'D', 'http://localhost:8080/swagger', false),
--- Fråga 284
+(733, 'D', 'http://localhost:8080/swagger', false),        -- Fråga 284
 (734, 'A', '@ApiResponse', false),
 (734, 'B', '@ApiParam', false),
 (734, 'C', '@ApiOperation', true),
-(734, 'D', '@ApiModel', false),
--- Fråga 285
+(734, 'D', '@ApiModel', false),                            -- Fråga 285
 (735, 'A', 'Att hantera databaskopplingar', false),
 (735, 'B', 'Att definiera säkerhetsinställningar', false),
 (735, 'C', 'Att konfigurera Swaggers dokumentationsgenerering', true),
-(735, 'D', 'Att skapa API-endpoints', false),
--- Fråga 286
+(735, 'D', 'Att skapa API-endpoints', false),              -- Fråga 286
 (736, 'A', '@Api', true),
 (736, 'B', '@ApiGroup', false),
 (736, 'C', '@ApiOperation', false),
-(736, 'D', '@ApiModel', false),
--- Fråga 287
+(736, 'D', '@ApiModel', false),                            -- Fråga 287
 (737, 'A', 'Det genererar automatiskt klientkod', false),
 (737, 'B', 'Det ger interaktiv API-dokumentation', true),
 (737, 'C', 'Det ökar API:ets prestanda', false),
-(737, 'D', 'Det förbättrar API:ets säkerhet', false),
--- Fråga 288
+(737, 'D', 'Det förbättrar API:ets säkerhet', false),      -- Fråga 288
 (738, 'A', '@ApiResponse', true),
 (738, 'B', '@ApiModel', false),
 (738, 'C', '@ApiOperation', false),
-(738, 'D', '@ApiParam', false),
--- Fråga 289
+(738, 'D', '@ApiParam', false),                            -- Fråga 289
 (739, 'A', 'Att beskriva egenskaper i en modellklass', true),
 (739, 'B', 'Att gruppera relaterade API-operationer', false),
 (739, 'C', 'Att definiera säkerhetskrav för API:et', false),
-(739, 'D', 'Att beskriva en hel API-operation', false),
--- Fråga 290
+(739, 'D', 'Att beskriva en hel API-operation', false),    -- Fråga 290
 (740, 'A', 'Prestandastatistik', false),
 (740, 'B', 'API-endpoints och deras parametrar', true),
 (740, 'C', 'Databasscheman', false),
 (740, 'D', 'Användarautentiseringslogik', false);
 
-INSERT INTO QUESTIONS (id, question_number, course_name, question_text)
+INSERT INTO QUESTIONS (course_name_question_number, question_number, course_name, question_text)
 VALUES (741, 291, 'API', '291. Vad är huvudsyftet med Swagger?'),
        (742, 292, 'API', '292. Vilken av följande är INTE en del av grundläggande Swagger-koncept?'),
        (743, 293, 'API', '293. Hur implementerar man vanligtvis Swagger i ett Spring Boot-projekt?'),
@@ -4755,60 +4045,51 @@ VALUES (741, 291, 'API', '291. Vad är huvudsyftet med Swagger?'),
        (749, 299, 'API', '299. Vad är en best practice för att strukturera Swagger-dokumentation?'),
        (750, 300, 'API', '300. Vilken av följande är INTE en del av avancerade funktioner i Swagger?');
 
-INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct)
+INSERT INTO QUESTION_OPTIONS (course_name_question_number, option_label, option_text, is_correct)
 VALUES
 -- För fråga 291
 (741, 'A', 'Att generera kod automatiskt', false),
 (741, 'B', 'Att testa API:er', false),
 (741, 'C', 'Att standardisera API-dokumentation', true),
-(741, 'D', 'Att optimera API-prestanda', false),
--- För fråga 292
+(741, 'D', 'Att optimera API-prestanda', false),                                  -- För fråga 292
 (742, 'A', 'Components', false),
 (742, 'B', 'Operations', false),
 (742, 'C', 'Paths', false),
-(742, 'D', 'Middleware', true),
--- För fråga 293
+(742, 'D', 'Middleware', true),                                                   -- För fråga 293
 (743, 'A', 'Genom att använda en extern dokumentationstjänst', false),
 (743, 'B', 'Genom att skriva manuell HTML-dokumentation', false),
 (743, 'C', 'Genom att skriva kommentarer i koden', false),
-(743, 'D', 'Genom att lägga till en Swagger-beroende och konfigurera den', true),
--- För fråga 294
+(743, 'D', 'Genom att lägga till en Swagger-beroende och konfigurera den', true), -- För fråga 294
 (744, 'A', '@ApiOperation', false),
 (744, 'B', '@Operation', true),
 (744, 'C', '@SwaggerOperation', false),
-(744, 'D', '@DocumentOperation', false),
--- För fråga 295
+(744, 'D', '@DocumentOperation', false),                                          -- För fråga 295
 (745, 'A', 'Att beskriva API:ets övergripande struktur', false),
 (745, 'B', 'Att dokumentera möjliga svarskoder och deras betydelser', true),
 (745, 'C', 'Att specificera förfrågningsparametrar', false),
-(745, 'D', 'Att definiera säkerhetsscheman', false),
--- För fråga 296
+(745, 'D', 'Att definiera säkerhetsscheman', false),                              -- För fråga 296
 (746, 'A', 'Det förbättrar utvecklarupplevelsen', false),
 (746, 'B', 'Det underlättar API-underhåll och uppdateringar', false),
 (746, 'C', 'Det eliminerar behovet av manuell testning', true),
-(746, 'D', 'Det minskar supportkostnader', false),
--- För fråga 297
+(746, 'D', 'Det minskar supportkostnader', false),                                -- För fråga 297
 (747, 'A', 'Att automatisera API-testning', false),
 (747, 'B', 'Att generera klientbibliotek', false),
 (747, 'C', 'Att optimera API-prestanda', false),
-(747, 'D', 'Att tillhandahålla interaktiv API-dokumentation', true),
--- För fråga 298
+(747, 'D', 'Att tillhandahålla interaktiv API-dokumentation', true),              -- För fråga 298
 (748, 'A', 'swagger.json', false),
 (748, 'B', 'swagger-config.xml', false),
 (748, 'C', 'api-docs.yaml', false),
-(748, 'D', 'openapi.yaml', true),
--- För fråga 299
+(748, 'D', 'openapi.yaml', true),                                                 -- För fråga 299
 (749, 'A', 'Att gruppera relaterade operationer med taggning', true),
 (749, 'B', 'Att använda olika namngivningskonventioner för varje endpoint', false),
 (749, 'C', 'Att inkludera så mycket teknisk jargong som möjligt', false),
-(749, 'D', 'Att undvika att dokumentera felkoder', false),
--- För fråga 300
+(749, 'D', 'Att undvika att dokumentera felkoder', false),                        -- För fråga 300
 (750, 'A', 'Återanvändbara komponenter', false),
 (750, 'B', 'Anpassade scheman', false),
 (750, 'C', 'Automatisk kodgenerering', true),
 (750, 'D', 'Säkerhetsdefinitioner', false);
 
-INSERT INTO QUESTIONS (id, question_number, course_name, question_text)
+INSERT INTO QUESTIONS (course_name_question_number, question_number, course_name, question_text)
 VALUES (751, 301, 'API', '301. Vad är huvudsyftet med att generera klientbibliotek från API-specifikationer?'),
        (752, 302, 'API', '302. Vilket verktyg används primärt för att generera klientbibliotek från OpenAPI-specifikationer?'),
        (753, 303, 'API', '303. Vilken av följande är INTE en fördel med att använda genererade klientbibliotek?'),
@@ -4820,61 +4101,52 @@ VALUES (751, 301, 'API', '301. Vad är huvudsyftet med att generera klientbiblio
        (759, 309, 'API', '309. Hur integrerar man vanligtvis ett genererat klientbibliotek i ett Java-projekt?'),
        (760, 310, 'API', '310. Vad är en fördel med att använda genererade klientbibliotek jämfört med att skriva egen kod för API-interaktioner?');
 
-INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct)
+INSERT INTO QUESTION_OPTIONS (course_name_question_number, option_label, option_text, is_correct)
 VALUES
 -- Fråga 301
 (751, 'A', 'Att förbättra API:ets prestanda', false),
 (751, 'B', 'Att automatisera skapandet av API-dokumentation', false),
 (751, 'C', 'Att förenkla interaktionen med API:er för utvecklare', true),
-(751, 'D', 'Att öka säkerheten i API-anrop', false),
--- Fråga 302
+(751, 'D', 'Att öka säkerheten i API-anrop', false),             -- Fråga 302
 (752, 'A', 'Spring Boot', false),
 (752, 'B', 'Postman', false),
 (752, 'C', 'Maven', false),
-(752, 'D', 'Swagger Codegen', true),
--- Fråga 303
+(752, 'D', 'Swagger Codegen', true),                             -- Fråga 303
 (753, 'A', 'Minskad utvecklingstid', false),
 (753, 'B', 'Förbättrad typsäkerhet', false),
 (753, 'C', 'Garanterad felfri API-implementation', true),
-(753, 'D', 'Konsekvent användning av API:et', false),
--- Fråga 304
+(753, 'D', 'Konsekvent användning av API:et', false),            -- Fråga 304
 (754, 'A', 'Genom att lägga till en dependency i pom.xml', false),
 (754, 'B', 'Genom att installera en global CLI-verktyg', false),
 (754, 'C', 'Genom att lägga till en plugin i pom.xml', true),
-(754, 'D', 'Genom att använda npm install', false),
--- Fråga 305
+(754, 'D', 'Genom att använda npm install', false),              -- Fråga 305
 (755, 'A', 'pom.xml', false),
 (755, 'B', 'application.properties', false),
 (755, 'C', 'swagger.yaml', false),
-(755, 'D', 'config.json', true),
--- Fråga 306
+(755, 'D', 'config.json', true),                                 -- Fråga 306
 (756, 'A', 'api', false),
 (756, 'B', 'client', false),
 (756, 'C', 'controllers', true),
-(756, 'D', 'model', false),
--- Fråga 307
+(756, 'D', 'model', false),                                      -- Fråga 307
 (757, 'A', 'Manuellt uppdatera genererad kod', false),
 (757, 'B', 'Ignorera versionskontroll för genererade bibliotek', false),
 (757, 'C', 'Automatisera genereringsprocessen', true),
-(757, 'D', 'Undvika att testa genererade bibliotek', false),
--- Fråga 308
+(757, 'D', 'Undvika att testa genererade bibliotek', false),     -- Fråga 308
 (758, 'A', 'Ökad säkerhet i API-anrop', false),
 (758, 'B', 'Komplexitet i genererad kod', true),
 (758, 'C', 'Minskad flexibilitet i API-design', false),
-(758, 'D', 'Ökad nätverksbelastning', false),
--- Fråga 309
+(758, 'D', 'Ökad nätverksbelastning', false),                    -- Fråga 309
 (759, 'A', 'Genom att kopiera källkoden manuellt', false),
 (759, 'B', 'Genom att lägga till en Maven-dependency', true),
 (759, 'C', 'Genom att använda en CDN-länk', false),
-(759, 'D', 'Genom att inkludera en JAR-fil i classpath', false),
--- Fråga 310
+(759, 'D', 'Genom att inkludera en JAR-fil i classpath', false), -- Fråga 310
 (760, 'A', 'Garanterad bakåtkompatibilitet', false),
 (760, 'B', 'Eliminering av alla runtime-fel', false),
 (760, 'C', 'Automatisk hantering av autentisering', true),
 (760, 'D', 'Obegränsad anpassningsbarhet', false);
 
 -- Batch-insert för tabellen QUESTIONS
-INSERT INTO QUESTIONS (id, question_number, course_name, question_text)
+INSERT INTO QUESTIONS (course_name_question_number, question_number, course_name, question_text)
 VALUES (771, 321, 'API', '321. Vad är huvudsyftet med semantisk versionering (SemVer) i API-dokumentation?'),
        (772, 322, 'API', '322. Vilken metod för versionhantering inkluderar versionsnumret i API:ets bas-URL?'),
        (773, 323, 'API', '323. Vilken är en fördel med att använda tags i Swagger/OpenAPI-dokumentation?'),
@@ -4884,64 +4156,54 @@ VALUES (771, 321, 'API', '321. Vad är huvudsyftet med semantisk versionering (S
        (777, 327, 'API', '327. Vad är en utmaning med att hantera flera aktiva versioner av ett API samtidigt?'),
        (778, 328, 'API', '328. Vilken är en rekommenderad metod för att kommunicera API-ändringar till användare?'),
        (779, 329, 'API', '329. Vad är syftet med att använda deprecation-flaggan i Swagger/OpenAPI?'),
-       (780, 330, 'API',
-        '330. Vilken är en fördel med att använda semantisk versionering (SemVer) i API-dokumentation?');
+       (780, 330, 'API', '330. Vilken är en fördel med att använda semantisk versionering (SemVer) i API-dokumentation?');
 
 -- Batch-insert för tabellen QUESTION_OPTIONS
-INSERT INTO QUESTION_OPTIONS (question_id, option_label, option_text, is_correct)
+INSERT INTO QUESTION_OPTIONS (course_name_question_number, option_label, option_text, is_correct)
 VALUES
 -- För fråga 321
 (771, 'A', 'Att göra versioner lättare att minnas', false),
 (771, 'B', 'Att indikera vilka ändringar som gjorts mellan versioner', true),
 (771, 'C', 'Att förhindra bakåtkompatibilitet', false),
-(771, 'D', 'Att öka antalet versioner som släpps', false),
--- För fråga 322
+(771, 'D', 'Att öka antalet versioner som släpps', false),                                -- För fråga 322
 (772, 'A', 'Semantisk versionering', false),
 (772, 'B', 'Git-baserad versionering', false),
 (772, 'C', 'Header-baserad versionering', false),
-(772, 'D', 'URL-baserad versionering', true),
--- För fråga 323
+(772, 'D', 'URL-baserad versionering', true),                                             -- För fråga 323
 (773, 'A', 'Det förbättrar API:ets säkerhet', false),
 (773, 'B', 'Det ökar hastigheten på API-anrop', false),
 (773, 'C', 'Det automatiserar testning av API:et', false),
-(773, 'D', 'Det gör det enklare att navigera i dokumentationen', true),
--- För fråga 324
+(773, 'D', 'Det gör det enklare att navigera i dokumentationen', true),                   -- För fråga 324
 (774, 'A', 'Att öka storleken på dokumentationen', false),
 (774, 'B', 'Att göra dokumentationen mer visuellt tilltalande', false),
 (774, 'C', 'Att ge användare en tydlig förståelse för hur API:et fungerar', true),
-(774, 'D', 'Att försvåra för konkurrenter att förstå API:et', false),
--- För fråga 325
+(774, 'D', 'Att försvåra för konkurrenter att förstå API:et', false),                     -- För fråga 325
 (775, 'A', 'Markera dem som föråldrade i dokumentationen', true),
 (775, 'B', 'Ignorera dem och låta dem vara kvar oförändrade', false),
 (775, 'C', 'Byta namn på dem för att dölja att de är föråldrade', false),
-(775, 'D', 'Ta bort dem omedelbart utan förvarning', false),
--- För fråga 326
+(775, 'D', 'Ta bort dem omedelbart utan förvarning', false),                              -- För fråga 326
 (776, 'A', 'Det möjliggör spårning av ändringar över tid', true),
 (776, 'B', 'Det förhindrar alla konflikter mellan utvecklare', false),
 (776, 'C', 'Det eliminerar behovet av manuell dokumentation', false),
-(776, 'D', 'Det automatiskt genererar API-kod', false),
--- För fråga 327
+(776, 'D', 'Det automatiskt genererar API-kod', false),                                   -- För fråga 327
 (777, 'A', 'Det gör API:et snabbare', false),
 (777, 'B', 'Det kräver mer lagringsutrymme', false),
 (777, 'C', 'Det förbättrar automatiskt bakåtkompatibiliteten', false),
-(777, 'D', 'Det ökar komplexiteten i kodbasen och underhållet', true),
--- För fråga 328
+(777, 'D', 'Det ökar komplexiteten i kodbasen och underhållet', true),                    -- För fråga 328
 (778, 'A', 'Genom att ändra API:et utan förvarning', false),
 (778, 'B', 'Genom att skicka personliga e-postmeddelanden till varje användare', false),
 (778, 'C', 'Genom att tillhandahålla en detaljerad changelog', true),
-(778, 'D', 'Genom att ignorera ändringar och låta användare upptäcka dem själva', false),
--- För fråga 329
+(778, 'D', 'Genom att ignorera ändringar och låta användare upptäcka dem själva', false), -- För fråga 329
 (779, 'A', 'Att förbättra säkerheten i API:et', false),
 (779, 'B', 'Att markera funktioner som kommer att tas bort i framtiden', true),
 (779, 'C', 'Att lägga till nya funktioner i API:et', false),
-(779, 'D', 'Att öka prestandan för API:et', false),
--- För fråga 330
+(779, 'D', 'Att öka prestandan för API:et', false),                                       -- För fråga 330
 (780, 'A', 'Det automatiserar kodgenerering', false),
 (780, 'B', 'Det tydliggör omfattningen av ändringar mellan versioner', true),
 (780, 'C', 'Det gör API:et snabbare', false),
 (780, 'D', 'Det förbättrar säkerheten i API:et', false);
 
-INSERT INTO questions (id, question_number, course_name, question_text)
+INSERT INTO questions (course_name_question_number, question_number, course_name, question_text)
 VALUES (781, 331, 'API', '331. Vilken av följande är INTE en av de huvudsakliga strategierna för API-testning enligt artikeln?'),
        (782, 332, 'API', '332. Vilken testtyp fokuserar på att verifiera att olika delar av API:et fungerar korrekt tillsammans och med externa system?'),
        (783, 333, 'API', '333. Vilken testmetodik är särskilt viktig i mikroservicemiljöer där flera team kan utveckla olika API:er som behöver interagera med varandra?'),
@@ -4953,7 +4215,7 @@ VALUES (781, 331, 'API', '331. Vilken av följande är INTE en av de huvudsaklig
        (789, 339, 'API', '339. Vilken teknik används för att möjliggöra mer flexibel testning av nya API-funktioner i produktionsmiljö med minskad risk?'),
        (790, 340, 'API', '340. Vad är det främsta syftet med bakåtkompatibilitetstestning av API:er?');
 
-INSERT INTO question_options (question_id, option_label, option_text, is_correct)
+INSERT INTO question_options (course_name_question_number, option_label, option_text, is_correct)
 VALUES (781, 'A', 'Skiktad testning', false),
        (781, 'B', 'Automatiserad testning', false),
        (781, 'C', 'Kodgenereringsstyrd testning', true),
@@ -4996,7 +4258,7 @@ VALUES (781, 'A', 'Skiktad testning', false),
        (790, 'D', 'Att testa API:et mot äldre operativsystem', false);
 
 -- Batch-insert för tabellen QUESTIONS
-INSERT INTO questions (id, question_number, course_name, question_text)
+INSERT INTO questions (course_name_question_number, question_number, course_name, question_text)
 VALUES (791, 341, 'API', '341. Vilken av följande är INTE en av de huvudsakliga strategierna för API-testning enligt artikeln?'),
        (792, 342, 'API', '342. Vilken testtyp fokuserar på att verifiera att olika delar av API:et fungerar korrekt tillsammans och med externa system?'),
        (793, 343, 'API', '343. Vilken testmetodik är särskilt viktig i mikroservicemiljöer där flera team kan utveckla olika API:er som behöver interagera med varandra?'),
@@ -5009,60 +4271,51 @@ VALUES (791, 341, 'API', '341. Vilken av följande är INTE en av de huvudsaklig
        (800, 350, 'API', '350. Vad är det främsta syftet med bakåtkompatibilitetstestning av API:er?');
 
 -- Batch-insert för tabellen QUESTION-OPTIONS
-INSERT INTO question_options (question_id, option_label, option_text, is_correct)
+INSERT INTO question_options (course_name_question_number, option_label, option_text, is_correct)
 VALUES
 -- För fråga 341
 (791, 'A', 'Skiktad testning', false),
 (791, 'B', 'Automatiserad testning', false),
 (791, 'C', 'Kodgenereringsstyrd testning', true),
-(791, 'D', 'Kontraktsbaserad testning', false),
--- För fråga 342
+(791, 'D', 'Kontraktsbaserad testning', false),                               -- För fråga 342
 (792, 'A', 'Enhetstestning', false),
 (792, 'B', 'Integrationstestning', true),
 (792, 'C', 'Systemtestning', false),
-(792, 'D', 'Acceptanstestning', false),
--- För fråga 343
+(792, 'D', 'Acceptanstestning', false),                                       -- För fråga 343
 (793, 'A', 'Datadriven testning', false),
 (793, 'B', 'End-to-end testning', false),
 (793, 'C', 'Kontraktsbaserad testning', true),
-(793, 'D', 'Prestandatestning', false),
--- För fråga 344
+(793, 'D', 'Prestandatestning', false),                                       -- För fråga 344
 (794, 'A', 'JUnit', false),
 (794, 'B', 'RestAssured', false),
 (794, 'C', 'Apache JMeter', false),
-(794, 'D', 'WireMock', true),
--- För fråga 345
+(794, 'D', 'WireMock', true),                                                 -- För fråga 345
 (795, 'A', 'Testprioritering', false),
 (795, 'B', 'Kodtäckningsanalys', true),
 (795, 'C', 'Felinjicering', false),
-(795, 'D', 'Kontraktsbaserad testning', false),
--- För fråga 346
+(795, 'D', 'Kontraktsbaserad testning', false),                               -- För fråga 346
 (796, 'A', 'Att säkerställa att API:et fungerar enligt funktionella krav', false),
 (796, 'B', 'Att verifiera att API:et kan hantera förväntade volymer av samtidiga anrop', true),
 (796, 'C', 'Att kontrollera att API:et följer säkerhetsstandarder', false),
-(796, 'D', 'Att validera att API:et kan integreras med andra system', false),
--- För fråga 347
+(796, 'D', 'Att validera att API:et kan integreras med andra system', false), -- För fråga 347
 (797, 'A', 'Belastningstestning', false),
 (797, 'B', 'Timeout-testning', true),
 (797, 'C', 'Kontraktsbaserad testning', false),
-(797, 'D', 'Felinjicering', false),
--- För fråga 348
+(797, 'D', 'Felinjicering', false),                                           -- För fråga 348
 (798, 'A', 'Testa att API:et kan hantera tusentals samtidiga anrop', false),
 (798, 'B', 'Verifiera att API:et returnerar förväntade resultat för giltiga ingångar', false),
 (798, 'C', 'Kontrollera att API:et ger lämpliga felmeddelanden för ogiltig indata', true),
-(798, 'D', 'Mäta responstiden för API-anrop under normal belastning', false),
--- För fråga 349
+(798, 'D', 'Mäta responstiden för API-anrop under normal belastning', false), -- För fråga 349
 (799, 'A', 'A/B-testning', false),
 (799, 'B', 'Kodtäckningsanalys', false),
 (799, 'C', 'Testautomatisering', false),
-(799, 'D', 'Feature flagging', true),
--- För fråga 350
+(799, 'D', 'Feature flagging', true),                                         -- För fråga 350
 (800, 'A', 'Att säkerställa att nya versioner av API:et har förbättrad prestanda', false),
 (800, 'B', 'Att verifiera att API:et fungerar med äldre versioner av programmeringsspråk', false),
 (800, 'C', 'Att kontrollera att API-förändringar inte bryter befintliga integrationer', true),
 (800, 'D', 'Att testa API:et mot äldre operativsystem', false);
 
-INSERT INTO questions (id, question_number, course_name, question_text)
+INSERT INTO questions (course_name_question_number, question_number, course_name, question_text)
 VALUES (801, 351, 'API', '351. Vad är den primära funktionen i Postman?'),
        (802, 352, 'API', '352. Vilken typ av språk används för att skriva tester i Postman?'),
        (803, 353, 'API', '353. Vad är syftet med "Collection Runner" i Postman?'),
@@ -5074,7 +4327,7 @@ VALUES (801, 351, 'API', '351. Vad är den primära funktionen i Postman?'),
        (809, 359, 'API', '359. Vilket Newman-kommando skulle du använda för att köra en Postman-collection med en specifik miljö från kommandoraden?'),
        (810, 360, 'API', '360. Vad är Postman Monitors?');
 
-INSERT INTO question_options (question_id, option_label, option_text, is_correct)
+INSERT INTO question_options (course_name_question_number, option_label, option_text, is_correct)
 VALUES
 -- Fråga 351
 (801, 'A', 'Kodeditor för API-utveckling', false),
@@ -5127,7 +4380,7 @@ VALUES
 (810, 'C', 'Verktyg för att logga och analysera API-användning', false),
 (810, 'D', 'Användargränssnitt för att visa testresultat', false);
 
-INSERT INTO questions (id, question_number, course_name, question_text)
+INSERT INTO questions (course_name_question_number, question_number, course_name, question_text)
 VALUES (811, 361, 'API', '361. Vilket mönster används för att strukturera tester i RestAssured?'),
        (812, 362, 'API', '362. Hur specificerar du en path-parameter i RestAssured?'),
        (813, 363, 'API', '363. Vilken import-sats behöver du inkludera för att använda RestAssured:s fluent API med static imports?'),
@@ -5139,14 +4392,13 @@ VALUES (811, 361, 'API', '361. Vilket mönster används för att strukturera tes
        (819, 369, 'API', '369. Vilken metod använder du för att testa en HTTP POST-förfrågan i RestAssured?'),
        (820, 370, 'API', '370. Hur konfigurerar du Basic Authentication i RestAssured?');
 
-INSERT INTO question_options (question_id, option_label, option_text, is_correct)
+INSERT INTO question_options (course_name_question_number, option_label, option_text, is_correct)
 VALUES
 -- För fråga 361
 (811, 'A', 'Setup-Execute-Verify', false),
 (811, 'B', 'Arrange-Act-Assert', false),
 (811, 'C', 'Given-When-Then', true),
-(811, 'D', 'Build-Run-Check', false),
--- För fråga 362
+(811, 'D', 'Build-Run-Check', false), -- För fråga 362
 (812, 'A', '.pathParam("id", 1)', true),
 (812, 'B', '.pathVariable("id", 1)', false),
 (812, 'C', '.path("id", 1)', false),
@@ -5192,7 +4444,7 @@ VALUES
 (820, 'C', '.header("Authorization", "Basic " + encodedCredentials)', false),
 (820, 'D', '.authentication().basic(username, password)', false);
 
-INSERT INTO questions (id, question_number, course_name, question_text)
+INSERT INTO questions (course_name_question_number, question_number, course_name, question_text)
 VALUES (831, 381, 'API', '381. Vad är den primära skillnaden mellan SOAP och REST?'),
        (832, 382, 'API', '382. Vad står WSDL för och vad är dess primära syfte i SOAP-webbtjänster?'),
        (833, 383, 'API', '383. Vilket av följande är INTE ett standardelement i ett SOAP-meddelande?'),
@@ -5204,60 +4456,51 @@ VALUES (831, 381, 'API', '381. Vad är den primära skillnaden mellan SOAP och R
        (839, 389, 'API', '389. Vilken av följande påståenden om SOAP och REST är korrekt?'),
        (840, 390, 'API', '390. Vilket steg är INTE nödvändigt när man implementerar en SOAP-webbtjänst med Spring Boot?');
 
-INSERT INTO question_options (question_id, option_label, option_text, is_correct)
+INSERT INTO question_options (course_name_question_number, option_label, option_text, is_correct)
 VALUES
 -- För fråga 381
 (831, 'A', 'SOAP använder JSON, REST använder XML', false),
 (831, 'B', 'SOAP är ett protokoll, REST är en arkitekturell stil', true),
 (831, 'C', 'SOAP är nyare än REST', false),
-(831, 'D', 'SOAP är begränsat till HTTP, REST stödjer flera protokoll', false),
--- För fråga 382
+(831, 'D', 'SOAP är begränsat till HTTP, REST stödjer flera protokoll', false),                      -- För fråga 382
 (832, 'A', 'Web Service Documentation Language - för att generera API-dokumentation', false),
 (832, 'B', 'Web Service Definition Language - för att definiera kod för klienten', false),
 (832, 'C', 'Web Services Description Language - för att beskriva funktionaliteten i en webbtjänst', true),
-(832, 'D', 'Web Standard Description Logic - för validering av XML-syntax', false),
--- För fråga 383
+(832, 'D', 'Web Standard Description Logic - för validering av XML-syntax', false),                  -- För fråga 383
 (833, 'A', 'Envelope', false),
 (833, 'B', 'Header', false),
 (833, 'C', 'Body', false),
-(833, 'D', 'Resource', true),
--- För fråga 384
+(833, 'D', 'Resource', true),                                                                        -- För fråga 384
 (834, 'A', '@SoapOperation', false),
 (834, 'B', '@WebMethod', false),
 (834, 'C', '@PayloadRoot', true),
-(834, 'D', '@SoapAction', false),
--- För fråga 385
+(834, 'D', '@SoapAction', false),                                                                    -- För fråga 385
 (835, 'A', 'Mindre meddelandestorlek', false),
 (835, 'B', 'Bättre prestanda', false),
 (835, 'C', 'Inbyggt stöd för transaktionshantering', true),
-(835, 'D', 'Enklare att implementera', false),
--- För fråga 386
+(835, 'D', 'Enklare att implementera', false),                                                       -- För fråga 386
 (836, 'A', 'Mobilapplikation som behöver minimal dataöverföring', false),
 (836, 'B', 'Publik API som ska vara enkel att använda för många webbutvecklare', false),
 (836, 'C', 'Finansiell tjänst med behov av avancerad säkerhet och transaktionshantering', true),
-(836, 'D', 'IoT-enhet med begränsad processor- och minneskraft', false),
--- För fråga 387
+(836, 'D', 'IoT-enhet med begränsad processor- och minneskraft', false),                             -- För fråga 387
 (837, 'A', 'OAuth', false),
 (837, 'B', 'JWT', false),
 (837, 'C', 'WS-Security', true),
-(837, 'D', 'OpenID Connect', false),
--- För fråga 388
+(837, 'D', 'OpenID Connect', false),                                                                 -- För fråga 388
 (838, 'A', 'Jackson', false),
 (838, 'B', 'JAXB', true),
 (838, 'C', 'Gson', false),
-(838, 'D', 'Hibernate', false),
--- För fråga 389
+(838, 'D', 'Hibernate', false),                                                                      -- För fråga 389
 (839, 'A', 'SOAP använder enbart HTTP som transportprotokoll', false),
 (839, 'B', 'REST kräver ett formellt definierat WSDL-dokument', false),
 (839, 'C', 'SOAP kan inte använda JSON som dataformat', false),
-(839, 'D', 'REST tillåter användning av HTTP-metoder för att representera olika operationer', true),
--- För fråga 390
+(839, 'D', 'REST tillåter användning av HTTP-metoder för att representera olika operationer', true), -- För fråga 390
 (840, 'A', 'Skapa ett XSD-schema för att definiera datatyper', false),
 (840, 'B', 'Konfigurera en MessageDispatcherServlet', false),
 (840, 'C', 'Implementera RESTController-klasser', true),
 (840, 'D', 'Konfigurera WSDL-generation', false);
 
-INSERT INTO questions (id, question_number, course_name, question_text)
+INSERT INTO questions (course_name_question_number, question_number, course_name, question_text)
 VALUES (841, 391, 'API', '391. Vilka är de två huvudsakliga komponenterna i ett SOAP-meddelande?'),
        (842, 392, 'API', '392. Vilket attribut i SOAP-header indikerar att mottagaren måste förstå och bearbeta headern?'),
        (843, 393, 'API', '393. Vilken komponent i ett SOAP-meddelande används för att rapportera fel?'),
@@ -5269,60 +4512,51 @@ VALUES (841, 391, 'API', '391. Vilka är de två huvudsakliga komponenterna i et
        (849, 399, 'API', '399. Vad är syftet med soap:role-attributet (tidigare soap:actor i SOAP 1.1) i en SOAP-header?'),
        (850, 400, 'API', '400. Vilken kombination av SOAP-stil och kodning är mest rekommenderad för moderna SOAP-webbtjänster?');
 
-INSERT INTO question_options (question_id, option_label, option_text, is_correct)
+INSERT INTO question_options (course_name_question_number, option_label, option_text, is_correct)
 VALUES
 -- Fråga 391
 (841, 'A', 'Request och Response', false),
 (841, 'B', 'Header och Footer', false),
 (841, 'C', 'Envelope och Body', false),
-(841, 'D', 'Header och Body', true),
--- Fråga 392
+(841, 'D', 'Header och Body', true),                                           -- Fråga 392
 (842, 'A', 'soap:required', false),
 (842, 'B', 'soap:mustUnderstand', true),
 (842, 'C', 'soap:mandatory', false),
-(842, 'D', 'soap:process', false),
--- Fråga 393
+(842, 'D', 'soap:process', false),                                             -- Fråga 393
 (843, 'A', 'Error', false),
 (843, 'B', 'Exception', false),
 (843, 'C', 'Fault', true),
-(843, 'D', 'Failure', false),
--- Fråga 394
+(843, 'D', 'Failure', false),                                                  -- Fråga 394
 (844, 'A', 'Message > Header > Envelope > Body', false),
 (844, 'B', 'Envelope > Body > Header > Data', false),
 (844, 'C', 'Request > Envelope > Header > Body', false),
-(844, 'D', 'Envelope > (Header) > Body', true),
--- Fråga 395
+(844, 'D', 'Envelope > (Header) > Body', true),                                -- Fråga 395
 (845, 'A', 'HTTP', false),
 (845, 'B', 'SMTP', false),
 (845, 'C', 'FTP', false),
-(845, 'D', 'UDP', true),
--- Fråga 396
+(845, 'D', 'UDP', true),                                                       -- Fråga 396
 (846, 'A', 'RPC Style använder endast GET-förfrågningar, Document Style använder POST', false),
 (846, 'B', 'RPC Style fokuserar på metodanrop, Document Style fokuserar på datastrukturer', true),
 (846, 'C', 'RPC Style stödjer endast Java, Document Style stödjer alla programmeringsspråk', false),
-(846, 'D', 'RPC Style är snabbare men mindre säker än Document Style', false),
--- Fråga 397
+(846, 'D', 'RPC Style är snabbare men mindre säker än Document Style', false), -- Fråga 397
 (847, 'A', 'SOAP-SEC', false),
 (847, 'B', 'WS-Security', true),
 (847, 'C', 'XML-SEC', false),
-(847, 'D', 'SOAP-Auth', false),
--- Fråga 398
+(847, 'D', 'SOAP-Auth', false),                                                -- Fråga 398
 (848, 'A', 'soap:Server', false),
 (848, 'B', 'soap:Client', false),
 (848, 'C', 'soap:MustUnderstand', true),
-(848, 'D', 'soap:HeaderFault', false),
--- Fråga 399
+(848, 'D', 'soap:HeaderFault', false),                                         -- Fråga 399
 (849, 'A', 'Det anger vilken roll användaren har i systemet', false),
 (849, 'B', 'Det specificerar vem som skapade header-elementet', false),
 (849, 'C', 'Det anger vilken mellanhand eller slutmottagare som ska bearbeta header-elementet', true),
-(849, 'D', 'Det definerar behörighetsnivån för header-elementet', false),
--- Fråga 400
+(849, 'D', 'Det definerar behörighetsnivån för header-elementet', false),      -- Fråga 400
 (850, 'A', 'RPC/Encoded', false),
 (850, 'B', 'Document/Encoded', false),
 (850, 'C', 'RPC/Literal', false),
 (850, 'D', 'Document/Literal', true);
 
-INSERT INTO questions (id, question_number, course_name, question_text)
+INSERT INTO questions (course_name_question_number, question_number, course_name, question_text)
 VALUES (851, 401, 'API', '401. Vad står WSDL för?'),
        (852, 402, 'API', '402. Vilken av följande komponenter i WSDL definierar konkreta protokolldetaljer och format för operationer?'),
        (853, 403, 'API', '403. Vilken komponent i ett WSDL-dokument definierar ett specifikt nätverksendpoint där en webbtjänst kan nås?'),
@@ -5334,60 +4568,51 @@ VALUES (851, 401, 'API', '401. Vad står WSDL för?'),
        (859, 409, 'API', '409. Hur exponeraras automatiskt genererade WSDL-dokument i en Spring Boot-applikation?'),
        (860, 410, 'API', '410. Vilken relation har XSD-schema till WSDL?');
 
-INSERT INTO question_options (question_id, option_label, option_text, is_correct)
+INSERT INTO question_options (course_name_question_number, option_label, option_text, is_correct)
 VALUES
 -- För fråga 401
 (851, 'A', 'Web Service Definition Language', false),
 (851, 'B', 'Web Services Description Language', true),
 (851, 'C', 'Web Service Deployment Language', false),
-(851, 'D', 'Web Service Documentation Language', false),
--- För fråga 402
+(851, 'D', 'Web Service Documentation Language', false),       -- För fråga 402
 (852, 'A', 'Types', false),
 (852, 'B', 'PortType', false),
 (852, 'C', 'Binding', true),
-(852, 'D', 'Service', false),
--- För fråga 403
+(852, 'D', 'Service', false),                                  -- För fråga 403
 (853, 'A', 'Port', true),
 (853, 'B', 'Location', false),
 (853, 'C', 'Endpoint', false),
-(853, 'D', 'Address', false),
--- För fråga 404
+(853, 'D', 'Address', false),                                  -- För fråga 404
 (854, 'A', 'Att definiera HTML-strukturen för webbtjänstens användargränssnitt', false),
 (854, 'B', 'Att tillhandahålla ett formellt kontrakt mellan tjänsteleverantör och klienter', true),
 (854, 'C', 'Att validera XML-formaterade data som skickas mellan tjänster', false),
-(854, 'D', 'Att hantera säkerheten i webbtjänstanrop', false),
--- För fråga 405
+(854, 'D', 'Att hantera säkerheten i webbtjänstanrop', false), -- För fråga 405
 (855, 'A', 'messages', false),
 (855, 'B', 'types', true),
 (855, 'C', 'portType', false),
-(855, 'D', 'definitions', false),
--- För fråga 406
+(855, 'D', 'definitions', false),                              -- För fråga 406
 (856, 'A', 'Code-First (Bottom-up)', false),
 (856, 'B', 'Design-First (Top-down)', true),
 (856, 'C', 'Meet-in-the-Middle', false),
-(856, 'D', 'Incremental Design', false),
--- För fråga 407
+(856, 'D', 'Incremental Design', false),                       -- För fråga 407
 (857, 'A', 'RPC/Encoded', false),
 (857, 'B', 'Document/Encoded', false),
 (857, 'C', 'RPC/Literal', false),
-(857, 'D', 'Document/Literal', true),
--- För fråga 408
+(857, 'D', 'Document/Literal', true),                          -- För fråga 408
 (858, 'A', 'javac', false),
 (858, 'B', 'wsimport', true),
 (858, 'C', 'xjc', false),
-(858, 'D', 'wsdl2java', false),
--- För fråga 409
+(858, 'D', 'wsdl2java', false),                                -- För fråga 409
 (859, 'A', 'Via en specialfil i resursmappen', false),
 (859, 'B', 'Genom att konfigurera en WebServiceTemplate', false),
 (859, 'C', 'Genom att definiera DefaultWsdl11Definition-bean och konfigurera MessageDispatcherServlet', true),
-(859, 'D', 'Via SwaggerUI', false),
--- För fråga 410
+(859, 'D', 'Via SwaggerUI', false),                            -- För fråga 410
 (860, 'A', 'XSD används för att validera WSDL', false),
 (860, 'B', 'XSD definierar datatyper som används i WSDL', true),
 (860, 'C', 'XSD ersätter WSDL i moderna webbtjänster', false),
 (860, 'D', 'XSD och WSDL har ingen relation till varandra', false);
 
-INSERT INTO questions (id, question_number, course_name, question_text)
+INSERT INTO questions (course_name_question_number, question_number, course_name, question_text)
 VALUES (861, 401, 'API', '401. Vilken annotation används för att markera en klass som en SOAP-endpoint i Spring-WS?'),
        (862, 402, 'API', '402. Vilken annotation används för att mappa inkommande SOAP-meddelanden till rätt metod i en endpoint-klass?'),
        (863, 403, 'API', '403. Vilket verktyg används vanligtvis för att generera Java-klasser från XSD-schema i ett Maven-projekt?'),
@@ -5399,7 +4624,7 @@ VALUES (861, 401, 'API', '401. Vilken annotation används för att markera en kl
        (869, 409, 'API', '409. Vilken klass används i Spring-WS för att konfigurera WS-Security?'),
        (870, 410, 'API', '410. Vilken klass används vanligtvis för att testa SOAP-tjänster i Spring Boot?');
 
-INSERT INTO question_options (question_id, option_label, option_text, is_correct)
+INSERT INTO question_options (course_name_question_number, option_label, option_text, is_correct)
 VALUES (861, 'A', '@Controller', false),
        (861, 'B', '@RestController', false),
        (861, 'C', '@Endpoint', true),
@@ -5442,7 +4667,7 @@ VALUES (861, 'A', '@Controller', false),
        (870, 'D', 'SoapServiceTester', false);
 
 -- Batch-insert för tabellen QUESTIONS
-INSERT INTO questions (id, question_number, course_name, question_text)
+INSERT INTO questions (course_name_question_number, question_number, course_name, question_text)
 VALUES (881, 431, 'API', '431. Vilken av följande är en vanlig sårbarhet i SOAP-webbtjänster relaterad till autentisering?'),
        (882, 432, 'API', '432. Vad är XML-injektioner i SOAP-webbtjänster ett exempel på?'),
        (883, 433, 'API', '433. Vilken typ av attack kan uppstå när en angripare manipulerar XML-strukturer för att överbelasta XML-parsern?'),
@@ -5454,50 +4679,395 @@ VALUES (881, 431, 'API', '431. Vilken av följande är en vanlig sårbarhet i SO
        (889, 439, 'API', '439. Vad bör du göra för att förhindra XXE-attacker i SOAP-webbtjänster?');
 
 -- Batch-insert för tabellen QUESTION-OPTIONS
-INSERT INTO question_options (question_id, option_label, option_text, is_correct)
+INSERT INTO question_options (course_name_question_number, option_label, option_text, is_correct)
 VALUES
 -- För fråga med id 881 (fråga 431)
 (881, 'A', 'Svag kryptering', false),
 (881, 'B', 'Användning av klartext lösenord utan nonce eller salt', true),
 (881, 'C', 'Överbelastning av XML-strukturer', false),
-(881, 'D', 'För detaljerade felmeddelanden', false),
--- För fråga med id 882 (fråga 432)
+(881, 'D', 'För detaljerade felmeddelanden', false),                    -- För fråga med id 882 (fråga 432)
 (882, 'A', 'Svag autentisering', false),
 (882, 'B', 'XML-injektionsattacker', true),
 (882, 'C', 'DoS-attacker', false),
-(882, 'D', 'Man-in-the-Middle (MITM) attacker', false),
--- För fråga med id 883 (fråga 433)
+(882, 'D', 'Man-in-the-Middle (MITM) attacker', false),                 -- För fråga med id 883 (fråga 433)
 (883, 'A', 'XML Bomb', false),
 (883, 'B', 'XXE (XML External Entity)', false),
 (883, 'C', 'Coercive Parsing', true),
-(883, 'D', 'DoS genom stora arrayer', false),
--- För fråga med id 884 (fråga 434)
+(883, 'D', 'DoS genom stora arrayer', false),                           -- För fråga med id 884 (fråga 434)
 (884, 'A', 'Validering av XML-signaturer', false),
 (884, 'B', 'Transportlagersäkerhet (TLS/SSL)', true),
 (884, 'C', 'Användning av SAML-tokens', false),
-(884, 'D', 'Rate limiting', false),
--- För fråga med id 885 (fråga 435)
+(884, 'D', 'Rate limiting', false),                                     -- För fråga med id 885 (fråga 435)
 (885, 'A', 'WS-Security', false),
 (885, 'B', 'WS-SecurityPolicy', true),
 (885, 'C', 'WS-Trust', false),
-(885, 'D', 'WS-SecureConversation', false),
--- För fråga med id 886 (fråga 436)
+(885, 'D', 'WS-SecureConversation', false),                             -- För fråga med id 886 (fråga 436)
 (886, 'A', 'Att endast använda en säkerhetsmekanism för att skydda tjänsten', false),
 (886, 'B', 'Att integrera flera säkerhetsmekanismer för att skydda tjänsten på olika nivåer', true),
 (886, 'C', 'Att helt förlita sig på transportsäkerhet som TLS', false),
-(886, 'D', 'Att bara fokusera på autentisering', false),
--- För fråga med id 887 (fråga 437)
+(886, 'D', 'Att bara fokusera på autentisering', false),                -- För fråga med id 887 (fråga 437)
 (887, 'A', 'Secure Service Façade', true),
 (887, 'B', 'Message Interceptor Gateway', false),
 (887, 'C', 'Security Context Establishment', false),
-(887, 'D', 'Transport Layer Security', false),
--- För fråga med id 888 (fråga 438)
+(887, 'D', 'Transport Layer Security', false),                          -- För fråga med id 888 (fråga 438)
 (888, 'A', 'Att hela meddelandet krypteras för att säkerställa konfidentialitet', true),
 (888, 'B', 'Att endast metadata i meddelandet krypteras', false),
 (888, 'C', 'Att meddelandets signatur verifieras', false),
-(888, 'D', 'Att autentiseringsdata skyddas genom tokenisering', false),
--- För fråga med id 889 (fråga 439)
+(888, 'D', 'Att autentiseringsdata skyddas genom tokenisering', false), -- För fråga med id 889 (fråga 439)
 (889, 'A', 'Implementera korrekt XML-parsingkonfiguration', true),
 (889, 'B', 'Använda komplexa XML-strukturer', false),
 (889, 'C', 'Aktivera XML External Entities', false),
 (889, 'D', 'Minimera användningen av XML-signaturer', false);
+
+
+INSERT INTO questions (course_name_question_number, question_number, course_name, question_text)
+VALUES (891, 441, 'API', '441. Vad är GraphQL?'),
+       (892, 442, 'API', '442. Vad är en av de huvudsakliga fördelarna med GraphQL jämfört med REST?'),
+       (893, 443, 'API', '443. Hur anges ett obligatoriskt fält i ett GraphQL-schema?'),
+       (894, 444, 'API', '444. Vilken annotation används i Spring Boot för att mappa en metod till en GraphQL-query?'),
+       (895, 445, 'API', '445. Vad är en "resolver" i GraphQL?'),
+       (896, 446, 'API', '446. Vilket N+1-problem kan uppstå i GraphQL och hur kan det lösas?'),
+       (897, 447, 'API', '447. Vilken typ av operation används för att modifiera data i GraphQL?'),
+       (898, 448, 'API', '448. Hur bör du hantera filuppladdning i GraphQL med Spring Boot?'),
+       (899, 449, 'API', '449. Vilken av följande är INTE en fördel med GraphQL?'),
+       (900, 450, 'API',
+        '450. Vilken Spring Boot-annotation används för att mappa en metod till ett specifikt fält i en GraphQL-typ?');
+
+INSERT INTO question_options (course_name_question_number, option_label, option_text, is_correct)
+VALUES
+-- För fråga 441
+(891, 'A', 'Ett nytt programmeringsspråk utvecklat av Facebook', false),
+(891, 'B', 'Ett databashanteringssystem för grafdatabaser', false),
+(891, 'C', 'Ett query-språk och en runtime för API:er', true),
+(891, 'D', 'En ersättning för JSON Web Tokens', false),                -- För fråga 442
+(892, 'A', 'GraphQL är alltid snabbare än REST', false),
+(892, 'B', 'GraphQL kräver mindre serverkod', false),
+(892, 'C', 'GraphQL eliminerar problem med över- och underfetching', true),
+(892, 'D', 'GraphQL stödjer fler programmeringsspråk än REST', false), -- För fråga 443
+(893, 'A', 'Med nyckelordet "required"', false),
+(893, 'B', 'Med ett utropstecken (!)', true),
+(893, 'C', 'Med nyckelordet "mandatory"', false),
+(893, 'D', 'Med en asterisk (*)', false),                              -- För fråga 444
+(894, 'A', '@GraphQLMapping', false),
+(894, 'B', '@RequestMapping', false),
+(894, 'C', '@QueryMapping', true),
+(894, 'D', '@GraphQLQuery', false),                                    -- För fråga 445
+(895, 'A', 'En funktion som löser konflikter mellan överlappande queries', false),
+(895, 'B', 'En komponent som översätter GraphQL-queries till SQL', false),
+(895, 'C', 'En funktion som mappar ett fält i ett schema till faktisk data', true),
+(895, 'D', 'En del av GraphQL-syntaxen för att hantera fel', false),
+-- För fråga 446
+(896, 'A', 'När en server måste hantera N+1 samtidiga förfrågningar; lösning: begränsa antalet samtidiga förfrågningar',
+ false),
+(896, 'B',
+ 'När en query resulterar i N+1 databasförfrågningar; lösning: använda DataLoader för att batcha förfrågningar', true),
+(896, 'C', 'När ett schema har N+1 typer; lösning: konsolidera typer', false),
+(896, 'D', 'När servern måste hantera N+1 versioner av API:et; lösning: versionslös design', false),
+-- För fråga 447
+(897, 'A', 'Query', false),
+(897, 'B', 'Mutation', true),
+(897, 'C', 'Subscription', false),
+(897, 'D', 'Update', false),
+-- För fråga 448
+(898, 'A', 'GraphQL har inbyggt stöd för filuppladdning med binära typer', false),
+(898, 'B', 'Använda base64-kodad sträng för att representera filen', false),
+(898, 'C', 'Använda multipart/form-data med GraphQL-förfrågan', true),
+(898, 'D', 'Filuppladdning är inte möjligt med GraphQL och bör hanteras separat', false),
+-- För fråga 449
+(899, 'A', 'Klienter kan begära exakt den data de behöver', false),
+(899, 'B', 'Automatisk caching av svar', true),
+(899, 'C', 'Starkt typat schema som fungerar som kontrakt', false),
+(899, 'D', 'Möjlighet att hämta relaterad data i ett enda anrop', false),
+-- För fråga 450
+(900, 'A', '@FieldMapping', false),
+(900, 'B', '@ResolverMapping', false),
+(900, 'C', '@SchemaMapping', true),
+(900, 'D', '@FieldResolver', false);
+
+INSERT INTO questions (course_name_question_number, question_number, course_name, question_text)
+VALUES (901, 451, 'API', '451. Vad är huvudsyftet med ett GraphQL-schema?'),
+       (902, 452, 'API', '452. Vad betyder utropstecknet (!) efter en typ i ett GraphQL-schema?'),
+       (903, 453, 'API', '453. Vilken av följande är INTE en inbyggd skalär typ i GraphQL?'),
+       (904, 454, 'API', '454. Vad är skillnaden mellan type och input i GraphQL?'),
+       (905, 455, 'API', '455. Vad är N+1-problemet i GraphQL?'),
+       (906, 456, 'API', '456. I GraphQL, vad är skillnaden mellan [Type] och [Type!]!?'),
+       (907, 457, 'API', '457. Vilken metod används i Spring for GraphQL för att mappa en Java-metod till ett GraphQL-fält?'),
+       (908, 458, 'API', '458. Vilken av följande är bästa lösningen på N+1-problemet i GraphQL?'),
+       (909, 459, 'API', '459. Vad är en "union type" i GraphQL?'),
+       (910, 460, 'API', '460. Vilken av följande är INTE en giltig operation i GraphQL?');
+
+INSERT INTO question_options (course_name_question_number, option_label, option_text, is_correct)
+VALUES
+-- Fråga 451
+(901, 'A', 'Att generera automatisk databaskod', false),
+(901, 'B', 'Att definiera ett kontrakt mellan klient och server', true),
+(901, 'C', 'Att optimera databasförfrågningar', false),
+(901, 'D', 'Att ersätta REST API:er helt', false),                                                -- Fråga 452
+(902, 'A', 'Att fältet är viktigt', false),
+(902, 'B', 'Att fältet är skrivskyddat', false),
+(902, 'C', 'Att fältet inte kan vara null', true),
+(902, 'D', 'Att fältet kräver autentisering', false),                                             -- Fråga 453
+(903, 'A', 'Int', false),
+(903, 'B', 'Date', true),
+(903, 'C', 'String', false),
+(903, 'D', 'Boolean', false),                                                                     -- Fråga 454
+(904, 'A', 'type används för frågor, input för mutationer', false),
+(904, 'B', 'type definierar strukturen för utdata, input definierar strukturen för indata', true),
+(904, 'C', 'type är för konkreta implementationer, input är för abstrakta definitioner', false),
+(904, 'D', 'type är för systemdefinierade typer, input är för användardefinierade typer', false), -- Fråga 455
+(905, 'A', 'Ett problem där servern behöver göra N+1 valideringar', false),
+(905, 'B', 'Ett problem där GraphQL genererar N+1 rader kod', false),
+(905, 'C', 'Ett problem där servern behöver göra N+1 databasfrågor', true),
+(905, 'D', 'Ett problem där scheman blir N+1 gånger större än nödvändigt', false),                -- Fråga 456
+(906, 'A', 'Ingen skillnad, de är identiska', false),
+(906, 'B', '[Type] kan vara null eller en lista som innehåller null-värden, [Type!]! är en lista som inte kan vara null och inte kan innehålla null-värden',
+ true),
+(906, 'C', '[Type] är en lista som inte kan vara null, [Type!]! är en lista där elementen inte kan vara null', false),
+(906, 'D', '[Type] är för enkla listor, [Type!]! är för nästlade listor', false),                 -- Fråga 457
+(907, 'A', '@GraphQLMapping', false),
+(907, 'B', '@FieldResolver', false),
+(907, 'C', '@SchemaMapping', true),
+(907, 'D', '@GraphQLField', false),                                                               -- Fråga 458
+(908, 'A', 'Öka antalet databasservrar', false),
+(908, 'B', 'Använda DataLoader för att batcha och cacha frågor', true),
+(908, 'C', 'Implementera pagination för att begränsa resultatmängden', false),
+(908, 'D', 'Förenkla GraphQL-schemat', false),                                                    -- Fråga 459
+(909, 'A', 'En typ som kombinerar flera objekt med gemensamma fält', false),
+(909, 'B', 'En typ som kan returnera objekt av flera olika typer', true),
+(909, 'C', 'En typ som endast kan innehålla enkla skalära värden', false),
+(909, 'D', 'En typ som representerar ett objekt som kan vara null', false),                       -- Fråga 460
+(910, 'A', 'Query', false),
+(910, 'B', 'Mutation', false),
+(910, 'C', 'Update', true),
+(910, 'D', 'Subscription', false);
+
+INSERT INTO questions (course_name_question_number, question_number, course_name, question_text)
+VALUES (911, 461, 'API', '461. Vad är det främsta syftet med GraphQL jämfört med traditionella REST API:er?'),
+       (912, 462, 'API', '462. Vilken typ av operation används i GraphQL för att hämta data?'),
+       (913, 463, 'API', '463. Vad är skillnaden mellan en Mutation och en Query i GraphQL?'),
+       (914, 464, 'API', '464. Vad är huvudsyftet med Subscriptions i GraphQL?'),
+       (915, 465, 'API', '465. Vilken av följande är INTE en fördel med GraphQL?'),
+       (916, 466, 'API', '466. Vad är N+1-problemet i GraphQL?'),
+       (917, 467, 'API', '467. Vilken annotation används i Spring for GraphQL för att mappa en metod till en GraphQL Query?'),
+       (918, 468, 'API', '468. Hur hanteras typiskt prenumerationer (Subscriptions) i Spring för GraphQL?'),
+       (919, 469, 'API', '469. Vilken typ av operation skulle vara lämpligast för att implementera en funktion där användare kan lägga till produkter i sin kundvagn?'),
+       (920, 470, 'API', '470. Vilken komponent i Spring Boot GraphQL används för att mappa ett fält till en relaterad entitet?');
+
+INSERT INTO question_options (course_name_question_number, option_label, option_text, is_correct)
+VALUES
+-- För fråga 461
+(911, 'A', 'Göra API:er snabbare genom caching', false),
+(911, 'B', 'Ge klienter möjlighet att specificera exakt vilken data de behöver', true),
+(911, 'C', 'Förenkla autentisering och auktorisering', false),
+(911, 'D', 'Eliminera behovet av HTTP-protokollet', false),                       -- För fråga 462
+(912, 'A', 'GET', false),
+(912, 'B', 'Mutation', false),
+(912, 'C', 'Subscription', false),
+(912, 'D', 'Query', true),                                                        -- För fråga 463
+(913, 'A', 'Queries kan ha argument, men Mutations kan inte', false),
+(913, 'B', 'Queries är asynkrona, Mutations är synkrona', false),
+(913, 'C', 'Mutations ändrar data på servern, Queries hämtar bara data', true),
+(913, 'D', 'Queries stöds av alla GraphQL-servrar, Mutations är valfria', false), -- För fråga 464
+(914, 'A', 'Förbättra säkerheten i GraphQL-förfrågningar', false),
+(914, 'B', 'Optimera caching för upprepade frågor', false),
+(914, 'C', 'Möjliggöra realtidsuppdateringar från servern', true),
+(914, 'D', 'Gruppera flera mutations i en atomisk enhet', false),                 -- För fråga 465
+(915, 'A', 'Klienter kan få exakt den data de behöver', false),
+(915, 'B', 'Enklare HTTP-caching jämfört med REST', true),
+(915, 'C', 'Möjlighet att hämta relaterad data i en enda förfrågan', false),
+(915, 'D', 'Starkt typat schema som fungerar som kontrakt', false),               -- För fråga 466
+(916, 'A', 'Ett problem där en GraphQL-fråga måste göra N+1 förfrågningar till databasen', true),
+(916, 'B', 'När ett schema har N typer plus 1 query-typ', false),
+(916, 'C', 'En bugg som uppstår när en query innehåller mer än N+1 fält', false),
+(916, 'D', 'Problem med att hantera mer än N+1 samtidiga användare', false),      -- För fråga 467
+(917, 'A', '@GraphQLQuery', false),
+(917, 'B', '@QueryMapping', true),
+(917, 'C', '@GraphQLResolver', false),
+(917, 'D', '@RequestMapping', false),                                             -- För fråga 468
+(918, 'A', 'Genom REST-endpoints med long polling', false),
+(918, 'B', 'Genom att använda JMS Queue', false),
+(918, 'C', 'Med WebSockets och reaktiva streams (Flux/Publisher)', true),
+(918, 'D', 'Med gRPC-anslutningar', false),                                       -- För fråga 469
+(919, 'A', 'Query', false),
+(919, 'B', 'Subscription', false),
+(919, 'C', 'Mutation', true),
+(919, 'D', 'Fragment', false),                                                    -- För fråga 470
+(920, 'A', '@FieldResolver', false),
+(920, 'B', '@SchemaMapping', true),
+(920, 'C', '@RelationMapping', false),
+(920, 'D', '@DataLoader', false);
+
+
+-- Batch-insert för tabellen QUESTIONS
+INSERT INTO questions (course_name_question_number, question_number, course_name, question_text)
+VALUES (921, 471, 'API', '471. Vad är GraphQL?'),
+       (922, 472, 'API', '472. Vilken är den huvudsakliga fördelen med GraphQL jämfört med REST?'),
+       (923, 473, 'API', '473. Vilka är de tre huvudsakliga byggstenarna i ett GraphQL-schema?'),
+       (924, 474, 'API', '474. Var ska GraphQL-schemat placeras i ett Spring Boot-projekt med Spring for GraphQL?'),
+       (925, 475, 'API', '475. Vilken annotation används i Spring for GraphQL för att mappa en metod till en query i schemat?'),
+       (926, 476, 'API', '476. Vad är N+1-problemet i GraphQL?'),
+       (927, 477, 'API', '477. Vilken mekanism i Spring for GraphQL används för att lösa N+1-problemet?'),
+       (928, 478, 'API', '478. Hur definieras en obligatorisk fält i ett GraphQL-schema?'),
+       (929, 479, 'API', '479. Hur definieras en lista av objekt i GraphQL-schema?'),
+       (930, 480, 'API', '480. Vilken Spring Boot-annotation används för att mappa en metod till ett specifikt fält i en GraphQL-typ?');
+
+-- Batch-insert för tabellen QUESTION-OPTIONS
+INSERT INTO question_options (course_name_question_number, option_label, option_text, is_correct)
+VALUES
+-- Fråga 471
+(921, 'A', 'Ett webbaserat IDE för SQL-databaser', false),
+(921, 'B', 'Ett query-språk för API:er utvecklat av Facebook', true),
+(921, 'C', 'Ett ORM-ramverk för Java', false),
+(921, 'D', 'En ersättning för Spring Data JPA', false),                                   -- Fråga 472
+(922, 'A', 'GraphQL är enklare att implementera', false),
+(922, 'B', 'GraphQL har bättre säkerhet inbyggt', false),
+(922, 'C', 'GraphQL gör det möjligt för klienten att bestämma exakt vilken data den behöver', true),
+(922, 'D', 'GraphQL har bättre prestanda för alla typer av API:er', false),               -- Fråga 473
+(923, 'A', 'Controllers, Services, Repositories', false),
+(923, 'B', 'Types, Queries, Mutations', true),
+(923, 'C', 'Models, Views, Controllers', false),
+(923, 'D', 'Entities, Repositories, Services', false),                                    -- Fråga 474
+(924, 'A', 'src/main/java/com/example/schema/', false),
+(924, 'B', 'src/main/resources/', false),
+(924, 'C', 'src/main/resources/graphql/', true),
+(924, 'D', 'src/main/schema/graphql/', false),                                            -- Fråga 475
+(925, 'A', '@QueryMapping', true),
+(925, 'B', '@GetMapping', false),
+(925, 'C', '@GraphQLQuery', false),
+(925, 'D', '@Resolver', false),                                                           -- Fråga 476
+(926, 'A', 'En begränsning där GraphQL bara kan hantera N+1 samtidiga anslutningar', false),
+(926, 'B', 'Ett problem där en query resulterar i N+1 databasanrop istället för 2', true),
+(926, 'C', 'Ett problem där GraphQL-schemat måste uppdateras för varje ny fråga', false),
+(926, 'D', 'En begränsning där GraphQL bara kan returnera N+1 poster i resultat', false), -- Fråga 477
+(927, 'A', 'Caching', false),
+(927, 'B', 'Eager Loading', false),
+(927, 'C', 'Lazy Loading', false),
+(927, 'D', 'DataLoader', true),                                                           -- Fråga 478
+(928, 'A', 'required: true', false),
+(928, 'B', '@NotNull', false),
+(928, 'C', '(mandatory)', false),
+(928, 'D', 'Genom att lägga till utropstecken (!) efter typen', true),                    -- Fråga 479
+(929, 'A', 'Array', false),
+(929, 'B', 'List', false),
+(929, 'C', '[Type]', true),
+(929, 'D', 'Type[]', false),                                                              -- Fråga 480
+(930, 'A', '@FieldMapping', false),
+(930, 'B', '@ResolverMapping', false),
+(930, 'C', '@SchemaMapping', true),
+(930, 'D', '@FieldResolver', false);
+
+-- Batch-insert för tabellen QUESTIONS
+INSERT INTO questions (course_name_question_number, question_number, course_name, question_text)
+VALUES (931, 481, 'API', '481. När utvecklades respektive teknologi?'),
+       (932, 482, 'API', '482. Vilket av följande är INTE en princip i REST?'),
+       (933, 483, 'API', '483. Vilket format används vanligtvis med SOAP?'),
+       (934, 484, 'API', '484. Vad är N+1-problemet som ofta associeras med GraphQL?'),
+       (935, 485, 'API', '485. Vilken teknologi använder en WSDL-fil?'),
+       (936, 486, 'API', '486. Hur hanterar GraphQL typiskt relationer mellan objekt?'),
+       (937, 487, 'API', '487. Vilket av följande är ett exempel på en RESTful endpoint?'),
+       (938, 488, 'API', '488. Vilken teknologi kräver vanligtvis minst bandbredd vid överföring av samma data?'),
+       (939, 489, 'API', '489. Vilken Spring Boot-annotation används för att hantera GraphQL-queries?'),
+       (940, 490, 'API', '490. Vilket påstående om versionering är sant?');
+
+-- Batch-insert för tabellen QUESTION-OPTIONS
+INSERT INTO question_options (course_name_question_number, option_label, option_text, is_correct)
+VALUES
+-- För fråga 481
+(931, 'A', 'SOAP: 1990, REST: 1995, GraphQL: 2010', false),
+(931, 'B', 'SOAP: 1998, REST: 2000, GraphQL: 2015', true),
+(931, 'C', 'SOAP: 2000, REST: 2005, GraphQL: 2012', false),
+(931, 'D', 'SOAP: 2001, REST: 1998, GraphQL: 2008', false),                      -- För fråga 482
+(932, 'A', 'Tillståndslöshet (statelessness)', false),
+(932, 'B', 'Enhetligt gränssnitt (uniform interface)', false),
+(932, 'C', 'Klienten definierar vilken data som returneras', true),
+(932, 'D', 'Cacheable responser', false),                                        -- För fråga 483
+(933, 'A', 'JSON', false),
+(933, 'B', 'YAML', false),
+(933, 'C', 'XML', true),
+(933, 'D', 'HTML', false),                                                       -- För fråga 484
+(934, 'A', 'Ett problem där servern gör N+1 databasanrop för att hämta relaterad data', true),
+(934, 'B', 'Ett namngivningsmönster för GraphQL-typer', false),
+(934, 'C', 'En begränsning på antalet samtidiga anrop till en GraphQL-server', false),
+(934, 'D', 'Ett optimeringsmönster för GraphQL-queries', false),                 -- För fråga 485
+(935, 'A', 'REST', false),
+(935, 'B', 'GraphQL', false),
+(935, 'C', 'SOAP', true),
+(935, 'D', 'JSON-RPC', false),                                                   -- För fråga 486
+(936, 'A', 'Genom separata API-anrop för varje relation', false),
+(936, 'B', 'Genom att klienten definierar vilka relaterade data som ska hämtas i query', true),
+(936, 'C', 'Genom att använda hypermedia-länkar', false),
+(936, 'D', 'Genom att servern alltid inkluderar alla relaterade objekt', false), -- För fråga 487
+(937, 'A', 'POST /createUser', false),
+(937, 'B', 'GET /getUserData?id=123', false),
+(937, 'C', 'GET /users/123', true),
+(937, 'D', 'GET /users/findByEmail?email=user@example.com', false),              -- För fråga 488
+(938, 'A', 'SOAP', false),
+(938, 'B', 'REST med JSON', false),
+(938, 'C', 'GraphQL', false),
+(938, 'D', 'Det beror på användningsfallet', true),                              -- För fråga 489
+(939, 'A', '@RequestMapping', false),
+(939, 'B', '@QueryMapping', true),
+(939, 'C', '@GraphQLMapping', false),
+(939, 'D', '@GetMapping', false),                                                -- För fråga 490
+(940, 'A', 'REST API:er behöver inte versionshantering', false),
+(940, 'B', 'GraphQL kräver explicit versionshantering', false),
+(940, 'C', 'SOAP API:er har inbyggt versionsstöd', false),
+(940, 'D', 'GraphQL undviker ofta explicit versionshantering genom att tillåta evolution av schemat', true);
+
+INSERT INTO questions (course_name_question_number, question_number, course_name, question_text)
+VALUES (941, 491, 'API', '491. Vad står HATEOAS för?'),
+       (942, 492, 'API', '492. Vilken är den främsta fördelen med HATEOAS?'),
+       (943, 493, 'API', '493. Vilket av följande format är vanligtvis associerat med HATEOAS?'),
+       (944, 494, 'API', '494. Vad är ett vanligt element som representerar länkar i HAL?'),
+       (945, 495, 'API', '495. Vilket Java-bibliotek tillhandahålls av Spring för att underlätta HATEOAS-implementering?'),
+       (946, 496, 'API', '496. Vilken av följande Java-klasser i Spring HATEOAS används för att omvandla domänobjekt till resurser med länkar?'),
+       (947, 497, 'API', '497. Enligt Roy Fielding, skaparen av REST, vad är det som gör ett API verkligt RESTful?'),
+       (948, 498, 'API', '498. Vad är det viktigaste första steget när en klient interagerar med ett HATEOAS API?'),
+       (949, 499, 'API', '499. På vilken nivå i Richardson Maturity Model återfinns HATEOAS?'),
+       (950, 500, 'API', '500. Vilket av följande påståenden beskriver BÄST en central princip i HATEOAS?');
+
+INSERT INTO question_options (course_name_question_number, option_label, option_text, is_correct)
+VALUES
+-- För fråga 491
+(941, 'A', 'Hyperlinks And Text Enabling Object Access Systems', false),
+(941, 'B', 'Hypermedia As The Engine Of Application State', true),
+(941, 'C', 'HTTP Architecture That Enables Object Access Services', false),
+(941, 'D', 'Handling Applications Through External Object Access Systems', false), -- För fråga 492
+(942, 'A', 'Det reducerar datamängden som skickas över nätverket', false),
+(942, 'B', 'Det möjliggör löst kopplade klienter som kan anpassa sig till API-förändringar', true),
+(942, 'C', 'Det gör API:et snabbare genom att använda HTTP-caching', false),
+(942, 'D', 'Det ökar säkerheten genom att dölja implementationsdetaljer', false),  -- För fråga 493
+(943, 'A', 'JWT (JSON Web Token)', false),
+(943, 'B', 'HAL (Hypertext Application Language)', true),
+(943, 'C', 'XML-RPC', false),
+(943, 'D', 'Protocol Buffers', false),                                             -- För fråga 494
+(944, 'A', '_embedded', false),
+(944, 'B', '_actions', false),
+(944, 'C', '_links', true),
+(944, 'D', '_relations', false),                                                   -- För fråga 495
+(945, 'A', 'Spring Links', false),
+(945, 'B', 'Spring REST Links', false),
+(945, 'C', 'Spring HATEOAS', true),
+(945, 'D', 'Spring Hypermedia', false),                                            -- För fråga 496
+(946, 'A', 'ResourceBuilder', false),
+(946, 'B', 'LinkGenerator', false),
+(946, 'C', 'RepresentationModelAssembler', true),
+(946, 'D', 'HypermediaConverter', false),                                          -- För fråga 497
+(947, 'A', 'Användning av HTTP-verb och statuskoder', false),
+(947, 'B', 'JSON som dataformat', false),
+(947, 'C', 'Hypermedia-länkar som driver applikationstillståndet', true),
+(947, 'D', 'Versionshantering via URL-sökvägar', false),                           -- För fråga 498
+(948, 'A', 'Hämta API-dokumentationen via Swagger', false),
+(948, 'B', 'Börja med en välkänd entry point URL (ofta kallad "rot"-resurs)', true),
+(948, 'C', 'Läsa in alla möjliga resurser i ett lokalt cache', false),
+(948, 'D', 'Verifiera API-nycklar och autentiseringsmetoder', false),              -- För fråga 499
+(949, 'A', 'Nivå 0', false),
+(949, 'B', 'Nivå 1', false),
+(949, 'C', 'Nivå 2', false),
+(949, 'D', 'Nivå 3', true),                                                        -- För fråga 500
+(950, 'A', 'Klienten förlitar sig på servern för att få veta vilka åtgärder som är möjliga i det aktuella tillståndet',
+ true),
+(950, 'B', 'Alla möjliga URL:er måste dokumenteras i API-specifikationen', false),
+(950, 'C', 'Klienten måste känna till hela API-strukturen i förväg', false),
+(950, 'D', 'Servern måste använda HTTP-caching för alla resurser', false);
+
