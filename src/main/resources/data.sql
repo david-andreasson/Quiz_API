@@ -5065,9 +5065,65 @@ VALUES
 (949, 'B', 'Nivå 1', false),
 (949, 'C', 'Nivå 2', false),
 (949, 'D', 'Nivå 3', true),                                                        -- För fråga 500
-(950, 'A', 'Klienten förlitar sig på servern för att få veta vilka åtgärder som är möjliga i det aktuella tillståndet',
- true),
+(950, 'A', 'Klienten förlitar sig på servern för att få veta vilka åtgärder som är möjliga i det aktuella tillståndet', true),
 (950, 'B', 'Alla möjliga URL:er måste dokumenteras i API-specifikationen', false),
 (950, 'C', 'Klienten måste känna till hela API-strukturen i förväg', false),
 (950, 'D', 'Servern måste använda HTTP-caching för alla resurser', false);
 
+-- Batch-insert för QUESTIONS
+INSERT INTO questions (course_name_question_number, question_number, course_name, question_text)
+VALUES (951, 501, 'API', '501. Vad är huvudsyftet med API-versionshantering?'),
+       (952, 502, 'API', '502. Vilken av följande ändringar är INTE en brytande förändring i ett REST API?'),
+       (953, 503, 'API', '503. Vilken versionshanteringsstrategi följer bäst REST-principerna?'),
+       (954, 504, 'API', '504. Vad innebär semantisk versionshantering (SemVer)?'),
+       (955, 505, 'API', '505. Vilken är den bästa metoden för att hantera föråldrade (deprecated) API-metoder i Java?'),
+       (956, 506, 'API', '506. Vilket av följande är INTE en fördel med URI-baserad versionshantering?'),
+       (957, 507, 'API', '507. Vilken är den bästa strategin för att gradvis rulla ut nya API-funktioner?'),
+       (958, 508, 'API', '508. Hur bör du strukturera din kod för att hantera flera API-versioner på ett effektivt sätt?'),
+       (959, 509, 'API', '509. Vilket HTTP-statuskod bör returneras om en klient begär en API-version som inte längre stöds?'),
+       (960, 510, 'API', '510. Vilken approach är bäst för att hantera API-versionshantering i en mikrotjänstarkitektur?');
+
+-- Batch-insert för QUESTION_OPTIONS
+INSERT INTO question_options (course_name_question_number, option_label, option_text, is_correct)
+VALUES
+-- För fråga 501
+(951, 'A', 'Att maximera antalet API-anrop', false),
+(951, 'B', 'Att introducera förändringar utan att bryta befintliga klienter', true),
+(951, 'C', 'Att minska behovet av dokumentation', false),
+(951, 'D', 'Att öka komplexiteten i API-designen', false),                 -- För fråga 502
+(952, 'A', 'Att byta namn på ett fält i JSON-responsen', false),
+(952, 'B', 'Att lägga till ett nytt valfritt fält i JSON-responsen', true),
+(952, 'C', 'Att ändra datatypen för ett befintligt fält från sträng till heltal', false),
+(952, 'D', 'Att ta bort en endpoint', false),                              -- För fråga 503
+(953, 'A', 'URI-baserad versionshantering (t.ex. /v1/users)', false),
+(953, 'B', 'Query parameter-baserad versionshantering (t.ex. /users?version=1)', false),
+(953, 'C', 'Header-baserad versionshantering (t.ex. Accept-header)', true),
+(953, 'D', 'SOAP-baserad versionshantering', false),                       -- För fråga 504
+(954, 'A', 'Att varje version får ett slumpmässigt nummer', false),
+(954, 'B', 'Att versioner numreras som MAJOR.MINOR.PATCH där MAJOR ändras vid brytande förändringar', true),
+(954, 'C', 'Att versioner bara inkrementeras när API:et är helt omskrivet', false),
+(954, 'D', 'Att versioner följer den semantiska webben (Web 3.0)', false), -- För fråga 505
+(955, 'A', 'Ta bort dem omedelbart', false),
+(955, 'B', 'Markera dem med @Deprecated-annotationen och dokumentera alternativen', true),
+(955, 'C', 'Behåll dem för evigt utan någon indikation på att de är föråldrade', false),
+(955, 'D', 'Ändra deras beteende men behåll samma namn', false),           -- För fråga 506
+(956, 'A', 'Enkel att implementera', false),
+(956, 'B', 'Tydlig och synlig för utvecklare', false),
+(956, 'C', 'Enkel cachning', false),
+(956, 'D', 'Följer REST-principer för resursmodellering', true),           -- För fråga 507
+(957, 'A', 'Tvinga alla användare att migrera på samma dag', false),
+(957, 'B', 'Skapa en helt ny API-version för varje ny funktion', false),
+(957, 'C', 'Använda feature flags för att aktivera funktioner selektivt', true),
+(957, 'D', 'Släppa nya funktioner utan versionshantering', false),         -- För fråga 508
+(958, 'A', 'Duplicera all kod för varje version', false),
+(958, 'B', 'Använd arv och/eller composition för att dela gemensam kod mellan versioner', true),
+(958, 'C', 'Skriv om allt från grunden för varje ny version', false),
+(958, 'D', 'Ha en enda kodbas utan versionsuppdelning', false),            -- För fråga 509
+(959, 'A', '404 Not Found', false),
+(959, 'B', '410 Gone', true),
+(959, 'C', '400 Bad Request', false),
+(959, 'D', '501 Not Implemented', false),                                  -- För fråga 510
+(960, 'A', 'Alla mikrotjänster måste använda exakt samma versionsnummer', false),
+(960, 'B', 'Använda en API-gateway för att hantera routing till olika versioner av mikrotjänster', true),
+(960, 'C', 'Aldrig versionshantera mikrotjänster', false),
+(960, 'D', 'Skapa helt nya tjänster med nya namn istället för att versionshantera', false);
