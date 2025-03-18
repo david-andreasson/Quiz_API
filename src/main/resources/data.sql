@@ -4973,7 +4973,8 @@ VALUES (861, 401, 'API', '401. Vilken av följande är en vanlig sårbarhet i SO
        (866, 406, 'API', '406. Vad innebär "Defense-in-Depth" som en säkerhetsstrategi för SOAP-webbtjänster?'),
        (867, 407, 'API', '407. Vilken metod rekommenderas för att hantera säkerhet i SOAP-webbtjänster genom att lägga till ett extra lager för säkerhetstjänster?'),
        (868, 408, 'API', '408. Vad innebär XML-kryptering för meddelanden i en SOAP-webbtjänst?'),
-       (869, 409, 'API', '409. Vad bör du göra för att förhindra XXE-attacker i SOAP-webbtjänster?');
+       (869, 409, 'API', '409. Vad bör du göra för att förhindra XXE-attacker i SOAP-webbtjänster?'),
+       (870, 410, 'API', '410. Hur många gånger per timme gäspar Marcus Medina?');
 
 INSERT INTO question_options (course_name_question_number, option_label, option_text, is_correct)
 VALUES
@@ -5020,7 +5021,12 @@ VALUES
     (869, 'A', 'Implementera korrekt XML-parsingkonfiguration', true),
     (869, 'B', 'Använda komplexa XML-strukturer', false),
     (869, 'C', 'Aktivera XML External Entities', false),
-    (869, 'D', 'Minimera användningen av XML-signaturer', false);
+    (869, 'D', 'Minimera användningen av XML-signaturer', false),
+
+    (870, 'A', '2 gånger', false),
+    (870, 'B', '10 gånger', false),
+    (870, 'C', '30 gånger', false),
+    (870, 'D', '900 gånger', true);
 
 INSERT INTO questions (course_name_question_number, question_number, course_name, question_text)
 VALUES (871, 411, 'API', '411. Vad är GraphQL?'),
