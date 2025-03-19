@@ -5,14 +5,10 @@ import com.davanddev.quizapp_api.models.Question;
 import com.davanddev.quizapp_api.models.QuestionOption;
 import com.davanddev.quizapp_api.session.QuizSession;
 import org.springframework.stereotype.Service;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Service for managing quiz sessions.
- */
 @Service
 public class QuizSessionService {
 
@@ -26,18 +22,16 @@ public class QuizSessionService {
     }
 
     /**
-     * Starts a new quiz session for the given course and order type, with optional start question.
+     * Starts a new quiz session for the given course and order type, with an optional start question.
+     * Adjusts the user-provided startQuestion (1-indexed) to a 0-indexed value.
      */
     public QuizSession startSession(String courseName, String orderType, int startQuestion) {
         List<Question> questions = questionService.getQuestions(courseName, orderType);
         QuizSession session = new QuizSession(courseName, orderType, questions);
 
-        // Om startQuestion är giltigt, sätt currentIndex till detta värde.
-        // answeredCount ska vara 0 eftersom inga frågor ännu har besvarats i denna session.
-        if (startQuestion >= 0 && startQuestion < session.getTotalQuestions()) {
-            session.setCurrentIndex(startQuestion);
+        if (startQuestion >= 1 && startQuestion <= session.getTotalQuestions()) {
+            session.setCurrentIndex(startQuestion - 1);
         }
-
         sessions.put(session.getSessionId(), session);
         return session;
     }
@@ -61,23 +55,16 @@ public class QuizSessionService {
         if (session == null || session.getCurrentIndex() >= session.getTotalQuestions()) {
             return new AnswerResponseDTO(false, "Session not found or quiz finished.");
         }
-
-        // Hämta nuvarande fråga
         Question currentQuestion = session.getQuestions().get(session.getCurrentIndex());
-
-        // Öka index för att gå vidare till nästa fråga
+        // Move to next question
         session.setCurrentIndex(session.getCurrentIndex() + 1);
-
-        // Öka antal besvarade frågor med 1
+        // Increment answered count
         session.setAnsweredCount(session.getAnsweredCount() + 1);
-
-        // Kolla om svaret är korrekt
         boolean isCorrect = answer.equalsIgnoreCase(currentQuestion.getCorrectOptionLabel());
         if (isCorrect) {
             session.setCorrectAnswers(session.getCorrectAnswers() + 1);
             return new AnswerResponseDTO(true, "You answered " + answer + ", which is correct! ✅");
         } else {
-            // Hitta korrekt svarsalternativ
             QuestionOption correctOption = currentQuestion.getOptions().stream()
                     .filter(QuestionOption::isCorrect)
                     .findFirst().orElse(null);
@@ -96,11 +83,9 @@ public class QuizSessionService {
         if (session == null) {
             return "Session not found.";
         }
-
         int correct = session.getCorrectAnswers();
-        int answered = session.getAnsweredCount(); // Använd answeredCount istället för currentIndex
+        int answered = session.getAnsweredCount();
         double errorRate = answered == 0 ? 0 : ((double) (answered - correct) / answered) * 100;
-
         return String.format("Score: %d/%d, Error rate: %.2f%%", correct, answered, errorRate);
     }
 }
