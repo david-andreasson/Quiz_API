@@ -10,13 +10,18 @@ import java.util.UUID;
  */
 public class QuizSession {
 
-    private String sessionId;
-    private String courseName;
-    private String orderType;
-    private List<Question> questions;
+    private final String sessionId;
+    private final String courseName;
+    private final String orderType;
+    private final List<Question> questions;
+
     private int currentIndex;
+
+    private int answeredCount;
+
     private int correctAnswers;
-    private int totalQuestions;
+
+    private final int totalQuestions;
 
     public QuizSession(String courseName, String orderType, List<Question> questions) {
         this.sessionId = UUID.randomUUID().toString();
@@ -24,11 +29,12 @@ public class QuizSession {
         this.orderType = orderType;
         this.questions = questions;
         this.currentIndex = 0;
+        this.answeredCount = 0;
         this.correctAnswers = 0;
         this.totalQuestions = questions.size();
     }
 
-    // Getters and setters
+    // --- Getters & setters ---
 
     public String getSessionId() {
         return sessionId;
@@ -52,6 +58,14 @@ public class QuizSession {
 
     public void setCurrentIndex(int currentIndex) {
         this.currentIndex = currentIndex;
+    }
+
+    public int getAnsweredCount() {
+        return answeredCount;
+    }
+
+    public void setAnsweredCount(int answeredCount) {
+        this.answeredCount = answeredCount;
     }
 
     public int getCorrectAnswers() {
