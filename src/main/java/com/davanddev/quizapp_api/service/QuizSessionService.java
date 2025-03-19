@@ -9,16 +9,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Service for managing quiz sessions.
- */
 @Service
 public class QuizSessionService {
 
-    // In-memory storage for active quiz sessions
+    // In-memory lagring av aktiva sessions
     private final Map<String, QuizSession> sessions = new HashMap<>();
 
-    // Dependency on your existing question service
+    // Beroende till den existerande frågeservicen
     private final QuestionService questionService;
 
     public QuizSessionService(QuestionService questionService) {
@@ -26,24 +23,27 @@ public class QuizSessionService {
     }
 
     /**
-     * Starts a new quiz session for the given course and order type.
-     *
-     * @param courseName the course name.
-     * @param orderType  the question order type ("ORDER", "RANDOM", "REVERSE").
-     * @return the new QuizSession.
+     * Startar en ny quiz-session för en given kurs med specifik ordning och startindex.
+     * @param courseName kursnamn.
+     * @param orderType frågeordning.
+     * @param startQuestion vilket frågenummer som ska börja visas.
+     * @return den nya QuizSession.
      */
-    public QuizSession startSession(String courseName, String orderType) {
+    public QuizSession startSession(String courseName, String orderType, int startQuestion) {
         List<Question> questions = questionService.getQuestions(courseName, orderType);
         QuizSession session = new QuizSession(courseName, orderType, questions);
+        // Om startQuestion är giltigt, sätt currentIndex till detta värde.
+        if (startQuestion >= 0 && startQuestion < session.getTotalQuestions()) {
+            session.setCurrentIndex(startQuestion);
+        }
         sessions.put(session.getSessionId(), session);
         return session;
     }
 
     /**
-     * Retrieves the next question in the session.
-     *
-     * @param sessionId the session ID.
-     * @return the next Question, or null if no more questions.
+     * Hämtar nästa fråga i sessionen.
+     * @param sessionId session-ID.
+     * @return nästa fråga eller null om inga fler frågor.
      */
     public Question getNextQuestion(String sessionId) {
         QuizSession session = sessions.get(sessionId);
@@ -54,11 +54,10 @@ public class QuizSessionService {
     }
 
     /**
-     * Submits an answer for the current question and returns detailed feedback.
-     *
-     * @param sessionId the session ID.
-     * @param answer    the submitted answer (e.g., "A", "B", "C", or "D").
-     * @return an AnswerResponseDTO containing correctness and a feedback message.
+     * Tar emot ett svar för aktuell fråga och returnerar feedback.
+     * @param sessionId session-ID.
+     * @param answer användarens svar.
+     * @return AnswerResponseDTO med feedback.
      */
     public AnswerResponseDTO submitAnswer(String sessionId, String answer) {
         QuizSession session = sessions.get(sessionId);
@@ -66,29 +65,28 @@ public class QuizSessionService {
             return new AnswerResponseDTO(false, "Session not found or quiz finished.");
         }
         Question currentQuestion = session.getQuestions().get(session.getCurrentIndex());
-        // Increment the index for the next call
+        // Öka currentIndex för nästa fråga
         session.setCurrentIndex(session.getCurrentIndex() + 1);
         boolean isCorrect = answer.equalsIgnoreCase(currentQuestion.getCorrectOptionLabel());
         if (isCorrect) {
             session.setCorrectAnswers(session.getCorrectAnswers() + 1);
-            return new AnswerResponseDTO(true, "You answered " + answer + ", which is correct!" + " ✅");
+            return new AnswerResponseDTO(true, "You answered " + answer + ", which is correct! ✅");
         } else {
-            // Find the correct option details
+            // Hämta korrekt alternativ
             QuestionOption correctOption = currentQuestion.getOptions().stream()
                     .filter(QuestionOption::isCorrect)
                     .findFirst().orElse(null);
             String correctMessage = (correctOption != null)
                     ? correctOption.getOptionLabel() + ": " + correctOption.getOptionText()
                     : "Unknown";
-            return new AnswerResponseDTO(false, "You answered " + answer + ", which is incorrect!" + " ❌" +" The correct answer is " + correctMessage + ".");
+            return new AnswerResponseDTO(false, "You answered " + answer + ", which is incorrect! ❌ The correct answer is " + correctMessage + ".");
         }
     }
 
     /**
-     * Returns current session statistics as a formatted string.
-     *
-     * @param sessionId the session ID.
-     * @return a string with current score and error rate.
+     * Returnerar sessionens statistik.
+     * @param sessionId session-ID.
+     * @return formaterad statistiksträng.
      */
     public String getSessionStats(String sessionId) {
         QuizSession session = sessions.get(sessionId);
