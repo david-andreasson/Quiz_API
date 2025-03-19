@@ -1,13 +1,11 @@
 package com.davanddev.quizapp_api.controller;
+
 import com.davanddev.quizapp_api.dto.AnswerResponseDTO;
 import com.davanddev.quizapp_api.models.Question;
 import com.davanddev.quizapp_api.service.QuizSessionService;
 import com.davanddev.quizapp_api.session.QuizSession;
 import org.springframework.web.bind.annotation.*;
 
-/**
- * REST controller for managing quiz sessions.
- */
 @RestController
 @RequestMapping("/api/v1/quiz")
 public class QuizSessionController {
@@ -19,23 +17,23 @@ public class QuizSessionController {
     }
 
     /**
-     * Starts a new quiz session.
-     *
-     * @param courseName the course name.
-     * @param orderType  the question order type ("ORDER", "RANDOM", "REVERSE"). Default is "ORDER".
-     * @return the newly created QuizSession.
+     * Startar en ny quiz-session.
+     * @param courseName kursnamn.
+     * @param orderType frågeordning ("ORDER", "RANDOM", "REVERSE"), default "ORDER".
+     * @param startQuestion startindex (default 0) – vilket frågenummer som ska börja visas.
+     * @return den skapade QuizSession.
      */
     @PostMapping("/start")
     public QuizSession startQuiz(@RequestParam String courseName,
-                                 @RequestParam(defaultValue = "ORDER") String orderType) {
-        return quizSessionService.startSession(courseName, orderType);
+                                 @RequestParam(defaultValue = "ORDER") String orderType,
+                                 @RequestParam(defaultValue = "0") int startQuestion) {
+        return quizSessionService.startSession(courseName, orderType, startQuestion);
     }
 
     /**
-     * Retrieves the next question in the quiz session.
-     *
-     * @param sessionId the session ID.
-     * @return the next Question, or a message if the quiz is finished.
+     * Hämtar nästa fråga i sessionen.
+     * @param sessionId session-ID.
+     * @return nästa fråga eller ett meddelande om quizen är slut.
      */
     @GetMapping("/next")
     public Object getNextQuestion(@RequestParam String sessionId) {
@@ -47,11 +45,10 @@ public class QuizSessionController {
     }
 
     /**
-     * Submits an answer for the current question and returns detailed feedback.
-     *
-     * @param sessionId the session ID.
-     * @param answer    the answer submitted by the user.
-     * @return an AnswerResponseDTO with feedback and statistics.
+     * Tar emot ett svar och returnerar feedback.
+     * @param sessionId session-ID.
+     * @param answer användarens svar.
+     * @return ett AnswerResponseDTO med feedback.
      */
     @PostMapping("/submit")
     public AnswerResponseDTO submitAnswer(@RequestParam String sessionId, @RequestParam String answer) {
@@ -59,10 +56,9 @@ public class QuizSessionController {
     }
 
     /**
-     * Retrieves current statistics for the quiz session.
-     *
-     * @param sessionId the session ID.
-     * @return a string with the session statistics.
+     * Hämtar statistik för sessionen.
+     * @param sessionId session-ID.
+     * @return statistik som en formaterad sträng.
      */
     @GetMapping("/stats")
     public String getStats(@RequestParam String sessionId) {
