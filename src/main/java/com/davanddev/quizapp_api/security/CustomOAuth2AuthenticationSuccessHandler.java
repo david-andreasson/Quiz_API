@@ -38,7 +38,7 @@ public class CustomOAuth2AuthenticationSuccessHandler implements AuthenticationS
         String token = Jwts.builder()
                 .setSubject(email)
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + 86400000)) // Token valid for 1 day
+                .setExpiration(new Date(System.currentTimeMillis() + 60000)) // Token valid for 1 day
                 .signWith(key, SignatureAlgorithm.HS256)
                 .compact();
 
