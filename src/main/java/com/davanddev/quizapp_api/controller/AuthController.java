@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
-
 import java.nio.charset.StandardCharsets;
 import java.security.Key;
 import java.util.Date;
@@ -37,7 +36,6 @@ public class AuthController {
                         authRequest.getUsername(),
                         authRequest.getPassword())
         );
-
         // 2. Convert the secret to a Key
         Key key = Keys.hmacShaKeyFor(jwtSecret.getBytes(StandardCharsets.UTF_8));
 
