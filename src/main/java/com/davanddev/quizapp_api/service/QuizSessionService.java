@@ -4,12 +4,13 @@ import com.davanddev.quizapp_api.dto.AnswerResponseDTO;
 import com.davanddev.quizapp_api.models.Question;
 import com.davanddev.quizapp_api.models.QuestionOption;
 import com.davanddev.quizapp_api.session.QuizSession;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Service
+@RequiredArgsConstructor
 public class QuizSessionService {
 
     // In-memory storage for active quiz sessions
@@ -17,18 +18,12 @@ public class QuizSessionService {
 
     private final QuestionService questionService;
 
-    public QuizSessionService(QuestionService questionService) {
-        this.questionService = questionService;
-    }
-
     /**
      * Starts a new quiz session for the given course and order type, with an optional start question.
      * Adjusts the user-provided startQuestion (1-indexed) to a 0-indexed value.
      */
     public QuizSession startSession(String courseName, String orderType, int startQuestion) {
-        List<Question> questions = questionService.getQuestions(courseName, orderType);
-        QuizSession session = new QuizSession(courseName, orderType, questions);
-
+        QuizSession session = new QuizSession(courseName, orderType, questionService.getQuestions(courseName, orderType));
         if (startQuestion >= 1 && startQuestion <= session.getTotalQuestions()) {
             session.setCurrentIndex(startQuestion - 1);
         }
@@ -49,28 +44,33 @@ public class QuizSessionService {
 
     /**
      * Submits an answer for the current question and returns detailed feedback.
+     * If the answer is incorrect, the question is reinserted into the queue at a random position 20-40 questions later.
      */
     public AnswerResponseDTO submitAnswer(String sessionId, String answer) {
         QuizSession session = sessions.get(sessionId);
         if (session == null || session.getCurrentIndex() >= session.getTotalQuestions()) {
             return new AnswerResponseDTO(false, "Session not found or quiz finished.");
         }
-        Question currentQuestion = session.getQuestions().get(session.getCurrentIndex());
-        // Move to next question
-        session.setCurrentIndex(session.getCurrentIndex() + 1);
-        // Increment answered count
+        int currentIdx = session.getCurrentIndex();
+        Question currentQuestion = session.getQuestions().get(currentIdx);
+        session.getQuestions().remove(currentIdx);
         session.setAnsweredCount(session.getAnsweredCount() + 1);
         boolean isCorrect = answer.equalsIgnoreCase(currentQuestion.getCorrectOptionLabel());
         if (isCorrect) {
             session.setCorrectAnswers(session.getCorrectAnswers() + 1);
             return new AnswerResponseDTO(true, "You answered " + answer + ", which is correct! ✅");
         } else {
-            QuestionOption correctOption = currentQuestion.getOptions().stream()
+            int offset = 10 + (int)(Math.random() * 6); // random number between 6 and 10
+            int insertionIndex = session.getCurrentIndex() + offset;
+            if (insertionIndex > session.getQuestions().size()) {
+                insertionIndex = session.getQuestions().size();
+            }
+            session.getQuestions().add(insertionIndex, currentQuestion);
+            String correctMessage = currentQuestion.getOptions().stream()
                     .filter(QuestionOption::isCorrect)
-                    .findFirst().orElse(null);
-            String correctMessage = (correctOption != null)
-                    ? correctOption.getOptionLabel() + ": " + correctOption.getOptionText()
-                    : "Unknown";
+                    .findFirst()
+                    .map(opt -> opt.getOptionLabel() + ": " + opt.getOptionText())
+                    .orElse("Unknown");
             return new AnswerResponseDTO(false, "You answered " + answer + ", which is incorrect! ❌ The correct answer is " + correctMessage + ".");
         }
     }
