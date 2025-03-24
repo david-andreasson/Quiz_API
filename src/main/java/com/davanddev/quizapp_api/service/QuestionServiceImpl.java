@@ -33,4 +33,9 @@ public class QuestionServiceImpl implements QuestionService {
         // If orderType is "ORDER" or unrecognized, the list remains in natural sorted order.
         return questions;
     }
+
+    @Override
+    public long getQuestionCount(String courseName) {
+        return questionRepository.countByCourseName(courseName);
+    }
 }
