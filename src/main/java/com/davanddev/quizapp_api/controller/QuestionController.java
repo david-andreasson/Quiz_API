@@ -5,6 +5,7 @@ import com.davanddev.quizapp_api.models.Question;
 import com.davanddev.quizapp_api.service.QuestionService;
 import com.davanddev.quizapp_api.util.DtoMapper;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,5 +27,11 @@ public class QuestionController {
         return questions.stream()
                 .map(DtoMapper::toQuestionDTO)
                 .collect(Collectors.toList());
+    }
+
+    // Added endpoint to retrieve the question count for a course
+    @GetMapping("/count")
+    public long getQuestionCount(@RequestParam String courseName) {
+        return questionService.getQuestionCount(courseName);
     }
 }
