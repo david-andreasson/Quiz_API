@@ -32,6 +32,7 @@ public class CustomOAuth2AuthenticationSuccessHandler implements AuthenticationS
                                         Authentication authentication) throws IOException, ServletException {
         OAuth2User oAuth2User = (OAuth2User) authentication.getPrincipal();
         String email = oAuth2User.getAttribute("email");
+        String givenName = oAuth2User.getAttribute("given_name"); // Extract user's first name
 
         // Generate JWT token using email as the subject
         Key key = Keys.hmacShaKeyFor(jwtSecret.getBytes(StandardCharsets.UTF_8));
@@ -42,7 +43,7 @@ public class CustomOAuth2AuthenticationSuccessHandler implements AuthenticationS
                 .signWith(key, SignatureAlgorithm.HS256)
                 .compact();
 
-        // Redirect to frontend with the token as a query parameter
-        response.sendRedirect(frontendUrl + "?token=" + token);
+        // Redirect to frontend with the token and firstName as query parameters
+        response.sendRedirect(frontendUrl + "?token=" + token + "&firstName=" + givenName);
     }
 }
