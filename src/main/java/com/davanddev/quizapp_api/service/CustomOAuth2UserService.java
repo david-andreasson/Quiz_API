@@ -52,6 +52,9 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
             // No password needed for OAuth2 login; leave it empty
             userEntity.setPassword("");
             userEntity.setRole("ROLE_USER");
+            // Set first and last name from Google OAuth2 attributes
+            userEntity.setFirstName(givenName);
+            userEntity.setLastName(familyName);
             userRepository.save(userEntity);
         }
 
