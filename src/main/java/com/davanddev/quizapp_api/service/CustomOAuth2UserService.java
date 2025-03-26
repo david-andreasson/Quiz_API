@@ -49,8 +49,6 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
         if (userEntity == null) {
             userEntity = new UserEntity();
             userEntity.setUsername(email);
-            userEntity.setFirstName(givenName);
-            userEntity.setLastName(familyName);
             // No password needed for OAuth2 login; leave it empty
             userEntity.setPassword("");
             userEntity.setRole("ROLE_USER");
