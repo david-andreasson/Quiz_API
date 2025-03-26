@@ -26,8 +26,6 @@ public class UserEntity {
         this.username = username;
         this.password = password;
         this.role = role;
-        this.firstName = firstName;
-        this.lastName = lastName;
     }
 
     // Getters and setters
@@ -61,17 +59,5 @@ public class UserEntity {
 
     public void setRole(String role) {
         this.role = role;
-    }
-    public String getFirstName() {
-        return firstName;
-    }
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-    public String getLastName() {
-        return lastName;
-    }
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 }
