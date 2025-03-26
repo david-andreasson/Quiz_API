@@ -30,8 +30,11 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
         OAuth2UserService<OAuth2UserRequest, OAuth2User> delegate = new DefaultOAuth2UserService();
         OAuth2User oAuth2User = delegate.loadUser(userRequest);
 
-        // Extract email from OAuth2User attributes (for Google, the "email" attribute is typically provided)
+        // Extract email, given_name and family_name from OAuth2User attributes
         String email = oAuth2User.getAttribute("email");
+        String givenName = oAuth2User.getAttribute("given_name");
+        String familyName = oAuth2User.getAttribute("family_name");
+
         if (email == null) {
             throw new OAuth2AuthenticationException("Email not found in OAuth2 user attributes");
         }
@@ -41,11 +44,13 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
             throw new OAuth2AuthenticationException("Email not allowed: " + email);
         }
 
-        // Check if the user already exists in the database; if not, create a new user
+        // Check if the user already exists in the database; if not, create a new user with first and last name
         UserEntity userEntity = userRepository.findByUsername(email).orElse(null);
         if (userEntity == null) {
             userEntity = new UserEntity();
             userEntity.setUsername(email);
+            userEntity.setFirstName(givenName);
+            userEntity.setLastName(familyName);
             // No password needed for OAuth2 login; leave it empty
             userEntity.setPassword("");
             userEntity.setRole("ROLE_USER");
