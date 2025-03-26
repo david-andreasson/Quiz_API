@@ -1,7 +1,9 @@
 -- Create table for users
 CREATE TABLE IF NOT EXISTS users (
                                      id INT AUTO_INCREMENT PRIMARY KEY,
-                                     username VARCHAR(255)
+                                     username VARCHAR(255),
+                                     firstName VARCHAR(255),
+                                     lastName VARCHAR(255)
 );
 
 -- Create table for questions with composite primary key

@@ -20,12 +20,18 @@ public class UserEntity {
     // Simple role management, e.g., "ROLE_USER"
     private String role;
 
+    // New fields for first and last name
+    private String firstName;
+    private String lastName;
+
     public UserEntity() {}
 
-    public UserEntity(String username, String password, String role) {
+    public UserEntity(String username, String password, String role, String firstName, String lastName) {
         this.username = username;
         this.password = password;
         this.role = role;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     // Getters and setters
@@ -52,5 +58,17 @@ public class UserEntity {
     }
     public void setRole(String role) {
         this.role = role;
+    }
+    public String getFirstName() {
+        return firstName;
+    }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+    public String getLastName() {
+        return lastName;
+    }
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 }
