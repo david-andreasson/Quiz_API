@@ -75,7 +75,7 @@ public class SecurityConfig {
                         // Allow all preflight OPTIONS requests
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         // Permit requests to auth and OAuth2 endpoints
-                        .requestMatchers("/api/v2/auth/**", "/oauth2/**").permitAll()
+                        .requestMatchers("/api/v2/auth/**", "/oauth2/**", "/debug/**").permitAll()
                         // Require authentication for all other endpoints
                         .anyRequest().authenticated()
                 )
