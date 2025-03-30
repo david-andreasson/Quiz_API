@@ -43,7 +43,7 @@ public class AuthController {
         String token = Jwts.builder()
                 .setSubject(authRequest.getUsername())
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + 60000)) // 1 day validity
+                .setExpiration(new Date(System.currentTimeMillis() + 86400000)) // 1 day validity
                 .signWith(key, SignatureAlgorithm.HS256)
                 .compact();
 

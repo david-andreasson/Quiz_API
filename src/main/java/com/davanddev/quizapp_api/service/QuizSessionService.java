@@ -6,21 +6,21 @@ import com.davanddev.quizapp_api.models.QuestionOption;
 import com.davanddev.quizapp_api.session.QuizSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import java.util.HashMap;
+
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Service
 @RequiredArgsConstructor
 public class QuizSessionService {
 
-    // In-memory storage for active quiz sessions
-    private final Map<String, QuizSession> sessions = new HashMap<>();
+    private final Map<String, QuizSession> sessions = new ConcurrentHashMap<>();
 
     private final QuestionService questionService;
 
     /**
      * Starts a new quiz session for the given course and order type, with an optional start question.
-     * Adjusts the user-provided startQuestion (1-indexed) to a 0-indexed value.
+     * Adjusts the 1-indexed startQuestion to a 0-indexed value.
      */
     public QuizSession startSession(String courseName, String orderType, int startQuestion) {
         QuizSession session = new QuizSession(courseName, orderType, questionService.getQuestions(courseName, orderType));
@@ -44,7 +44,7 @@ public class QuizSessionService {
 
     /**
      * Submits an answer for the current question and returns detailed feedback.
-     * If the answer is incorrect, the question is reinserted into the queue at a random position 20-40 questions later.
+     * If the answer is incorrect, reinserts the question at a calculated position.
      */
     public AnswerResponseDTO submitAnswer(String sessionId, String answer) {
         QuizSession session = sessions.get(sessionId);
@@ -60,19 +60,35 @@ public class QuizSessionService {
             session.setCorrectAnswers(session.getCorrectAnswers() + 1);
             return new AnswerResponseDTO(true, "You answered " + answer + ", which is correct! ✅");
         } else {
-            int offset = 10 + (int)(Math.random() * 6); // random number between 6 and 10
-            int insertionIndex = session.getCurrentIndex() + offset;
-            if (insertionIndex > session.getQuestions().size()) {
-                insertionIndex = session.getQuestions().size();
-            }
+            int insertionIndex = calculateInsertionIndex(session);
             session.getQuestions().add(insertionIndex, currentQuestion);
-            String correctMessage = currentQuestion.getOptions().stream()
-                    .filter(QuestionOption::isCorrect)
-                    .findFirst()
-                    .map(opt -> opt.getOptionLabel() + ": " + opt.getOptionText())
-                    .orElse("Unknown");
+            String correctMessage = getCorrectAnswerMessage(currentQuestion);
             return new AnswerResponseDTO(false, "You answered " + answer + ", which is incorrect! ❌ The correct answer is " + correctMessage + ".");
         }
+    }
+
+    /**
+     * Calculates the insertion index for reinserting an incorrectly answered question.
+     * The offset is a random number between 10 and 15.
+     */
+    private int calculateInsertionIndex(QuizSession session) {
+        int offset = 10 + (int)(Math.random() * 6); // random number between 10 and 15
+        int insertionIndex = session.getCurrentIndex() + offset;
+        if (insertionIndex > session.getQuestions().size()) {
+            insertionIndex = session.getQuestions().size();
+        }
+        return insertionIndex;
+    }
+
+    /**
+     * Retrieves the correct answer message for a given question.
+     */
+    private String getCorrectAnswerMessage(Question question) {
+        return question.getOptions().stream()
+                .filter(QuestionOption::isCorrect)
+                .findFirst()
+                .map(opt -> opt.getOptionLabel() + ": " + opt.getOptionText())
+                .orElse("Unknown");
     }
 
     /**

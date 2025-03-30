@@ -1,8 +1,6 @@
 package com.davanddev.quizapp_api.security;
 
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.security.Keys;
+import com.davanddev.quizapp_api.service.TokenService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -13,19 +11,19 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.security.Key;
-import java.util.Date;
 
 @Component
 public class CustomOAuth2AuthenticationSuccessHandler implements AuthenticationSuccessHandler {
 
-    @Value("${jwt.secret}")
-    private String jwtSecret;
+    private final TokenService tokenService;
 
     // Frontend URL to redirect to after successful login
     @Value("${frontend.url}")
     private String frontendUrl;
+
+    public CustomOAuth2AuthenticationSuccessHandler(TokenService tokenService) {
+        this.tokenService = tokenService;
+    }
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
@@ -34,15 +32,11 @@ public class CustomOAuth2AuthenticationSuccessHandler implements AuthenticationS
         String email = oAuth2User.getAttribute("email");
         String givenName = oAuth2User.getAttribute("given_name"); // Extract user's first name
 
-        // Generate JWT token using email as the subject
-        Key key = Keys.hmacShaKeyFor(jwtSecret.getBytes(StandardCharsets.UTF_8));
-        String token = Jwts.builder()
-                .setSubject(email)
-                .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + 86400000)) // Token valid for 1 day
-                .signWith(key, SignatureAlgorithm.HS256)
-                .compact();
+        // Generate JWT token using TokenService
+        String token = tokenService.generateToken(email);
 
+        // TODO: The JWT token is currently sent via URL query parameters, which is insecure as it may be logged in browser history or referer headers.
+        // For our small user base (only 10 students), the risk is minimal, but this should be addressed in the future by using HttpOnly cookies or a secure alternative.
         // Redirect to frontend with the token and firstName as query parameters
         response.sendRedirect(frontendUrl + "?token=" + token + "&firstName=" + givenName);
     }
