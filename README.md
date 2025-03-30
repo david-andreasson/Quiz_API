@@ -2,133 +2,127 @@
 
 ## Overview
 
-QuizApp API is a Java-based RESTful API designed to power a quiz application. This API provides endpoints for clients (such as a React frontend) to:
-
-- Retrieve quiz questions for a specified course in various orders (sequential, random, or reverse).
-- Start and manage a quiz session that tracks the current question, score, and error rate.
-- Submit answers and receive immediate feedback along with updated statistics.
-- Log in users using email-based authentication (only allowing email addresses ending with `@gafe.molndal.se`).
-
-The project is built using Spring Boot, Spring Data JPA, and Hibernate for object–relational mapping. Data is persisted in an H2 database, and the project is managed using Maven.
+QuizApp API is a Java-based RESTful API built with Spring Boot. It powers a quiz application that supports multiple courses by providing endpoints for retrieving quiz questions, managing quiz sessions, submitting answers, and authenticating users via Google OAuth2.
 
 ## Features
 
 - **Quiz Question Retrieval**  
-  Fetch questions for a specific course with an order type parameter (`ORDER`, `RANDOM`, or `REVERSE`).
+  Retrieve quiz questions for a specified course with an order type parameter (`ORDER`, `RANDOM`, or `REVERSE`).
 
 - **Quiz Session Management**  
-  Start a new quiz session, retrieve the next question, submit answers, and obtain live session statistics (score and error rate).
+  Start new quiz sessions, retrieve the next question, submit answers, and track real-time session statistics (score and error rate). Sessions are managed in a thread-safe manner using a `ConcurrentHashMap`.
 
 - **User Authentication**  
-  Log in users by email (only emails ending with `@gafe.molndal.se` are allowed). If a user does not exist, a new account is created.
+  Authenticate users via Google OAuth2. If a user does not exist, a new account is created and stored in an H2 database. (Currently, all email addresses are allowed; restrictions can be added in the future.)
 
-- **Data Persistence**  
-  All questions, quiz sessions, and results are stored using Hibernate and an H2 database.  
+- **Token Generation**  
+  JWT tokens are generated using a dedicated `TokenService`. These tokens are used to manage authentication and session state.
 
-## Folder structure
-```
-QuizApp_API/
-├── src/
-│   ├── main/
-│   │   ├── java/
-│   │   │   └── com/
-│   │   │       └── davanddev/
-│   │   │           ├── quizapp_api/
-│   │   │           │   ├── controller/
-│   │   │           │   ├── dto/
-│   │   │           │   ├── models/
-│   │   │           │   ├── repository/
-│   │   │           │   ├── service/
-│   │   │           │   ├── session/
-│   │   │           │   ├── util/
-│   │   │           │   └── QuizAppApiApplication.java
-│   │   └── resources/
-│   │       └── application.properties
-│   └── test/
-│       └── java/
-│           └── com/
-│               └── davanddev/
-│                   └── quizapp_api/
-├── pom.xml
-└── README.md
-
-```
+- **Logging and Error Handling**  
+  The API uses SLF4J with Logback to log critical operations such as authentication, token generation, and quiz session management. A global exception handler is implemented to capture and log unexpected errors.
 
 
 ## Installation
 
-1. **Clone the Repository**  
-   `git clone https://github.com/your-github-username/QuizApp_API.git`
+1. **Clone the Repository**
 
-2. **Import the Project**  
-   Open the project in your preferred IDE (e.g., IntelliJ IDEA or Eclipse).
+```bash
+git clone https://github.com/david-andreasson/QuizApp_API.git
+```
 
-3. **Ensure You Have**
-    - Java 21 (or later)
-    - Maven
+2. **Import the Project**
 
-4. **Build the Project**  
-   `mvn clean compile`  
-   To package the project into an executable JAR:  
-   `mvn clean package`
+Open the project in your preferred IDE (e.g., IntelliJ IDEA or Eclipse).
 
-## Running the Project
+3. **Ensure You Have Installed**
 
-### From Your IDE
+- Java 21 (or later)  
+- Maven
+
+4. **Build the Project**
+
+Compile the project:
+
+```bash
+mvn clean compile
+```
+
+Package the project into an executable JAR:
+
+```bash
+mvn clean package
+```
+
+5. **Running the Project**
+
+**From Your IDE**  
 Run the `QuizAppApiApplication.java` class directly.
 
-### From the Terminal
-If you built an executable JAR, run:
-`java -jar target/QuizApp_API.jar`  
+**From the Terminal**
+
+```bash
+java -jar target/QuizApp_API.jar
+```
+
 The API will start on port 8080.
 
 ## API Endpoints
 
 - **Retrieve Questions**  
-  `GET http://localhost:8080/api/v1/questions?courseName={courseName}&orderType={orderType}`  
-  Returns a list of questions for the given course in the specified order.
+  `GET /api/v1/questions?courseName={courseName}&orderType={orderType}`  
+  Returns a list of quiz questions for the specified course and order.
 
 - **Start Quiz Session**  
-  `POST http://localhost:8080/api/v1/quiz/start?courseName={courseName}&orderType={orderType}`  
-  Starts a new quiz session and returns a QuizSession object (including sessionId and question list).
+  `POST /api/v1/quiz/start?courseName={courseName}&orderType={orderType}&startQuestion={startQuestion}`  
+  Starts a new quiz session and returns session data.
 
 - **Get Next Question**  
-  `GET http://localhost:8080/api/v1/quiz/next?sessionId={sessionId}`  
-  Returns the next question in the active quiz session, or a message if the quiz is finished.
+  `GET /api/v1/quiz/next?sessionId={sessionId}`  
+  Returns the next question or a message if the quiz is finished.
 
 - **Submit Answer**  
-  `POST http://localhost:8080/api/v1/quiz/submit?sessionId={sessionId}&answer={answer}`  
-  Submits an answer for the current question and returns feedback with session statistics.
+  `POST /api/v1/quiz/submit?sessionId={sessionId}&answer={answer}`  
+  Submits an answer and returns feedback and stats.
 
 - **Get Session Statistics**  
-  `GET http://localhost:8080/api/v1/quiz/stats?sessionId={sessionId}`  
-  Returns the current quiz session statistics (score and error rate).
+  `GET /api/v1/quiz/stats?sessionId={sessionId}`  
+  Returns current session statistics (score and error rate).
 
 - **User Login**  
-  `POST http://localhost:8080/api/v1/users/login`  
-  Accepts a JSON payload with a `username` field (email) to log in or create a user.
+  `POST /api/v2/auth/login`  
+  Logs in or creates a user based on provided JSON payload.
+
+## Logging and Error Handling
+
+- **Logging**  
+  Uses SLF4J with Logback to log critical operations at various levels (INFO, DEBUG, ERROR).
+
+- **Global Exception Handling**  
+  Captures and logs unexpected exceptions via `@ControllerAdvice` in `GlobalExceptionHandler.java`.
+
+## Frontend Integration
+
+A React-based frontend is available in a separate repository. It communicates with this API to deliver a full quiz experience.
 
 ## Dependencies
 
-- Spring Boot
-- Spring Data JPA
-- Hibernate ORM
-- H2 Database
-- Jackson (for JSON serialization/deserialization)
+- Spring Boot  
+- Spring Data JPA  
+- Hibernate ORM  
+- H2 Database  
+- Jackson  
+- SLF4J & Logback  
 - Maven
 
 ## Future Development
 
-- **Frontend Integration**  
-  Build a web-based frontend (e.g., using React) that consumes these REST endpoints to provide a full quiz experience.
-
 - **Enhanced Authentication**  
-  Implement proper email/password authentication and restrict access to allowed domains.
+  Implement email/password auth and domain-based access restrictions.
 
 - **Additional Features**  
-  Expand question management and quiz result processing.
+  Expand quiz management, add new courses, improve session logic.
 
 ## Contact
 
-For questions or suggestions, please reach out on GitHub:
-[david-andreasson](https://github.com/david-andreasson)
+For questions or suggestions, reach out on GitHub:  
+**david-andreasson**
