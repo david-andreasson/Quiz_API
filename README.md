@@ -1,8 +1,8 @@
-# QuizApp API
+# Quiz_API
 
 ## Overview
 
-QuizApp API is a Java-based RESTful API built with Spring Boot. It powers a quiz application that supports multiple courses by providing endpoints for retrieving quiz questions, managing quiz sessions, submitting answers, and authenticating users via Google OAuth2.
+Quiz_API is a Java-based RESTful API built with Spring Boot. It powers a quiz application that supports multiple courses by providing endpoints for retrieving quiz questions, managing quiz sessions, submitting answers, and authenticating users via Google OAuth2.
 
 ## Features
 
