@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS users (
 
 -- Create table for questions with composite primary key
 CREATE TABLE IF NOT EXISTS QUESTIONS (
-                                         course_name_question_number VARCHAR(255) PRIMARY KEY,
+                                         course_name_question_number INT PRIMARY KEY,
                                          question_number INT,
                                          course_name VARCHAR(255),
                                          question_text VARCHAR(255)
@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS QUESTIONS (
 -- Create table for question_options referencing the composite key from QUESTIONS
 CREATE TABLE IF NOT EXISTS QUESTION_OPTIONS (
                                                 id INT AUTO_INCREMENT PRIMARY KEY,
-                                                course_name_question_number VARCHAR(255),
+                                                course_name_question_number INT,
                                                 option_label VARCHAR(10),
                                                 option_text VARCHAR(255),
                                                 is_correct BOOLEAN,
