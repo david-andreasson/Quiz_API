@@ -5974,7 +5974,20 @@ VALUES
     (1017, 'D', 'Programmet kraschar direkt.', false),
 
     (1018, 'A', 'Genom att använda `.orTimeout()`', true),
-    (1018, 'B', 'Genom att använda `Thread.sleep()`', false);
+    (1018, 'B', 'Genom att använda `Thread.sleep()`', false),
+    (1018, 'C', 'Genom att sätta en manuell timer i kod', false),
+    (1018, 'D', 'Det går inte att tidsbegränsa en asynkron operation', false),
+
+    (1019, 'A', 'Det kan göra det svårare att hantera fel och exceptions.', true),
+    (1019, 'B', 'Det förbättrar prestanda för alla metoder automatiskt.', false),
+    (1019, 'C', 'Det förhindrar synkrona metoder från att köras.', false),
+    (1019, 'D', 'Det kräver att alla metoder returnerar en `String`.', false),
+
+    (1020, 'A', '`@Async` hanteras av Spring Boot, medan `CompletableFuture.supplyAsync()` hanteras manuellt.', true),
+    (1020, 'B', '`@Async` kan bara användas för synkrona metoder.', false),
+    (1020, 'C', '`CompletableFuture.supplyAsync()` kan inte hantera flera trådar.', false),
+    (1020, 'D', '`@Async` skapar automatiskt en ny framtid utan att returnera något.', false);
+
 
 
 //##################################################################################################
