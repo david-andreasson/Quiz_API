@@ -21,6 +21,11 @@ Quiz_API is a Java-based RESTful API built with Spring Boot. It powers a quiz ap
 - **Logging and Error Handling**  
   The API uses SLF4J with Logback to log critical operations such as authentication, token generation, and quiz session management. A global exception handler is implemented to capture and log unexpected errors.
 
+## Frontend Integration
+
+A React-based frontend is available in a separate repository, here: https://github.com/david-andreasson/quiz_frontend
+It communicates with this API to deliver a full quiz experience.
+The Quiz-service is available online at https://david-andreasson.github.io/quiz_frontend
 
 ## Installation
 
@@ -99,10 +104,6 @@ The API will start on port 8080.
 
 - **Global Exception Handling**  
   Captures and logs unexpected exceptions via `@ControllerAdvice` in `GlobalExceptionHandler.java`.
-
-## Frontend Integration
-
-A React-based frontend is available in a separate repository. It communicates with this API to deliver a full quiz experience.
 
 ## Dependencies
 
