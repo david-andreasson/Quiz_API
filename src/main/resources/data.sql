@@ -5988,3 +5988,394 @@ VALUES
     (1020, 'C', '`CompletableFuture.supplyAsync()` kan inte hantera flera trådar.', false),
     (1020, 'D', '`@Async` skapar automatiskt en ny framtid utan att returnera något.', false);
 
+
+//##################################################################################################
+//##################################################################################################
+//##################################################################################################
+//##################################################################################################
+//##################################################################################################
+//##################################################################################################
+//##################################################################################################
+INSERT INTO questions (course_name_question_number, question_number, course_name, question_text)
+VALUES (1021, 1, 'AI-DATA', '1. Vad menas med uttrycket "garbage in, garbage out" i kontexten av AI-modeller?'),
+       (1022, 2, 'AI-DATA', '2. Vilken typ av maskininlärning involverar att modellen får lära sig från data med "facit" (etiketter)?'),
+       (1023, 3, 'AI-DATA', '3. I exemplet från föreläsningen, varför misslyckades sjukhusets AI-system för hudcanceridentifiering i klinisk praktik?'),
+       (1024, 4, 'AI-DATA', '4. Vilket av följande är INTE ett typiskt problem i rådata som kräver förberedelse?'),
+       (1025, 5, 'AI-DATA', '5. Vad är det främsta syftet med att dela upp data i tränings-, validerings- och testmängder?'),
+       (1026, 6, 'AI-DATA', '6. Varför måste kategoriska variabler ofta transformeras innan AI-träning?'),
+       (1027, 7, 'AI-DATA', '7. Vad menas med "obalanserad data" i kontexten av dataförberedelse för AI?'),
+       (1028, 8, 'AI-DATA', '8. Vilka av följande är inkluderade i kursens examination?'),
+       (1029, 9, 'AI-DATA', '9. Vilket av följande beskriver bäst vad Artificiell Intelligens (AI) är enligt föreläsningen?'),
+       (1030, 10, 'AI-DATA', '10. Vad är ett vanligt problem med rådata som involverar värden som avviker kraftigt från det normala mönstret?');
+
+INSERT INTO question_options (course_name_question_number, option_label, option_text, is_correct)
+VALUES
+    (1021, 'A', 'AI-modeller kan sortera bort dålig data automatiskt', false),
+    (1021, 'B', 'Kvaliteten på input-data avgör kvaliteten på AI-modellens resultat', true),
+    (1021, 'C', 'AI-modeller fungerar bäst med minimal dataförberedelse', false),
+    (1021, 'D', 'Att man måste ta bort extremvärden för att modellen ska fungera', false),
+
+    (1022, 'A', 'Förstärkningsinlärning', false),
+    (1022, 'B', 'Oövervakad inlärning', false),
+    (1022, 'C', 'Övervakad inlärning', true),
+    (1022, 'D', 'Transfer learning', false),
+
+    (1023, 'A', 'Algoritmen var för enkel för den komplexa uppgiften', false),
+    (1023, 'B', 'Träningsdatan representerade inte verkliga användningsscenarier', true),
+    (1023, 'C', 'Systemet hade inte tränats tillräckligt länge', false),
+    (1023, 'D', 'Läkarna saknade utbildning i att använda systemet', false),
+
+    (1024, 'A', 'Saknade värden', false),
+    (1024, 'B', 'Outliers (extremvärden)', false),
+    (1024, 'C', 'Inkonsekvent formatering', false),
+    (1024, 'D', 'Alltför stor datamängd', true),
+
+    (1025, 'A', 'Att spara beräkningskraft under träningsprocessen', false),
+    (1025, 'B', 'Att kunna träna flera olika modeller samtidigt', false),
+    (1025, 'C', 'Att utvärdera modellens prestanda på osedd data', true),
+    (1025, 'D', 'Att skapa redundans om någon del av datan går förlorad', false),
+
+    (1026, 'A', 'För att öka antalet träningsexempel', false),
+    (1026, 'B', 'För att de flesta AI-algoritmer kräver numeriska inputs', true),
+    (1026, 'C', 'För att göra modellen mer transparent', false),
+    (1026, 'D', 'För att minska datastorleken', false),
+
+    (1027, 'A', 'Data där vissa attribut har mycket större värden än andra', false),
+    (1027, 'B', 'Data där vissa klasser eller kategorier är kraftigt överrepresenterade', true),
+    (1027, 'C', 'Data som innehåller för många outliers', false),
+    (1027, 'D', 'Data där relationen mellan features inte är linjär', false),
+
+    (1028, 'A', 'Endast praktiska inlämningsuppgifter', false),
+    (1028, 'B', 'Endast muntlig presentation', false),
+    (1028, 'C', 'Skriftlig tentamen och inlämningsuppgifter', true),
+    (1028, 'D', 'Grupptentamen och individuell rapport', false),
+
+    (1029, 'A', 'Program som kan lära sig av sina misstag utan explicit omprogrammering', false),
+    (1029, 'B', 'Teknologier som gör det möjligt för datorer att utföra uppgifter som normalt skulle kräva mänsklig intelligens', true),
+    (1029, 'C', 'System som är medvetna om sin egen existens', false),
+    (1029, 'D', 'Algoritmer som kan hitta mönster i vilken data som helst utan träning', false),
+
+    (1030, 'A', 'Korrelerade attribut', false),
+    (1030, 'B', 'Obalanserad data', false),
+    (1030, 'C', 'Inkonsekvent formatering', false),
+    (1030, 'D', 'Outliers (extremvärden)', true);
+
+INSERT INTO questions (course_name_question_number, question_number, course_name, question_text)
+VALUES (1031, 11, 'AI-DATA', '11. Vilken av följande är INTE ett huvudsteg i dataförberedelse för AI?'),
+       (1032, 12, 'AI-DATA', '12. Vad är syftet med min-max normalisering av numeriska värden?'),
+       (1033, 13, 'AI-DATA', '13. Vilket Python-bibliotek är mest centralt för datamanipulation och -analys enligt föreläsningen?'),
+       (1034, 14, 'AI-DATA', '14. Vad är one-hot encoding?'),
+       (1035, 15, 'AI-DATA', '15. Vilket av följande är en fördel med lokala AI-modeller (som Ollama/LLaMA) jämfört med molnbaserade lösningar?'),
+       (1036, 16, 'AI-DATA', '16. Vilket steg i dataförberedelseprocessen hanterar uppdelningen av data för träning och testning?'),
+       (1037, 17, 'AI-DATA', '17. Vad menas med "feature selection" inom datareduktion?'),
+       (1038, 18, 'AI-DATA', '18. Vad är huvudsyftet med att dela upp data i tränings-, validerings- och testmängder?'),
+       (1039, 19, 'AI-DATA', '19. Vilket verktyg från föreläsningen tillhandahåller ett grafiskt användargränssnitt för interaktion med lokala språkmodeller?'),
+       (1040, 20, 'AI-DATA', '20. Vilken av följande är en lämplig metod för att hantera saknade värden i numeriska kolumner?');
+
+INSERT INTO question_options (course_name_question_number, option_label, option_text, is_correct)
+VALUES
+    (1031, 'A', 'Datarengöring', false),
+    (1031, 'B', 'Datagivarhantering', true),
+    (1031, 'C', 'Datatransformation', false),
+    (1031, 'D', 'Datauppdelning', false),
+
+    (1032, 'A', 'Att konvertera kategoriska variabler till numeriska värden', false),
+    (1032, 'B', 'Att skala om värden till intervallet [0,1]', true),
+    (1032, 'C', 'Att reducera dimensionaliteten i datasetet', false),
+    (1032, 'D', 'Att identifiera och ta bort extremvärden', false),
+
+    (1033, 'A', 'NumPy', false),
+    (1033, 'B', 'Matplotlib', false),
+    (1033, 'C', 'Pandas', true),
+    (1033, 'D', 'Scikit-learn', false),
+
+    (1034, 'A', 'En teknik för att komprimera data för att spara diskutrymme', false),
+    (1034, 'B', 'En metod för att konvertera kategoriska variabler till flera binära kolumner', true),
+    (1034, 'C', 'En algoritm för att identifiera extremvärden i data', false),
+    (1034, 'D', 'En process för att slå samman flera datauppsättningar', false),
+
+    (1035, 'A', 'Högre beräkningskraft', false),
+    (1035, 'B', 'Större modellkapacitet', false),
+    (1035, 'C', 'Fullständig datakontroll och integritet', true),
+    (1035, 'D', 'Lägre hårdvarukrav', false),
+
+    (1036, 'A', 'Datarengöring', false),
+    (1036, 'B', 'Datatransformation', false),
+    (1036, 'C', 'Datareduktion', false),
+    (1036, 'D', 'Datauppdelning', true),
+
+    (1037, 'A', 'Processen att välja ut de mest relevanta attributen för modellen', true),
+    (1037, 'B', 'När man skapar nya variabler från befintliga attribut', false),
+    (1037, 'C', 'Att välja rätt algoritm för dataanalys', false),
+    (1037, 'D', 'Att namnge kolumner i ett dataset', false),
+
+    (1038, 'A', 'Att spara diskutrymme genom att analysera mindre datamängder', false),
+    (1038, 'B', 'Att hantera outliers på ett effektivt sätt', false),
+    (1038, 'C', 'Att utvärdera modellens prestanda på osedd data och undvika överanpassning', true),
+    (1038, 'D', 'Att förbättra beräkningshastigheten under träningen', false),
+
+    (1039, 'A', 'Pandas', false),
+    (1039, 'B', 'Ollama', false),
+    (1039, 'C', 'LM Studio', true),
+    (1039, 'D', 'Jupyter Notebook', false),
+
+    (1040, 'A', 'One-hot encoding', false),
+    (1040, 'B', 'Principal Component Analysis', false),
+    (1040, 'C', 'Imputering med medelvärde eller median', true),
+    (1040, 'D', 'Tokenisering', false);
+
+INSERT INTO questions (course_name_question_number, question_number, course_name, question_text)
+VALUES (1041, 21, 'AI-DATA', '21. Vad är en av huvudfördelarna med att integrera AI direkt i applikationskod?'),
+       (1042, 22, 'AI-DATA', '22. Vilket av följande beskriver bäst det grundläggande flödet för API-anrop till en AI-tjänst?'),
+       (1043, 23, 'AI-DATA', '23. Vilket programmeringsspråk kan INTE användas för att kommunicera med AI-tjänster via REST API?'),
+       (1044, 24, 'AI-DATA', '24. Vad är en strukturerad prompt jämfört med en enkel prompt?'),
+       (1045, 25, 'AI-DATA', '25. I Python-exemplet för att kommunicera med Ollama API, vilken HTTP-metod används för att skicka förfrågan?'),
+       (1046, 26, 'AI-DATA', '26. Vilken av följande är INTE en princip för effektiv prompt engineering enligt föreläsningen?'),
+       (1047, 27, 'AI-DATA', '27. Vad menas med "few-shot learning" i prompt engineering?'),
+       (1048, 28, 'AI-DATA', '28. I exemplet för dataförberedelseassistenten, vilken funktion används för att dela upp data i tränings- och testmängder?'),
+       (1049, 29, 'AI-DATA', '29. Vilken av följande dataförberedelsetekniker implementeras INTE i exemplet för dataförberedelseassistenten?'),
+       (1050, 30, 'AI-DATA', '30. Vilket är det rekommenderade sättet att strukturera data när du skickar en förfrågan till en AI-modell för analys?');
+
+INSERT INTO question_options (course_name_question_number, option_label, option_text, is_correct)
+VALUES
+    (1041, 'A', 'Det eliminerar behovet av traditionell programmering helt', false),
+    (1041, 'B', 'Det möjliggör automatisering av uppgifter som annars skulle kräva mänsklig intervention', true),
+    (1041, 'C', 'Det garanterar alltid felfri kod', false),
+    (1041, 'D', 'Det kräver mindre datorresurser än traditionella applikationer', false),
+
+    (1042, 'A', 'Förbered data → Skicka till API → Ta emot svar → Bearbeta resultatet', true),
+    (1042, 'B', 'Ladda modell → Träna modell → Spara modell → Utvärdera resultat', false),
+    (1042, 'C', 'Samla data → Rensa data → Visualisera data → Presentera insikter', false),
+    (1042, 'D', 'Skapa GUI → Implementera logik → Testa applikation → Distribuera produkt', false),
+
+    (1043, 'A', 'Python', false),
+    (1043, 'B', 'Java', false),
+    (1043, 'C', 'HTML', true),
+    (1043, 'D', 'JavaScript', false),
+
+    (1044, 'A', 'En strukturerad prompt är alltid längre än en enkel prompt', false),
+    (1044, 'B', 'En strukturerad prompt följer JSON-format medan en enkel prompt använder XML', false),
+    (1044, 'C', 'En strukturerad prompt innehåller tydliga instruktioner, kontext och ofta formatspecifikationer', true),
+    (1044, 'D', 'En strukturerad prompt kan bara användas för bildgenerering, inte textgenerering', false),
+
+    (1045, 'A', 'GET', false),
+    (1045, 'B', 'PUT', false),
+    (1045, 'C', 'DELETE', false),
+    (1045, 'D', 'POST', true),
+
+    (1046, 'A', 'Var specifik med instruktioner', false),
+    (1046, 'B', 'Använd alltid så få ord som möjligt', true),
+    (1046, 'C', 'Ge kontext för frågan', false),
+    (1046, 'D', 'Specificera önskat output-format', false),
+
+    (1047, 'A', 'Att träna AI-modellen med mycket små datamängder', false),
+    (1047, 'B', 'Att ge AI-modellen exempel på förväntade svar i prompten', true),
+    (1047, 'C', 'Att använda flera mindre AI-modeller istället för en stor', false),
+    (1047, 'D', 'Att gradvis minska mängden data som skickas till API:et', false),
+
+    (1048, 'A', 'pd.split_data()', false),
+    (1048, 'B', 'np.array_split()', false),
+    (1048, 'C', 'train_test_split()', true),
+    (1048, 'D', 'df.partition()', false),
+
+    (1049, 'A', 'Hantering av saknade värden', false),
+    (1049, 'B', 'Normalisering av numeriska kolumner', false),
+    (1049, 'C', 'One-hot encoding för kategoriska kolumner', false),
+    (1049, 'D', 'Huvudkomponentanalys (PCA)', true),
+
+    (1050, 'A', 'Alltid som råtext, eftersom AI:n kan tolka alla dataformat', false),
+    (1050, 'B', 'Som en ZIP-fil för att minska mängden data som skickas', false),
+    (1050, 'C', 'I tydliga format som CSV eller JSON med strukturerade fält', true),
+    (1050, 'D', 'Alltid som bilder, eftersom visuella data är lättare för AI att förstå', false);
+
+INSERT INTO questions (course_name_question_number, question_number, course_name, question_text)
+VALUES (1051, 31, 'AI-DATA', '31. Vad är Pandas främst användbart för?'),
+       (1052, 32, 'AI-DATA', '32. Vad är en DataFrame i Pandas?'),
+       (1053, 33, 'AI-DATA', '33. Hur skapar man vanligtvis ett alias för Pandas när man importerar biblioteket?'),
+       (1054, 34, 'AI-DATA', '34. Vilken metod använder man för att hantera saknade värden i en DataFrame genom att ersätta dem med ett specifikt värde?'),
+       (1055, 35, 'AI-DATA', '35. Hur konverterar man en textsträng till ett datumformat i Pandas?'),
+       (1056, 36, 'AI-DATA', '36. Hur identifierar man duplicerade rader i en DataFrame?'),
+       (1057, 37, 'AI-DATA', '37. Vad gör följande kod? df.describe()'),
+       (1058, 38, 'AI-DATA', '38. Vilket är det bästa sättet att konvertera en kolumn med text-siffror till numeriska värden i Pandas?'),
+       (1059, 39, 'AI-DATA', '39. Hur grupperar och summerar man data i Pandas?'),
+       (1060, 40, 'AI-DATA', '40. Vilket av följande är ett vanligt problem vid datarengöring?');
+
+INSERT INTO question_options (course_name_question_number, option_label, option_text, is_correct)
+VALUES
+    (1051, 'A', 'Att skapa webbsidor med Python', false),
+    (1051, 'B', 'Att hantera och analysera data i tabellform', true),
+    (1051, 'C', 'Att köra maskininlärningsalgoritmer', false),
+    (1051, 'D', 'Att kompilera Python-kod', false),
+
+    (1052, 'A', 'En funktion för att rita grafer', false),
+    (1052, 'B', 'En trädstruktur för att organisera hierarkisk data', false),
+    (1052, 'C', 'En tvådimensionell datastruktur med rader och kolumner', true),
+    (1052, 'D', 'Ett verktyg för att rensa filer från datorn', false),
+
+    (1053, 'A', 'import pandas as pd', true),
+    (1053, 'B', 'import pandas as pan', false),
+    (1053, 'C', 'import pandas as p', false),
+    (1053, 'D', 'import pandas as pandas', false),
+
+    (1054, 'A', '.dropna()', false),
+    (1054, 'B', '.fillna()', true),
+    (1054, 'C', '.replacena()', false),
+    (1054, 'D', '.cleandata()', false),
+
+    (1055, 'A', 'df[''Datum''] = df[''Datum''].to_date()', false),
+    (1055, 'B', 'df[''Datum''] = pd.as_date(df[''Datum''])', false),
+    (1055, 'C', 'df[''Datum''] = pd.to_datetime(df[''Datum''])', true),
+    (1055, 'D', 'df[''Datum''] = df[''Datum''].convert_date()', false),
+
+    (1056, 'A', 'df.findDuplicates()', false),
+    (1056, 'B', 'df.is_duplicate()', false),
+    (1056, 'C', 'df.duplicated()', true),
+    (1056, 'D', 'df.get_duplicates()', false),
+
+    (1057, 'A', 'Visar alla rader i DataFrame', false),
+    (1057, 'B', 'Beräknar statistik som medelvärde, min, max för numeriska kolumner', true),
+    (1057, 'C', 'Beskriver datatypen för varje kolumn', false),
+    (1057, 'D', 'Genererar en textbeskrivning av datan', false),
+
+    (1058, 'A', 'df[''Kolumn''] = int(df[''Kolumn''])', false),
+    (1058, 'B', 'df[''Kolumn''] = df[''Kolumn''].astype(int)', false),
+    (1058, 'C', 'df[''Kolumn''] = pd.to_numeric(df[''Kolumn''], errors=''coerce'')', true),
+    (1058, 'D', 'df[''Kolumn''] = df[''Kolumn''].convert_numeric()', false),
+
+    (1059, 'A', 'df.sum_by_group(''Kolumn'')', false),
+    (1059, 'B', 'df.summarize(by=''Kolumn'')', false),
+    (1059, 'C', 'df.sum(group=''Kolumn'')', false),
+    (1059, 'D', 'df.groupby(''Kolumn'').sum()', true),
+
+    (1060, 'A', 'För många rader i datasetet', false),
+    (1060, 'B', 'För snabb databehandling', false),
+    (1060, 'C', 'Inkonsekventa datumformat', true),
+    (1060, 'D', 'För många tillgängliga dataprocessorer', false);
+
+INSERT INTO questions (course_name_question_number, question_number, course_name, question_text)
+VALUES (1061, 41, 'AI-DATA', '41. Vad står CSV för?'),
+       (1062, 42, 'AI-DATA', '42. Vilken av följande Python-moduler är specifikt designad för mer avancerad databearbetning av CSV-filer?'),
+       (1063, 43, 'AI-DATA', '43. Hur representeras null-värden vanligtvis i pandas?'),
+       (1064, 44, 'AI-DATA', '44. Vilken metod använder du för att konvertera en kolumn till numeriskt format i pandas?'),
+       (1065, 45, 'AI-DATA', '45. Vad gör parametern errors=''coerce'' när den används med pd.to_numeric()?'),
+       (1066, 46, 'AI-DATA', '46. Vilken av följande är INTE en vanlig metod för att hantera null-värden i pandas?'),
+       (1067, 47, 'AI-DATA', '47. Vad gör följande kod: df.replace('''', np.nan)?'),
+       (1068, 48, 'AI-DATA', '48. Vilket är det bästa sättet att läsa in en mycket stor CSV-fil för att undvika minnesproblem?'),
+       (1069, 49, 'AI-DATA', '49. När du använder csv-modulen i Python, vilken metod ger dig varje rad som en dictionary med kolumnnamn som nycklar?'),
+       (1070, 50, 'AI-DATA', '50. Vilket kodexempel skulle bäst hantera en CSV-fil där datumvärden är i olika format?');
+
+INSERT INTO question_options (course_name_question_number, option_label, option_text, is_correct)
+VALUES
+    (1061, 'A', 'Computer Storage Values', false),
+    (1061, 'B', 'Comma-Separated Values', true),
+    (1061, 'C', 'Column-Stored Variables', false),
+    (1061, 'D', 'Custom Serialized Vectors', false),
+
+    (1062, 'A', 'json', false),
+    (1062, 'B', 'requests', false),
+    (1062, 'C', 'pandas', true),
+    (1062, 'D', 'matplotlib', false),
+
+    (1063, 'A', 'None', false),
+    (1063, 'B', 'null', false),
+    (1063, 'C', 'NaN', true),
+    (1063, 'D', 'empty', false),
+
+    (1064, 'A', 'df.convert()', false),
+    (1064, 'B', 'pd.to_numeric()', true),
+    (1064, 'C', 'df.numeric()', false),
+    (1064, 'D', 'pd.as_number()', false),
+
+    (1065, 'A', 'Den rapporterar ett fel om värden inte kan konverteras', false),
+    (1065, 'B', 'Den ignorerar värden som inte kan konverteras', false),
+    (1065, 'C', 'Den konverterar ogiltiga värden till NaN', true),
+    (1065, 'D', 'Den tvingar alla värden att konverteras oavsett format', false),
+
+    (1066, 'A', 'Fylla i med medelvärde', false),
+    (1066, 'B', 'Ta bort rader med null-värden', false),
+    (1066, 'C', 'Ersätta med standardvärden', false),
+    (1066, 'D', 'Automatiskt multiplicera med noll', true),
+
+    (1067, 'A', 'Tar bort alla tomma rader från dataframen', false),
+    (1067, 'B', 'Ersätter alla NaN-värden med tomma strängar', false),
+    (1067, 'C', 'Konverterar tomma strängar till NaN-värden', true),
+    (1067, 'D', 'Skapar en ny kolumn med NaN-värden', false),
+
+    (1068, 'A', 'Använda chunksize-parametern i pd.read_csv()', true),
+    (1068, 'B', 'Komprimera filen innan inläsning', false),
+    (1068, 'C', 'Konvertera filen till Excel-format först', false),
+    (1068, 'D', 'Öka RAM-minnet i datorn', false),
+
+    (1069, 'A', 'csv.reader()', false),
+    (1069, 'B', 'csv.DictReader()', true),
+    (1069, 'C', 'csv.dictreader()', false),
+    (1069, 'D', 'csv.ColumnReader()', false),
+
+    (1070, 'A', 'df[''datum''] = pd.read_csv(''fil.csv'', parse_dates=[''datum''])', false),
+    (1070, 'B', 'df[''datum''] = pd.to_datetime(df[''datum''], errors=''coerce'')', true),
+    (1070, 'C', 'df[''datum''] = df[''datum''].astype(''datetime64'')', false),
+    (1070, 'D', 'df[''datum''] = pd.date_format(df[''datum''])', false);
+
+INSERT INTO questions (course_name_question_number, question_number, course_name, question_text)
+VALUES (1071, 51, 'AI-DATA', '51. Vilken av följande är INTE en dimension av datakvalitet enligt föreläsningen?'),
+       (1072, 52, 'AI-DATA', '52. Vad är en av de största ekonomiska konsekvenserna av dålig datakvalitet enligt IBM:s uppskattning?'),
+       (1073, 53, 'AI-DATA', '53. Vilket av följande problem finns i den ursprungliga ProductImporter-koden i föreläsningen?'),
+       (1074, 54, 'AI-DATA', '54. Vad är huvudskillnaden mellan den ursprungliga ProductImporter och den förbättrade ImportProductImporter?'),
+       (1075, 55, 'AI-DATA', '55. Vad är huvudsyftet med DataQualityMonitor-klassen i föreläsningen?'),
+       (1076, 56, 'AI-DATA', '56. Vad gör AddressStandardizer-klassen?'),
+       (1077, 57, 'AI-DATA', '57. Vilket av följande är INTE en ekonomisk fördel med bra datakvalitet enligt föreläsningen?'),
+       (1078, 58, 'AI-DATA', '58. Vad är den etiska dimensionen av datakvalitet enligt föreläsningen?'),
+       (1079, 59, 'AI-DATA', '59. Vilken av följande är en bra liknelse för datakvalitet enligt föreläsningen?'),
+       (1080, 60, 'AI-DATA', '60. Vilken av följande är INTE en strategi för att förbättra datakvaliteten enligt föreläsningen?');
+
+INSERT INTO question_options (course_name_question_number, option_label, option_text, is_correct)
+VALUES
+    (1071, 'A', 'Aktualitet', false),
+    (1071, 'B', 'Korrekthet', false),
+    (1071, 'C', 'Prestanda', true),
+    (1071, 'D', 'Konsekvens', false),
+
+    (1072, 'A', 'Det kostar svenska företag cirka 100 miljoner kronor årligen', false),
+    (1072, 'B', 'Det kostar den amerikanska ekonomin över 3 biljoner dollar årligen', true),
+    (1072, 'C', 'Det kostar globala företag cirka 500 miljoner euro årligen', false),
+    (1072, 'D', 'Det kostar teknologisektorn cirka 1 biljon dollar årligen', false),
+
+    (1073, 'A', 'För många valideringar som saktar ner importen', false),
+    (1073, 'B', 'Användning av fel filformat för import', false),
+    (1073, 'C', 'Ingen validering av fälten', true),
+    (1073, 'D', 'För komplex felhantering', false),
+
+    (1074, 'A', 'Den förbättrade versionen är snabbare', false),
+    (1074, 'B', 'Den förbättrade versionen använder ett annat filformat', false),
+    (1074, 'C', 'Den förbättrade versionen validerar data och fortsätter importen även vid fel', true),
+    (1074, 'D', 'Den förbättrade versionen använder ett annat programmeringsspråk', false),
+
+    (1075, 'A', 'Att importera data från externa källor', false),
+    (1075, 'B', 'Att kontinuerligt övervaka datakvalitet och skicka larm vid problem', true),
+    (1075, 'C', 'Att standardisera adresser till ett gemensamt format', false),
+    (1075, 'D', 'Att rensa dubbletter i databasen', false),
+
+    (1076, 'A', 'Den kontrollerar att adresser existerar i verkligheten', false),
+    (1076, 'B', 'Den lagrar adresser i en databas', false),
+    (1076, 'C', 'Den normaliserar och standardiserar adressdata till ett konsekvent format', true),
+    (1076, 'D', 'Den validerar att adresser följer postens format', false),
+
+    (1077, 'A', 'Bättre beslutsfattande', false),
+    (1077, 'B', 'Ökad produktivitet', false),
+    (1077, 'C', 'Automatisk datalagring', true),
+    (1077, 'D', 'Högre kundnöjdhet', false),
+
+    (1078, 'A', 'Att data alltid ska vara konfidentiell', false),
+    (1078, 'B', 'Att dålig datakvalitet kan leda till orättvisa eller diskriminerande resultat', true),
+    (1078, 'C', 'Att data måste följa GDPR-regler', false),
+    (1078, 'D', 'Att data aldrig får användas i marknadsföring', false),
+
+    (1079, 'A', 'Data är som en bil - den behöver underhåll', false),
+    (1079, 'B', 'Data är som en möglig kaffeböna - dålig kvalitet ger dåligt resultat', true),
+    (1079, 'C', 'Data är som ett träd - det växer med tiden', false),
+    (1079, 'D', 'Data är som guld - det ökar alltid i värde', false),
+
+    (1080, 'A', 'Datavalidering', false),
+    (1080, 'B', 'Dataövervakning', false),
+    (1080, 'C', 'Datarensning', false),
+    (1080, 'D', 'Dataminimering', true);
