@@ -43,6 +43,8 @@ public class CustomOAuth2AuthenticationSuccessHandler implements AuthenticationS
                 .signWith(key, SignatureAlgorithm.HS256)
                 .compact();
 
+        // TODO: The JWT token is currently sent via URL query parameters, which is insecure as it may be logged in browser history or referer headers.
+        // For our small user base (only 10 students), the risk is minimal, but this should be addressed in the future by using HttpOnly cookies or a secure alternative.
         // Redirect to frontend with the token and firstName as query parameters
         response.sendRedirect(frontendUrl + "?token=" + token + "&firstName=" + givenName);
     }
