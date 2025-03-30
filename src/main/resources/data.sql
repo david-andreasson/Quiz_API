@@ -1,4 +1,4 @@
-INSERT INTO QUESTIONS (course_name_question_number, question_number, course_name, question_text)
+/*INSERT INTO QUESTIONS (course_name_question_number, question_number, course_name, question_text)
 VALUES (1, 1, 'OOP Advanced', '1. Vad är huvudsyftet med klasser i objektorienterad programmering?'),
        (2, 2, 'OOP Advanced', '2. Vad är inkapsling i Java?'),
        (3, 3, 'OOP Advanced', '3. Vilken åtkomstmodifierare i Java gör en medlem tillgänglig endast inom samma klass?'),
@@ -6239,7 +6239,7 @@ VALUES
     (1060, 'B', 'För snabb databehandling', false),
     (1060, 'C', 'Inkonsekventa datumformat', true),
     (1060, 'D', 'För många tillgängliga dataprocessorer', false);
-
+*/
 INSERT INTO questions (course_name_question_number, question_number, course_name, question_text)
 VALUES (1061, 41, 'AI-DATA', '41. Vad står CSV för?'),
        (1062, 42, 'AI-DATA', '42. Vilken av följande Python-moduler är specifikt designad för mer avancerad databearbetning av CSV-filer?'),
