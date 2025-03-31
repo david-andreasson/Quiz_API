@@ -85,5 +85,4 @@ Implement AI-feature, with button to let AI explain the quiz question.
 
 ## Contact
 
-For questions or suggestions, reach out on GitHub:  
-**david-andreasson**
+For questions or suggestions, reach out on [GitHub](https://github.com/david-andreasson).
