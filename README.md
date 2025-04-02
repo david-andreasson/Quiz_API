@@ -2,7 +2,13 @@
 
 ## Overview
 
-Quiz_API is a Java-based RESTful API built with Spring Boot. It powers a quiz application that supports multiple courses by providing endpoints for retrieving quiz questions, managing quiz sessions, submitting answers, and authenticating users via Google OAuth2.
+Quiz_API is a Java-based RESTful API built with Spring Boot to provide me and my classmates an easy solution to study for exams. It powers a quiz application that supports multiple courses by providing endpoints for retrieving quiz questions, managing quiz sessions, submitting answers, and authenticating users via Google OAuth2.
+
+## Frontend Integration  
+
+A React-based frontend is available in a separate repository, here: https://github.com/david-andreasson/quiz_frontend  
+It communicates with this API to deliver a full quiz experience.  
+The Quiz-service is available online at https://david-andreasson.github.io/quiz_frontend    
 
 ## Features
 
@@ -21,55 +27,6 @@ Quiz_API is a Java-based RESTful API built with Spring Boot. It powers a quiz ap
 - **Logging and Error Handling**  
   The API uses SLF4J with Logback to log critical operations such as authentication, token generation, and quiz session management. A global exception handler is implemented to capture and log unexpected errors.
 
-## Frontend Integration
-
-A React-based frontend is available in a separate repository, here: https://github.com/david-andreasson/quiz_frontend
-It communicates with this API to deliver a full quiz experience.
-The Quiz-service is available online at https://david-andreasson.github.io/quiz_frontend
-
-## Installation
-
-1. **Clone the Repository**
-
-```bash
-git clone https://github.com/david-andreasson/QuizApp_API.git
-```
-
-2. **Import the Project**
-
-Open the project in your preferred IDE (e.g., IntelliJ IDEA or Eclipse).
-
-3. **Ensure You Have Installed**
-
-- Java 21 (or later)  
-- Maven
-
-4. **Build the Project**
-
-Compile the project:
-
-```bash
-mvn clean compile
-```
-
-Package the project into an executable JAR:
-
-```bash
-mvn clean package
-```
-
-5. **Running the Project**
-
-**From Your IDE**  
-Run the `QuizAppApiApplication.java` class directly.
-
-**From the Terminal**
-
-```bash
-java -jar target/QuizApp_API.jar
-```
-
-The API will start on port 8080.
 
 ## API Endpoints
 
@@ -107,12 +64,12 @@ The API will start on port 8080.
 
 ## Dependencies
 
-- Spring Boot  
-- Spring Data JPA  
-- Hibernate ORM  
-- H2 Database  
-- Jackson  
-- SLF4J & Logback  
+- Spring Boot
+- Spring Data JPA
+- Hibernate ORM
+- H2 Database
+- Jackson
+- SLF4J & Logback
 - Maven
 
 ## Future Development
@@ -120,10 +77,12 @@ The API will start on port 8080.
 - **Enhanced Authentication**  
   Implement email/password auth and domain-based access restrictions.
 
+- **AI Feature**
+Implement AI-feature, with button to let AI explain the quiz question.  
+
 - **Additional Features**  
   Expand quiz management, add new courses, improve session logic.
 
 ## Contact
 
-For questions or suggestions, reach out on GitHub:  
-**david-andreasson**
+For questions or suggestions, reach out on [GitHub](https://github.com/david-andreasson).
