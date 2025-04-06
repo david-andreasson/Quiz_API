@@ -86,3 +86,10 @@ Implement AI-feature, with button to let AI explain the quiz question.
 ## Contact
 
 For questions or suggestions, reach out on [GitHub](https://github.com/david-andreasson).
+
+## License
+
+This project is **not open source**. All rights reserved.  
+You may view the code for educational or demonstration purposes only.  
+Use, distribution, or modification of this code is not permitted without explicit written permission.  
+See the [`LICENSE`](./LICENSE) file for full details.
