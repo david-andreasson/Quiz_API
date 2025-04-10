@@ -6110,7 +6110,27 @@ VALUES (1021, 1, 'AI-DATA', '1. Vad menas med uttrycket "garbage in, garbage out
 (1137, 117, 'AI-DATA', '117. Vad är en möjlig konsekvens av att bryta mot GDPR?'),
 (1138, 118, 'AI-DATA', '118. Vilken av följande åtgärder är ett exempel på "privacy by design"?'),
 (1139, 119, 'AI-DATA', '119. När du tränar AI-modeller, vad är viktigt att tänka på ur ett etiskt perspektiv?'),
-(1140, 120, 'AI-DATA', '120. Vad är skillnaden mellan lagliga och etiska överväganden vid datainsamling?');
+(1140, 120, 'AI-DATA', '120. Vad är skillnaden mellan lagliga och etiska överväganden vid datainsamling?'),
+(1141, 121, 'AI-DATA', '121. Vad är huvudsyftet med indexering i AI-sammanhang?'),
+(1142, 122, 'AI-DATA', '122. Vad är en "embedding" inom AI?'),
+(1143, 123, 'AI-DATA', '123. Vilken betydelse har "chunking" vid indexering av data?'),
+(1144, 124, 'AI-DATA', '124. Vad möjliggör vector-databaser som exempelvis ChromaDB och Pinecone?'),
+(1145, 125, 'AI-DATA', '125. Vad står RAG för i AI-sammanhang?'),
+(1146, 126, 'AI-DATA', '126. Vilken av följande är en vanlig utmaning vid indexering för AI-system?'),
+(1147, 127, 'AI-DATA', '127. Vad är en fördel med semantisk sökning jämfört med traditionell nyckelordssökning?'),
+(1148, 128, 'AI-DATA', '128. Vilken dimensionalitet har embeddings från modellen OpenAI Embeddings enligt artikeln?'),
+(1149, 129, 'AI-DATA', '129. Vilket bibliotek används för implementering av vector-databas i Python-exemplet i artikeln?'),
+(1150, 130, 'AI-DATA', '130. Vilket av följande är ett praktiskt användningsområde för indexering och embeddings enligt artikeln?'),
+(1151, 131, 'AI-DATA', '131. Vad är prompt engineering?'),
+(1152, 132, 'AI-DATA', '132. Varför är prompt engineering viktigt?'),
+(1153, 133, 'AI-DATA', '133. Vad menas med "zero-shot" prompt?'),
+(1154, 134, 'AI-DATA', '134. Vilken av följande promptstrategier är bäst för att lösa komplexa problem?'),
+(1155, 135, 'AI-DATA', '135. Vilken del ingår vanligtvis INTE i en effektiv prompt?'),
+(1156, 136, 'AI-DATA', '136. Vad är ett "systemmeddelande" i API-anrop till språkmodeller?'),
+(1157, 137, 'AI-DATA', '137. Vad är en "hallucination" inom prompt engineering?'),
+(1158, 138, 'AI-DATA', '138. Vilken parameter används i API-anrop för att kontrollera AI-modellens kreativitet?'),
+(1159, 139, 'AI-DATA', '139. Vilket av följande är ett etiskt övervägande inom prompt engineering?'),
+(1160, 140, 'AI-DATA', '140. Vilken av följande är INTE en vanlig utmaning inom prompt engineering?');
 
 
 INSERT INTO question_options (course_name_question_number, option_label, option_text, is_correct)
@@ -6702,4 +6722,102 @@ VALUES
     (1140, 'A', 'Det finns ingen skillnad, lagligt och etiskt är samma sak', false),
     (1140, 'B', 'Lagliga överväganden är frivilliga, etiska är obligatoriska', false),
     (1140, 'C', 'Etiska överväganden går bortom lagen och handlar om vad som är rätt, inte bara vad som är tillåtet', true),
-    (1140, 'D', 'Etiska överväganden gäller bara för offentliga organisationer', false);
+    (1140, 'D', 'Etiska överväganden gäller bara för offentliga organisationer', false),
+    (1141, 'A', 'Att översätta text mellan olika språk.', false),
+    (1141, 'B', 'Att skapa sökbara strukturer för effektiv dataåtkomst.', true),
+    (1141, 'C', 'Att träna AI-modeller på nya datamängder.', false),
+    (1141, 'D', 'Att förbättra grafiska gränssnitt för AI-applikationer.', false),
+
+    (1142, 'A', 'En teknik för att bädda in bildinformation i textdokument.', false),
+    (1142, 'B', 'En metod för att komprimera stora datafiler för lagring.', false),
+    (1142, 'C', 'En matematisk representation av text/data som vektorer i ett flerdimensionellt rum.', true),
+    (1142, 'D', 'Ett sätt att implementera AI-funktioner i mobilappar.', false),
+
+    (1143, 'A', 'Att dela upp data i lämpliga segment för att balansera mellan kontext och precision.', true),
+    (1143, 'B', 'Att komprimera data för att minska lagringsutrymmet.', false),
+    (1143, 'C', 'Att översätta data till olika språk för internationella användare.', false),
+    (1143, 'D', 'Att kryptera känslig information i datamängden.', false),
+
+    (1144, 'A', 'De skapar automatiskt AI-modeller från användardata.', false),
+    (1144, 'B', 'De skyddar mot hackningsförsök genom avancerad kryptering.', false),
+    (1144, 'C', 'De möjliggör semantisk sökning baserad på betydelse, inte bara nyckelord.', true),
+    (1144, 'D', 'De omvandlar automatiskt all data till bilder för visualisering.', false),
+
+    (1145, 'A', 'Rapid AI Generation', false),
+    (1145, 'B', 'Retrieval-Augmented Generation', true),
+    (1145, 'C', 'Recursive Algorithm Graph', false),
+    (1145, 'D', 'Regional AI Gateway', false),
+
+    (1146, 'A', 'Att hitta tillräckligt mycket fysiskt lagringsutrymme för data.', false),
+    (1146, 'B', 'Att få tillräckligt många användare att testa systemet.', false),
+    (1146, 'C', 'Att hantera bias i embeddings som återspeglar bias i träningsdata.', true),
+    (1146, 'D', 'Att översätta indexerad data till olika språk.', false),
+
+    (1147, 'A', 'Den använder alltid mindre datalagring.', false),
+    (1147, 'B', 'Den kan hitta relevanta resultat även om exakta nyckelord saknas.', true),
+    (1147, 'C', 'Den är alltid snabbare än traditionell sökning.', false),
+    (1147, 'D', 'Den kräver inte internet-uppkoppling.', false),
+
+    (1148, 'A', '300', false),
+    (1148, 'B', '768', false),
+    (1148, 'C', '1024', false),
+    (1148, 'D', '1536', true),
+
+    (1149, 'A', 'Pandas', false),
+    (1149, 'B', 'ChromaDB', true),
+    (1149, 'C', 'Pinecone', false),
+    (1149, 'D', 'Milvus', false),
+
+    (1150, 'A', 'Att förbättra bildkvaliteten i videoströmmar.', false),
+    (1150, 'B', 'Att automatisera programmeringskodning.', false),
+    (1150, 'C', 'Att möjliggöra innehållsmoderering på sociala medier.', true),
+    (1150, 'D', 'Att minska energiförbrukningen för datacenters.', false),
+    (1151, 'A', 'En teknik för att förbättra AI-modellers träningsprocess', false),
+    (1151, 'B', 'Konsten att konstruera effektiva textinstruktioner till språkmodeller', true),
+    (1151, 'C', 'En metod för att programmera AI att lösa specifika matematiska problem', false),
+    (1151, 'D', 'Ett sätt att optimera serverprestanda för AI-applikationer', false),
+
+    (1152, 'A', 'Det ökar antalet parametrar i AI-modellen', false),
+    (1152, 'B', 'Det minskar strömförbrukningen vid körning av AI-modeller', false),
+    (1152, 'C', 'Det hjälper utvecklare att påverka språkmodellers beteende utan att ändra deras arkitektur', true),
+    (1152, 'D', 'Det förbättrar hastigheten på API-anrop till AI-tjänster', false),
+
+    (1153, 'A', 'En prompt där AI-modellen inte ger något svar', false),
+    (1153, 'B', 'En prompt som inte innehåller några parametrar', false),
+    (1153, 'C', 'En prompt som ber AI lösa ett problem utan exempel på hur det ska göras', true),
+    (1153, 'D', 'En prompt som endast fungerar med specialiserade AI-modeller', false),
+
+    (1154, 'A', 'Zero-shot', false),
+    (1154, 'B', 'Few-shot', false),
+    (1154, 'C', 'Chain of Thought', true),
+    (1154, 'D', 'Role-based', false),
+
+    (1155, 'A', 'Specifik instruktion', false),
+    (1155, 'B', 'Kontext och bakgrund', false),
+    (1155, 'C', 'Detaljerad information om AI-modellens arkitektur', true),
+    (1155, 'D', 'Format och exempel', false),
+
+    (1156, 'A', 'Ett felmeddelande när API:et inte kan nås', false),
+    (1156, 'B', 'En instruktion som styr AI:ns generella beteende och roll', true),
+    (1156, 'C', 'Ett meddelande om modellens systembegränsningar', false),
+    (1156, 'D', 'En automatisk respons som skickas när användaren skickar en prompt', false),
+
+    (1157, 'A', 'En visuell representation genererad av AI', false),
+    (1157, 'B', 'När AI genererar felaktig eller påhittad information', true),
+    (1157, 'C', 'En speciell typ av kreativ prompt', false),
+    (1157, 'D', 'När AI svarar på en annan fråga än den som ställts', false),
+
+    (1158, 'A', 'max_tokens', false),
+    (1158, 'B', 'temperature', true),
+    (1158, 'C', 'top_p', false),
+    (1158, 'D', 'frequency_penalty', false),
+
+    (1159, 'A', 'Att optimera promptens beräkningseffektivitet', false),
+    (1159, 'B', 'Att minimera antalet ord i prompten', false),
+    (1159, 'C', 'Att identifiera om innehållet är AI-genererat', true),
+    (1159, 'D', 'Att maximera antalet API-anrop per minut', false),
+
+    (1160, 'A', 'Prompt injection', false),
+    (1160, 'B', 'Hallucinationer', false),
+    (1160, 'C', 'Kontextbegränsningar', false),
+    (1160, 'D', 'Överoptimering av modellen', true);
