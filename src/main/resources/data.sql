@@ -6130,7 +6130,17 @@ VALUES (1021, 1, 'AI-DATA', '1. Vad menas med uttrycket "garbage in, garbage out
 (1157, 137, 'AI-DATA', '137. Vad är en "hallucination" inom prompt engineering?'),
 (1158, 138, 'AI-DATA', '138. Vilken parameter används i API-anrop för att kontrollera AI-modellens kreativitet?'),
 (1159, 139, 'AI-DATA', '139. Vilket av följande är ett etiskt övervägande inom prompt engineering?'),
-(1160, 140, 'AI-DATA', '140. Vilken av följande är INTE en vanlig utmaning inom prompt engineering?');
+(1160, 140, 'AI-DATA', '140. Vilken av följande är INTE en vanlig utmaning inom prompt engineering?'),
+(1161, 141, 'AI-DATA', '141. Vad är det huvudsakliga syftet med att dela upp data i tränings-, validerings- och testdata?'),
+(1162, 142, 'AI-DATA', '142. Vilken är den vanligaste fördelningen för tränings-, validerings- och testdata?'),
+(1163, 143, 'AI-DATA', '143. När bör man använda stratifierad uppdelning av data?'),
+(1164, 144, 'AI-DATA', '144. Vilket av följande format är mest lämpligt för att spara stora dataset med fokus på snabb läsning för analytiska frågor?'),
+(1165, 145, 'AI-DATA', '145. Vad är "data leakage" i samband med datauppdelning?'),
+(1166, 146, 'AI-DATA', '146. Vilken metod bör användas för att dela upp tidsseriedata?'),
+(1167, 147, 'AI-DATA', '147. Vilket Python-bibliotek används vanligtvis för att dela upp data i tränings- och testset?'),
+(1168, 148, 'AI-DATA', '148. Vad är korsvalidering och när bör det användas?'),
+(1169, 149, 'AI-DATA', '149. Vilket av följande är INTE ett vanligt filformat för att spara maskininlärningsdata?'),
+(1170, 150, 'AI-DATA', '150. Vad är temporal leakage i samband med tidsseriedata?');
 
 
 INSERT INTO question_options (course_name_question_number, option_label, option_text, is_correct)
@@ -6820,4 +6830,53 @@ VALUES
     (1160, 'A', 'Prompt injection', false),
     (1160, 'B', 'Hallucinationer', false),
     (1160, 'C', 'Kontextbegränsningar', false),
-    (1160, 'D', 'Överoptimering av modellen', true);
+    (1160, 'D', 'Överoptimering av modellen', true),
+    (1161, 'A', 'För att spara diskutrymme genom att ha mindre dataset', false),
+    (1161, 'B', 'För att göra det lättare att visualisera data', false),
+    (1161, 'C', 'För att säkerställa att modellen kan generalisera till ny data', true),
+    (1161, 'D', 'För att öka beräkningshastigheten vid träning', false),
+
+    (1162, 'A', '33% träning, 33% validering, 33% test', false),
+    (1162, 'B', '50% träning, 25% validering, 25% test', false),
+    (1162, 'C', '70-80% träning, 10-15% validering, 10-15% test', true),
+    (1162, 'D', '90% träning, 5% validering, 5% test', false),
+
+    (1163, 'A', 'När datasetet är mycket stort', false),
+    (1163, 'B', 'När man arbetar med tidsseriedata', false),
+    (1163, 'C', 'När klasserna i datasetet är obalanserade', true),
+    (1163, 'D', 'När man vill spara beräkningstid', false),
+
+    (1164, 'A', 'CSV', false),
+    (1164, 'B', 'JSON', false),
+    (1164, 'C', 'SQLite', false),
+    (1164, 'D', 'Parquet', true),
+
+    (1165, 'A', 'När data läcker ut från databasen till obehöriga', false),
+    (1165, 'B', 'När information från testdata påverkar träningsprocessen', true),
+    (1165, 'C', 'När data går förlorad under uppdelningsprocessen', false),
+    (1165, 'D', 'När data dupliceras mellan tränings- och testdata', false),
+
+    (1166, 'A', 'Slumpmässig uppdelning', false),
+    (1166, 'B', 'Stratifierad uppdelning', false),
+    (1166, 'C', 'Tidsseriedelning (kronologisk uppdelning)', true),
+    (1166, 'D', 'K-fold korsvalidering', false),
+
+    (1167, 'A', 'NumPy', false),
+    (1167, 'B', 'scikit-learn', true),
+    (1167, 'C', 'Pandas', false),
+    (1167, 'D', 'TensorFlow', false),
+
+    (1168, 'A', 'En metod för att validera data mot externa källor, används för stora dataset', false),
+    (1168, 'B', 'En teknik där data delas upp i flera folds och modellen tränas flera gånger, används för små dataset', true),
+    (1168, 'C', 'Ett sätt att kontrollera datakvalitet, används för alla typer av dataset', false),
+    (1168, 'D', 'En metod för att jämföra olika modeller, används endast för klassificeringsproblem', false),
+
+    (1169, 'A', 'CSV', false),
+    (1169, 'B', 'Parquet', false),
+    (1169, 'C', 'HTML', true),
+    (1169, 'D', 'SQLite', false),
+
+    (1170, 'A', 'När data från framtiden används för att förutsäga dåtiden', true),
+    (1170, 'B', 'När tidsstämplar saknas i datasetet', false),
+    (1170, 'C', 'När tidsseriedata lagras i fel format', false),
+    (1170, 'D', 'När tidsseriedata innehåller för många nollvärden', false);
